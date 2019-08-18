@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
-import com.scorpiomiku.oldpeoplehome.modules.oldpeople.OldPeopleMainActivity;
+import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
