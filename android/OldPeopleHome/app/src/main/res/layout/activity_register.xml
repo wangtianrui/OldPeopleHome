@@ -5,23 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.scorpiomiku.oldpeoplehome.modules.loginregister.LoginActivity">
+    tools:context="com.scorpiomiku.oldpeoplehome.modules.loginregister.RegisterActivity">
 
     <include layout="@layout/default_bar" />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:alpha="0.9"
-        android:src="@drawable/bigdatalog" />
-
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_margin="15dp"
-        app:cardCornerRadius="15dp">
+        android:layout_height="370dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="45dp"
+        app:cardCornerRadius="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +38,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="30dp"
                         android:src="@mipmap/night_biz_pc_account_username_icon" />
                 </RelativeLayout>
 
@@ -54,13 +48,13 @@
                     android:gravity="center_vertical">
 
                     <EditText
-                        android:id="@+id/login_edt_username"
+                        android:id="@+id/phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginStart="5dp"
                         android:background="@null"
-                        android:hint="账号"
+                        android:hint="手机号"
                         android:inputType="textAutoComplete"
                         android:lines="1"
                         android:maxLines="1"
@@ -69,7 +63,8 @@
                         android:paddingRight="5dp"
                         android:paddingTop="15dp"
                         android:textColorHint="#b3b3b0"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        tools:ignore="TextFields" />
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
@@ -87,7 +82,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="30dp"
                         android:src="@mipmap/night_biz_pc_account_pwd_icon" />
                 </RelativeLayout>
 
@@ -97,7 +92,7 @@
                     android:gravity="center_vertical">
 
                     <EditText
-                        android:id="@+id/login_edt_password"
+                        android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -112,78 +107,75 @@
                         android:paddingRight="5dp"
                         android:paddingTop="15dp"
                         android:textColorHint="#b3b3b0"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        tools:ignore="RtlHardcoded,TextFields" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
-        </LinearLayout>
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center_vertical">-->
 
+            <!--<RelativeLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<ImageView-->
+            <!--android:layout_width="22dp"-->
+            <!--android:layout_height="22dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--app:srcCompat="@drawable/ic_assignment_ind_black_24dp"-->
+            <!--tools:ignore="VectorDrawableCompat" />-->
+            <!--</RelativeLayout>-->
+
+            <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center_vertical">-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/id_card"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginStart="5dp"-->
+            <!--android:background="@null"-->
+            <!--android:hint="学号/教工号"-->
+            <!--android:inputType="textAutoComplete"-->
+            <!--android:lines="1"-->
+            <!--android:maxLines="1"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingLeft="5dp"-->
+            <!--android:paddingRight="5dp"-->
+            <!--android:paddingTop="15dp"-->
+            <!--android:textColorHint="#b3b3b0"-->
+            <!--android:textSize="15sp" />-->
+            <!--</android.support.design.widget.TextInputLayout>-->
+
+            <!--</LinearLayout>-->
+
+
+            <CheckBox
+                android:id="@+id/teacher_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:text="是否为子女" />
+
+            <Button
+                android:id="@+id/register_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="#41a4f5"
+                android:text="注册"
+                android:textColor="#FFF" />
+
+        </LinearLayout>
 
     </android.support.v7.widget.CardView>
-
-    <Button
-        android:id="@+id/login_btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="#41a4f5"
-        android:elevation="5dp"
-        android:text="登   录"
-        android:textColor="#FFFFFF" />
-
-    <LinearLayout
-        android:id="@+id/linear_layout_btn_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/login_corner_border"
-        android:elevation="1dp"
-        android:orientation="horizontal"
-        android:paddingLeft="15dp"
-        android:paddingRight="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="13dp"
-            android:paddingTop="15dp"
-            android:text="没有账号?"
-            android:textColor="#3e3e3e"
-            android:textSize="13sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="13dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:text="立即注册"
-            android:textColor="#ca2b2b"
-            android:textSize="13sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="right">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:src="@mipmap/biz_ask_my_publish_arrow" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/login_find_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:text="\ue916 密码找回"
-        android:textSize="15sp" />
 </LinearLayout>
