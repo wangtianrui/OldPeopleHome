@@ -21,6 +21,7 @@ import com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt.HeartRateFragmen
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt.MyInformationFragment;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt.SleepFragment;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt.StepFragment;
+import com.scorpiomiku.oldpeoplehome.utils.StatusBarUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,6 +44,13 @@ public class OldPeopleMainActivity extends BaseActivity {
             new HeartRateFragment(),
             new EnvironmentFragment(),
             new MyInformationFragment()
+    };
+    private int[] barColors = {
+            R.color.step_bg,
+            R.color.sleep_bg,
+            R.color.heart_rate_bg,
+            R.color.environment_bg,
+            R.color.colorPrimaryDark
     };
 
     @Override
@@ -109,11 +117,13 @@ public class OldPeopleMainActivity extends BaseActivity {
         fragmentTransaction.add(R.id.container, fragments[2]);
         fragmentTransaction.add(R.id.container, fragments[3]);
         fragmentTransaction.add(R.id.container, fragments[4]);
+
         fragmentTransaction.hide(fragments[1]);
         fragmentTransaction.hide(fragments[2]);
         fragmentTransaction.hide(fragments[3]);
         fragmentTransaction.hide(fragments[4]);
         fragmentTransaction.commit();
+        StatusBarUtils.setWindowStatusBarColor(this, barColors[0]);
     }
 
     /**
@@ -126,6 +136,7 @@ public class OldPeopleMainActivity extends BaseActivity {
         for (int i = 0; i < fragments.length; i++) {
             if (i == index) {
                 fragmentTransaction.show(fragments[i]);
+                StatusBarUtils.setWindowStatusBarColor(this, barColors[i]);
             } else {
                 fragmentTransaction.hide(fragments[i]);
             }

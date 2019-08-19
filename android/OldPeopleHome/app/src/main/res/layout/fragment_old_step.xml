@@ -1,12 +1,364 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="走路" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/step_bg"
+            app:contentInsetStart="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="2019-8-18"
+                android:textColor="#FFF"
+                android:textSize="16sp" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/step_bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center">
+
+                <me.itangqi.waveloadingview.WaveLoadingView
+                    android:id="@+id/waveLoadingView"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    app:wlv_borderColor="#ef906b"
+                    app:wlv_borderWidth="8dp"
+                    app:wlv_progressValue="40"
+                    app:wlv_round_rectangle="true"
+                    app:wlv_shapeType="circle"
+                    app:wlv_titleCenter=""
+                    app:wlv_titleCenterColor="@android:color/white"
+                    app:wlv_titleCenterSize="15sp"
+                    app:wlv_titleCenterStrokeColor="#ec5353"
+                    app:wlv_titleCenterStrokeWidth="3dp"
+                    app:wlv_triangle_direction="north"
+                    app:wlv_waveAmplitude="70"
+                    app:wlv_waveColor="#f15d5a" />
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_step" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="0"
+                        android:textColor="#FFF"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="目标 4000 步"
+                        android:textColor="#FFF"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="完成 0%"
+                        android:textColor="#FFF"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_calorie" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:orientation="vertical"
+                        android:paddingRight="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:text="消耗"
+                                android:textColor="@color/step_bg"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/calorie_holder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:text="千卡"
+                                android:textColor="@color/step_bg"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/calorie_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginRight="5dp"
+                                android:layout_toLeftOf="@+id/calorie_holder"
+                                android:text="0"
+                                android:textColor="#e77554"
+                                android:textSize="20sp" />
+                        </RelativeLayout>
+
+                        <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                            android:id="@+id/calorie_pb"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="10dp"
+                            app:zpb_bg_color="@color/place_holder"
+                            app:zpb_max="100"
+                            app:zpb_padding="0dp"
+                            app:zpb_pb_color="@color/step_bg"
+                            app:zpb_progress="30" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/place_holder" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_distance" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:orientation="vertical"
+                        android:paddingRight="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:text="距离"
+                                android:textColor="@color/step_bg"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/distance_holder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:text="公里"
+                                android:textColor="@color/step_bg"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/distance_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginRight="5dp"
+                                android:layout_toLeftOf="@+id/distance_holder"
+                                android:text="0.0"
+                                android:textColor="#e77554"
+                                android:textSize="20sp" />
+                        </RelativeLayout>
+
+                        <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                            android:id="@+id/distance_pb"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="10dp"
+                            app:zpb_bg_color="@color/place_holder"
+                            app:zpb_max="100"
+                            app:zpb_padding="0dp"
+                            app:zpb_pb_color="@color/step_bg"
+                            app:zpb_progress="30" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/place_holder" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_time" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:orientation="vertical"
+                        android:paddingRight="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:text="时长"
+                                android:textColor="@color/step_bg"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/time_holder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:text=""
+                                android:textColor="@color/step_bg"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/time_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginRight="5dp"
+                                android:layout_toLeftOf="@+id/time_holder"
+                                android:text="00:00"
+                                android:textColor="#e77554"
+                                android:textSize="20sp" />
+                        </RelativeLayout>
+
+                        <me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar
+                            android:id="@+id/time_pb"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="10dp"
+                            app:zpb_bg_color="@color/place_holder"
+                            app:zpb_max="100"
+                            app:zpb_padding="0dp"
+                            app:zpb_pb_color="@color/step_bg"
+                            app:zpb_progress="30" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/place_holder" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
