@@ -1,0 +1,361 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.30.1.6000 for 8051              23/Apr/2019  16:50:29
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\hal\target\CC2530EB\hal_irdec.c
+//    Command line       =  
+//        -f C:\Users\VULCAN\AppData\Local\Temp\EWC431.tmp
+//        (E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\hal\target\CC2530EB\hal_irdec.c
+//        -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D SAPP_ZSTACK
+//        -lC
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\List
+//        -lA
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\List
+//        --diag_suppress Pe001,Pa010 -o
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\Obj
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 8 -f
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wCoord.cfg
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+//        -DZDO_COORDINATOR -DRTR_NWK) -f
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+//        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0056
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+//        -I
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+//        -Ohz --require_prototypes --no_code_motion)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\List\hal_irdec.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME hal_irdec
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+
+        END
+// E:\qq下载文件\结课作业\ZigBee\实验指导书\实验指导书\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\hal\target\CC2530EB\hal_irdec.c
+//    1 /***********************************************************
+//    2 **  FileName:         IRDecode.c
+//    3 **  Introductions:    IR Remote decode for MCU of CC2530
+//    4 **  Last Modify time: 2013.05.03
+//    5 **  Update:           基本解码测试
+//    6 **  Author:           GuoZhenjiang<zhenjiang.guo@sunplusapp.com>
+//    7 **  Modify:
+//    8 **             2013.05.03   lijian  Change File Name to hal_irdec.c
+//    9 ***********************************************************/
+//   10 #include <hal_board.h>
+//   11 #include "hal_irdec.h"
+//   12 #include <string.h>
+//   13 
+//   14 #if defined(HAL_IRDEC) && (HAL_IRDEC == TRUE)
+//   15 static struct {
+//   16     uint8 IRIntTskId;
+//   17     uint8 IRIntEp;
+//   18     OSALIRDecData_t IRCodeTab;
+//   19 } IRDecodeRes;
+//   20 
+//   21 volatile uint8 IROverTimeAdd_En=FALSE, IROverTimeOvf_flg=FALSE;
+//   22 volatile uint16 IROverTimeAdd_cnt=0;
+//   23 volatile IRDecodeSta_t IRDeodeSta = WaitForGuideTrig1;
+//   24 static uint8 cnt_Byte, cnt_bit;     // 用于控制解码过程的基本变量
+//   25 
+//   26 /***********************************************************
+//   27 **  函数名称: IRDecodeT1Init
+//   28 **  实现功能: 中断法进行红外解码初始化工作
+//   29 **  入口参数: None
+//   30 **  返回结果: None
+//   31 ***********************************************************/
+//   32 void IRDecodeT1Init(uint8 taskid, uint8 ep)
+//   33 {
+//   34     // 保存任务号和端点号
+//   35     IRDecodeRes.IRIntTskId = taskid;
+//   36     IRDecodeRes.IRIntEp = ep;
+//   37 
+//   38     // 初始化Timer1
+//   39     P1SEL |= 0x04;      // 配置P1.2为Timer1的外设功能引脚
+//   40     P1DIR &= ~0x04;     // 输入捕获引脚必须设置为输入
+//   41     PERCFG |= 0x40;     // Timer1占用第2引脚位置(通道0为P1.2)
+//   42     P2SEL |= 0x04;      // 当USART0和Timer1分配了相同引脚，Timer1优先
+//   43 
+//   44     // 定时器1初始化
+//   45     T1CTL = (uint8)Tdiv_32 | (uint8)Tmod_stop;    // 1MHz,暂停运行
+//   46     CLR_T1CNT;                      // 清零定时器1
+//   47 
+//   48     // Timer1通道0上升沿输入捕获设置
+//   49     T1CCTL0 = 0x01;                 // 上升沿捕获,通道0输入捕获中断未使能,查询中断标志即可
+//   50     T1CCTL0 |= 0x40;                // T1CCTL0.IM 定时器1通道0中断开关
+//   51     T1STAT = 0;
+//   52     IEN1 |= 0x02;                   // IEN1.T1IE 定时器1中断总开关
+//   53     EA = 1;                         // IEN0.EA 全局总中断开关
+//   54 
+//   55     // 初始化Time4
+//   56     P2SEL |= 0x10;  // 定时器4优先级高于定时器1
+//   57     T4CTL |= 0xEC;  // 128分频,清空计数值,允许溢出中断,自由运行
+//   58     T4CTL |= 0x10;  // 启动定时器
+//   59     IEN1 |= 0x10;   // 打开定时器4总中断
+//   60 }
+//   61 
+//   62 /***********************************************************
+//   63 **  函数名称: Timer1_ISR
+//   64 **  实现功能: Timer1 中断处理函数,利用Timer1通道0输入捕获功能实现红外解码
+//   65 **  入口参数: None
+//   66 **  返回结果: None
+//   67 ***********************************************************/
+//   68 HAL_ISR_FUNC_DECLARATION(Timer1_ISR, T1_VECTOR);
+//   69 HAL_ISR_FUNCTION(Timer1_ISR, T1_VECTOR)
+//   70 {
+//   71 #define CLR_T1CH0_IF    T1STAT &= 0xFE
+//   72 #define CLR_T1CH1_IF    T1STAT &= 0xFD
+//   73 #define CLR_T1OVF_IF    T1STAT &= 0xDF
+//   74 #define CLR_T1IF        IRCON &= 0xFD
+//   75 
+//   76     static uint8 IRdata[15];            // 用于存储解析的红外数据
+//   77     static uint16 tCapture = 0;         // 用于存储判断每个捕获周期
+//   78 
+//   79     // 红外解码中捕获到定时器1通道0上升沿
+//   80     if(T1STAT & 0x01)
+//   81     {
+//   82         switch(IRDeodeSta)
+//   83         {
+//   84         case WaitForGuideTrig1:
+//   85             IRDeodeSta = WaitForGuideTrig2;
+//   86             CLR_T1CNT;                      // 清零定时器1
+//   87             T1CTL = (uint8)Tdiv_32 | (uint8)Tmod_free;    // 1MHz,自由计数模式
+//   88             break;
+//   89         case WaitForGuideTrig2:
+//   90             tCapture = T1CC0L;                          // 获取当前一个周期值
+//   91             tCapture |= (uint16)T1CC0H << 8;
+//   92             CLR_T1CNT;                                  // 清零定时器1
+//   93             T1CTL = (uint8)Tdiv_32 | (uint8)Tmod_free;  // 1MHz,自由计数模式
+//   94             // 如果是引导码4.5ms引导码或者9ms引导码
+//   95             if(((tCapture > T_IR_GUIDE9_MIN) && (tCapture < T_IR_GUIDE9_MAX)) || ((tCapture > T_IR_GUIDE4_MIN) && (tCapture < T_IR_GUIDE4_MAX)))
+//   96             {
+//   97                 IRDeodeSta = Decoding;
+//   98                 // 准备解码工作
+//   99                 cnt_bit = 0;
+//  100                 cnt_Byte = 0;
+//  101             }
+//  102             else
+//  103                 IRDeodeSta = WaitForGuideTrig1;
+//  104             IROverTimeAdd_cnt = 0;
+//  105             break;
+//  106         case Decoding:
+//  107             tCapture = T1CC0L;                          // 获取当前一个周期值
+//  108             tCapture |= (uint16)T1CC0H << 8;
+//  109             CLR_T1CNT;                                  // 清零定时器1
+//  110             T1CTL = (uint8)Tdiv_32 | (uint8)Tmod_free;  // 1MHz,自由计数模式
+//  111             // 接收到位0?
+//  112             if((tCapture > T_IR_0_MIN) && (tCapture < T_IR_0_MAX))
+//  113             {
+//  114                 IRDeodeSta = Decoding;
+//  115                 IROverTimeAdd_cnt = 0;
+//  116                 IRdata[cnt_Byte] &= ~(0x80 >> cnt_bit);    // 保存当前位0
+//  117                 cnt_bit++;
+//  118                 if(cnt_bit >= 8)    // 接收完毕一个字节
+//  119                 {
+//  120                     IRDecodeRes.IRCodeTab.irCode[cnt_Byte] = IRdata[cnt_Byte];
+//  121                     cnt_bit=0;
+//  122                     cnt_Byte++;
+//  123                     if(cnt_Byte >= 15)  // 超出最大接收队列长度
+//  124                     {
+//  125                         IRDeodeSta = Decode_BufOverflow;
+//  126                         goto OneIRpkgGot;
+//  127                     }
+//  128                 }
+//  129             }
+//  130             // 接收到位1?
+//  131             else if((tCapture > T_IR_1_MIN) && (tCapture < T_IR_1_MAX))
+//  132             {
+//  133                 IRDeodeSta = Decoding;
+//  134                 IROverTimeAdd_cnt = 0;
+//  135                 IRdata[cnt_Byte] |= 0x80 >> cnt_bit;    // 保存当前位0
+//  136                 cnt_bit++;
+//  137                 if(cnt_bit >= 8)    // 接收完毕一个字节
+//  138                 {
+//  139                     IRDecodeRes.IRCodeTab.irCode[cnt_Byte] = IRdata[cnt_Byte];
+//  140                     cnt_bit=0;
+//  141                     cnt_Byte++;
+//  142                     if(cnt_Byte >= 15)  // 超出最大接收队列长度
+//  143                     {
+//  144                         IRDeodeSta = Decode_BufOverflow;
+//  145                         goto OneIRpkgGot;
+//  146                     }
+//  147                 }
+//  148             }
+//  149             // 没有超时,不是位0,不是位1,出错???
+//  150             else
+//  151             {
+//  152                 IRDeodeSta = Decode_OverUnknow;
+//  153                 goto OneIRpkgGot;
+//  154             }
+//  155             break;
+//  156         default :
+//  157             IRDeodeSta = WaitForGuideTrig1;
+//  158             break;
+//  159         }
+//  160     OneIRpkgGot:
+//  161         {
+//  162             switch(IRDeodeSta)     // 一次红外解码结束
+//  163             {
+//  164                 // 处理 接收队列溢出导致解码结束
+//  165             case Decode_BufOverflow:
+//  166                 // 处理 未知原因导致解码结束
+//  167             case Decode_OverUnknow:
+//  168                 IROverTimeAdd_cnt = 0;
+//  169                 IRDecodeRes.IRCodeTab.irLen = cnt_Byte;
+//  170                 cnt_bit = 0;
+//  171                 cnt_Byte = 0;
+//  172                 OSALIRDecIntData_t* T1Ch0IntData;
+//  173                 T1Ch0IntData = (OSALIRDecIntData_t *)osal_msg_allocate(sizeof(OSALIRDecIntData_t));
+//  174                 T1Ch0IntData->hdr.event = IRDEC_INT_EVENT;
+//  175                 T1Ch0IntData->endPoint = IRDecodeRes.IRIntEp;
+//  176                 T1Ch0IntData->data = &IRDecodeRes.IRCodeTab;
+//  177                 osal_msg_send(IRDecodeRes.IRIntTskId, (uint8*)(T1Ch0IntData));
+//  178                 IRDeodeSta = WaitForGuideTrig1;
+//  179                 break;
+//  180             default :
+//  181                 break;
+//  182             }
+//  183         }
+//  184         CLR_T1CH0_IF;         // 清除通道0输入捕获中断标志
+//  185     }
+//  186     CLR_T1IF;         // 清除T1IF
+//  187  }
+//  188 
+//  189 /***********************************************************
+//  190 **  函数名称: Timer4_ISR
+//  191 **  实现功能: Timer4 中断处理函数,利用Timer1通道0输入捕获功能实现红外解码
+//  192 **  入口参数: None
+//  193 **  返回结果: None
+//  194 ***********************************************************/
+//  195 HAL_ISR_FUNC_DECLARATION(Timer4_ISR, T4_VECTOR);
+//  196 HAL_ISR_FUNCTION(Timer4_ISR, T4_VECTOR)
+//  197 {
+//  198     // (32MHz / 128) T = 4us; f = 250000Hz;
+//  199     switch(IRDeodeSta)
+//  200     {
+//  201         // 等待第二次触发,检测引导码是否超时
+//  202     case WaitForGuideTrig2:
+//  203         IROverTimeAdd_cnt++;
+//  204         if(IROverTimeAdd_cnt >= 16)   // 约16ms内没有清零
+//  205         {
+//  206             IROverTimeAdd_cnt = 0;
+//  207             IRDeodeSta = WaitForGuideTrig1;
+//  208         }
+//  209         break;
+//  210         // 位0 位1 解码中,检测是否解码超时
+//  211     case Decoding:
+//  212         IROverTimeAdd_cnt++;
+//  213         if(IROverTimeAdd_cnt >= 5)   // 4ms内没有清零
+//  214         {
+//  215             IROverTimeAdd_cnt = 0;
+//  216             IRDecodeRes.IRCodeTab.irLen = cnt_Byte;
+//  217             cnt_bit = 0;
+//  218             cnt_Byte = 0;
+//  219             OSALIRDecIntData_t* T4OvfIntData;
+//  220             T4OvfIntData = (OSALIRDecIntData_t *)osal_msg_allocate(sizeof(OSALIRDecIntData_t));
+//  221             T4OvfIntData->hdr.event = IRDEC_INT_EVENT;
+//  222             T4OvfIntData->endPoint = IRDecodeRes.IRIntEp;
+//  223             T4OvfIntData->data = &IRDecodeRes.IRCodeTab;
+//  224             osal_msg_send(IRDecodeRes.IRIntTskId, (uint8*)(T4OvfIntData));
+//  225             IRDeodeSta = WaitForGuideTrig1;
+//  226         }
+//  227         break;
+//  228     default :
+//  229         IROverTimeAdd_cnt = 0;
+//  230         break;
+//  231     }
+//  232     T4OVFIF = 0;    // 清除定时器4溢出中断标志
+//  233     T4IF = 0;       // 清除定时器4总中断标志
+//  234 }
+//  235 #endif  //#if defined(HAL_IRDEC) && (HAL_IRDEC == TRUE)
+// 
+//
+// 
+//
+//
+//Errors: none
+//Warnings: none

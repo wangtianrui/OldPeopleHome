@@ -1,0 +1,1351 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.30.1.6000 for 8051              23/Apr/2019  16:49:32
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\mac\low_level\srf04\mac_rx_onoff.c
+//    Command line       =  
+//        -f C:\Users\VULCAN\AppData\Local\Temp\EWE417.tmp
+//        (E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\mac\low_level\srf04\mac_rx_onoff.c
+//        -D NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D xMT_SYS_FUNC -D
+//        MT_ZDO_FUNC -D SAPP_ZSTACK_DEMO -lC
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List
+//        -lA
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List
+//        --diag_suppress Pe001,Pa010 -o
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\Obj
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -f
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wEndev.cfg
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+//        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+//        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0056
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+//        -Ohz --require_prototypes --no_code_motion)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List\mac_rx_onoff.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME mac_rx_onoff
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC `??macRxDisable::?relay`
+        FUNCTION `??macRxDisable::?relay`,0203H
+        PUBLIC `??macRxEnable::?relay`
+        FUNCTION `??macRxEnable::?relay`,0203H
+        PUBLIC `??macRxHardDisable::?relay`
+        FUNCTION `??macRxHardDisable::?relay`,0203H
+        PUBLIC `??macRxOff::?relay`
+        FUNCTION `??macRxOff::?relay`,0203H
+        PUBLIC `??macRxOffRequest::?relay`
+        FUNCTION `??macRxOffRequest::?relay`,0203H
+        PUBLIC `??macRxOn::?relay`
+        FUNCTION `??macRxOn::?relay`,0203H
+        PUBLIC `??macRxOnOffInit::?relay`
+        FUNCTION `??macRxOnOffInit::?relay`,0203H
+        PUBLIC `??macRxOnRequest::?relay`
+        FUNCTION `??macRxOnRequest::?relay`,0203H
+        PUBLIC `??macRxSoftEnable::?relay`
+        FUNCTION `??macRxSoftEnable::?relay`,0203H
+        PUBWEAK RFIRQF0
+        PUBWEAK RFST
+        PUBWEAK S1CON
+        PUBWEAK _A_IEN0
+        PUBLIC macRxDisable
+        FUNCTION macRxDisable,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC macRxEnable
+        FUNCTION macRxEnable,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC macRxEnableFlags
+        PUBLIC macRxHardDisable
+        FUNCTION macRxHardDisable,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC macRxOff
+        FUNCTION macRxOff,0203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC macRxOffRequest
+        FUNCTION macRxOffRequest,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC macRxOn
+        FUNCTION macRxOn,0203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC macRxOnFlag
+        PUBLIC macRxOnOffInit
+        FUNCTION macRxOnOffInit,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC macRxOnRequest
+        FUNCTION macRxOnRequest,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC macRxSoftEnable
+        FUNCTION macRxSoftEnable,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+halAssertHandler    SYMBOL "halAssertHandler"
+`??halAssertHandler::?relay` SYMBOL "?relay", halAssertHandler
+macRxHaltCleanup    SYMBOL "macRxHaltCleanup"
+`??macRxHaltCleanup::?relay` SYMBOL "?relay", macRxHaltCleanup
+macRxDisable        SYMBOL "macRxDisable"
+`??macRxDisable::?relay` SYMBOL "?relay", macRxDisable
+macRxEnable         SYMBOL "macRxEnable"
+`??macRxEnable::?relay` SYMBOL "?relay", macRxEnable
+macRxHardDisable    SYMBOL "macRxHardDisable"
+`??macRxHardDisable::?relay` SYMBOL "?relay", macRxHardDisable
+macRxOff            SYMBOL "macRxOff"
+`??macRxOff::?relay` SYMBOL "?relay", macRxOff
+macRxOffRequest     SYMBOL "macRxOffRequest"
+`??macRxOffRequest::?relay` SYMBOL "?relay", macRxOffRequest
+macRxOn             SYMBOL "macRxOn"
+`??macRxOn::?relay` SYMBOL "?relay", macRxOn
+macRxOnOffInit      SYMBOL "macRxOnOffInit"
+`??macRxOnOffInit::?relay` SYMBOL "?relay", macRxOnOffInit
+macRxOnRequest      SYMBOL "macRxOnRequest"
+`??macRxOnRequest::?relay` SYMBOL "?relay", macRxOnRequest
+macRxSoftEnable     SYMBOL "macRxSoftEnable"
+`??macRxSoftEnable::?relay` SYMBOL "?relay", macRxSoftEnable
+
+        EXTERN `??halAssertHandler::?relay`
+        FUNCTION `??halAssertHandler::?relay`,00H
+        EXTERN `??macRxHaltCleanup::?relay`
+        FUNCTION `??macRxHaltCleanup::?relay`,00H
+        EXTERN halAssertHandler
+        FUNCTION halAssertHandler,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macRxActive
+        EXTERN macRxHaltCleanup
+        FUNCTION macRxHaltCleanup,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macRxOutgoingAckFlag
+        EXTERN macTxActive
+
+// E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\mac\low_level\srf04\mac_rx_onoff.c
+//    1 /**************************************************************************************************
+//    2   Filename:       mac_rx_onoff.c
+//    3   Revised:        $Date: 2007-09-11 10:58:41 -0700 (Tue, 11 Sep 2007) $
+//    4   Revision:       $Revision: 15371 $
+//    5 
+//    6   Description:    Describe the purpose and contents of the file.
+//    7 
+//    8 
+//    9   Copyright 2006-2009 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com. 
+//   38 **************************************************************************************************/
+//   39 
+//   40 /* ------------------------------------------------------------------------------------------------
+//   41  *                                          Includes
+//   42  * ------------------------------------------------------------------------------------------------
+//   43  */
+//   44 
+//   45 /* hal */
+//   46 #include "hal_defs.h"
+//   47 #include "hal_types.h"
+//   48 
+//   49 /* exported low-level */
+//   50 #include "mac_low_level.h"
+//   51 
+//   52 /* low-level specific */
+//   53 #include "mac_rx_onoff.h"
+//   54 #include "mac_rx.h"
+//   55 #include "mac_tx.h"
+//   56 
+//   57 /* target specific */
+//   58 #include "mac_radio_defs.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,09bH
+// unsigned char volatile __sfr S1CON
+S1CON:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0a8H
+// union <unnamed> volatile __sfr _A_IEN0
+_A_IEN0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0e1H
+// unsigned char volatile __sfr RFST
+RFST:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0e9H
+// unsigned char volatile __sfr RFIRQF0
+RFIRQF0:
+        DATA8
+        DS 1
+//   59 
+//   60 /* debug */
+//   61 #include "mac_assert.h"
+//   62 
+//   63 
+//   64 /* ------------------------------------------------------------------------------------------------
+//   65  *                                         Global Variables
+//   66  * ------------------------------------------------------------------------------------------------
+//   67  */
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   68 uint8 macRxOnFlag;
+macRxOnFlag:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   69 uint8 macRxEnableFlags;
+macRxEnableFlags:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//   70 
+//   71 
+//   72 /**************************************************************************************************
+//   73  * @fn          macRxOnOffInit
+//   74  *
+//   75  * @brief       Initialize variables for rx on/off module.
+//   76  *
+//   77  * @param       none
+//   78  *
+//   79  * @return      none
+//   80  **************************************************************************************************
+//   81  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   82 MAC_INTERNAL_API void macRxOnOffInit(void)
+macRxOnOffInit:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function macRxOnOffInit
+        CODE
+//   83 {
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   84   macRxEnableFlags = 0;
+        MOV       DPTR,#macRxEnableFlags
+        CLR       A
+        MOVX      @DPTR,A
+//   85   macRxOnFlag = 0;
+        MOV       DPTR,#macRxOnFlag
+        MOVX      @DPTR,A
+//   86 }
+        SJMP      ??Subroutine4_0
+          CFI EndBlock cfiBlock0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        MOV       C,0xE0 /* A   */.0
+        MOV       0xa8.7,C
+          CFI EndBlock cfiBlock1
+        REQUIRE ??Subroutine4_0
+        ; // Fall through to label ??Subroutine4_0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+??Subroutine4_0:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        POP       DPH
+          CFI CFA_SP SP+-4
+          CFI DPH0 SameValue
+        POP       DPL
+          CFI CFA_SP SP+-3
+          CFI DPL0 SameValue
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock2
+//   87 
+//   88 
+//   89 /**************************************************************************************************
+//   90  * @fn          macRxEnable
+//   91  *
+//   92  * @brief       Set enable flags and then turn on receiver.
+//   93  *
+//   94  * @param       flags - byte containing rx enable flags to set
+//   95  *
+//   96  * @return      none
+//   97  **************************************************************************************************
+//   98  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   99 MAC_INTERNAL_API void macRxEnable(uint8 flags)
+macRxEnable:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function macRxEnable
+        CODE
+//  100 {
+        FUNCALL macRxEnable, halAssertHandler
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL macRxEnable, macRxOn
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R1
+        MOV       R7,A
+//  101   halIntState_t  s;
+//  102 
+//  103   MAC_ASSERT(flags != 0); /* rx flags not affected */
+        JNZ       ??macRxEnable_0
+        ; Setup parameters for call to function halAssertHandler
+        LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+//  104 
+//  105   /* set enable flags and then turn on receiver */
+//  106   HAL_ENTER_CRITICAL_SECTION(s);
+??macRxEnable_0:
+        MOV       R6,0xa8+0x0
+        CLR       0xa8.7
+//  107   macRxEnableFlags |= flags;
+        MOV       DPTR,#macRxEnableFlags
+        MOVX      A,@DPTR
+        ORL       A,R7
+        MOVX      @DPTR,A
+//  108   macRxOn();
+        ; Setup parameters for call to function macRxOn
+        LCALL     `??macRxOn::?relay`; Banked call to: macRxOn
+//  109   HAL_EXIT_CRITICAL_SECTION(s);
+        MOV       A,R6
+          CFI EndBlock cfiBlock3
+        REQUIRE ?Subroutine2
+        REQUIRE _A_IEN0
+        ; // Fall through to label ?Subroutine2
+//  110 }
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV       C,0xE0 /* A   */.7
+        SJMP      ??Subroutine5_0
+          CFI EndBlock cfiBlock4
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV       A,R6
+        MOV       C,0xE0 /* A   */.0
+          CFI EndBlock cfiBlock5
+        REQUIRE ??Subroutine5_0
+        ; // Fall through to label ??Subroutine5_0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+??Subroutine5_0:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV       0xa8.7,C
+          CFI EndBlock cfiBlock6
+        REQUIRE ??Subroutine6_0
+        ; // Fall through to label ??Subroutine6_0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+??Subroutine6_0:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV       R7,#0x1
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock7
+//  111 
+//  112 
+//  113 /**************************************************************************************************
+//  114  * @fn          macRxSoftEnable
+//  115  *
+//  116  * @brief       Set enable flags but don't turn on the receiver.  Useful to leave the receiver
+//  117  *              on after a transmit, but without turning it on immediately.
+//  118  *
+//  119  * @param       flags - byte containing rx enable flags to set
+//  120  *
+//  121  * @return      none
+//  122  **************************************************************************************************
+//  123  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  124 MAC_INTERNAL_API void macRxSoftEnable(uint8 flags)
+macRxSoftEnable:
+          CFI Block cfiBlock8 Using cfiCommon0
+          CFI Function macRxSoftEnable
+        CODE
+//  125 {
+        FUNCALL macRxSoftEnable, halAssertHandler
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R1
+        MOV       R6,A
+//  126   halIntState_t  s;
+//  127 
+//  128   MAC_ASSERT(flags != 0); /* rx flags not affected */
+        JNZ       ??macRxSoftEnable_0
+        ; Setup parameters for call to function halAssertHandler
+        LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+//  129 
+//  130   /* set the enable flags but do not turn on the receiver */
+//  131   HAL_ENTER_CRITICAL_SECTION(s);
+??macRxSoftEnable_0:
+        MOV       R0,0xa8+0x0
+        CLR       0xa8.7
+//  132   macRxEnableFlags |= flags;
+        MOV       DPTR,#macRxEnableFlags
+        MOVX      A,@DPTR
+        ORL       A,R6
+        MOVX      @DPTR,A
+//  133   HAL_EXIT_CRITICAL_SECTION(s);
+        MOV       A,R0
+        SJMP      ?Subroutine2
+          CFI EndBlock cfiBlock8
+        REQUIRE _A_IEN0
+//  134 }
+//  135 
+//  136 
+//  137 /**************************************************************************************************
+//  138  * @fn          macRxDisable
+//  139  *
+//  140  * @brief       Clear indicated rx enable flags.  If all flags are clear, turn off receiver
+//  141  *              unless there is an active receive or transmit.
+//  142  *
+//  143  * @param       flags - byte containg rx enable flags to clear
+//  144  *
+//  145  * @return      none
+//  146  **************************************************************************************************
+//  147  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  148 MAC_INTERNAL_API void macRxDisable(uint8 flags)
+macRxDisable:
+          CFI Block cfiBlock9 Using cfiCommon0
+          CFI Function macRxDisable
+        CODE
+//  149 {
+        FUNCALL macRxDisable, halAssertHandler
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL macRxDisable, macRxOffRequest
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R1
+        MOV       R6,A
+//  150   halIntState_t  s;
+//  151 
+//  152   MAC_ASSERT(flags != 0); /* rx flags not affected */
+        JNZ       ??macRxDisable_0
+        ; Setup parameters for call to function halAssertHandler
+        LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+//  153 
+//  154   /* clear the indicated flags */
+//  155   HAL_ENTER_CRITICAL_SECTION(s);
+??macRxDisable_0:
+        MOV       R0,0xa8+0x0
+        CLR       0xa8.7
+//  156   macRxEnableFlags &= (flags ^ 0xFF);
+        MOV       A,#-0x1
+        XRL       A,R6
+        MOV       R1,A
+        MOV       DPTR,#macRxEnableFlags
+        MOVX      A,@DPTR
+        ANL       A,R1
+        MOVX      @DPTR,A
+//  157   HAL_EXIT_CRITICAL_SECTION(s);
+        MOV       A,R0
+        MOV       C,0xE0 /* A   */.7
+        MOV       0xa8.7,C
+//  158 
+//  159   /* turn off the radio if it is allowed */
+//  160   macRxOffRequest();
+        ; Setup parameters for call to function macRxOffRequest
+        LCALL     `??macRxOffRequest::?relay`; Banked call to: macRxOffRequest
+//  161 }
+        SJMP      ??Subroutine6_0
+          CFI EndBlock cfiBlock9
+        REQUIRE _A_IEN0
+//  162 
+//  163 
+//  164 /**************************************************************************************************
+//  165  * @fn          macRxHardDisable
+//  166  *
+//  167  * @brief       Clear all enable flags and turn off receiver.
+//  168  *
+//  169  * @param       none
+//  170  *
+//  171  * @return      none
+//  172  **************************************************************************************************
+//  173  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  174 MAC_INTERNAL_API void macRxHardDisable(void)
+macRxHardDisable:
+          CFI Block cfiBlock10 Using cfiCommon0
+          CFI Function macRxHardDisable
+        CODE
+//  175 {
+        FUNCALL macRxHardDisable, macRxHaltCleanup
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  176   halIntState_t  s;
+//  177 
+//  178   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV       R0,0xa8+0x0
+        CLR       0xa8.7
+//  179 
+//  180   macRxEnableFlags = 0;
+        MOV       DPTR,#macRxEnableFlags
+        CLR       A
+        MOVX      @DPTR,A
+//  181   macRxOnFlag = 0;
+        MOV       DPTR,#macRxOnFlag
+        LCALL     ?Subroutine3 & 0xFFFF
+//  182 
+//  183   /* force receiver off */
+//  184   MAC_RADIO_RXTX_OFF();
+//  185   MAC_RADIO_FLUSH_RX_FIFO();
+//  186   MAC_DEBUG_TURN_OFF_RX_LED();
+//  187 
+//  188   HAL_EXIT_CRITICAL_SECTION(s);
+??CrossCallReturnLabel_0:
+        MOV       A,R0
+        MOV       C,0xE0 /* A   */.7
+        MOV       0xa8.7,C
+//  189 
+//  190   /* clean up after being forced off */
+//  191   macRxHaltCleanup();
+        ; Setup parameters for call to function macRxHaltCleanup
+        LCALL     `??macRxHaltCleanup::?relay`; Banked call to: macRxHaltCleanup
+//  192 }
+        LJMP      ??Subroutine4_0 & 0xFFFF
+          CFI EndBlock cfiBlock10
+        REQUIRE _A_IEN0
+        REQUIRE RFST
+//  193 
+//  194 /**************************************************************************************************
+//  195  * @fn          macRxOnRequest
+//  196  *
+//  197  * @brief       Turn on the receiver if any rx enable flag is set.
+//  198  *
+//  199  * @param       none
+//  200  *
+//  201  * @return      none
+//  202  **************************************************************************************************
+//  203  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  204 MAC_INTERNAL_API void macRxOnRequest(void)
+macRxOnRequest:
+          CFI Block cfiBlock11 Using cfiCommon0
+          CFI Function macRxOnRequest
+        CODE
+//  205 {
+        FUNCALL macRxOnRequest, macRxOn
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//  206   halIntState_t  s;
+//  207 
+//  208   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV       C,0xa8.7
+        CLR       A
+        RLC       A
+        MOV       R6,A
+        CLR       0xa8.7
+//  209   if (macRxEnableFlags)
+        MOV       DPTR,#macRxEnableFlags
+        MOVX      A,@DPTR
+        JZ        ??macRxOnRequest_0
+//  210   {
+//  211     macRxOn();
+        ; Setup parameters for call to function macRxOn
+        LCALL     `??macRxOn::?relay`; Banked call to: macRxOn
+//  212   }
+//  213   HAL_EXIT_CRITICAL_SECTION(s);
+??macRxOnRequest_0:
+        SJMP      ?Subroutine1
+          CFI EndBlock cfiBlock11
+        REQUIRE _A_IEN0
+//  214 }
+//  215 
+//  216 
+//  217 /**************************************************************************************************
+//  218  * @fn          macRxOffRequest
+//  219  *
+//  220  * @brief       Turn off receiver if permitted.
+//  221  *
+//  222  * @param       none
+//  223  *
+//  224  * @return      none
+//  225  **************************************************************************************************
+//  226  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  227 MAC_INTERNAL_API void macRxOffRequest(void)
+macRxOffRequest:
+          CFI Block cfiBlock12 Using cfiCommon0
+          CFI Function macRxOffRequest
+        CODE
+//  228 {
+        FUNCALL macRxOffRequest, macRxOff
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//  229   halIntState_t  s;
+//  230 
+//  231   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV       C,0xa8.7
+        CLR       A
+        RLC       A
+        MOV       R6,A
+        CLR       0xa8.7
+//  232   if (!macRxEnableFlags)
+        MOV       DPTR,#macRxEnableFlags
+        MOVX      A,@DPTR
+        JNZ       ??macRxOffRequest_0
+//  233   {
+//  234     if (!MAC_RX_IS_PHYSICALLY_ACTIVE() && !MAC_TX_IS_PHYSICALLY_ACTIVE())
+        MOV       DPTR,#macRxActive
+        MOVX      A,@DPTR
+        MOV       C,0xE0 /* A   */.7
+        JC        ??macRxOffRequest_0
+        MOV       DPTR,#macRxOutgoingAckFlag
+        MOVX      A,@DPTR
+        JNZ       ??macRxOffRequest_0
+        MOV       DPTR,#macTxActive
+        MOVX      A,@DPTR
+        MOV       C,0xE0 /* A   */.7
+        JC        ??macRxOffRequest_0
+//  235     {
+//  236       macRxOff();
+        ; Setup parameters for call to function macRxOff
+        LCALL     `??macRxOff::?relay`; Banked call to: macRxOff
+//  237     }
+//  238   }
+//  239   HAL_EXIT_CRITICAL_SECTION(s);
+??macRxOffRequest_0:
+        LJMP      ?Subroutine1 & 0xFFFF
+          CFI EndBlock cfiBlock12
+        REQUIRE _A_IEN0
+//  240 }
+//  241 
+//  242 
+//  243 /**************************************************************************************************
+//  244  * @fn          macRxOn
+//  245  *
+//  246  * @brief       Turn on the receiver if it's not already on.
+//  247  *
+//  248  * @param       none
+//  249  *
+//  250  * @return      none
+//  251  **************************************************************************************************
+//  252  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  253 MAC_INTERNAL_API void macRxOn(void)
+macRxOn:
+          CFI Block cfiBlock13 Using cfiCommon0
+          CFI Function macRxOn
+        CODE
+//  254 {
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  255   halIntState_t  s;
+//  256 
+//  257   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV       C,0xa8.7
+        CLR       A
+        RLC       A
+        MOV       R0,A
+        CLR       0xa8.7
+//  258   if (!macRxOnFlag)
+        MOV       DPTR,#macRxOnFlag
+        MOVX      A,@DPTR
+        JNZ       ??macRxOn_0
+//  259   {
+//  260     macRxOnFlag = 1;
+        MOV       A,#0x1
+        MOVX      @DPTR,A
+//  261     MAC_RADIO_RX_ON();
+        MOV       0xe1,#-0x1d
+//  262     MAC_DEBUG_TURN_ON_RX_LED();
+//  263   }
+//  264   HAL_EXIT_CRITICAL_SECTION(s);
+??macRxOn_0:
+        MOV       A,R0
+        LJMP      ?Subroutine0 & 0xFFFF
+          CFI EndBlock cfiBlock13
+        REQUIRE _A_IEN0
+        REQUIRE RFST
+//  265 }
+//  266 
+//  267 
+//  268 /**************************************************************************************************
+//  269  * @fn          macRxOff
+//  270  *
+//  271  * @brief       Turn off the receiver if it's not already off.
+//  272  *
+//  273  * @param       none
+//  274  *
+//  275  * @return      none
+//  276  **************************************************************************************************
+//  277  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  278 MAC_INTERNAL_API void macRxOff(void)
+macRxOff:
+          CFI Block cfiBlock14 Using cfiCommon0
+          CFI Function macRxOff
+        CODE
+//  279 {
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  280   halIntState_t  s;
+//  281 
+//  282   HAL_ENTER_CRITICAL_SECTION(s);
+        MOV       C,0xa8.7
+        CLR       A
+        RLC       A
+        MOV       R1,A
+        CLR       0xa8.7
+//  283   if (macRxOnFlag)
+        MOV       DPTR,#macRxOnFlag
+        MOVX      A,@DPTR
+        JZ        ??macRxOff_0
+//  284   {
+//  285     macRxOnFlag = 0;
+        CLR       A
+        LCALL     ?Subroutine3 & 0xFFFF
+//  286     MAC_RADIO_RXTX_OFF();
+//  287     MAC_DEBUG_TURN_OFF_RX_LED();
+//  288     
+//  289     /* just in case a receive was about to start, flush the receive FIFO */
+//  290     MAC_RADIO_FLUSH_RX_FIFO();
+//  291 
+//  292     /* clear any receive interrupt that happened to squeak through */
+//  293     MAC_RADIO_CLEAR_RX_THRESHOLD_INTERRUPT_FLAG();
+??CrossCallReturnLabel_1:
+        MOV       R0,0xa8+0x0
+        CLR       0xa8.7
+        MOV       0x9b,#0x0
+        MOV       0xe9,#-0x5
+        MOV       A,R0
+        MOV       C,0xE0 /* A   */.7
+        MOV       0xa8.7,C
+//  294 
+//  295   }
+//  296   HAL_EXIT_CRITICAL_SECTION(s);
+??macRxOff_0:
+        MOV       A,R1
+        LJMP      ?Subroutine0 & 0xFFFF
+          CFI EndBlock cfiBlock14
+        REQUIRE _A_IEN0
+        REQUIRE RFST
+        REQUIRE S1CON
+        REQUIRE RFIRQF0
+//  297 }
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiCond15 Using cfiCommon0
+          CFI Function macRxHardDisable
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-7
+          CFI Block cfiCond16 Using cfiCommon0
+          CFI (cfiCond16) Function macRxOff
+          CFI (cfiCond16) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond16) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond16) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond16) CFA_SP SP+-7
+          CFI Block cfiPicker17 Using cfiCommon1
+          CFI (cfiPicker17) NoFunction
+          CFI (cfiPicker17) Picker
+        MOVX      @DPTR,A
+        MOV       0xe1,#-0x11
+        MOV       0xe1,#-0x13
+        MOV       0xe1,#-0x13
+        RET
+          CFI EndBlock cfiCond15
+          CFI EndBlock cfiCond16
+          CFI EndBlock cfiPicker17
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macRxOnOffInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macRxOnOffInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macRxEnable::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macRxEnable
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macRxSoftEnable::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macRxSoftEnable
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macRxDisable::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macRxDisable
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macRxHardDisable::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macRxHardDisable
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macRxOnRequest::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macRxOnRequest
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macRxOffRequest::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macRxOffRequest
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macRxOn::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macRxOn
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macRxOff::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macRxOff
+
+        END
+//  298 
+//  299 
+//  300 /**************************************************************************************************
+//  301 */
+// 
+// 304 bytes in segment BANKED_CODE
+//  54 bytes in segment BANK_RELAYS
+//   4 bytes in segment SFR_AN
+//   2 bytes in segment XDATA_Z
+// 
+//  54 bytes of CODE     memory
+//   0 bytes of DATA     memory (+ 4 bytes shared)
+// 304 bytes of HUGECODE memory
+//   2 bytes of XDATA    memory
+//
+//Errors: none
+//Warnings: none
