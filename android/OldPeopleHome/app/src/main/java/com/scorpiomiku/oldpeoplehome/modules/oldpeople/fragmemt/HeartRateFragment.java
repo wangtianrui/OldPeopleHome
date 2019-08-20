@@ -75,16 +75,13 @@ public class HeartRateFragment extends BaseFragment {
      */
     private void initChart() {
         ArrayList<Entry> pointValues = new ArrayList<>();
-        pointValues.add(new Entry(0, 100));
-        ArrayList<Float> data = new ArrayList<>();
         int i;
-        float[] levels = {2f, 90f, 60f, 88f};
-        for (i = 1; i <= levels.length - 1; i++) {
-            pointValues.add(new Entry(i, Float.valueOf(levels[i])));
-            data.add(Float.valueOf(levels[i]));
+        float[] levels = {20f, 90f, 60f, 88f, 100f};
+        pointValues.add(new Entry(0, 0));
+        for (i = 0; i < levels.length; i++) {
+            pointValues.add(new Entry(i + 1, levels[i]));
         }
-        pointValues.add(new Entry(i, 0));
-        ChartUtils.initSingleLineChart(chart, pointValues, "心率统计图");
+        ChartUtils.initSingleLineChart(chart, pointValues, "近15天平均心率", 0xFFF56EC0);
     }
 
 }
