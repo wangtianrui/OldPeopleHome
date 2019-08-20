@@ -14,8 +14,11 @@ public interface RoomDao {
     //查所有房间
     List<Room> findAll();
     //添加房间
-    Room insertRoom(Room room);
-
+    int insertRoom(Room room);
+    //删除房间
+    int deleteRoom(int roomId);
+    //更新
+    int updateRoom(Room room);
 
 
 }

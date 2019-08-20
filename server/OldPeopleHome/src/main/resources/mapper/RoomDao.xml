@@ -18,8 +18,18 @@
         select * from room
     </select>
 
-    <insert id="insertRoom">
-        
+    <insert id="insertRoom" useGeneratedKeys="true" keyColumn="id" keyProperty="roomId" parameterType="Room">
+        insert into room(location, name) values (#{roomLocation}, #{roomName})
     </insert>
 
+    <delete id="deleteRoom" parameterType="int">
+        delete from room where id = #{roomId}
+    </delete>
+    
+    <update id="updateRoom" parameterType="Room">
+        update room
+        set location = #{roomLocation},
+            name = #{roomName}
+        where id =#{roomId}
+    </update>
 </mapper>

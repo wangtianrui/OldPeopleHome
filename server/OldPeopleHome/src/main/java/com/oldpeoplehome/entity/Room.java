@@ -13,7 +13,12 @@ public class Room {
     public Room() {
     }
 
-    public Room(int roomId, String roomLocation, String roomName) {
+    public Room(String roomLocation, String roomName) {
+        this.roomLocation = roomLocation;
+        this.roomName = roomName;
+    }
+
+    public Room(Integer roomId, String roomLocation, String roomName) {
         this.roomId = roomId;
         this.roomName = roomName;
         this.roomLocation = roomLocation;
@@ -23,7 +28,7 @@ public class Room {
         return roomId;
     }
 
-    public void setRoomId(int roomId) {
+    public void setRoomId(Integer roomId) {
         this.roomId = roomId;
     }
 
