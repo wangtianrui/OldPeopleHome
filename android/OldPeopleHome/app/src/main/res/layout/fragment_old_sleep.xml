@@ -88,15 +88,27 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.2"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:orientation="vertical">
 
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/sleep_pie"
+            <com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator
+                android:id="@+id/viewpager_pager_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                app:dotColor="#a1a8da"
+                app:dotCount="3"
+                app:dotRadius="8dp"
+                app:dotSeparation="16dp"
+                app:selectedDotColor="#3d4ec9"
+                app:selectedDotRadius="6dp" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            </com.github.mikephil.charting.charts.PieChart>
+            </android.support.v4.view.ViewPager>
         </LinearLayout>
 
     </LinearLayout>

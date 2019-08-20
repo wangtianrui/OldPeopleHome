@@ -2,23 +2,18 @@ package com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,9 +29,12 @@ public class SleepFragment extends BaseFragment {
     WaveLoadingView waveLoadingView;
     @BindView(R.id.sleep_text)
     TextView sleepText;
-    @BindView(R.id.sleep_pie)
-    PieChart sleepPie;
+
     Unbinder unbinder;
+    @BindView(R.id.viewpager_pager_indicator)
+    IndefinitePagerIndicator viewpagerPagerIndicator;
+    @BindView(R.id.view_pager)
+    ViewPager viewPager;
 
     @Override
     protected Handler initHandle() {
@@ -55,8 +53,10 @@ public class SleepFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        initPie();
+//        initPie();
+        initViewPager();
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -75,35 +75,55 @@ public class SleepFragment extends BaseFragment {
     /**
      * 绘制饼图
      */
-    private void initPie() {
-        List<PieEntry> strings = new ArrayList<>();
-        strings.add(new PieEntry(30f, "深度睡眠"));
-        strings.add(new PieEntry(70f, "浅度睡眠"));
+//    private void initPie() {
+//        List<PieEntry> strings = new ArrayList<>();
+//        strings.add(new PieEntry(30f, "深度睡眠"));
+//        strings.add(new PieEntry(70f, "浅度睡眠"));
+//
+//        PieDataSet dataSet = new PieDataSet(strings, "");
+//
+//        ArrayList<Integer> colors = new ArrayList<Integer>();
+//        colors.add(getResources().getColor(R.color.sleep_deep));
+//        colors.add(getResources().getColor(R.color.sleep_shallow));
+//        dataSet.setColors(colors);
+//        dataSet.setValueTextSize(16f);
+//        PieData pieData = new PieData(dataSet);
+//        pieData.setDrawValues(true);
+//        pieData.setValueFormatter(new PercentFormatter());
+//        pieData.setValueTextSize(16f);
+//        pieData.setValueTextColor(getResources().getColor(R.color.place_holder));
+//
+//
+//        sleepPie.setData(pieData);
+//        sleepPie.invalidate();
+//
+//        Description description = new Description();
+//        description.setText("");
+//        sleepPie.setDescription(description);
+//        sleepPie.setHoleRadius(0f);
+//        sleepPie.setTransparentCircleRadius(0f);
+//        Legend legend = sleepPie.getLegend();
+//        legend.setEnabled(false);
+//
+//    }
 
-        PieDataSet dataSet = new PieDataSet(strings, "");
 
-        ArrayList<Integer> colors = new ArrayList<Integer>();
-        colors.add(getResources().getColor(R.color.sleep_deep));
-        colors.add(getResources().getColor(R.color.sleep_shallow));
-        dataSet.setColors(colors);
-        dataSet.setValueTextSize(16f);
-        PieData pieData = new PieData(dataSet);
-        pieData.setDrawValues(true);
-        pieData.setValueFormatter(new PercentFormatter());
-        pieData.setValueTextSize(16f);
-        pieData.setValueTextColor(getResources().getColor(R.color.place_holder));
+    /**
+     * 初始化Viewpager
+     */
+    private void initViewPager() {
+        FragmentManager fragmentManager = getFragmentManager();
+        viewPager.setAdapter(new FragmentPagerAdapter(fragmentManager) {
+            @Override
+            public Fragment getItem(int i) {
+                return new SleepViewPagerItem();
+            }
 
-
-        sleepPie.setData(pieData);
-        sleepPie.invalidate();
-
-        Description description = new Description();
-        description.setText("");
-        sleepPie.setDescription(description);
-        sleepPie.setHoleRadius(0f);
-        sleepPie.setTransparentCircleRadius(0f);
-        Legend legend = sleepPie.getLegend();
-        legend.setEnabled(false);
-
+            @Override
+            public int getCount() {
+                return 10;
+            }
+        });
+        viewpagerPagerIndicator.attachToViewPager(viewPager);
     }
 }
