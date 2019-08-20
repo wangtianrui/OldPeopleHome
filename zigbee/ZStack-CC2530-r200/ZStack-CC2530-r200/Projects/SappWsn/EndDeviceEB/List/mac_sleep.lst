@@ -1,0 +1,489 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.30.1.6000 for 8051               23/Apr/2019  16:52:30
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\mac\low_level\srf04\mac_sleep.c
+#    Command line       =  
+#        -f C:\Users\VULCAN\AppData\Local\Temp\EW9C78.tmp
+#        (E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\mac\low_level\srf04\mac_sleep.c
+#        -D NWK_AUTO_POLL -D ZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC -D
+#        MT_ZDO_FUNC -D SAPP_ZSTACK -lC
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+#        -lA
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+#        --diag_suppress Pe001,Pa010 -o
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\Obj
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 8 -f
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wEndev.cfg
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+#        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0056
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+#        -Ohz --require_prototypes --no_code_motion)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List\mac_sleep.lst
+#    Object file        =  
+#        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\Obj\mac_sleep.r51
+#
+###############################################################################
+
+E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\mac\low_level\srf04\mac_sleep.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_sleep.c
+      3            Revised:        $Date: 2007-10-29 19:11:44 -0700 (Mon, 29 Oct 2007) $
+      4            Revision:       $Revision: 15810 $
+      5          
+      6            Description:    Describe the purpose and contents of the file.
+      7          
+      8          
+      9            Copyright 2006-2009 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          /* hal */
+     46          #include "hal_types.h"
+     47          
+     48          /* high-level */
+     49          #include "mac_pib.h"
+     50          
+     51          /* exported low-level */
+     52          #include "mac_low_level.h"
+     53          
+     54          /* low-level specific */
+     55          #include "mac_sleep.h"
+     56          #include "mac_radio.h"
+     57          #include "mac_tx.h"
+     58          #include "mac_rx.h"
+     59          #include "mac_rx_onoff.h"
+     60          
+     61          /* target specific */
+     62          #include "mac_radio_defs.h"
+
+   \                                 In  segment SFR_AN, at 0x94
+   \   unsigned char volatile __sfr T2CTRL
+   \                     T2CTRL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x9d
+   \   unsigned char volatile __sfr SLEEPSTA
+   \                     SLEEPSTA:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x9e
+   \   unsigned char volatile __sfr CLKCONSTA
+   \                     CLKCONSTA:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     63          
+     64          /* debug */
+     65          #include "mac_assert.h"
+     66          
+     67          
+     68          /* ------------------------------------------------------------------------------------------------
+     69           *                                         Global Variables
+     70           * ------------------------------------------------------------------------------------------------
+     71           */
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     72          uint8 macSleepState = MAC_SLEEP_STATE_RADIO_OFF;
+   \                     macSleepState:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for macSleepState>`
+   \   000001                REQUIRE __INIT_XDATA_I
+     73          
+     74          
+     75          /**************************************************************************************************
+     76           * @fn          macSleepWakeUp
+     77           *
+     78           * @brief       Wake up the radio from sleep mode.
+     79           *
+     80           * @param       none
+     81           *
+     82           * @return      none
+     83           **************************************************************************************************
+     84           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     85          MAC_INTERNAL_API void macSleepWakeUp(void)
+   \                     macSleepWakeUp:
+     86          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     87            /* don't wake up radio if it's already awake */
+     88            if (macSleepState == MAC_SLEEP_STATE_AWAKE)
+   \   000004   90....       MOV       DPTR,#macSleepState
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   6033         JZ        ??macSleepWakeUp_0
+     89            {
+     90              return;
+     91            }
+     92          
+     93            /* wake up MAC timer */
+     94            MAC_RADIO_TIMER_WAKE_UP();
+   \                     ??macSleepWakeUp_1:
+   \   00000A   E59E         MOV       A,0x9e
+   \   00000C   70FC         JNZ       ??macSleepWakeUp_1
+   \   00000E   439403       ORL       0x94,#0x3
+   \                     ??macSleepWakeUp_2:
+   \   000011   E594         MOV       A,0x94
+   \   000013   A2E2         MOV       C,0xE0 /* A   */.2
+   \   000015   50FA         JNC       ??macSleepWakeUp_2
+     95          
+     96            /* if radio was completely off, restore from that state first */
+     97            if (macSleepState == MAC_SLEEP_STATE_RADIO_OFF)
+   \   000017   E0           MOVX      A,@DPTR
+   \   000018   6402         XRL       A,#0x2
+   \   00001A   7008         JNZ       ??macSleepWakeUp_3
+     98            {
+     99              /* turn on radio power (turns on oscillator too) */
+    100              MAC_RADIO_TURN_ON_POWER();
+   \   00001C                ; Setup parameters for call to function macRadioTurnOnPower
+   \   00001C   12....       LCALL     `??macRadioTurnOnPower::?relay`; Banked call to: macRadioTurnOnPower
+    101          
+    102              /* power-up initialization of receive logic */
+    103              macRxRadioPowerUpInit();
+   \   00001F                ; Setup parameters for call to function macRxRadioPowerUpInit
+   \   00001F   12....       LCALL     `??macRxRadioPowerUpInit::?relay`; Banked call to: macRxRadioPowerUpInit
+   \   000022   8011         SJMP      ??macSleepWakeUp_4
+    104            }
+    105            else
+    106            {
+    107              MAC_ASSERT(macSleepState == MAC_SLEEP_STATE_OSC_OFF);
+   \                     ??macSleepWakeUp_3:
+   \   000024   E0           MOVX      A,@DPTR
+   \   000025   6401         XRL       A,#0x1
+   \   000027   6003         JZ        ??macSleepWakeUp_5
+   \   000029                ; Setup parameters for call to function halAssertHandler
+   \   000029   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    108          
+    109              /* turn on the oscillator */
+    110              MAC_RADIO_TURN_ON_OSC();
+   \                     ??macSleepWakeUp_5:
+   \   00002C   E59D         MOV       A,0x9d
+   \   00002E   A2E6         MOV       C,0xE0 /* A   */.6
+   \   000030   4003         JC        ??macSleepWakeUp_4
+   \   000032                ; Setup parameters for call to function halAssertHandler
+   \   000032   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    111            }
+    112          
+    113            /* update sleep state here before requesting to turn on receiver */
+    114            macSleepState = MAC_SLEEP_STATE_AWAKE;
+   \                     ??macSleepWakeUp_4:
+   \   000035   90....       MOV       DPTR,#macSleepState
+   \   000038   E4           CLR       A
+   \   000039   F0           MOVX      @DPTR,A
+    115          
+    116            /* turn on the receiver if enabled */
+    117            macRxOnRequest();
+   \   00003A                ; Setup parameters for call to function macRxOnRequest
+   \   00003A   12....       LCALL     `??macRxOnRequest::?relay`; Banked call to: macRxOnRequest
+    118          }
+   \                     ??macSleepWakeUp_0:
+   \   00003D   D083         POP       DPH
+   \   00003F   D082         POP       DPL
+   \   000041   02....       LJMP      ?BRET
+   \   000044                REQUIRE CLKCONSTA
+   \   000044                REQUIRE T2CTRL
+   \   000044                REQUIRE SLEEPSTA
+    119          
+    120          
+    121          /**************************************************************************************************
+    122           * @fn          macSleep
+    123           *
+    124           * @brief       Puts radio into the selected sleep mode.
+    125           *
+    126           * @param       sleepState - selected sleep level, see #defines in .h file
+    127           *
+    128           * @return      TRUE if radio was successfully put into selected sleep mode.
+    129           *              FALSE if it was not safe for radio to go to sleep.
+    130           **************************************************************************************************
+    131           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    132          MAC_INTERNAL_API uint8 macSleep(uint8 sleepState)
+   \                     macSleep:
+    133          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV       A,R1
+   \   000006   FF           MOV       R7,A
+    134            halIntState_t  s;
+    135          
+    136            /* disable interrupts until macSleepState can be set */
+    137            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000007   A2AF         MOV       C,0xa8.7
+   \   000009   E4           CLR       A
+   \   00000A   33           RLC       A
+   \   00000B   FE           MOV       R6,A
+   \   00000C   C2AF         CLR       0xa8.7
+    138          
+    139            /* assert checks */
+    140            MAC_ASSERT(macSleepState == MAC_SLEEP_STATE_AWAKE); /* radio must be awake to put it to sleep */
+   \   00000E   90....       MOV       DPTR,#macSleepState
+   \   000011   E0           MOVX      A,@DPTR
+   \   000012   6003         JZ        ??macSleep_0
+   \   000014                ; Setup parameters for call to function halAssertHandler
+   \   000014   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    141            MAC_ASSERT(macRxFilter == RX_FILTER_OFF); /* do not sleep when scanning or in promiscuous mode */
+   \                     ??macSleep_0:
+   \   000017   90....       MOV       DPTR,#macRxFilter
+   \   00001A   E0           MOVX      A,@DPTR
+   \   00001B   6003         JZ        ??macSleep_1
+   \   00001D                ; Setup parameters for call to function halAssertHandler
+   \   00001D   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    142          
+    143            /* if either RX or TX is active or any RX enable flags are set, it's not OK to sleep */
+    144            if (macRxActive || macRxOutgoingAckFlag || macTxActive || macRxEnableFlags)
+   \                     ??macSleep_1:
+   \   000020   90....       MOV       DPTR,#macRxActive
+   \   000023   E0           MOVX      A,@DPTR
+   \   000024   7012         JNZ       ??macSleep_2
+   \   000026   90....       MOV       DPTR,#macRxOutgoingAckFlag
+   \   000029   E0           MOVX      A,@DPTR
+   \   00002A   700C         JNZ       ??macSleep_2
+   \   00002C   90....       MOV       DPTR,#macTxActive
+   \   00002F   E0           MOVX      A,@DPTR
+   \   000030   7006         JNZ       ??macSleep_2
+   \   000032   90....       MOV       DPTR,#macRxEnableFlags
+   \   000035   E0           MOVX      A,@DPTR
+   \   000036   6009         JZ        ??macSleep_3
+    145            {
+    146              HAL_EXIT_CRITICAL_SECTION(s);
+   \                     ??macSleep_2:
+   \   000038   EE           MOV       A,R6
+   \   000039   A2E0         MOV       C,0xE0 /* A   */.0
+   \   00003B   92AF         MOV       0xa8.7,C
+    147              return(FALSE);
+   \   00003D   7900         MOV       R1,#0x0
+   \   00003F   8028         SJMP      ??macSleep_4
+    148            }
+    149          
+    150            /* turn off the receiver */
+    151            macRxOff();
+   \                     ??macSleep_3:
+   \   000041                ; Setup parameters for call to function macRxOff
+   \   000041   12....       LCALL     `??macRxOff::?relay`; Banked call to: macRxOff
+    152          
+    153            /* update sleep state variable */
+    154            macSleepState = sleepState;
+   \   000044   EF           MOV       A,R7
+   \   000045   90....       MOV       DPTR,#macSleepState
+   \   000048   F0           MOVX      @DPTR,A
+    155          
+    156            /* macSleepState is now set, re-enable interrupts */
+    157            HAL_EXIT_CRITICAL_SECTION(s);
+   \   000049   EE           MOV       A,R6
+   \   00004A   A2E0         MOV       C,0xE0 /* A   */.0
+   \   00004C   92AF         MOV       0xa8.7,C
+    158          
+    159            /* put MAC timer to sleep */
+    160            MAC_RADIO_TIMER_SLEEP();
+   \   00004E   5394FE       ANL       0x94,#0xfe
+   \                     ??macSleep_5:
+   \   000051   E594         MOV       A,0x94
+   \   000053   A2E2         MOV       C,0xE0 /* A   */.2
+   \   000055   40FA         JC        ??macSleep_5
+    161          
+    162            /* put radio in selected sleep mode */
+    163            if (sleepState == MAC_SLEEP_STATE_OSC_OFF)
+   \   000057   7401         MOV       A,#0x1
+   \   000059   6F           XRL       A,R7
+   \   00005A   600B         JZ        ??macSleep_6
+    164            {
+    165              MAC_RADIO_TURN_OFF_OSC();
+    166            }
+    167            else
+    168            {
+    169              MAC_ASSERT(sleepState == MAC_SLEEP_STATE_RADIO_OFF); /* unknown sleep state */
+   \   00005C   7402         MOV       A,#0x2
+   \   00005E   6F           XRL       A,R7
+   \   00005F   6003         JZ        ??macSleep_7
+   \   000061                ; Setup parameters for call to function halAssertHandler
+   \   000061   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    170              MAC_RADIO_TURN_OFF_POWER();
+   \                     ??macSleep_7:
+   \   000064                ; Setup parameters for call to function macRadioTurnOffPower
+   \   000064   12....       LCALL     `??macRadioTurnOffPower::?relay`; Banked call to: macRadioTurnOffPower
+    171            }
+    172          
+    173            /* radio successfully entered sleep mode */
+    174            return(TRUE);
+   \                     ??macSleep_6:
+   \   000067   7901         MOV       R1,#0x1
+   \                     ??macSleep_4:
+   \   000069   7F01         MOV       R7,#0x1
+   \   00006B   02....       LJMP      ?BANKED_LEAVE_XDATA
+   \   00006E                REQUIRE _A_IEN0
+   \   00006E                REQUIRE T2CTRL
+    175          }
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for macSleepState>`:
+   \   000000   02           DB 2
+    176          
+    177          
+    178          
+    179          /**************************************************************************************************
+    180           *                                  Compile Time Integrity Checks
+    181           **************************************************************************************************
+    182           */
+    183          #if ((MAC_SLEEP_STATE_AWAKE == MAC_SLEEP_STATE_OSC_OFF) ||  \
+    184               (MAC_SLEEP_STATE_AWAKE == MAC_SLEEP_STATE_RADIO_OFF))
+    185          #error "ERROR!  Non-unique state values."
+    186          #endif
+    187          
+    188          
+    189          /**************************************************************************************************
+    190          */
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0      9   macSleep
+        0      9   -> halAssertHandler
+        0      9   -> macRadioTurnOffPower
+        0      9   -> macRxOff
+      2      0   macSleepWakeUp
+        2      0   -> halAssertHandler
+        2      0   -> macRadioTurnOnPower
+        2      0   -> macRxOnRequest
+        2      0   -> macRxRadioPowerUpInit
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  ?<Initializer for macSleepState>
+       1  CLKCONSTA
+       1  SLEEPSTA
+       1  T2CTRL
+       1  _A_IEN0
+     110  macSleep
+       1  macSleepState
+      68  macSleepWakeUp
+      12  -- Other
+
+ 
+ 178 bytes in segment BANKED_CODE
+  12 bytes in segment BANK_RELAYS
+   4 bytes in segment SFR_AN
+   1 byte  in segment XDATA_I
+   1 byte  in segment XDATA_ID
+ 
+  13 bytes of CODE     memory
+   0 bytes of DATA     memory (+ 4 bytes shared)
+ 178 bytes of HUGECODE memory
+   1 byte  of XDATA    memory
+
+Errors: none
+Warnings: none

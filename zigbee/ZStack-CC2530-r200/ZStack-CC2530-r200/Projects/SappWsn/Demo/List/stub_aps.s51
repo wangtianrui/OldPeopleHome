@@ -1,0 +1,4702 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.30.1.6000 for 8051              23/Apr/2019  16:49:36
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\stack\nwk\stub_aps.c
+//    Command line       =  
+//        -f C:\Users\VULCAN\AppData\Local\Temp\EWF27A.tmp
+//        (E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\stack\nwk\stub_aps.c
+//        -D NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D xMT_SYS_FUNC -D
+//        MT_ZDO_FUNC -D SAPP_ZSTACK_DEMO -lC
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List
+//        -lA
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List
+//        --diag_suppress Pe001,Pa010 -o
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\Obj
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -f
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wEndev.cfg
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+//        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+//        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0056
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+//        -I
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+//        -Ohz --require_prototypes --no_code_motion)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List\stub_aps.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME stub_aps
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK8_X_FOUR
+        EXTERN ?PUSH_XSTACK8_X_TWO
+        EXTERN ?PUSH_XSTACK_I_ONE
+        EXTERN ?PUSH_XSTACK_I_THREE
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?S_SHL
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN ?XSTACK_DISP100_8
+        EXTERN ?XSTACK_DISP101_8
+        EXTERN ?XSTACK_DISP102_8
+        EXTERN __INIT_XDATA_I
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC `??INTERP_DataConfirm::?relay`
+        FUNCTION `??INTERP_DataConfirm::?relay`,0203H
+        PUBLIC `??INTERP_DataIndication::?relay`
+        FUNCTION `??INTERP_DataIndication::?relay`,0203H
+        PUBLIC `??INTERP_DataReq::?relay`
+        FUNCTION `??INTERP_DataReq::?relay`,0203H
+        PUBLIC `??INTERP_DataReqMTU::?relay`
+        FUNCTION `??INTERP_DataReqMTU::?relay`,0203H
+        FUNCTION `??StubAPS_BuildFrameControl::?relay`,0203H
+        FUNCTION `??StubAPS_BuildMsg::?relay`,0203H
+        PUBLIC `??StubAPS_Init::?relay`
+        FUNCTION `??StubAPS_Init::?relay`,0203H
+        PUBLIC `??StubAPS_InterPan::?relay`
+        FUNCTION `??StubAPS_InterPan::?relay`,0203H
+        FUNCTION `??StubAPS_ParseMsg::?relay`,0203H
+        PUBLIC `??StubAPS_ProcessEvent::?relay`
+        FUNCTION `??StubAPS_ProcessEvent::?relay`,0203H
+        PUBLIC `??StubAPS_RegisterApp::?relay`
+        FUNCTION `??StubAPS_RegisterApp::?relay`,0203H
+        PUBLIC `??StubAPS_SetInterPanChannel::?relay`
+        FUNCTION `??StubAPS_SetInterPanChannel::?relay`,0203H
+        PUBLIC `??StubAPS_SetIntraPanChannel::?relay`
+        FUNCTION `??StubAPS_SetIntraPanChannel::?relay`,0203H
+        FUNCTION `??StubAPS_SetNewChannel::?relay`,0203H
+        PUBLIC `??StubAPS_ZMacCallback::?relay`
+        FUNCTION `??StubAPS_ZMacCallback::?relay`,0203H
+        PUBLIC INTERP_DataConfirm
+        FUNCTION INTERP_DataConfirm,021203H
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC INTERP_DataIndication
+        FUNCTION INTERP_DataIndication,0a1203H
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 84, STACK
+        PUBLIC INTERP_DataReq
+        FUNCTION INTERP_DataReq,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 49, STACK
+        PUBLIC INTERP_DataReqMTU
+        FUNCTION INTERP_DataReqMTU,0203H
+        ARGFRAME XSTACK, 0, STACK
+        FUNCTION StubAPS_BuildFrameControl,0a1203H
+        ARGFRAME XSTACK, 49, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 9, STACK
+        FUNCTION StubAPS_BuildMsg,0a1203H
+        ARGFRAME XSTACK, 47, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 14, STACK
+        PUBLIC StubAPS_Init
+        FUNCTION StubAPS_Init,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC StubAPS_InterPan
+        FUNCTION StubAPS_InterPan,0203H
+        ARGFRAME XSTACK, 0, STACK
+        FUNCTION StubAPS_ParseMsg,0a1203H
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC StubAPS_ProcessEvent
+        FUNCTION StubAPS_ProcessEvent,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 13, STACK
+        PUBLIC StubAPS_RegisterApp
+        FUNCTION StubAPS_RegisterApp,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC StubAPS_SetInterPanChannel
+        FUNCTION StubAPS_SetInterPanChannel,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        PUBLIC StubAPS_SetIntraPanChannel
+        FUNCTION StubAPS_SetIntraPanChannel,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME XSTACK, 2, STACK
+        FUNCTION StubAPS_SetNewChannel,021203H
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 3, STACK
+        LOCFRAME XSTACK, 2, STACK
+        PUBLIC StubAPS_TaskID
+        PUBLIC StubAPS_ZMacCallback
+        FUNCTION StubAPS_ZMacCallback,021603H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+APSDE_DataIndication SYMBOL "APSDE_DataIndication"
+`??APSDE_DataIndication::?relay` SYMBOL "?relay", APSDE_DataIndication
+NLDE_ParseFrameControl SYMBOL "NLDE_ParseFrameControl"
+`??NLDE_ParseFrameControl::?relay` SYMBOL "?relay", NLDE_ParseFrameControl
+NLME_GetProtocolVersion SYMBOL "NLME_GetProtocolVersion"
+`??NLME_GetProtocolVersion::?relay` SYMBOL "?relay", NLME_GetProtocolVersion
+ZMacDataReq         SYMBOL "ZMacDataReq"
+`??ZMacDataReq::?relay` SYMBOL "?relay", ZMacDataReq
+ZMacGetReq          SYMBOL "ZMacGetReq"
+`??ZMacGetReq::?relay` SYMBOL "?relay", ZMacGetReq
+ZMacSetReq          SYMBOL "ZMacSetReq"
+`??ZMacSetReq::?relay` SYMBOL "?relay", ZMacSetReq
+ZMacStateIdle       SYMBOL "ZMacStateIdle"
+`??ZMacStateIdle::?relay` SYMBOL "?relay", ZMacStateIdle
+afDataConfirm       SYMBOL "afDataConfirm"
+`??afDataConfirm::?relay` SYMBOL "?relay", afDataConfirm
+nwkDB_CountTypes    SYMBOL "nwkDB_CountTypes"
+`??nwkDB_CountTypes::?relay` SYMBOL "?relay", nwkDB_CountTypes
+nwk_setStateIdle    SYMBOL "nwk_setStateIdle"
+`??nwk_setStateIdle::?relay` SYMBOL "?relay", nwk_setStateIdle
+osal_mem_alloc      SYMBOL "osal_mem_alloc"
+`??osal_mem_alloc::?relay` SYMBOL "?relay", osal_mem_alloc
+osal_mem_free       SYMBOL "osal_mem_free"
+`??osal_mem_free::?relay` SYMBOL "?relay", osal_mem_free
+osal_memcpy         SYMBOL "osal_memcpy"
+`??osal_memcpy::?relay` SYMBOL "?relay", osal_memcpy
+osal_memset         SYMBOL "osal_memset"
+`??osal_memset::?relay` SYMBOL "?relay", osal_memset
+osal_msg_allocate   SYMBOL "osal_msg_allocate"
+`??osal_msg_allocate::?relay` SYMBOL "?relay", osal_msg_allocate
+osal_msg_deallocate SYMBOL "osal_msg_deallocate"
+`??osal_msg_deallocate::?relay` SYMBOL "?relay", osal_msg_deallocate
+osal_msg_receive    SYMBOL "osal_msg_receive"
+`??osal_msg_receive::?relay` SYMBOL "?relay", osal_msg_receive
+osal_msg_send       SYMBOL "osal_msg_send"
+`??osal_msg_send::?relay` SYMBOL "?relay", osal_msg_send
+osal_start_timerEx  SYMBOL "osal_start_timerEx"
+`??osal_start_timerEx::?relay` SYMBOL "?relay", osal_start_timerEx
+sAddrCpy            SYMBOL "sAddrCpy"
+`??sAddrCpy::?relay` SYMBOL "?relay", sAddrCpy
+sAddrExtCpy         SYMBOL "sAddrExtCpy"
+`??sAddrExtCpy::?relay` SYMBOL "?relay", sAddrExtCpy
+INTERP_DataConfirm  SYMBOL "INTERP_DataConfirm"
+`??INTERP_DataConfirm::?relay` SYMBOL "?relay", INTERP_DataConfirm
+INTERP_DataIndication SYMBOL "INTERP_DataIndication"
+`??INTERP_DataIndication::?relay` SYMBOL "?relay", INTERP_DataIndication
+INTERP_DataReq      SYMBOL "INTERP_DataReq"
+`??INTERP_DataReq::?relay` SYMBOL "?relay", INTERP_DataReq
+INTERP_DataReqMTU   SYMBOL "INTERP_DataReqMTU"
+`??INTERP_DataReqMTU::?relay` SYMBOL "?relay", INTERP_DataReqMTU
+StubAPS_Init        SYMBOL "StubAPS_Init"
+`??StubAPS_Init::?relay` SYMBOL "?relay", StubAPS_Init
+StubAPS_InterPan    SYMBOL "StubAPS_InterPan"
+`??StubAPS_InterPan::?relay` SYMBOL "?relay", StubAPS_InterPan
+StubAPS_ProcessEvent SYMBOL "StubAPS_ProcessEvent"
+`??StubAPS_ProcessEvent::?relay` SYMBOL "?relay", StubAPS_ProcessEvent
+StubAPS_RegisterApp SYMBOL "StubAPS_RegisterApp"
+`??StubAPS_RegisterApp::?relay` SYMBOL "?relay", StubAPS_RegisterApp
+StubAPS_SetInterPanChannel SYMBOL "StubAPS_SetInterPanChannel"
+`??StubAPS_SetInterPanChannel::?relay` SYMBOL "?relay", StubAPS_SetInterPanChannel
+StubAPS_SetIntraPanChannel SYMBOL "StubAPS_SetIntraPanChannel"
+`??StubAPS_SetIntraPanChannel::?relay` SYMBOL "?relay", StubAPS_SetIntraPanChannel
+StubAPS_ZMacCallback SYMBOL "StubAPS_ZMacCallback"
+`??StubAPS_ZMacCallback::?relay` SYMBOL "?relay", StubAPS_ZMacCallback
+
+        EXTERN `??APSDE_DataIndication::?relay`
+        FUNCTION `??APSDE_DataIndication::?relay`,00H
+        EXTERN `??NLDE_ParseFrameControl::?relay`
+        FUNCTION `??NLDE_ParseFrameControl::?relay`,00H
+        EXTERN `??NLME_GetProtocolVersion::?relay`
+        FUNCTION `??NLME_GetProtocolVersion::?relay`,00H
+        EXTERN `??ZMacDataReq::?relay`
+        FUNCTION `??ZMacDataReq::?relay`,00H
+        EXTERN `??ZMacGetReq::?relay`
+        FUNCTION `??ZMacGetReq::?relay`,00H
+        EXTERN `??ZMacSetReq::?relay`
+        FUNCTION `??ZMacSetReq::?relay`,00H
+        EXTERN `??ZMacStateIdle::?relay`
+        FUNCTION `??ZMacStateIdle::?relay`,00H
+        EXTERN `??afDataConfirm::?relay`
+        FUNCTION `??afDataConfirm::?relay`,00H
+        EXTERN `??nwkDB_CountTypes::?relay`
+        FUNCTION `??nwkDB_CountTypes::?relay`,00H
+        EXTERN `??nwk_setStateIdle::?relay`
+        FUNCTION `??nwk_setStateIdle::?relay`,00H
+        EXTERN `??osal_mem_alloc::?relay`
+        FUNCTION `??osal_mem_alloc::?relay`,00H
+        EXTERN `??osal_mem_free::?relay`
+        FUNCTION `??osal_mem_free::?relay`,00H
+        EXTERN `??osal_memcpy::?relay`
+        FUNCTION `??osal_memcpy::?relay`,00H
+        EXTERN `??osal_memset::?relay`
+        FUNCTION `??osal_memset::?relay`,00H
+        EXTERN `??osal_msg_allocate::?relay`
+        FUNCTION `??osal_msg_allocate::?relay`,00H
+        EXTERN `??osal_msg_deallocate::?relay`
+        FUNCTION `??osal_msg_deallocate::?relay`,00H
+        EXTERN `??osal_msg_receive::?relay`
+        FUNCTION `??osal_msg_receive::?relay`,00H
+        EXTERN `??osal_msg_send::?relay`
+        FUNCTION `??osal_msg_send::?relay`,00H
+        EXTERN `??osal_start_timerEx::?relay`
+        FUNCTION `??osal_start_timerEx::?relay`,00H
+        EXTERN `??sAddrCpy::?relay`
+        FUNCTION `??sAddrCpy::?relay`,00H
+        EXTERN `??sAddrExtCpy::?relay`
+        FUNCTION `??sAddrExtCpy::?relay`,00H
+        EXTERN APSDE_DataIndication
+        FUNCTION APSDE_DataIndication,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 84, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NLDE_ParseFrameControl
+        FUNCTION NLDE_ParseFrameControl,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NLME_GetProtocolVersion
+        FUNCTION NLME_GetProtocolVersion,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZMacDataReq
+        FUNCTION ZMacDataReq,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 45, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZMacGetReq
+        FUNCTION ZMacGetReq,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZMacSetReq
+        FUNCTION ZMacSetReq,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZMacStateIdle
+        FUNCTION ZMacStateIdle,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN _NIB
+        EXTERN afDataConfirm
+        FUNCTION afDataConfirm,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN nwkDB_CountTypes
+        FUNCTION nwkDB_CountTypes,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN nwk_setStateIdle
+        FUNCTION nwk_setStateIdle,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_mem_alloc
+        FUNCTION osal_mem_alloc,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 45, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_mem_free
+        FUNCTION osal_mem_free,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 45, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_memset
+        FUNCTION osal_memset,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_allocate
+        FUNCTION osal_msg_allocate,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_deallocate
+        FUNCTION osal_msg_deallocate,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_receive
+        FUNCTION osal_msg_receive,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_send
+        FUNCTION osal_msg_send,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_start_timerEx
+        FUNCTION osal_start_timerEx,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN pZMac_AppCallback
+        EXTERN sAddrCpy
+        FUNCTION sAddrCpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN sAddrExtCpy
+        FUNCTION sAddrExtCpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// E:\qqÏÂÔØÎÄ¼þ\½á¿Î×÷Òµ\ZigBee\ÊµÑéÖ¸µ¼Êé\ÊµÑéÖ¸µ¼Êé\Code\Cap2_ZStack\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\stack\nwk\stub_aps.c
+//    1 /**************************************************************************************************
+//    2   Filename:       stub_aps.c
+//    3   Revised:        $Date: 2011-04-20 10:16:44 -0700 (Wed, 20 Apr 2011) $
+//    4   Revision:       $Revision: 25771 $
+//    5 
+//    6   Description:    Stub APS processing functions
+//    7 
+//    8 
+//    9   Copyright 2008 - 2011 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /*********************************************************************
+//   41  * INCLUDES
+//   42  */
+//   43 #include "osal.h"
+//   44 #include "mac_spec.h"
+//   45 #include "nwk_util.h"
+//   46 #include "AF.h"
+//   47 
+//   48 #include "stub_aps.h"
+//   49 
+//   50 /*********************************************************************
+//   51  * MACROS
+//   52  */
+//   53 
+//   54 /*********************************************************************
+//   55  * CONSTANTS
+//   56  */
+//   57 
+//   58 // Stub NWK header length
+//   59 #define STUB_NWK_HDR_LEN                2
+//   60 
+//   61 // Start of the Stub APS header in the Inter-PAN frame
+//   62 #define STUB_APS_HDR_FRAME_CTRL         STUB_NWK_HDR_LEN
+//   63 
+//   64 // Stub APS event identifiers
+//   65 #define CHANNEL_CHANGE_EVT              0x0001
+//   66 
+//   67 #define CHANNEL_CHANGE_RETRY_TIMEOUT    100
+//   68 
+//   69 /*********************************************************************
+//   70  * TYPEDEFS
+//   71  */
+//   72 typedef struct
+//   73 {
+//   74   zAddrType_t addr;
+//   75   uint16 panId;
+//   76 } pan_t;
+//   77 
+//   78 /*********************************************************************
+//   79  * GLOBAL VARIABLES
+//   80  */
+//   81 
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   82 uint8 StubAPS_TaskID = 0xFF;    // Task ID for internal task/event processing
+StubAPS_TaskID:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for StubAPS_TaskID>`
+        REQUIRE __INIT_XDATA_I
+//   83 
+//   84 /*********************************************************************
+//   85  * EXTERNAL VARIABLES
+//   86  */
+//   87 
+//   88 
+//   89 /*********************************************************************
+//   90  * EXTERNAL FUNCTIONS
+//   91  */
+//   92 
+//   93 
+//   94 /*********************************************************************
+//   95  * LOCAL VARIABLES
+//   96  */
+//   97 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   98 static uint8 newChannel;
+newChannel:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   99 static uint8 channelChangeInProgress = FALSE;
+channelChangeInProgress:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  100 
+//  101 // Application info
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  102 static uint8 appTaskID = 0xFF;  // Application task id
+appTaskID:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for appTaskID>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  103 static uint8 appEndPoint = 0;   // Application endpoint
+appEndPoint:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  104 
+//  105 
+//  106 /*********************************************************************
+//  107  * LOCAL FUNCTIONS
+//  108  */
+//  109 
+//  110 static void StubNWK_ParseMsg( uint8 *buf, uint8 bufLength, NLDE_FrameFormat_t *snff );
+//  111 static void StubAPS_ParseMsg( NLDE_FrameFormat_t *snff, aps_FrameFormat_t *saff );
+//  112 static void StubNWK_BuildMsg( uint8 *nwkHdr );
+//  113 static void StubAPS_BuildMsg( uint8 *apsHdr, uint8 frmCtrl, uint16 groupID, APSDE_DataReq_t *req );
+//  114 static ZStatus_t StubAPS_BuildFrameControl( uint8 *frmCtrl, zAddrType_t *dstAddr, 
+//  115                                             uint16 *groupID, APSDE_DataReq_t *req );
+//  116 static ZStatus_t StubAPS_SetNewChannel( uint8 channel );
+//  117 static void StubAPS_NotifyApp( uint8 status );
+//  118 
+//  119 uint8 StubAPS_ZMacCallback( uint8 *msgPtr );
+//  120 
+//  121 /*********************************************************************
+//  122  * @fn      StubAPS_Init()
+//  123  *
+//  124  * @brief   Initialize stub APS layer
+//  125  *
+//  126  * @param   task_id - Task identifier for the desired task
+//  127  *
+//  128  * @return  none
+//  129  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  130 void StubAPS_Init( uint8 task_id )
+StubAPS_Init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function StubAPS_Init
+        CODE
+//  131 {
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  132   StubAPS_TaskID = task_id;
+        MOV       A,R1
+        MOV       DPTR,#StubAPS_TaskID
+        MOVX      @DPTR,A
+//  133     
+//  134   // register with ZMAC
+//  135   pZMac_AppCallback = StubAPS_ZMacCallback;
+        MOV       DPTR,#pZMac_AppCallback
+        MOV       A,#`??StubAPS_ZMacCallback::?relay` & 0xff
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,#(`??StubAPS_ZMacCallback::?relay` >> 8) & 0xff
+        MOVX      @DPTR,A
+//  136   
+//  137 } /* StubAPS_Init() */
+        LJMP      ??Subroutine20_0 & 0xFFFF
+          CFI EndBlock cfiBlock0
+//  138 
+//  139 /*********************************************************************
+//  140  * @fn      StubAPS_ProcessEvent()
+//  141  *
+//  142  * @brief   Main event loop for Stub APS task. This function should be called
+//  143  *          at periodic intervals when event occur.
+//  144  *
+//  145  * @param   task_id - Task ID
+//  146  * @param   events  - Bitmap of events
+//  147  *
+//  148  * @return  none
+//  149  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  150 UINT16 StubAPS_ProcessEvent( uint8 task_id, uint16 events )
+StubAPS_ProcessEvent:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function StubAPS_ProcessEvent
+        CODE
+//  151 {
+        FUNCALL StubAPS_ProcessEvent, StubAPS_SetNewChannel
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_ProcessEvent, ZMacSetReq
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_ProcessEvent, nwk_setStateIdle
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_ProcessEvent, osal_msg_allocate
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_ProcessEvent, osal_msg_send
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_ProcessEvent, INTERP_DataIndication
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_ProcessEvent, osal_msg_deallocate
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_ProcessEvent, osal_msg_receive
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_ProcessEvent, INTERP_DataConfirm
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        MOV       A,#-0xc
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 12)
+        ; Saved register size: 12
+        ; Auto size: 1
+        MOV       A,#-0x1
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 13)
+        MOV       ?V0,R2
+        MOV       ?V1,R3
+//  152   (void)task_id; // Intentionally unreferenced parameter
+//  153   
+//  154   if ( events & SYS_EVENT_MSG )
+        MOV       A,R3
+        ANL       A,#0x80
+        JNZ       ??StubAPS_ProcessEvent_0
+//  155   {
+//  156     osal_event_hdr_t *msg_ptr;
+//  157 
+//  158     while ( (msg_ptr = (osal_event_hdr_t *)osal_msg_receive( StubAPS_TaskID )) != NULL )
+//  159     {
+//  160       if ( msg_ptr->event == MAC_MCPS_DATA_CNF )
+//  161       {
+//  162         INTERP_DataConfirm( (ZMacDataCnf_t *)msg_ptr );
+//  163       }
+//  164       else if ( msg_ptr->event == MAC_MCPS_DATA_IND )
+//  165       {
+//  166         INTERP_DataIndication( (macMcpsDataInd_t *)msg_ptr );
+//  167       }
+//  168       
+//  169       osal_msg_deallocate( (uint8 *)msg_ptr );
+//  170     }
+//  171     
+//  172     // Return unproccessed events
+//  173     return ( events ^ SYS_EVENT_MSG );
+//  174   }
+//  175 
+//  176   if ( events & CHANNEL_CHANGE_EVT )
+        MOV       A,R2
+        MOV       C,0xE0 /* A   */.0
+        JNC       ??StubAPS_ProcessEvent_1
+//  177   {
+//  178     // try to change to the new channel
+//  179     ZStatus_t status = StubAPS_SetNewChannel( newChannel );
+        ; Setup parameters for call to function StubAPS_SetNewChannel
+        MOV       DPTR,#newChannel
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??StubAPS_SetNewChannel::?relay`; Banked call to: StubAPS_SetNewChannel
+        MOV       A,R1
+        MOV       R6,A
+//  180     if ( status != ZSuccess )
+        JZ        ??CrossCallReturnLabel_0
+//  181     {
+//  182       // turn MAC receiver back on
+//  183       uint8 rxOnIdle = true;
+        LCALL     ?Subroutine4 & 0xFFFF
+//  184       ZMacSetReq( ZMacRxOnIdle, &rxOnIdle );
+//  185    
+//  186       // set NWK task to run
+//  187       nwk_setStateIdle( FALSE );
+//  188       
+//  189       channelChangeInProgress = FALSE;
+//  190     }
+//  191     
+//  192     // notify the application
+//  193     StubAPS_NotifyApp( status );
+??CrossCallReturnLabel_0:
+        ; Setup parameters for call to function osal_msg_allocate
+        MOV       R2,#0x2
+        MOV       R3,#0x0
+        LCALL     `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
+        MOV       A,R2
+        ORL       A,R3
+        JZ        ??StubAPS_ProcessEvent_2
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOV       A,#0x33
+        MOVX      @DPTR,A
+        MOV       A,R6
+        INC       DPTR
+        MOVX      @DPTR,A
+        ; Setup parameters for call to function osal_msg_send
+        MOV       DPTR,#appTaskID
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??osal_msg_send::?relay`; Banked call to: osal_msg_send
+//  194     
+//  195     return ( events ^ CHANNEL_CHANGE_EVT );
+??StubAPS_ProcessEvent_2:
+        MOV       A,?V0
+        XRL       A,#0x1
+        MOV       R2,A
+        MOV       R3,?V1
+        SJMP      ??StubAPS_ProcessEvent_3
+//  196   }
+??StubAPS_ProcessEvent_4:
+        MOVX      A,@DPTR
+        XRL       A,#0xd
+        JNZ       ??StubAPS_ProcessEvent_5
+        ; Setup parameters for call to function INTERP_DataIndication
+        LCALL     `??INTERP_DataIndication::?relay`; Banked call to: INTERP_DataIndication
+??StubAPS_ProcessEvent_5:
+        ; Setup parameters for call to function osal_msg_deallocate
+        MOV       R2,?V2
+        MOV       A,R7
+        MOV       R3,A
+        LCALL     `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+??StubAPS_ProcessEvent_0:
+        ; Setup parameters for call to function osal_msg_receive
+        MOV       DPTR,#StubAPS_TaskID
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??osal_msg_receive::?relay`; Banked call to: osal_msg_receive
+        MOV       ?V2,R2
+        MOV       ?V3,R3
+        MOV       R7,?V3
+        MOV       A,R2
+        ORL       A,R7
+        JZ        ??StubAPS_ProcessEvent_6
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOVX      A,@DPTR
+        XRL       A,#0xc
+        JNZ       ??StubAPS_ProcessEvent_4
+        ; Setup parameters for call to function INTERP_DataConfirm
+        LCALL     `??INTERP_DataConfirm::?relay`; Banked call to: INTERP_DataConfirm
+        SJMP      ??StubAPS_ProcessEvent_5
+??StubAPS_ProcessEvent_6:
+        MOV       R2,?V0
+        MOV       A,?V1
+        XRL       A,#0x80
+        MOV       R3,A
+        SJMP      ??StubAPS_ProcessEvent_3
+//  197   
+//  198   // If reach here, the events are unknown
+//  199   // Discard or make more handlers
+//  200   return 0;
+??StubAPS_ProcessEvent_1:
+        MOV       R2,#0x0
+        MOV       R3,#0x0
+??StubAPS_ProcessEvent_3:
+        MOV       A,#0x1
+          CFI EndBlock cfiBlock1
+        REQUIRE ?Subroutine1
+        ; // Fall through to label ?Subroutine1
+//  201 
+//  202 } /* StubAPS_ProcessEvent() */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 13)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI Invalid
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 12)
+          CFI Valid
+        MOV       R7,#0x4
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock2
+//  203 
+//  204 
+//  205 /*********************************************************************
+//  206  * @fn          StubNWK_ParseMsg
+//  207  *
+//  208  * @brief       Call this function to parse an incoming Stub NWK frame.
+//  209  *
+//  210  * @param       buf - pointer incoming message buffer
+//  211  * @param       bufLength - length of incoming message
+//  212  * @param       snff  - pointer Frame Format Parameters
+//  213  *
+//  214  * @return      pointer to network packet, NULL if error
+//  215  */
+//  216 static void StubNWK_ParseMsg( uint8 *buf, uint8 bufLength, NLDE_FrameFormat_t *snff )
+//  217 {
+//  218   uint16 fc;
+//  219 
+//  220   osal_memset( snff, 0, sizeof(NLDE_FrameFormat_t) );
+//  221   
+//  222   snff->bufLength = bufLength;
+//  223 
+//  224   // get the frame control
+//  225   fc = BUILD_UINT16( buf[NWK_HDR_FRAME_CTRL_LSB], buf[NWK_HDR_FRAME_CTRL_MSB] );
+//  226   
+//  227   // parse the frame control
+//  228   NLDE_ParseFrameControl( fc, snff );
+//  229   
+//  230   snff->hdrLen = STUB_NWK_HDR_LEN;
+//  231   
+//  232   // Stub NWK payload
+//  233   snff->nsdu = buf + snff->hdrLen;
+//  234   snff->nsduLength = snff->bufLength - snff->hdrLen;
+//  235 
+//  236 } /* StubNWK_ParseMsg */
+//  237 
+//  238 /*********************************************************************
+//  239  * @fn          StubAPS_ParseMsg
+//  240  *
+//  241  * @brief       Call this function to parse an incoming Stub APS frame.
+//  242  *
+//  243  * @param       naff  - pointer Stub NWK Frame Format Parameters
+//  244  * @param       saff  - pointer Stub APS Format Parameters
+//  245  *
+//  246  * @return      none
+//  247  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  248 static void StubAPS_ParseMsg( NLDE_FrameFormat_t *snff, aps_FrameFormat_t *saff )
+StubAPS_ParseMsg:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function StubAPS_ParseMsg
+        CODE
+//  249 {
+        FUNCALL StubAPS_ParseMsg, osal_memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV       A,#-0xa
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+        MOV       ?V0,R2
+        MOV       ?V1,R3
+        MOV       A,R4
+        MOV       R6,A
+        MOV       A,R5
+        MOV       R7,A
+//  250   uint8 fcb;
+//  251   uint8 *asdu;
+//  252   
+//  253   osal_memset( saff, 0, sizeof(aps_FrameFormat_t) );
+        ; Setup parameters for call to function osal_memset
+        MOV       R4,#0x15
+        MOV       R5,#0x0
+        MOV       R1,#0x0
+        MOV       A,R6
+        MOV       R2,A
+        MOV       A,R7
+        MOV       R3,A
+        LCALL     `??osal_memset::?relay`; Banked call to: osal_memset
+//  254   
+//  255   saff->asduLength = snff->nsduLength;
+        LCALL     ?Subroutine14 & 0xFFFF
+??CrossCallReturnLabel_14:
+        PUSH      A
+          CFI CFA_SP SP+-1
+        MOV       A,R6
+        ADD       A,#0x10
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        POP       A
+          CFI CFA_SP SP+0
+        MOVX      @DPTR,A
+//  256   asdu = snff->nsdu;
+        MOV       A,?V0
+        ADD       A,#0x1d
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V1
+        LCALL     ?Subroutine10 & 0xFFFF
+//  257   saff->macDestAddr = snff->macDstAddr;
+??CrossCallReturnLabel_31:
+        MOV       A,?V0
+        ADD       A,#0xd
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V1
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        MOV       R2,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R3,A
+        MOV       DPL,R6
+        MOV       DPH,R7
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOV       A,R2
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R3
+        MOVX      @DPTR,A
+//  258   
+//  259   // First byte is Frame Control.
+//  260   saff->FrmCtrl = *asdu++;
+        MOV       DPL,R0
+        MOV       DPH,R1
+        MOVX      A,@DPTR
+        MOV       R2,A
+        MOV       DPL,R6
+        MOV       DPH,R7
+        MOVX      @DPTR,A
+        MOV       DPL,R0
+        MOV       DPH,R1
+        INC       DPTR
+        MOV       R0,DPL
+        MOV       R1,DPH
+//  261 
+//  262   fcb = saff->FrmCtrl & APS_FRAME_TYPE_MASK;
+//  263   if ( fcb == STUB_APS_FRAME )
+        MOV       A,#0x3
+        ANL       A,R2
+        XRL       A,#0x3
+        JNZ       ??StubAPS_ParseMsg_0
+//  264   {
+//  265     fcb = saff->FrmCtrl & APS_DELIVERYMODE_MASK;
+        MOV       DPL,R6
+        MOV       DPH,R7
+        MOVX      A,@DPTR
+        ANL       A,#0xc
+        MOV       R2,A
+//  266     if ( fcb == APS_FC_DM_BROADCAST )
+        MOV       A,#0x8
+        XRL       A,R2
+        JNZ       ??StubAPS_ParseMsg_1
+//  267       saff->wasBroadcast = true;
+        LCALL     ?Subroutine15 & 0xFFFF
+??CrossCallReturnLabel_16:
+        MOV       A,#0x1
+        MOVX      @DPTR,A
+        SJMP      ??StubAPS_ParseMsg_2
+//  268     else
+//  269       saff->wasBroadcast = false;
+??StubAPS_ParseMsg_1:
+        LCALL     ?Subroutine15 & 0xFFFF
+??CrossCallReturnLabel_17:
+        CLR       A
+        MOVX      @DPTR,A
+//  270     
+//  271     if ( fcb == APS_FC_DM_GROUP )
+        MOV       A,#0xc
+        XRL       A,R2
+        JNZ       ??StubAPS_ParseMsg_2
+//  272     {
+//  273       saff->GroupID = BUILD_UINT16( asdu[0], asdu[1] );
+        LCALL     ?Subroutine9 & 0xFFFF
+//  274       asdu += sizeof( uint16 );
+//  275     }
+??CrossCallReturnLabel_19:
+        LCALL     ??Subroutine18_0 & 0xFFFF
+??CrossCallReturnLabel_23:
+        JNC       ??StubAPS_ParseMsg_2
+        INC       R1
+//  276     
+//  277     // Pull out the Cluster ID
+//  278     saff->ClusterID = BUILD_UINT16( asdu[0], asdu[1] );
+??StubAPS_ParseMsg_2:
+        LCALL     ?Subroutine9 & 0xFFFF
+??CrossCallReturnLabel_20:
+        LCALL     ?Subroutine7 & 0xFFFF
+//  279     asdu += sizeof( uint16 );
+??CrossCallReturnLabel_21:
+        JNC       ??StubAPS_ParseMsg_3
+        INC       R1
+//  280 
+//  281     // Pull out the profile ID
+//  282     saff->ProfileID = BUILD_UINT16( asdu[0], asdu[1] );
+??StubAPS_ParseMsg_3:
+        MOV       DPL,A
+        LCALL     ??Subroutine17_0 & 0xFFFF
+//  283     asdu += 2;
+//  284   }
+??CrossCallReturnLabel_18:
+        INC       DPTR
+        INC       DPTR
+        LCALL     ?Subroutine7 & 0xFFFF
+??CrossCallReturnLabel_22:
+        JNC       ??StubAPS_ParseMsg_0
+        INC       R1
+//  285   
+//  286   saff->asdu = asdu;
+??StubAPS_ParseMsg_0:
+        MOV       A,R6
+        ADD       A,#0xe
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        MOV       A,R0
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R1
+        MOVX      @DPTR,A
+        MOV       A,R6
+        ADD       A,#0x10
+        MOV       R2,A
+        CLR       A
+        ADDC      A,R7
+        MOV       R3,A
+        MOV       A,?V0
+        ADD       A,#0x1d
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V1
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        MOV       R4,A
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOVX      A,@DPTR
+        CLR       C
+        SUBB      A,R0
+        ADD       A,R4
+        MOV       R0,A
+        MOVX      @DPTR,A
+//  287   saff->asduLength -= (uint8) (asdu - snff->nsdu);
+//  288   saff->apsHdrLen = snff->nsduLength - saff->asduLength;
+        LCALL     ?Subroutine14 & 0xFFFF
+??CrossCallReturnLabel_15:
+        CLR       C
+        SUBB      A,R0
+        PUSH      A
+          CFI CFA_SP SP+-1
+        MOV       A,R6
+        ADD       A,#0xd
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        POP       A
+          CFI CFA_SP SP+0
+        MOVX      @DPTR,A
+//  289   
+//  290 } /* StubAPS_ParseMsg */
+        MOV       R7,#0x2
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock3
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine15:
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI Function StubAPS_ParseMsg
+          CFI Conditional ??CrossCallReturnLabel_16
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond5 Using cfiCommon0
+          CFI (cfiCond5) Function StubAPS_ParseMsg
+          CFI (cfiCond5) Conditional ??CrossCallReturnLabel_17
+          CFI (cfiCond5) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond5) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond5) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond5) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond5) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond5) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond5) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond5) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond5) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond5) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond5) CFA_SP SP+-2
+          CFI (cfiCond5) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker6 Using cfiCommon1
+          CFI (cfiPicker6) NoFunction
+          CFI (cfiPicker6) Picker
+        MOV       A,R6
+        ADD       A,#0xc
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        RET
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiCond5
+          CFI EndBlock cfiPicker6
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine14:
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI Function StubAPS_ParseMsg
+          CFI Conditional ??CrossCallReturnLabel_14
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI (cfiCond8) Function StubAPS_ParseMsg
+          CFI (cfiCond8) Conditional ??CrossCallReturnLabel_15
+          CFI (cfiCond8) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond8) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond8) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond8) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond8) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond8) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond8) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond8) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond8) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond8) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond8) CFA_SP SP+-2
+          CFI (cfiCond8) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker9 Using cfiCommon1
+          CFI (cfiPicker9) NoFunction
+          CFI (cfiPicker9) Picker
+        MOV       A,?V0
+        ADD       A,#0x17
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V1
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        RET
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiPicker9
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine9:
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI Function StubAPS_ParseMsg
+          CFI Conditional ??CrossCallReturnLabel_19
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond11 Using cfiCommon0
+          CFI (cfiCond11) Function StubAPS_ParseMsg
+          CFI (cfiCond11) Conditional ??CrossCallReturnLabel_20
+          CFI (cfiCond11) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond11) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond11) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond11) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond11) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond11) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond11) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond11) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond11) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond11) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond11) CFA_SP SP+-2
+          CFI (cfiCond11) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker12 Using cfiCommon1
+          CFI (cfiPicker12) NoFunction
+          CFI (cfiPicker12) Picker
+        MOV       DPL,R0
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiCond11
+          CFI EndBlock cfiPicker12
+        REQUIRE ??Subroutine17_0
+        ; // Fall through to label ??Subroutine17_0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+??Subroutine17_0:
+          CFI Block cfiCond13 Using cfiCommon0
+          CFI Function StubAPS_ParseMsg
+          CFI Conditional ??CrossCallReturnLabel_18
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI (cfiCond14) Function StubAPS_ParseMsg
+          CFI (cfiCond14) Conditional ??CrossCallReturnLabel_19
+          CFI (cfiCond14) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond14) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond14) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond14) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond14) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond14) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond14) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond14) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond14) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond14) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond14) CFA_SP SP+-2
+          CFI (cfiCond14) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond15 Using cfiCommon0
+          CFI (cfiCond15) Function StubAPS_ParseMsg
+          CFI (cfiCond15) Conditional ??CrossCallReturnLabel_20
+          CFI (cfiCond15) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond15) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond15) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond15) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond15) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond15) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond15) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond15) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond15) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond15) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond15) CFA_SP SP+-2
+          CFI (cfiCond15) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker16 Using cfiCommon1
+          CFI (cfiPicker16) NoFunction
+          CFI (cfiPicker16) Picker
+        MOV       DPH,R1
+        MOVX      A,@DPTR
+        MOV       R4,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R3,A
+        MOV       A,R4
+        MOV       DPL,R6
+        MOV       DPH,R7
+        RET
+          CFI EndBlock cfiCond13
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiCond15
+          CFI EndBlock cfiPicker16
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine7:
+          CFI Block cfiCond17 Using cfiCommon0
+          CFI Function StubAPS_ParseMsg
+          CFI Conditional ??CrossCallReturnLabel_21
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond18 Using cfiCommon0
+          CFI (cfiCond18) Function StubAPS_ParseMsg
+          CFI (cfiCond18) Conditional ??CrossCallReturnLabel_22
+          CFI (cfiCond18) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond18) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond18) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond18) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond18) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond18) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond18) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond18) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond18) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond18) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond18) CFA_SP SP+-2
+          CFI (cfiCond18) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker19 Using cfiCommon1
+          CFI (cfiPicker19) NoFunction
+          CFI (cfiPicker19) Picker
+        INC       DPTR
+        INC       DPTR
+          CFI EndBlock cfiCond17
+          CFI EndBlock cfiCond18
+          CFI EndBlock cfiPicker19
+        REQUIRE ??Subroutine18_0
+        ; // Fall through to label ??Subroutine18_0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+??Subroutine18_0:
+          CFI Block cfiCond20 Using cfiCommon0
+          CFI Function StubAPS_ParseMsg
+          CFI Conditional ??CrossCallReturnLabel_23
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond21 Using cfiCommon0
+          CFI (cfiCond21) Function StubAPS_ParseMsg
+          CFI (cfiCond21) Conditional ??CrossCallReturnLabel_21
+          CFI (cfiCond21) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond21) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond21) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond21) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond21) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond21) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond21) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond21) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond21) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond21) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond21) CFA_SP SP+-2
+          CFI (cfiCond21) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond22 Using cfiCommon0
+          CFI (cfiCond22) Function StubAPS_ParseMsg
+          CFI (cfiCond22) Conditional ??CrossCallReturnLabel_22
+          CFI (cfiCond22) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond22) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond22) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond22) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond22) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond22) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond22) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond22) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond22) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond22) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond22) CFA_SP SP+-2
+          CFI (cfiCond22) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker23 Using cfiCommon1
+          CFI (cfiPicker23) NoFunction
+          CFI (cfiPicker23) Picker
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R3
+        MOVX      @DPTR,A
+        MOV       A,R0
+        ADD       A,#0x2
+        MOV       R0,A
+        RET
+          CFI EndBlock cfiCond20
+          CFI EndBlock cfiCond21
+          CFI EndBlock cfiCond22
+          CFI EndBlock cfiPicker23
+//  291 
+//  292 /******************************************************************************
+//  293  * @fn          StubAPS_BuildFrameControl
+//  294  *
+//  295  * @brief       This function builds Stub APS Frame Control and the destination
+//  296  *              address parameter for the MCPS-DATA Request.
+//  297  *
+//  298  * @param       frmCtrl - frame control
+//  299  * @param       dstAddr - destination address for MCPS-DATA Request
+//  300  * @param       groupID - group id
+//  301  * @param       req - APSDE_DataReq_t
+//  302  *
+//  303  * @return      ZStatus_t
+//  304  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  305 static ZStatus_t StubAPS_BuildFrameControl( uint8 *frmCtrl, zAddrType_t *dstAddr, 
+StubAPS_BuildFrameControl:
+          CFI Block cfiBlock24 Using cfiCommon0
+          CFI Function StubAPS_BuildFrameControl
+        CODE
+//  306                                             uint16 *groupID, APSDE_DataReq_t *req )
+//  307 { 
+        FUNCALL StubAPS_BuildFrameControl, sAddrExtCpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R2
+        MOV       R0,A
+        MOV       A,R3
+        MOV       R1,A
+        MOV       A,R4
+        MOV       R2,A
+        MOV       A,R5
+        MOV       R3,A
+        MOV       A,#0xb
+        LCALL     ?XSTACK_DISP0_8
+        LCALL     ?Subroutine11 & 0xFFFF
+//  308   // Security
+//  309   if ( req->txOptions & APS_TX_OPTIONS_SECURITY_ENABLE )
+??CrossCallReturnLabel_6:
+        MOV       A,R4
+        ADD       A,#0x15
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R5
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        ANL       A,#0xd
+        JNZ       ??StubAPS_BuildFrameControl_0
+//  310     return ( ZApsNotSupported );
+//  311     
+//  312   // Ack request
+//  313   if ( req->txOptions & APS_TX_OPTIONS_ACK )
+//  314     return ( ZApsNotSupported );
+//  315   
+//  316    // Fragmentation
+//  317   if ( req->txOptions & APS_TX_OPTIONS_PERMIT_FRAGMENT )
+//  318     return ( ZApsNotSupported );
+//  319   
+//  320   // set delivery mode
+//  321   if ( req->dstAddr.addrMode == AddrNotPresent )
+        MOV       DPL,R4
+        MOV       DPH,R5
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        JNZ       ??StubAPS_BuildFrameControl_1
+//  322     return ( ZApsNotSupported ); // No REFLECTOR
+??StubAPS_BuildFrameControl_0:
+        MOV       R1,#-0x4a
+        LJMP      ??StubAPS_BuildFrameControl_2 & 0xFFFF
+//  323 
+//  324   // set frame type
+//  325   *frmCtrl = STUB_APS_FRAME;
+??StubAPS_BuildFrameControl_1:
+        MOV       DPL,R0
+        MOV       DPH,R1
+        MOV       A,#0x3
+        MOVX      @DPTR,A
+//  326   
+//  327   // set DstAddrMode of MCPS-DATA Request to DstAddrMode of INTERP-Data Request
+//  328   dstAddr->addrMode = req->dstAddr.addrMode;
+        MOV       A,R4
+        ADD       A,#0x8
+        MOV       R6,A
+        CLR       A
+        ADDC      A,R5
+        MOV       R7,A
+        MOV       DPL,R6
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      @DPTR,A
+//  329 
+//  330   // set DstAddr of MCPS-DATA Request to DstAddr of INTERP-Data Request
+//  331   if ( req->dstAddr.addrMode == AddrBroadcast )
+        MOV       DPL,R6
+        MOV       DPH,R7
+        MOVX      A,@DPTR
+        XRL       A,#0xf
+        JNZ       ??StubAPS_BuildFrameControl_3
+//  332   {
+//  333     *frmCtrl |= APS_FC_DM_BROADCAST;
+        MOV       DPL,R0
+        MOV       DPH,R1
+        MOVX      A,@DPTR
+        SETB      0xE0 /* A   */.3
+        LCALL     ?Subroutine6 & 0xFFFF
+//  334     
+//  335     // set DstAddrMode of MCPS-DATA Request to short address
+//  336     dstAddr->addrMode = Addr16Bit;
+//  337     dstAddr->addr.shortAddr = req->dstAddr.addr.shortAddr;
+??CrossCallReturnLabel_2:
+        MOV       DPL,R4
+        MOV       DPH,R5
+        SJMP      ??StubAPS_BuildFrameControl_4
+//  338   }
+//  339   else if ( req->dstAddr.addrMode == Addr16Bit )
+??StubAPS_BuildFrameControl_3:
+        MOV       DPL,R4
+        MOV       DPH,R5
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        XRL       A,#0x2
+        MOV       DPL,R4
+        MOV       DPH,R5
+        JNZ       ??StubAPS_BuildFrameControl_5
+//  340   {
+//  341     *frmCtrl |= APS_FC_DM_UNICAST;
+//  342     dstAddr->addr.shortAddr = req->dstAddr.addr.shortAddr;
+??StubAPS_BuildFrameControl_4:
+        LCALL     ??Subroutine21_0 & 0xFFFF
+??CrossCallReturnLabel_29:
+        MOV       DPL,R2
+        MOV       DPH,R3
+        SJMP      ??StubAPS_BuildFrameControl_6
+//  343   }
+//  344   else if ( req->dstAddr.addrMode == Addr64Bit )
+??StubAPS_BuildFrameControl_5:
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        XRL       A,#0x3
+        JNZ       ??StubAPS_BuildFrameControl_7
+//  345   {
+//  346     *frmCtrl |= APS_FC_DM_UNICAST;
+//  347     osal_cpyExtAddr( dstAddr->addr.extAddr, req->dstAddr.addr.extAddr );
+        ; Setup parameters for call to function sAddrExtCpy
+        LCALL     `??sAddrExtCpy::?relay`; Banked call to: sAddrExtCpy
+        SJMP      ??StubAPS_BuildFrameControl_8
+//  348   }
+//  349   else if ( req->dstAddr.addrMode == AddrGroup )
+??StubAPS_BuildFrameControl_7:
+        MOV       DPL,R4
+        MOV       DPH,R5
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        XRL       A,#0x1
+        JNZ       ??StubAPS_BuildFrameControl_8
+//  350   {
+//  351     *frmCtrl |= APS_FC_DM_GROUP;
+        MOV       DPL,R0
+        MOV       DPH,R1
+        MOVX      A,@DPTR
+        ORL       A,#0xc
+        LCALL     ?Subroutine6 & 0xFFFF
+//  352     
+//  353     // set DstAddrMode of MCPS-DATA Request to short address
+//  354     dstAddr->addrMode = Addr16Bit;
+//  355     
+//  356     // set DstAddr of MCPS-DATA Request to 0xFFFF
+//  357     dstAddr->addr.shortAddr = NWK_BROADCAST_SHORTADDR_DEVALL;
+??CrossCallReturnLabel_3:
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOV       A,#-0x1
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      @DPTR,A
+//  358     
+//  359     // set Group ID to DstAddr of INTERP-Data Request
+//  360     *groupID = req->dstAddr.addr.shortAddr;
+        MOV       DPL,R4
+        MOV       DPH,R5
+        LCALL     ??Subroutine21_0 & 0xFFFF
+//  361   }
+??CrossCallReturnLabel_30:
+        MOV       A,#0x9
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       R2,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       DPH,A
+        MOV       DPL,R2
+??StubAPS_BuildFrameControl_6:
+        MOV       A,R0
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R1
+        MOVX      @DPTR,A
+//  362   
+//  363   return ( ZSuccess );
+??StubAPS_BuildFrameControl_8:
+        MOV       R1,#0x0
+??StubAPS_BuildFrameControl_2:
+          CFI EndBlock cfiBlock24
+        REQUIRE ?Subroutine2
+        ; // Fall through to label ?Subroutine2
+//  364   
+//  365 } /* StubAPS_BuildFrameControl */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiBlock25 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV       R7,#0x1
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock25
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine6:
+          CFI Block cfiCond26 Using cfiCommon0
+          CFI Function StubAPS_BuildFrameControl
+          CFI Conditional ??CrossCallReturnLabel_2
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiCond27 Using cfiCommon0
+          CFI (cfiCond27) Function StubAPS_BuildFrameControl
+          CFI (cfiCond27) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond27) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond27) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond27) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond27) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond27) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond27) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond27) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond27) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond27) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond27) CFA_SP SP+-2
+          CFI (cfiCond27) CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiPicker28 Using cfiCommon1
+          CFI (cfiPicker28) NoFunction
+          CFI (cfiPicker28) Picker
+        MOVX      @DPTR,A
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOV       A,#0x2
+        MOVX      @DPTR,A
+        RET
+          CFI EndBlock cfiCond26
+          CFI EndBlock cfiCond27
+          CFI EndBlock cfiPicker28
+//  366 
+//  367 /******************************************************************************
+//  368  * @fn          StubNWK_BuildMsg
+//  369  *
+//  370  * @brief       This function builds a Stub NWK frame.
+//  371  *
+//  372  * @param       nwkHdr - stub NWK header
+//  373  *
+//  374  * @return      none
+//  375  */
+//  376 static void StubNWK_BuildMsg( uint8 *nwkHdr )
+//  377 {
+//  378   uint16 frmCtrl = 0;
+//  379   uint8  protoVer = NLME_GetProtocolVersion();
+//  380 
+//  381   // frame type
+//  382   frmCtrl |= (STUB_NWK_FRAME_TYPE << NWK_FC_FRAME_TYPE);
+//  383 
+//  384   // protocol version
+//  385   frmCtrl |= (protoVer << NWK_FC_PROT_VERSION);
+//  386   
+//  387   // set Stub NWK header
+//  388   *nwkHdr++ = LO_UINT16( frmCtrl );
+//  389   *nwkHdr++ = HI_UINT16( frmCtrl );
+//  390   
+//  391 } /* StubNWK_BuildMsg */
+//  392 
+//  393 /******************************************************************************
+//  394  * @fn          StubAPS_BuildMsg
+//  395  *
+//  396  * @brief       This function builds a Stub APS frame.
+//  397  *
+//  398  * @param       apsHdr - stub APS header
+//  399  * @param       frmCtrl - stub APS frame control
+//  400  * @param       groupID - group id
+//  401  * @param       req - APSDE_DataReq_t
+//  402  *
+//  403  * @return      none
+//  404  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  405 static void StubAPS_BuildMsg( uint8 *apsHdr, uint8 frmCtrl, uint16 groupID, APSDE_DataReq_t *req )
+StubAPS_BuildMsg:
+          CFI Block cfiBlock29 Using cfiCommon0
+          CFI Function StubAPS_BuildMsg
+        CODE
+//  406 {
+        FUNCALL StubAPS_BuildMsg, osal_memcpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        MOV       A,#-0xb
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 11)
+        ; Saved register size: 11
+        ; Auto size: 0
+        MOV       A,R1
+        MOV       R6,A
+//  407   // add frame type
+//  408   *apsHdr++ = frmCtrl;
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       R2,DPL
+        MOV       R3,DPH
+//  409     
+//  410   // add Group ID
+//  411   if ( ( frmCtrl & APS_DELIVERYMODE_MASK ) == APS_FC_DM_GROUP )
+        MOV       A,#0xc
+        ANL       A,R6
+        XRL       A,#0xc
+        JNZ       ??StubAPS_BuildMsg_0
+//  412   {
+//  413     *apsHdr++ = LO_UINT16( groupID );
+        MOV       A,R4
+        MOVX      @DPTR,A
+//  414     *apsHdr++ = HI_UINT16( groupID );
+        MOV       A,R5
+        INC       DPTR
+        MOVX      @DPTR,A
+        MOV       A,R2
+        ADD       A,#0x2
+        MOV       R2,A
+        JNC       ??StubAPS_BuildMsg_0
+        INC       R3
+??StubAPS_BuildMsg_0:
+        MOV       A,#0xb
+        LCALL     ?XSTACK_DISP0_8
+//  415   }
+        LCALL     ?Subroutine11 & 0xFFFF
+//  416 
+//  417   // add clusterID
+//  418   *apsHdr++ = LO_UINT16( req->clusterID );
+??CrossCallReturnLabel_7:
+        MOV       A,R4
+        ADD       A,#0xd
+        LCALL     ?Subroutine13 & 0xFFFF
+??CrossCallReturnLabel_12:
+        LCALL     ?Subroutine8 & 0xFFFF
+//  419   *apsHdr++ = HI_UINT16( req->clusterID );
+??CrossCallReturnLabel_4:
+        MOVX      @DPTR,A
+//  420   
+//  421   // add profile ID
+//  422   *apsHdr++ = LO_UINT16( req->profileID );
+        MOV       A,R4
+        ADD       A,#0xf
+        LCALL     ?Subroutine13 & 0xFFFF
+??CrossCallReturnLabel_13:
+        INC       DPTR
+        INC       DPTR
+        LCALL     ?Subroutine8 & 0xFFFF
+//  423   *apsHdr++ = HI_UINT16( req->profileID );
+??CrossCallReturnLabel_5:
+        INC       DPTR
+        INC       DPTR
+        MOVX      @DPTR,A
+//  424     
+//  425   // copy ASDU data into frame
+//  426   osal_memcpy ( apsHdr, req->asdu, req->asduLen );
+        ; Setup parameters for call to function osal_memcpy
+        MOV       A,R4
+        ADD       A,#0x13
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R5
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        MOV       ?V0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       ?V1,A
+        MOV       ?V2,#0x0
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_THREE
+          CFI CFA_XSP16 add(XSP16, 14)
+        MOV       A,R4
+        ADD       A,#0x11
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R5
+        MOV       DPH,A
+        LCALL     ?Subroutine11 & 0xFFFF
+??CrossCallReturnLabel_8:
+        MOV       A,R2
+        ADD       A,#0x4
+        MOV       R2,A
+        JNC       ??StubAPS_BuildMsg_1
+        INC       R3
+??StubAPS_BuildMsg_1:
+        LCALL     `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+        MOV       A,#0x3
+          CFI EndBlock cfiBlock29
+        REQUIRE ?Subroutine3
+        ; // Fall through to label ?Subroutine3
+//  427   
+//  428 } /* StubAPS_BuildMsg */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiBlock30 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 14)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI Invalid
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 11)
+          CFI Valid
+        MOV       R7,#0x3
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock30
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine13:
+          CFI Block cfiCond31 Using cfiCommon0
+          CFI Function StubAPS_BuildMsg
+          CFI Conditional ??CrossCallReturnLabel_12
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiCond32 Using cfiCommon0
+          CFI (cfiCond32) Function StubAPS_BuildMsg
+          CFI (cfiCond32) Conditional ??CrossCallReturnLabel_13
+          CFI (cfiCond32) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond32) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond32) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond32) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond32) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond32) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond32) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond32) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond32) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond32) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond32) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond32) CFA_SP SP+-2
+          CFI (cfiCond32) CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiPicker33 Using cfiCommon1
+          CFI (cfiPicker33) NoFunction
+          CFI (cfiPicker33) Picker
+        MOV       R0,A
+        CLR       A
+        ADDC      A,R5
+        MOV       R1,A
+        MOV       DPL,R0
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        MOV       DPL,R2
+        MOV       DPH,R3
+        RET
+          CFI EndBlock cfiCond31
+          CFI EndBlock cfiCond32
+          CFI EndBlock cfiPicker33
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine11:
+          CFI Block cfiCond34 Using cfiCommon0
+          CFI Function StubAPS_BuildFrameControl
+          CFI Conditional ??CrossCallReturnLabel_6
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiCond35 Using cfiCommon0
+          CFI (cfiCond35) Function StubAPS_BuildMsg
+          CFI (cfiCond35) Conditional ??CrossCallReturnLabel_7
+          CFI (cfiCond35) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond35) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond35) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond35) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond35) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond35) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond35) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond35) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond35) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond35) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond35) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond35) CFA_SP SP+-2
+          CFI (cfiCond35) CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiCond36 Using cfiCommon0
+          CFI (cfiCond36) Function StubAPS_BuildMsg
+          CFI (cfiCond36) Conditional ??CrossCallReturnLabel_8
+          CFI (cfiCond36) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond36) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond36) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond36) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond36) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond36) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond36) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond36) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond36) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond36) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond36) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond36) CFA_SP SP+-2
+          CFI (cfiCond36) CFA_XSP16 add(XSP16, 14)
+          CFI Block cfiCond37 Using cfiCommon0
+          CFI (cfiCond37) Function INTERP_DataReq
+          CFI (cfiCond37) Conditional ??CrossCallReturnLabel_9
+          CFI (cfiCond37) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond37) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond37) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond37) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond37) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond37) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond37) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond37) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond37) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond37) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond37) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond37) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond37) CFA_SP SP+-2
+          CFI (cfiCond37) CFA_XSP16 add(XSP16, 47)
+          CFI Block cfiPicker38 Using cfiCommon1
+          CFI (cfiPicker38) NoFunction
+          CFI (cfiPicker38) Picker
+        MOVX      A,@DPTR
+        MOV       R4,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R5,A
+        RET
+          CFI EndBlock cfiCond34
+          CFI EndBlock cfiCond35
+          CFI EndBlock cfiCond36
+          CFI EndBlock cfiCond37
+          CFI EndBlock cfiPicker38
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine8:
+          CFI Block cfiCond39 Using cfiCommon0
+          CFI Function StubAPS_BuildMsg
+          CFI Conditional ??CrossCallReturnLabel_4
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiCond40 Using cfiCommon0
+          CFI (cfiCond40) Function StubAPS_BuildMsg
+          CFI (cfiCond40) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond40) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond40) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond40) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond40) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond40) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond40) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond40) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond40) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond40) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond40) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond40) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond40) CFA_SP SP+-2
+          CFI (cfiCond40) CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiPicker41 Using cfiCommon1
+          CFI (cfiPicker41) NoFunction
+          CFI (cfiPicker41) Picker
+        MOVX      @DPTR,A
+        MOV       DPL,R0
+        MOV       DPH,R1
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        RET
+          CFI EndBlock cfiCond39
+          CFI EndBlock cfiCond40
+          CFI EndBlock cfiPicker41
+//  429 
+//  430 /******************************************************************************
+//  431  * @fn          StubAPS_setNewChannel
+//  432  *
+//  433  * @brief       This function changes the device's channel.
+//  434  *
+//  435  * @param       none
+//  436  *
+//  437  * @return      ZStatus_t
+//  438  */ 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  439 static ZStatus_t StubAPS_SetNewChannel( uint8 channel )
+StubAPS_SetNewChannel:
+          CFI Block cfiBlock42 Using cfiCommon0
+          CFI Function StubAPS_SetNewChannel
+        CODE
+//  440 {
+        FUNCALL StubAPS_SetNewChannel, nwkDB_CountTypes
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetNewChannel, ZMacStateIdle
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetNewChannel, ZMacSetReq
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetNewChannel, ZMacSetReq
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 2
+        MOV       A,#-0x2
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 2)
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,R1
+        MOVX      @DPTR,A
+//  441   uint8 rxOnIdle;
+//  442   
+//  443   // make sure MAC has nothing to transmit
+//  444   if ( ( nwkDB_CountTypes( NWK_DATABUF_SENT ) == 0 ) && ZMacStateIdle() )
+        ; Setup parameters for call to function nwkDB_CountTypes
+        MOV       R1,#0x2
+        LCALL     `??nwkDB_CountTypes::?relay`; Banked call to: nwkDB_CountTypes
+        MOV       A,R1
+        JNZ       ??StubAPS_SetNewChannel_0
+        ; Setup parameters for call to function ZMacStateIdle
+        LCALL     `??ZMacStateIdle::?relay`; Banked call to: ZMacStateIdle
+        MOV       A,R1
+        JZ        ??StubAPS_SetNewChannel_0
+//  445   {
+//  446     // set the new channel
+//  447     ZMacSetReq( ZMacChannel, &channel );
+        ; Setup parameters for call to function ZMacSetReq
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP101_8
+        MOV       R1,#-0x1f
+        LCALL     `??ZMacSetReq::?relay`; Banked call to: ZMacSetReq
+//  448 
+//  449     // turn MAC receiver back on
+//  450     rxOnIdle = true;
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       A,#0x1
+        LCALL     ??Subroutine19_0 & 0xFFFF
+//  451     ZMacSetReq( ZMacRxOnIdle, &rxOnIdle );
+//  452   
+//  453     channelChangeInProgress = FALSE;
+??CrossCallReturnLabel_26:
+        MOV       DPTR,#channelChangeInProgress
+        CLR       A
+        MOVX      @DPTR,A
+//  454     
+//  455     return ( ZSuccess );
+        MOV       R1,A
+        SJMP      ??StubAPS_SetNewChannel_1
+//  456   }
+//  457   
+//  458   return ( ZFailure );
+??StubAPS_SetNewChannel_0:
+        MOV       R1,#0x1
+??StubAPS_SetNewChannel_1:
+        LJMP      ?Subroutine0 & 0xFFFF
+//  459   
+//  460 } /* StubAPS_setNewChannel */
+          CFI EndBlock cfiBlock42
+//  461 
+//  462 
+//  463 /******************************************************************************
+//  464  * @fn          StubAPS_NotifyApp
+//  465  *
+//  466  * @brief       This function sends an OSAL message to the Application task.
+//  467  *
+//  468  * @param       status - command status
+//  469  *
+//  470  * @return      none
+//  471  */
+//  472 static void StubAPS_NotifyApp( uint8 status )
+//  473 {
+//  474   osal_event_hdr_t *msgPtr;
+//  475   
+//  476   // Notify the application task
+//  477   msgPtr = (osal_event_hdr_t *)osal_msg_allocate( sizeof(osal_event_hdr_t) );
+//  478   if ( msgPtr )
+//  479   {
+//  480     msgPtr->event = SAPS_CHANNEL_CHANGE;
+//  481     msgPtr->status = status;
+//  482     
+//  483     osal_msg_send( appTaskID, (uint8 *)msgPtr );
+//  484   }
+//  485   
+//  486 } /* StubAPS_NotifyApp */
+//  487 
+//  488 /******************************************************************************
+//  489  *
+//  490  *  External APIs provided to the Application.
+//  491  */
+//  492 
+//  493 /******************************************************************************
+//  494  * @fn          StubAPS_SetInterPanChannel
+//  495  *
+//  496  * @brief       This function changes the device's channel for inter-PAN communication.
+//  497  *
+//  498  * @param       channel - new channel
+//  499  *
+//  500  * @return      ZStatus_t
+//  501  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  502 ZStatus_t StubAPS_SetInterPanChannel( uint8 channel )
+StubAPS_SetInterPanChannel:
+          CFI Block cfiBlock43 Using cfiCommon0
+          CFI Function StubAPS_SetInterPanChannel
+        CODE
+//  503 {
+        FUNCALL StubAPS_SetInterPanChannel, ZMacGetReq
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetInterPanChannel, nwk_setStateIdle
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetInterPanChannel, ZMacSetReq
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetInterPanChannel, StubAPS_SetNewChannel
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetInterPanChannel, osal_start_timerEx
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 2
+        MOV       A,#-0x2
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 11)
+        MOV       A,R1
+        MOV       R6,A
+//  504   uint8 currChannel;
+//  505   uint8 rxOnIdle;
+//  506   
+//  507   if ( channelChangeInProgress )
+        MOV       DPTR,#channelChangeInProgress
+        MOVX      A,@DPTR
+        JZ        ??StubAPS_SetInterPanChannel_0
+//  508     return ( ZFailure );
+        MOV       R1,#0x1
+        SJMP      ??StubAPS_SetInterPanChannel_1
+//  509 
+//  510   ZMacGetReq( ZMacChannel, &currChannel );
+??StubAPS_SetInterPanChannel_0:
+        ; Setup parameters for call to function ZMacGetReq
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP101_8
+        MOV       R1,#-0x1f
+        LCALL     `??ZMacGetReq::?relay`; Banked call to: ZMacGetReq
+//  511   if ( currChannel == channel )
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        XRL       A,R6
+        JZ        ??StubAPS_SetInterPanChannel_2
+//  512   {
+//  513     // inter PANs communication within the same channel
+//  514     return ( ZSuccess );
+//  515   }
+//  516   
+//  517   // go into channel transition state
+//  518   channelChangeInProgress = TRUE;
+        MOV       DPTR,#channelChangeInProgress
+        MOV       A,#0x1
+        MOVX      @DPTR,A
+//  519   
+//  520   // set NWK task to idle
+//  521   nwk_setStateIdle( TRUE );
+        ; Setup parameters for call to function nwk_setStateIdle
+        MOV       R1,A
+        LCALL     `??nwk_setStateIdle::?relay`; Banked call to: nwk_setStateIdle
+//  522   
+//  523   // turn MAC receiver off
+//  524   rxOnIdle = false;
+        LCALL     ?Subroutine5 & 0xFFFF
+//  525   ZMacSetReq( ZMacRxOnIdle, &rxOnIdle );
+//  526 
+//  527   // try to change to the new channel
+//  528   if ( StubAPS_SetNewChannel( channel ) == ZSuccess )
+??CrossCallReturnLabel_24:
+        ; Setup parameters for call to function StubAPS_SetNewChannel
+        MOV       A,R6
+        MOV       R1,A
+        LCALL     `??StubAPS_SetNewChannel::?relay`; Banked call to: StubAPS_SetNewChannel
+        MOV       A,R1
+        JNZ       ??StubAPS_SetInterPanChannel_3
+//  529     return ( ZSuccess );
+??StubAPS_SetInterPanChannel_2:
+        MOV       R1,#0x0
+        SJMP      ??StubAPS_SetInterPanChannel_1
+//  530     
+//  531   // save the new channel for retry
+//  532   newChannel = channel;
+??StubAPS_SetInterPanChannel_3:
+        MOV       A,R6
+        MOV       DPTR,#newChannel
+        MOVX      @DPTR,A
+//  533   
+//  534   // ask StubAPS task to retry it later
+//  535   osal_start_timerEx( StubAPS_TaskID, CHANNEL_CHANGE_EVT, CHANNEL_CHANGE_RETRY_TIMEOUT );
+        ; Setup parameters for call to function osal_start_timerEx
+        MOV       R4,#0x64
+        MOV       R5,#0x0
+        MOV       R2,#0x1
+        MOV       R3,#0x0
+        MOV       DPTR,#StubAPS_TaskID
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+//  536     
+//  537   return ( ZApsNotAllowed );
+        MOV       R1,#-0x46
+??StubAPS_SetInterPanChannel_1:
+        MOV       A,#0x2
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 9)
+        LJMP      ?Subroutine2 & 0xFFFF
+//  538   
+//  539 } /* StubAPS_SetInterPanChannel */
+          CFI EndBlock cfiBlock43
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine5:
+          CFI Block cfiCond44 Using cfiCommon0
+          CFI Function StubAPS_SetInterPanChannel
+          CFI Conditional ??CrossCallReturnLabel_24
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiCond45 Using cfiCommon0
+          CFI (cfiCond45) Function StubAPS_SetIntraPanChannel
+          CFI (cfiCond45) Conditional ??CrossCallReturnLabel_25
+          CFI (cfiCond45) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond45) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond45) CFA_SP SP+-7
+          CFI (cfiCond45) CFA_XSP16 add(XSP16, 2)
+          CFI Block cfiPicker46 Using cfiCommon1
+          CFI (cfiPicker46) NoFunction
+          CFI (cfiPicker46) Picker
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        CLR       A
+          CFI EndBlock cfiCond44
+          CFI EndBlock cfiCond45
+          CFI EndBlock cfiPicker46
+        REQUIRE ??Subroutine19_0
+        ; // Fall through to label ??Subroutine19_0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+??Subroutine19_0:
+          CFI Block cfiCond47 Using cfiCommon0
+          CFI Function StubAPS_SetNewChannel
+          CFI Conditional ??CrossCallReturnLabel_26
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-7
+          CFI CFA_XSP16 add(XSP16, 2)
+          CFI Block cfiCond48 Using cfiCommon0
+          CFI (cfiCond48) Function StubAPS_SetInterPanChannel
+          CFI (cfiCond48) Conditional ??CrossCallReturnLabel_24
+          CFI (cfiCond48) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond48) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond48) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond48) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond48) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond48) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond48) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond48) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond48) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond48) CFA_SP SP+-2
+          CFI (cfiCond48) CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiCond49 Using cfiCommon0
+          CFI (cfiCond49) Function StubAPS_SetIntraPanChannel
+          CFI (cfiCond49) Conditional ??CrossCallReturnLabel_25
+          CFI (cfiCond49) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond49) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond49) CFA_SP SP+-7
+          CFI (cfiCond49) CFA_XSP16 add(XSP16, 2)
+          CFI Block cfiPicker50 Using cfiCommon1
+          CFI (cfiPicker50) NoFunction
+          CFI (cfiPicker50) Picker
+        LCALL     ?Subroutine16 & 0xFFFF
+??CrossCallReturnLabel_27:
+        RET
+          CFI EndBlock cfiCond47
+          CFI EndBlock cfiCond48
+          CFI EndBlock cfiCond49
+          CFI EndBlock cfiPicker50
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine16:
+          CFI Block cfiCond51 Using cfiCommon0
+          CFI Function StubAPS_SetInterPanChannel
+          CFI Conditional ??CrossCallReturnLabel_27, ??CrossCallReturnLabel_24
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-4
+          CFI CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiCond52 Using cfiCommon0
+          CFI (cfiCond52) Function StubAPS_SetIntraPanChannel
+          CFI (cfiCond52) Conditional ??CrossCallReturnLabel_27, ??CrossCallReturnLabel_25
+          CFI (cfiCond52) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond52) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond52) CFA_SP SP+-9
+          CFI (cfiCond52) CFA_XSP16 add(XSP16, 2)
+          CFI Block cfiCond53 Using cfiCommon0
+          CFI (cfiCond53) Function StubAPS_SetNewChannel
+          CFI (cfiCond53) Conditional ??CrossCallReturnLabel_27, ??CrossCallReturnLabel_26
+          CFI (cfiCond53) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond53) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond53) CFA_SP SP+-9
+          CFI (cfiCond53) CFA_XSP16 add(XSP16, 2)
+          CFI Block cfiCond54 Using cfiCommon0
+          CFI (cfiCond54) Function StubAPS_ProcessEvent
+          CFI (cfiCond54) Conditional ??CrossCallReturnLabel_28, ??CrossCallReturnLabel_0
+          CFI (cfiCond54) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond54) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond54) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond54) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond54) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond54) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond54) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond54) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond54) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond54) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond54) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond54) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond54) CFA_SP SP+-4
+          CFI (cfiCond54) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond55 Using cfiCommon0
+          CFI (cfiCond55) Function StubAPS_SetIntraPanChannel
+          CFI (cfiCond55) Conditional ??CrossCallReturnLabel_28, ??CrossCallReturnLabel_1
+          CFI (cfiCond55) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond55) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond55) CFA_SP SP+-9
+          CFI (cfiCond55) CFA_XSP16 add(XSP16, 2)
+          CFI Block cfiPicker56 Using cfiCommon1
+          CFI (cfiPicker56) NoFunction
+          CFI (cfiPicker56) Picker
+        MOVX      @DPTR,A
+        ; Setup parameters for call to function ZMacSetReq
+        ; Setup parameters for call to function ZMacSetReq
+        ; Setup parameters for call to function ZMacSetReq
+        ; Setup parameters for call to function ZMacSetReq
+        ; Setup parameters for call to function ZMacSetReq
+        MOV       R2,?XSP + 0
+        MOV       R3,?XSP + 1
+        MOV       R1,#0x52
+        LCALL     `??ZMacSetReq::?relay`; Banked call to: ZMacSetReq
+        RET
+          CFI EndBlock cfiCond51
+          CFI EndBlock cfiCond52
+          CFI EndBlock cfiCond53
+          CFI EndBlock cfiCond54
+          CFI EndBlock cfiCond55
+          CFI EndBlock cfiPicker56
+//  540 
+//  541 /******************************************************************************
+//  542  * @fn          StubAPS_SetIntraPanChannel
+//  543  *
+//  544  * @brief       This function sets the device's channel back to the NIB channel.
+//  545  *
+//  546  * @param       none
+//  547  *
+//  548  * @return      ZStatus_t
+//  549  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  550 ZStatus_t StubAPS_SetIntraPanChannel( void )
+StubAPS_SetIntraPanChannel:
+          CFI Block cfiBlock57 Using cfiCommon0
+          CFI Function StubAPS_SetIntraPanChannel
+        CODE
+//  551 {
+        FUNCALL StubAPS_SetIntraPanChannel, ZMacGetReq
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetIntraPanChannel, ZMacSetReq
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetIntraPanChannel, ZMacSetReq
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetIntraPanChannel, ZMacSetReq
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL StubAPS_SetIntraPanChannel, nwk_setStateIdle
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 2
+        MOV       A,#-0x2
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 2)
+//  552   uint8 currChannel;
+//  553   uint8 rxOnIdle;
+//  554   
+//  555   if ( channelChangeInProgress )
+        MOV       DPTR,#channelChangeInProgress
+        MOVX      A,@DPTR
+        JZ        ??StubAPS_SetIntraPanChannel_0
+//  556     return ( ZFailure );
+        MOV       R1,#0x1
+        SJMP      ??StubAPS_SetIntraPanChannel_1
+//  557   
+//  558   ZMacGetReq( ZMacChannel, &currChannel );
+??StubAPS_SetIntraPanChannel_0:
+        ; Setup parameters for call to function ZMacGetReq
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP101_8
+        MOV       R1,#-0x1f
+        LCALL     `??ZMacGetReq::?relay`; Banked call to: ZMacGetReq
+//  559   if ( currChannel == _NIB.nwkLogicalChannel )
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       R0,A
+        MOV       DPTR,#_NIB + 22
+        MOVX      A,@DPTR
+        XRL       A,R0
+        JNZ       ??StubAPS_SetIntraPanChannel_2
+//  560     return ( ZSuccess );
+        MOV       R1,#0x0
+        SJMP      ??StubAPS_SetIntraPanChannel_1
+//  561   
+//  562   channelChangeInProgress = TRUE;
+??StubAPS_SetIntraPanChannel_2:
+        MOV       DPTR,#channelChangeInProgress
+        MOV       A,#0x1
+        MOVX      @DPTR,A
+//  563   
+//  564   // turn MAC receiver off
+//  565   rxOnIdle = false;
+        LCALL     ?Subroutine5 & 0xFFFF
+//  566   ZMacSetReq( ZMacRxOnIdle, &rxOnIdle );
+//  567   
+//  568   // set the NIB channel
+//  569   ZMacSetReq( ZMacChannel, &(_NIB.nwkLogicalChannel) );
+??CrossCallReturnLabel_25:
+        ; Setup parameters for call to function ZMacSetReq
+        MOV       R2,#(_NIB + 22) & 0xff
+        MOV       R3,#((_NIB + 22) >> 8) & 0xff
+        MOV       R1,#-0x1f
+        LCALL     `??ZMacSetReq::?relay`; Banked call to: ZMacSetReq
+//  570   
+//  571   // turn MAC receiver back on
+//  572   rxOnIdle = true;
+        LCALL     ?Subroutine4 & 0xFFFF
+//  573   ZMacSetReq( ZMacRxOnIdle, &rxOnIdle );
+//  574    
+//  575   // set NWK task to run
+//  576   nwk_setStateIdle( FALSE );
+//  577   
+//  578   channelChangeInProgress = FALSE;
+//  579   
+//  580   return ( ZSuccess );
+??CrossCallReturnLabel_1:
+        MOV       R1,A
+??StubAPS_SetIntraPanChannel_1:
+        SJMP      ?Subroutine0
+//  581   
+//  582 } /* StubAPS_SetIntraPanChannel */
+          CFI EndBlock cfiBlock57
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine4:
+          CFI Block cfiCond58 Using cfiCommon0
+          CFI Function StubAPS_ProcessEvent
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiCond59 Using cfiCommon0
+          CFI (cfiCond59) Function StubAPS_SetIntraPanChannel
+          CFI (cfiCond59) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond59) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond59) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond59) CFA_SP SP+-7
+          CFI (cfiCond59) CFA_XSP16 add(XSP16, 2)
+          CFI Block cfiPicker60 Using cfiCommon1
+          CFI (cfiPicker60) NoFunction
+          CFI (cfiPicker60) Picker
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       A,#0x1
+        LCALL     ?Subroutine16 & 0xFFFF
+??CrossCallReturnLabel_28:
+        ; Setup parameters for call to function nwk_setStateIdle
+        ; Setup parameters for call to function nwk_setStateIdle
+        MOV       R1,#0x0
+        LCALL     `??nwk_setStateIdle::?relay`; Banked call to: nwk_setStateIdle
+        MOV       DPTR,#channelChangeInProgress
+        CLR       A
+        MOVX      @DPTR,A
+        RET
+          CFI EndBlock cfiCond58
+          CFI EndBlock cfiCond59
+          CFI EndBlock cfiPicker60
+//  583 
+//  584 /******************************************************************************
+//  585  * @fn          StubAPS_InterPan
+//  586  *
+//  587  * @brief       This function checks to see if a PAN is an Inter-PAN.
+//  588  *
+//  589  * @param       panId - PAN ID
+//  590  * @param       endPoint - endpoint
+//  591  *
+//  592  * @return      TRUE if PAN is Inter-PAN, FALSE otherwise
+//  593  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  594 uint8 StubAPS_InterPan( uint16 panId, uint8 endPoint )
+StubAPS_InterPan:
+          CFI Block cfiBlock61 Using cfiCommon0
+          CFI Function StubAPS_InterPan
+        CODE
+//  595 {
+        ; Saved register size: 0
+        ; Auto size: 0
+        MOV       A,R1
+        MOV       R0,A
+//  596   (void)panId; // Intentionally unreferenced parameter
+//  597 
+//  598   // No need to check the MAC/NIB Channels or Source/Destination PAN IDs
+//  599   // since it's possible to send Inter-PAN messages within the same network.
+//  600   if ( endPoint == STUBAPS_INTER_PAN_EP )
+        MOV       A,#-0x2
+        XRL       A,R0
+        JNZ       ??StubAPS_InterPan_0
+//  601   {
+//  602     // Inter-PAN endpoint
+//  603     return ( TRUE );
+        MOV       R1,#0x1
+        SJMP      ??StubAPS_InterPan_1
+//  604   }
+//  605   
+//  606   return ( FALSE );
+??StubAPS_InterPan_0:
+        MOV       R1,#0x0
+??StubAPS_InterPan_1:
+        LJMP      ?BRET
+//  607   
+//  608 } /* StubAPS_InterPan */
+          CFI EndBlock cfiBlock61
+//  609 
+//  610 /******************************************************************************
+//  611  * @fn          StubAPS_RegisterApp
+//  612  *
+//  613  * @brief       This function registers the Application with the Stub APS layer.
+//  614  *
+//  615  *              NOTE: Since Stub APS messages don't include the application
+//  616  *                    endpoint, the application has to register its endpoint
+//  617  *                    with Stub APS.
+//  618  *
+//  619  * @param       epDesc - application's endpoint descriptor
+//  620  *
+//  621  * @return      none
+//  622  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  623 void StubAPS_RegisterApp( endPointDesc_t *epDesc )
+StubAPS_RegisterApp:
+          CFI Block cfiBlock62 Using cfiCommon0
+          CFI Function StubAPS_RegisterApp
+        CODE
+//  624 {
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  625   appTaskID = *epDesc->task_id;
+        MOV       DPL,R2
+        MOV       DPH,R3
+        LCALL     ?Subroutine12 & 0xFFFF
+??CrossCallReturnLabel_10:
+        MOVX      A,@DPTR
+        MOV       DPTR,#appTaskID
+        MOVX      @DPTR,A
+//  626   appEndPoint = epDesc->endPoint;
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOVX      A,@DPTR
+        MOV       DPTR,#appEndPoint
+        MOVX      @DPTR,A
+//  627   
+//  628 } /* StubAPS_RegisterApp */
+        SJMP      ??Subroutine20_0
+          CFI EndBlock cfiBlock62
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock63 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI CFA_XSP16 add(XSP16, 2)
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        MOV       A,#0x2
+        LCALL     ?DEALLOC_XSTACK8
+          CFI EndBlock cfiBlock63
+        REQUIRE ??Subroutine20_0
+        ; // Fall through to label ??Subroutine20_0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+??Subroutine20_0:
+          CFI Block cfiBlock64 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        POP       DPH
+          CFI CFA_SP SP+-4
+          CFI DPH0 SameValue
+        POP       DPL
+          CFI CFA_SP SP+-3
+          CFI DPL0 SameValue
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock64
+//  629 
+//  630 /******************************************************************************
+//  631  * @fn          StubAPS_ZMacCallback
+//  632  *
+//  633  * @brief       This function accepts an inter-PAN message from ZMac.
+//  634  *
+//  635  * @param       msgPtr - received message
+//  636  *
+//  637  * @return      TRUE if message is processed. FALSE otherwise.
+//  638  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  639 uint8 StubAPS_ZMacCallback( uint8 *msgPtr )
+StubAPS_ZMacCallback:
+          CFI Block cfiBlock65 Using cfiCommon0
+          CFI Function StubAPS_ZMacCallback
+        CODE
+//  640 {
+        FUNCALL StubAPS_ZMacCallback, osal_msg_send
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  641   uint16 nwk_fc;
+//  642   uint8  aps_fc;
+//  643   uint8  frameType;
+//  644   uint8 *buf = NULL;
+//  645   uint8  event = ((osal_event_hdr_t *)msgPtr)->event;
+        MOV       DPL,R2
+        MOV       DPH,R3
+        MOVX      A,@DPTR
+        MOV       R0,A
+//  646 
+//  647   if ( event == MAC_MCPS_DATA_IND )
+        MOV       A,#0xd
+        XRL       A,R0
+        JZ        ??CrossCallReturnLabel_11
+//  648   {
+//  649     buf = ((macMcpsDataInd_t *)msgPtr)->msdu.p;
+//  650   }
+//  651   else if ( event == MAC_MCPS_DATA_CNF )
+        MOV       A,#0xc
+        XRL       A,R0
+        JNZ       ??StubAPS_ZMacCallback_0
+//  652   {
+//  653     buf = ((macMcpsDataCnf_t *)msgPtr)->pDataReq->msdu.p;
+        INC       DPTR
+        INC       DPTR
+        LCALL     ?Subroutine12 & 0xFFFF
+//  654   }
+??CrossCallReturnLabel_11:
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       DPL,R0
+        MOV       DPH,A
+//  655   
+//  656   if ( buf )
+        MOV       A,DPL
+        ORL       A,DPH
+        JZ        ??StubAPS_ZMacCallback_0
+//  657   {
+//  658     // get the NWK frame control
+//  659     nwk_fc = BUILD_UINT16( buf[NWK_HDR_FRAME_CTRL_LSB], buf[NWK_HDR_FRAME_CTRL_MSB] );
+//  660   
+//  661     // frame type
+//  662     frameType = (uint8)((nwk_fc >> NWK_FC_FRAME_TYPE) & NWK_FC_FRAME_TYPE_MASK);
+//  663   
+//  664     // check if incoming frame is of the right type
+//  665     if ( frameType != STUB_NWK_FRAME_TYPE )
+        MOVX      A,@DPTR
+        ANL       A,#0x3
+        XRL       A,#0x3
+        JNZ       ??StubAPS_ZMacCallback_0
+//  666     {
+//  667       // message doesn't belong to Stub APS
+//  668       return ( FALSE );
+//  669     }
+//  670  
+//  671     // get the APS frame control
+//  672     aps_fc = buf[STUB_APS_HDR_FRAME_CTRL];
+//  673   
+//  674     // frame type
+//  675     frameType = aps_fc & APS_FRAME_TYPE_MASK;
+//  676     
+//  677     // check if incoming frame is of the right type
+//  678     if ( frameType != STUB_APS_FRAME )
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        ANL       A,#0x3
+        XRL       A,#0x3
+        JNZ       ??StubAPS_ZMacCallback_0
+//  679     {
+//  680       // message doesn't belong to Stub APS
+//  681       return ( FALSE );
+//  682     }
+//  683     
+//  684     // message belongs to Stub APS
+//  685     osal_msg_send( StubAPS_TaskID, (uint8 *)msgPtr );
+        ; Setup parameters for call to function osal_msg_send
+        MOV       DPTR,#StubAPS_TaskID
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??osal_msg_send::?relay`; Banked call to: osal_msg_send
+//  686  
+//  687     return ( TRUE );
+        MOV       R1,#0x1
+        SJMP      ??StubAPS_ZMacCallback_1
+//  688   }
+//  689   
+//  690   // message doesn't belong to Stub APS
+//  691   return ( FALSE );
+??StubAPS_ZMacCallback_0:
+        MOV       R1,#0x0
+??StubAPS_ZMacCallback_1:
+        SJMP      ??Subroutine20_0
+//  692     
+//  693 } /* StubAPS_ZMacCallback */
+          CFI EndBlock cfiBlock65
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine12:
+          CFI Block cfiCond66 Using cfiCommon0
+          CFI Function StubAPS_RegisterApp
+          CFI Conditional ??CrossCallReturnLabel_10
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-7
+          CFI Block cfiCond67 Using cfiCommon0
+          CFI (cfiCond67) Function StubAPS_ZMacCallback
+          CFI (cfiCond67) Conditional ??CrossCallReturnLabel_11
+          CFI (cfiCond67) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond67) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond67) CFA_SP SP+-7
+          CFI Block cfiPicker68 Using cfiCommon1
+          CFI (cfiPicker68) NoFunction
+          CFI (cfiPicker68) Picker
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       DPH,A
+        MOV       DPL,R0
+        RET
+          CFI EndBlock cfiCond66
+          CFI EndBlock cfiCond67
+          CFI EndBlock cfiPicker68
+//  694 
+//  695 /******************************************************************************
+//  696  *
+//  697  *  Stub APS Inter-PAN interface INTERP and its callbacks.
+//  698  */
+//  699 
+//  700 /******************************************************************************
+//  701  * @fn          INTERP_DataReq
+//  702  *
+//  703  * @brief       This function requests the transfer of data from the next
+//  704  *              higher layer to a single peer entity.
+//  705  *
+//  706  * @param       req - APSDE_DataReq_t
+//  707  *
+//  708  * @return      ZStatus_t
+//  709  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  710 ZStatus_t INTERP_DataReq( APSDE_DataReq_t *req )
+INTERP_DataReq:
+          CFI Block cfiBlock69 Using cfiCommon0
+          CFI Function INTERP_DataReq
+        CODE
+//  711 {
+        FUNCALL INTERP_DataReq, osal_memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 45, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 45, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataReq, StubAPS_BuildFrameControl
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 49, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 49, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataReq, osal_mem_alloc
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 45, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 45, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataReq, StubAPS_BuildMsg
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 47, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 47, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataReq, NLME_GetProtocolVersion
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 45, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 45, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataReq, ZMacDataReq
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 45, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 45, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataReq, osal_mem_free
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 45, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 45, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        MOV       A,#-0xc
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 12)
+        ; Saved register size: 12
+        ; Auto size: 33
+        MOV       A,#-0x21
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 45)
+        MOV       ?V2,R2
+        MOV       ?V3,R3
+//  712   uint8 apsFrmCtrl;
+//  713   uint16 groupID = 0;
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP0_8
+        CLR       A
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      @DPTR,A
+//  714   uint8 *buf;
+//  715   uint8 hdrLen;
+//  716   ZMacDataReq_t dataReq;
+//  717   ZStatus_t status;
+//  718   
+//  719   if ( channelChangeInProgress || !StubAPS_InterPan( req->dstPanId, req->dstEP ) )
+        MOV       DPTR,#channelChangeInProgress
+        MOVX      A,@DPTR
+        JNZ       ??INTERP_DataReq_0
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        XRL       A,#0xfe
+        JZ        ??INTERP_DataReq_1
+//  720     return ( ZFailure );
+??INTERP_DataReq_0:
+        MOV       R1,#0x1
+        LJMP      ??INTERP_DataReq_2 & 0xFFFF
+//  721   
+//  722   osal_memset( &dataReq, 0, sizeof( ZMacDataReq_t ) );
+??INTERP_DataReq_1:
+        ; Setup parameters for call to function osal_memset
+        MOV       R4,#0x1e
+        MOV       R5,#0x0
+        MOV       R1,#0x0
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??osal_memset::?relay`; Banked call to: osal_memset
+//  723   
+//  724   // Build Stub APS header
+//  725   status = StubAPS_BuildFrameControl( &apsFrmCtrl, &(dataReq.DstAddr), &groupID, req );
+        ; Setup parameters for call to function StubAPS_BuildFrameControl
+        MOV       R0,#?V2
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 47)
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP100_8
+        MOV       ?V0,R0
+        MOV       ?V1,R1
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 49)
+        MOV       A,#0x7
+        LCALL     ?XSTACK_DISP102_8
+        MOV       A,#0x4
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??StubAPS_BuildFrameControl::?relay`; Banked call to: StubAPS_BuildFrameControl
+        MOV       A,#0x4
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 45)
+        MOV       A,R1
+        MOV       ?V0,A
+//  726   if ( status != ZSuccess )
+        JZ        $+5
+        LJMP      ??INTERP_DataReq_3 & 0xFFFF
+//  727     return ( status );
+//  728 
+//  729   // set default Stub APS header length
+//  730   hdrLen = APS_FRAME_CTRL_FIELD_LEN;
+        MOV       R0,#0x1
+//  731   
+//  732   // add group ID length
+//  733   if ( ( apsFrmCtrl & APS_DELIVERYMODE_MASK ) == APS_FC_DM_GROUP )
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOVX      A,@DPTR
+        ANL       A,#0xc
+        XRL       A,#0xc
+        JNZ       ??INTERP_DataReq_4
+//  734     hdrLen += APS_GROUP_ID_FIELD_LEN;
+        MOV       R0,#0x3
+//  735   
+//  736   // add cluster ID length
+//  737   hdrLen += APS_CLUSTERID_FIELD_LEN;
+//  738   
+//  739   // add profile ID length
+//  740   hdrLen += APS_PROFILEID_FIELD_LEN;
+//  741   
+//  742   // add default Stub NWK header length
+//  743   hdrLen += STUB_NWK_HDR_LEN;
+//  744   
+//  745   // calculate MSDU length
+//  746   dataReq.msduLength = hdrLen + req->asduLen;
+??INTERP_DataReq_4:
+        MOV       A,?V2
+        ADD       A,#0x11
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V3
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        ADD       A,R0
+        ADD       A,#0x6
+        MOV       R0,A
+        MOV       A,#0x1e
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,R0
+        MOVX      @DPTR,A
+//  747   
+//  748   // allocate buffer
+//  749   buf = osal_mem_alloc( dataReq.msduLength );
+        ; Setup parameters for call to function osal_mem_alloc
+        MOV       R2,A
+        MOV       R3,#0x0
+        LCALL     `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+        MOV       ?V0,R2
+        MOV       ?V1,R3
+        MOV       R6,?V0
+        MOV       R7,?V1
+//  750   if ( buf != NULL )
+        MOV       A,R2
+        ORL       A,R7
+        JNZ       $+5
+        LJMP      ??INTERP_DataReq_5 & 0xFFFF
+//  751   {
+//  752     dataReq.msdu = buf;
+        MOV       A,#0x1f
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,R2
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R3
+        MOVX      @DPTR,A
+//  753     
+//  754     // Add Stub APS header and data
+//  755     StubAPS_BuildMsg( &buf[STUB_APS_HDR_FRAME_CTRL], apsFrmCtrl, groupID, req );
+        ; Setup parameters for call to function StubAPS_BuildMsg
+        MOV       R0,#?V2
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 47)
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP0_8
+        LCALL     ?Subroutine11 & 0xFFFF
+??CrossCallReturnLabel_9:
+        MOV       A,#0x2
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       R1,A
+        MOV       A,R2
+        ADD       A,#0x2
+        MOV       R2,A
+        CLR       A
+        ADDC      A,R7
+        MOV       R3,A
+        LCALL     `??StubAPS_BuildMsg::?relay`; Banked call to: StubAPS_BuildMsg
+        MOV       A,#0x2
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 45)
+//  756     
+//  757     // Add Stub NWK header
+//  758     StubNWK_BuildMsg( buf );  
+        ; Setup parameters for call to function NLME_GetProtocolVersion
+        LCALL     `??NLME_GetProtocolVersion::?relay`; Banked call to: NLME_GetProtocolVersion
+        MOV       A,R1
+        MOV       ?V0,A
+        MOV       ?V1,#0x0
+        MOV       A,#0x2
+        MOV       R0,#?V0
+        LCALL     ?S_SHL
+        MOV       A,?V0
+        ORL       A,#0x3
+        MOV       DPL,R6
+        MOV       DPH,R7
+        MOVX      @DPTR,A
+        MOV       A,?V1
+        INC       DPTR
+        MOVX      @DPTR,A
+//  759 
+//  760     // Set ZMac data request
+//  761     dataReq.DstPANId = req->dstPanId;
+        MOV       A,?V2
+        ADD       A,#0xb
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V3
+        LCALL     ?Subroutine10 & 0xFFFF
+??CrossCallReturnLabel_32:
+        MOV       A,#0xc
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,R0
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R1
+        MOVX      @DPTR,A
+//  762     dataReq.SrcAddrMode = Addr64Bit; 
+        MOV       A,#0xe
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,#0x3
+        MOVX      @DPTR,A
+//  763     dataReq.Handle = req->transID;
+        MOV       A,?V2
+        ADD       A,#0x17
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V3
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        PUSH      A
+          CFI CFA_SP SP+-1
+        MOV       A,#0xf
+        LCALL     ?XSTACK_DISP0_8
+        POP       A
+          CFI CFA_SP SP+0
+        MOVX      @DPTR,A
+//  764   
+//  765     if ( ( apsFrmCtrl & APS_DELIVERYMODE_MASK ) == APS_FC_DM_UNICAST )
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOVX      A,@DPTR
+        ANL       A,#0xc
+        JNZ       ??INTERP_DataReq_6
+//  766       dataReq.TxOptions = NWK_TXOPTIONS_ACK;
+        MOV       A,#0x10
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,#0x1
+        SJMP      ??INTERP_DataReq_7
+//  767     else
+//  768       dataReq.TxOptions = 0;
+??INTERP_DataReq_6:
+        MOV       A,#0x10
+        LCALL     ?XSTACK_DISP0_8
+        CLR       A
+??INTERP_DataReq_7:
+        MOVX      @DPTR,A
+//  769     
+//  770     // send the frame
+//  771     status = ZMacDataReq( &dataReq );
+        ; Setup parameters for call to function ZMacDataReq
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??ZMacDataReq::?relay`; Banked call to: ZMacDataReq
+        MOV       A,R1
+        MOV       ?V0,A
+//  772     
+//  773     // free the frame
+//  774     osal_mem_free( buf );
+        ; Setup parameters for call to function osal_mem_free
+        MOV       A,R6
+        MOV       R2,A
+        MOV       A,R7
+        MOV       R3,A
+        LCALL     `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+        SJMP      ??INTERP_DataReq_3
+//  775   }
+//  776   else
+//  777   {
+//  778     // flag a memory error
+//  779     status = ZMemError;
+??INTERP_DataReq_5:
+        MOV       ?V0,#0x10
+//  780   }
+//  781   
+//  782   return ( status );
+??INTERP_DataReq_3:
+        MOV       R1,?V0
+??INTERP_DataReq_2:
+        MOV       A,#0x21
+        LJMP      ?Subroutine1 & 0xFFFF
+//  783   
+//  784 } /* INTERP_DataReq */
+          CFI EndBlock cfiBlock69
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine10:
+          CFI Block cfiCond70 Using cfiCommon0
+          CFI Function StubAPS_ParseMsg
+          CFI Conditional ??CrossCallReturnLabel_31
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond71 Using cfiCommon0
+          CFI (cfiCond71) Function INTERP_DataReq
+          CFI (cfiCond71) Conditional ??CrossCallReturnLabel_32
+          CFI (cfiCond71) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond71) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond71) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond71) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond71) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond71) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond71) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond71) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond71) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond71) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond71) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond71) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond71) CFA_SP SP+-2
+          CFI (cfiCond71) CFA_XSP16 add(XSP16, 45)
+          CFI Block cfiCond72 Using cfiCommon0
+          CFI (cfiCond72) Function INTERP_DataIndication
+          CFI (cfiCond72) Conditional ??CrossCallReturnLabel_33
+          CFI (cfiCond72) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond72) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond72) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond72) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond72) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond72) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond72) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond72) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond72) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond72) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond72) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond72) CFA_SP SP+-2
+          CFI (cfiCond72) CFA_XSP16 add(XSP16, 75)
+          CFI Block cfiPicker73 Using cfiCommon1
+          CFI (cfiPicker73) NoFunction
+          CFI (cfiPicker73) Picker
+        MOV       DPH,A
+          CFI EndBlock cfiCond70
+          CFI EndBlock cfiCond71
+          CFI EndBlock cfiCond72
+          CFI EndBlock cfiPicker73
+        REQUIRE ??Subroutine21_0
+        ; // Fall through to label ??Subroutine21_0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+??Subroutine21_0:
+          CFI Block cfiCond74 Using cfiCommon0
+          CFI Function StubAPS_BuildFrameControl
+          CFI Conditional ??CrossCallReturnLabel_29
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiCond75 Using cfiCommon0
+          CFI (cfiCond75) Function StubAPS_BuildFrameControl
+          CFI (cfiCond75) Conditional ??CrossCallReturnLabel_30
+          CFI (cfiCond75) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond75) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond75) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond75) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond75) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond75) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond75) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond75) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond75) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond75) CFA_SP SP+-2
+          CFI (cfiCond75) CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiCond76 Using cfiCommon0
+          CFI (cfiCond76) Function StubAPS_ParseMsg
+          CFI (cfiCond76) Conditional ??CrossCallReturnLabel_31
+          CFI (cfiCond76) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond76) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond76) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond76) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond76) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond76) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond76) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond76) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond76) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond76) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond76) CFA_SP SP+-2
+          CFI (cfiCond76) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond77 Using cfiCommon0
+          CFI (cfiCond77) Function INTERP_DataReq
+          CFI (cfiCond77) Conditional ??CrossCallReturnLabel_32
+          CFI (cfiCond77) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond77) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond77) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond77) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond77) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond77) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond77) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond77) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond77) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond77) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond77) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond77) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond77) CFA_SP SP+-2
+          CFI (cfiCond77) CFA_XSP16 add(XSP16, 45)
+          CFI Block cfiCond78 Using cfiCommon0
+          CFI (cfiCond78) Function INTERP_DataIndication
+          CFI (cfiCond78) Conditional ??CrossCallReturnLabel_33
+          CFI (cfiCond78) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond78) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond78) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond78) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond78) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond78) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond78) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond78) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond78) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond78) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond78) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond78) CFA_SP SP+-2
+          CFI (cfiCond78) CFA_XSP16 add(XSP16, 75)
+          CFI Block cfiPicker79 Using cfiCommon1
+          CFI (cfiPicker79) NoFunction
+          CFI (cfiPicker79) Picker
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R1,A
+        RET
+          CFI EndBlock cfiCond74
+          CFI EndBlock cfiCond75
+          CFI EndBlock cfiCond76
+          CFI EndBlock cfiCond77
+          CFI EndBlock cfiCond78
+          CFI EndBlock cfiPicker79
+//  785 
+//  786 /******************************************************************************
+//  787  * @fn          INTERP_DataReqMTU
+//  788  *
+//  789  * @brief       This function requests the MTU (Max Transport Unit) of the
+//  790  *              Inter-PAN Data Service.
+//  791  *
+//  792  * @param       none
+//  793  *
+//  794  * @return      uint8 - MTU
+//  795  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  796 uint8 INTERP_DataReqMTU( void )
+INTERP_DataReqMTU:
+          CFI Block cfiBlock80 Using cfiCommon0
+          CFI Function INTERP_DataReqMTU
+        CODE
+//  797 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  798   uint8 mtu;
+//  799   uint8 hdrLen;
+//  800   
+//  801   // Use maximum header size for Stub APS header
+//  802   hdrLen = APS_FRAME_CTRL_FIELD_LEN +
+//  803            APS_GROUP_ID_FIELD_LEN   +
+//  804            APS_CLUSTERID_FIELD_LEN  +
+//  805            APS_PROFILEID_FIELD_LEN;
+//  806 
+//  807   mtu = MAC_A_MAX_FRAME_SIZE - STUB_NWK_HDR_LEN - hdrLen;
+//  808 
+//  809   return ( mtu );
+        MOV       R1,#0x5d
+        LJMP      ?BRET
+//  810 
+//  811 } /* INTERP_DataReqMTU */
+          CFI EndBlock cfiBlock80
+//  812 
+//  813 /****************************************************************************
+//  814  * @fn          INTERP_DataConfirm
+//  815  *
+//  816  * @brief       This function processes the data confirm from the MAC layer.
+//  817  *
+//  818  * @param       dataCnf - data confirm primitive
+//  819  *
+//  820  * @return      none
+//  821  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  822 void INTERP_DataConfirm( ZMacDataCnf_t *dataCnf )
+INTERP_DataConfirm:
+          CFI Block cfiBlock81 Using cfiCommon0
+          CFI Function INTERP_DataConfirm
+        CODE
+//  823 {
+        FUNCALL INTERP_DataConfirm, afDataConfirm
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+        MOV       A,R3
+        MOV       R1,A
+//  824   afDataConfirm( appEndPoint, dataCnf->msduHandle, dataCnf->hdr.Status );
+        ; Setup parameters for call to function afDataConfirm
+        MOV       DPL,R2
+        MOV       DPH,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R3,A
+        MOV       DPL,R2
+        MOV       DPH,R1
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R2,A
+        MOV       DPTR,#appEndPoint
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??afDataConfirm::?relay`; Banked call to: afDataConfirm
+//  825 
+//  826 } /* INTERP_DataConfirm */
+        LJMP      ??Subroutine20_0 & 0xFFFF
+          CFI EndBlock cfiBlock81
+//  827 
+//  828 /****************************************************************************
+//  829  * @fn          INTERP_DataIndication
+//  830  *
+//  831  * @brief       This function indicates the transfer of a data SPDU (MSDU)
+//  832  *              from the MAC layer to the local application layer entity.
+//  833  *
+//  834  * @param       dataInd - data indicate primitive
+//  835  *
+//  836  * @return      none
+//  837  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  838 void INTERP_DataIndication( macMcpsDataInd_t *dataInd )
+INTERP_DataIndication:
+          CFI Block cfiBlock82 Using cfiCommon0
+          CFI Function INTERP_DataIndication
+        CODE
+//  839 {
+        FUNCALL INTERP_DataIndication, osal_memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 75, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataIndication, NLDE_ParseFrameControl
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 75, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataIndication, sAddrCpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 75, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataIndication, NLME_GetProtocolVersion
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 75, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataIndication, StubAPS_ParseMsg
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 75, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 75, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL INTERP_DataIndication, APSDE_DataIndication
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 84, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 84, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        MOV       A,#-0xb
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 11)
+        ; Saved register size: 11
+        ; Auto size: 64
+        MOV       A,#-0x40
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 75)
+        MOV       A,R2
+        MOV       R6,A
+        MOV       A,R3
+        MOV       R7,A
+//  840   NLDE_FrameFormat_t snff;
+//  841   aps_FrameFormat_t saff;
+//  842   zAddrType_t srcAddr;
+//  843   NLDE_Signal_t sig;
+//  844 
+//  845   // parse the Stub NWK header
+//  846   StubNWK_ParseMsg( dataInd->msdu.p, dataInd->msdu.len, &snff );
+        MOV       DPL,R2
+        MOV       DPH,A
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       ?V2,A
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       ?V0,R0
+        MOV       ?V1,A
+        ; Setup parameters for call to function osal_memset
+        MOV       R4,#0x1f
+        MOV       R5,#0x0
+        MOV       R1,#0x0
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??osal_memset::?relay`; Banked call to: osal_memset
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,?V2
+        MOVX      @DPTR,A
+        ; Setup parameters for call to function NLDE_ParseFrameControl
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP102_8
+        MOV       DPL,?V0
+        MOV       DPH,?V1
+        MOVX      A,@DPTR
+        MOV       R2,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R0,A
+        CLR       A
+        XCH       A,R0
+        MOV       R1,A
+        MOV       A,R2
+        ADD       A,R0
+        CLR       A
+        ADDC      A,R1
+        MOV       R3,A
+        LCALL     `??NLDE_ParseFrameControl::?relay`; Banked call to: NLDE_ParseFrameControl
+        MOV       A,#0x4
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,#0x2
+        MOVX      @DPTR,A
+        MOV       A,?V0
+        ADD       A,#0x2
+        MOV       R0,A
+        CLR       A
+        ADDC      A,?V1
+        MOV       R1,A
+        MOV       A,#0x20
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,R0
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R1
+        MOVX      @DPTR,A
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        ADD       A,#-0x2
+        PUSH      A
+          CFI CFA_SP SP+-1
+        MOV       A,#0x1a
+        LCALL     ?XSTACK_DISP0_8
+        POP       A
+          CFI CFA_SP SP+0
+        MOVX      @DPTR,A
+//  847 
+//  848   // Fill in MAC destination address
+//  849   snff.macDstAddr = dataInd->mac.dstAddr.addr.shortAddr;
+        MOV       A,R6
+        ADD       A,#0x1b
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        LCALL     ?Subroutine10 & 0xFFFF
+??CrossCallReturnLabel_33:
+        MOV       A,#0x10
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,R0
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R1
+        MOVX      @DPTR,A
+//  850   
+//  851   // fill in MAC source address (Stub NWK frame doesn't have address fields)
+//  852   osal_copyAddress( &srcAddr, (zAddrType_t *)&(dataInd->mac.srcAddr) );
+        ; Setup parameters for call to function sAddrCpy
+        MOV       A,R6
+        ADD       A,#0x12
+        MOV       R4,A
+        CLR       A
+        ADDC      A,R7
+        MOV       R5,A
+        MOV       A,#0x37
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??sAddrCpy::?relay`; Banked call to: sAddrCpy
+//  853   
+//  854   // check if incoming frame is of the right type
+//  855   if ( snff.frameType != STUB_NWK_FRAME_TYPE )
+        MOV       A,#0x5
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        XRL       A,#0x3
+        JZ        $+5
+        LJMP      ??INTERP_DataIndication_0 & 0xFFFF
+//  856     return;
+//  857     
+//  858   // check if incoming frame is of the right version
+//  859   if ( snff.protocolVersion != NLME_GetProtocolVersion() )
+        ; Setup parameters for call to function NLME_GetProtocolVersion
+        LCALL     `??NLME_GetProtocolVersion::?relay`; Banked call to: NLME_GetProtocolVersion
+        MOV       A,R1
+        MOV       R0,A
+        MOV       A,#0x6
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        XRL       A,R0
+        JZ        $+5
+        LJMP      ??INTERP_DataIndication_0 & 0xFFFF
+//  860     return;
+//  861   
+//  862   // check if the remaining sun-fields are zero
+//  863   if ( ( snff.discoverRoute != 0 ) || ( snff.multicast != 0 )   ||
+//  864        ( snff.secure != 0 )        || ( snff.srcRouteSet != 0 ) ||
+//  865        ( snff.dstExtAddrSet != 0 ) || ( snff.srcExtAddrSet != 0 ) )
+        MOV       A,#0x7
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        JNZ       ??INTERP_DataIndication_1
+        MOV       A,#0x8
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        JNZ       ??INTERP_DataIndication_1
+        MOV       A,#0x9
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        JNZ       ??INTERP_DataIndication_1
+        MOV       A,#0x1b
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        JNZ       ??INTERP_DataIndication_1
+        MOV       A,#0xa
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        JNZ       ??INTERP_DataIndication_1
+        MOV       A,#0xb
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        JZ        ??INTERP_DataIndication_2
+//  866   {
+//  867     return;
+??INTERP_DataIndication_1:
+        LJMP      ??INTERP_DataIndication_0 & 0xFFFF
+//  868   }
+//  869   
+//  870   // parse the Stub APS header
+//  871   StubAPS_ParseMsg( &snff, &saff );
+??INTERP_DataIndication_2:
+        ; Setup parameters for call to function StubAPS_ParseMsg
+        MOV       A,#0x22
+        LCALL     ?XSTACK_DISP102_8
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??StubAPS_ParseMsg::?relay`; Banked call to: StubAPS_ParseMsg
+//  872 
+//  873   // check if incoming frame is of the right type
+//  874   if ( ( saff.FrmCtrl & APS_FRAME_TYPE_MASK ) != STUB_APS_FRAME )
+        MOV       A,#0x22
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        ANL       A,#0x3
+        XRL       A,#0x3
+        JZ        $+5
+        LJMP      ??INTERP_DataIndication_0 & 0xFFFF
+//  875     return;
+//  876    
+//  877   // check if delivery mode is of the right type
+//  878   if ( ( saff.FrmCtrl & APS_DELIVERYMODE_MASK ) == APS_FC_DM_INDIRECT )
+        MOVX      A,@DPTR
+        ANL       A,#0xc
+        XRL       A,#0x4
+        JNZ       $+5
+        LJMP      ??INTERP_DataIndication_0 & 0xFFFF
+//  879     return;
+//  880   
+//  881   // check if incoming frame is unsecured
+//  882   if ( saff.FrmCtrl & APS_FC_SECURITY )
+        MOVX      A,@DPTR
+        MOV       C,0xE0 /* A   */.5
+        JNC       $+5
+        LJMP      ??INTERP_DataIndication_0 & 0xFFFF
+//  883     return;
+//  884   
+//  885   // check if there's no extended header
+//  886   if ( saff.FrmCtrl & APS_FC_EXTENDED )
+        MOV       C,0xE0 /* A   */.7
+        JNC       $+5
+        LJMP      ??INTERP_DataIndication_0 & 0xFFFF
+//  887       return;
+//  888   
+//  889   // Set the endpoints
+//  890   saff.DstEndPoint = appEndPoint;
+        MOV       DPTR,#appEndPoint
+        MOVX      A,@DPTR
+        PUSH      A
+          CFI CFA_SP SP+-1
+        MOV       A,#0x24
+        LCALL     ?XSTACK_DISP0_8
+        POP       A
+          CFI CFA_SP SP+0
+        MOVX      @DPTR,A
+//  891   saff.SrcEndPoint = STUBAPS_INTER_PAN_EP;
+        MOV       A,#0x25
+        LCALL     ?XSTACK_DISP0_8
+        MOV       A,#-0x2
+        MOVX      @DPTR,A
+//  892   
+//  893   // Set the signal strength information
+//  894   sig.LinkQuality = dataInd->mac.mpduLinkQuality;
+        MOV       A,R6
+        ADD       A,#0x2e
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOVX      @DPTR,A
+//  895   sig.correlation = dataInd->mac.correlation;
+        MOV       A,R6
+        ADD       A,#0x2f
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        PUSH      A
+          CFI CFA_SP SP+-1
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP0_8
+        POP       A
+          CFI CFA_SP SP+0
+        MOVX      @DPTR,A
+//  896   sig.rssi = dataInd->mac.rssi;
+        MOV       A,R6
+        ADD       A,#0x30
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        PUSH      A
+          CFI CFA_SP SP+-1
+        MOV       A,#0x2
+        LCALL     ?XSTACK_DISP0_8
+        POP       A
+          CFI CFA_SP SP+0
+        MOVX      @DPTR,A
+//  897   
+//  898   APSDE_DataIndication( &saff, &srcAddr, dataInd->mac.srcPanId, 
+//  899                         &sig, snff.broadcastId, FALSE, dataInd->mac.timestamp );
+        ; Setup parameters for call to function APSDE_DataIndication
+        MOV       A,R6
+        ADD       A,#0x24
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        LCALL     ?PUSH_XSTACK8_X_FOUR
+          CFI CFA_XSP16 add(XSP16, 79)
+        MOV       ?V0,#0x0
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 80)
+        MOV       A,#0x5
+        LCALL     ?XSTACK_DISP100_8
+        MOV       ?V0,R0
+        MOV       ?V1,R1
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 82)
+        MOV       A,R6
+        ADD       A,#0x2a
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        LCALL     ?PUSH_XSTACK8_X_TWO
+          CFI CFA_XSP16 add(XSP16, 84)
+        MOV       A,#0x1e
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       R1,A
+        MOV       A,#0x40
+        LCALL     ?XSTACK_DISP102_8
+        MOV       A,#0x2b
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??APSDE_DataIndication::?relay`; Banked call to: APSDE_DataIndication
+        MOV       A,#0x9
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 75)
+//  900 
+//  901 } /* INTERP_DataIndication */
+??INTERP_DataIndication_0:
+        MOV       A,#0x40
+        LJMP      ?Subroutine3 & 0xFFFF
+          CFI EndBlock cfiBlock82
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for StubAPS_TaskID>`:
+        DATA8
+        DB 255
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for appTaskID>`:
+        DATA8
+        DB 255
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_Init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_Init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_ProcessEvent::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_ProcessEvent
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_ParseMsg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_ParseMsg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_BuildFrameControl::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_BuildFrameControl
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_BuildMsg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_BuildMsg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_SetNewChannel::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_SetNewChannel
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_SetInterPanChannel::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_SetInterPanChannel
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_SetIntraPanChannel::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_SetIntraPanChannel
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_InterPan::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_InterPan
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_RegisterApp::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_RegisterApp
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??StubAPS_ZMacCallback::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    StubAPS_ZMacCallback
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??INTERP_DataReq::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    INTERP_DataReq
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??INTERP_DataReqMTU::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    INTERP_DataReqMTU
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??INTERP_DataConfirm::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    INTERP_DataConfirm
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??INTERP_DataIndication::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    INTERP_DataIndication
+
+        END
+//  902 
+//  903 
+//  904 /*********************************************************************
+//  905 *********************************************************************/
+// 
+// 2 143 bytes in segment BANKED_CODE
+//    90 bytes in segment BANK_RELAYS
+//     2 bytes in segment XDATA_I
+//     2 bytes in segment XDATA_ID
+//     3 bytes in segment XDATA_Z
+// 
+//    92 bytes of CODE     memory
+// 2 143 bytes of HUGECODE memory
+//     5 bytes of XDATA    memory
+//
+//Errors: none
+//Warnings: none
