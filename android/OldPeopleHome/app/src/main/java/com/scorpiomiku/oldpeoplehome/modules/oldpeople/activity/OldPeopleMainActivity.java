@@ -50,7 +50,7 @@ public class OldPeopleMainActivity extends BaseActivity {
             R.color.sleep_bg,
             R.color.heart_rate_bg,
             R.color.environment_bg,
-            R.color.colorPrimaryDark
+            R.color.informaiton_bg
     };
 
     @Override
