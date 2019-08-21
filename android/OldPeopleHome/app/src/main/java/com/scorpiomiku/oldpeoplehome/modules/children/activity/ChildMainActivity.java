@@ -23,6 +23,7 @@ import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.EnvironmentFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.HeartRateFragment;
+import com.scorpiomiku.oldpeoplehome.modules.children.fragment.MapFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.MyInformationFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.SleepFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.StepFragment;
@@ -54,7 +55,7 @@ public class ChildMainActivity extends BaseActivity {
             new SleepFragment(),
             new HeartRateFragment(),
             new EnvironmentFragment(),
-            new MyInformationFragment()
+            new MapFragment()
     };
     private int[] barColors = {
             R.color.step_bg,
@@ -96,9 +97,10 @@ public class ChildMainActivity extends BaseActivity {
                     case R.id.navigation_environmental:
                         changeFragment(3);
                         return true;
-                    case R.id.navigation_user:
+                    case R.id.navigation_map:
                         changeFragment(4);
                         return true;
+
                 }
                 return false;
             }
