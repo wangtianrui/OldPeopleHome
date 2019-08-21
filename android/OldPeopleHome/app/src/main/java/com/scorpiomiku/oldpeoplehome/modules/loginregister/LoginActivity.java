@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
+import com.scorpiomiku.oldpeoplehome.modules.children.activity.ChildMainActivity;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 
 import butterknife.BindView;
@@ -62,7 +63,7 @@ public class LoginActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.login_btn_login:
-                Intent intent = new Intent(LoginActivity.this, OldPeopleMainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ChildMainActivity.class);
                 startActivity(intent);
                 finish();
                 break;
