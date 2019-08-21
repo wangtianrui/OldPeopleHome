@@ -9,7 +9,7 @@ import java.sql.Date;
 public class Parent {
 
     private long parentId;
-    private long parentLongId;
+    private String parentLongId;
     private String parentName;
     private String parentSex;
     private String parentAccount;
@@ -17,13 +17,27 @@ public class Parent {
     private double parentHeight;
     private double parentWeight;
     private Date parentBirth;
-    private long parentPhone;
+    private String parentPhone;
     private int parentRoomId;
+    private Room parentRoom;
 
     public Parent() {
     }
 
-    public Parent(long parentId, long parentLongId, String parentName, String parentSex, String parentAccount, String parentPassword, double parentHeight, double parentWeight, Date parentBirth, long parentPhone, int parentRoomId) {
+    public Parent(String parentLongId, String parentName, String parentSex, String parentAccount, String parentPassword, Double parentHeight, Double parentWeight, Date parentBirth, String parentPhone, Integer parentRoomId, Room parentRoom) {
+        this.parentLongId = parentLongId;
+        this.parentName = parentName;
+        this.parentSex = parentSex;
+        this.parentAccount = parentAccount;
+        this.parentPassword = parentPassword;
+        this.parentHeight = parentHeight;
+        this.parentWeight = parentWeight;
+        this.parentBirth = parentBirth;
+        this.parentPhone = parentPhone;
+        this.parentRoomId = parentRoomId;
+        this.parentRoom = parentRoom;
+    }
+    public Parent(Long parentId, String parentLongId, String parentName, String parentSex, String parentAccount, String parentPassword, Double parentHeight, Double parentWeight, Date parentBirth, String parentPhone, Integer parentRoomId, Room parentRoom) {
         this.parentId = parentId;
         this.parentLongId = parentLongId;
         this.parentName = parentName;
@@ -35,21 +49,22 @@ public class Parent {
         this.parentBirth = parentBirth;
         this.parentPhone = parentPhone;
         this.parentRoomId = parentRoomId;
+        this.parentRoom = parentRoom;
     }
 
     public long getParentId() {
         return parentId;
     }
 
-    public void setParentId(long parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 
-    public long getParentLongId() {
+    public String getParentLongId() {
         return parentLongId;
     }
 
-    public void setParentLongId(long parentLongId) {
+    public void setParentLongId(String parentLongId) {
         this.parentLongId = parentLongId;
     }
 
@@ -89,7 +104,7 @@ public class Parent {
         return parentHeight;
     }
 
-    public void setParentHeight(double parentHeight) {
+    public void setParentHeight(Double parentHeight) {
         this.parentHeight = parentHeight;
     }
 
@@ -97,7 +112,7 @@ public class Parent {
         return parentWeight;
     }
 
-    public void setParentWeight(double parentWeight) {
+    public void setParentWeight(Double parentWeight) {
         this.parentWeight = parentWeight;
     }
 
@@ -108,12 +123,15 @@ public class Parent {
     public void setParentBirth(Date parentBirth) {
         this.parentBirth = parentBirth;
     }
+    public void setParentBirth(String parentBirth) {
+        this.parentBirth = Date.valueOf(parentBirth);
+    }
 
-    public long getParentPhone() {
+    public String getParentPhone() {
         return parentPhone;
     }
 
-    public void setParentPhone(long parentPhone) {
+    public void setParentPhone(String parentPhone) {
         this.parentPhone = parentPhone;
     }
 
@@ -121,8 +139,16 @@ public class Parent {
         return parentRoomId;
     }
 
-    public void setParentRoomId(int parentRoomId) {
+    public void setParentRoomId(Integer parentRoomId) {
         this.parentRoomId = parentRoomId;
+    }
+
+    public Room getParentRoom() {
+        return parentRoom;
+    }
+
+    public void setParentRoom(Room parentRoom) {
+        this.parentRoom = parentRoom;
     }
 
     @Override
@@ -139,6 +165,7 @@ public class Parent {
                 ", parentBirth=" + parentBirth +
                 ", parentPhone=" + parentPhone +
                 ", parentRoomId=" + parentRoomId +
+                ", parentRoom=" + parentRoom +
                 '}';
     }
 }
