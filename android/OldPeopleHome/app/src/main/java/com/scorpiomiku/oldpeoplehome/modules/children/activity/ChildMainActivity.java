@@ -7,16 +7,14 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 
-import com.jaredrummler.materialspinner.MaterialSpinner;
-import com.jaredrummler.materialspinner.MaterialSpinnerAdapter;
+import com.mxn.soul.flowingdrawer_core.FlowingDrawer;
+import com.mxn.soul.flowingdrawer_core.FlowingMenuLayout;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.adapter.PeopleSpinnerAdapter;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
@@ -24,16 +22,15 @@ import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.EnvironmentFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.HeartRateFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.MapFragment;
-import com.scorpiomiku.oldpeoplehome.modules.children.fragment.MyInformationFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.SleepFragment;
 import com.scorpiomiku.oldpeoplehome.modules.children.fragment.StepFragment;
-import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by ScorpioMiku on 2019/8/21.
@@ -48,6 +45,12 @@ public class ChildMainActivity extends BaseActivity {
     BottomNavigationView navigation;
     @BindView(R.id.tool_bar)
     LinearLayout toolBar;
+    @BindView(R.id.avatar)
+    ImageView avatar;
+    @BindView(R.id.menu_layout)
+    FlowingMenuLayout menuLayout;
+    @BindView(R.id.drawerlayout)
+    FlowingDrawer drawerlayout;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
     private FragmentManager fragmentManager;
     private BaseFragment[] fragments = {
@@ -145,7 +148,7 @@ public class ChildMainActivity extends BaseActivity {
         fragmentTransaction.hide(fragments[4]);
         fragmentTransaction.commit();
         StatusBarUtils.setWindowStatusBarColor(this, barColors[0]);
-//        spinner.setBackgroundColor(toolBarColors[0]);
+        spinner.setBackgroundColor(toolBarColors[0]);
         toolBar.setBackgroundColor(toolBarColors[0]);
     }
 
@@ -160,7 +163,7 @@ public class ChildMainActivity extends BaseActivity {
             if (i == index) {
                 fragmentTransaction.show(fragments[i]);
                 StatusBarUtils.setWindowStatusBarColor(this, barColors[i]);
-//                spinner.setBackgroundColor(toolBarColors[i]);
+                spinner.setBackgroundColor(toolBarColors[i]);
                 toolBar.setBackgroundColor(toolBarColors[i]);
             } else {
                 fragmentTransaction.hide(fragments[i]);
@@ -182,5 +185,10 @@ public class ChildMainActivity extends BaseActivity {
         PeopleSpinnerAdapter adapter
                 = new PeopleSpinnerAdapter(getApplication(), oldPeopleList);
         spinner.setAdapter(adapter);
+    }
+
+    @OnClick(R.id.avatar)
+    public void onViewClicked() {
+        drawerlayout.openMenu();
     }
 }
