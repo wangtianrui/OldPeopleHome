@@ -1,0 +1,2310 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.30.1.6000 for 8051               22/Aug/2019  20:43:43
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\mac\low_level\srf04\single_chip\mac_mcu.c
+#    Command line       =  
+#        -f C:\Users\VULCAN\AppData\Local\Temp\EWF6F5.tmp
+#        (E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\mac\low_level\srf04\single_chip\mac_mcu.c
+#        -D ZIGBEEPRO -D NWK_AUTO_POLL -D ZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D SAPP_ZSTACK -lC
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+#        -lA
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+#        --diag_suppress Pe001,Pa010 -o
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\Obj
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 8 -f
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wEndev.cfg
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+#        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0057
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\Source\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+#        -Ohz --require_prototypes --no_code_motion)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List\mac_mcu.lst
+#    Object file        =  
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\Obj\mac_mcu.r51
+#
+###############################################################################
+
+E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\mac\low_level\srf04\single_chip\mac_mcu.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_mcu.c
+      3            Revised:        $Date: 2011-07-12 09:54:47 -0700 (Tue, 12 Jul 2011) $
+      4            Revision:       $Revision: 26749 $
+      5          
+      6            Description:    Describe the purpose and contents of the file.
+      7          
+      8          
+      9            Copyright 2006-2011 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          /* hal */
+     46          #include "hal_defs.h"
+     47          #include "hal_mcu.h"
+
+   \                                 In  segment SFR_AN, at 0x91
+   \   unsigned char volatile __sfr RFIRQF1
+   \                     RFIRQF1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x94
+   \   unsigned char volatile __sfr T2CTRL
+   \                     T2CTRL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x9a
+   \   unsigned char volatile __sfr IEN2
+   \                     IEN2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x9b
+   \   unsigned char volatile __sfr S1CON
+   \                     S1CON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x9e
+   \   unsigned char volatile __sfr CLKCONSTA
+   \                     CLKCONSTA:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa1
+   \   unsigned char volatile __sfr T2IRQF
+   \                     T2IRQF:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa2
+   \   unsigned char volatile __sfr T2M0
+   \                     T2M0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa3
+   \   unsigned char volatile __sfr T2M1
+   \                     T2M1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa4
+   \   unsigned char volatile __sfr T2MOVF0
+   \                     T2MOVF0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa5
+   \   unsigned char volatile __sfr T2MOVF1
+   \                     T2MOVF1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa6
+   \   unsigned char volatile __sfr T2MOVF2
+   \                     T2MOVF2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa7
+   \   unsigned char volatile __sfr T2IRQM
+   \                     T2IRQM:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa9
+   \   unsigned char volatile __sfr IP0
+   \                     IP0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb4
+   \   unsigned char volatile __sfr ADCCON1
+   \                     ADCCON1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb8
+   \   union <unnamed> volatile __sfr _A_IEN1
+   \                     _A_IEN1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb9
+   \   unsigned char volatile __sfr IP1
+   \                     IP1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xbc
+   \   unsigned char volatile __sfr RNDL
+   \                     RNDL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xbd
+   \   unsigned char volatile __sfr RNDH
+   \                     RNDH:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xbf
+   \   unsigned char volatile __sfr RFERRF
+   \                     RFERRF:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc3
+   \   unsigned char volatile __sfr T2MSEL
+   \                     T2MSEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xe9
+   \   unsigned char volatile __sfr RFIRQF0
+   \                     RFIRQF0:
+   \   000000                DS 1
+     48          
+     49          /* low-level specific */
+     50          #include "mac_rx.h"
+     51          #include "mac_tx.h"
+     52          #include "mac_backoff_timer.h"
+     53          #include "mac_csp_tx.h"
+     54          #include "mac_rx_onoff.h"
+     55          #include "mac_low_level.h"
+     56          
+     57          /* target specific */
+     58          #include "mac_mcu.h"
+     59          #include "mac_radio_defs.h"
+     60          
+     61          /* debug */
+     62          #include "mac_assert.h"
+     63          
+     64          
+     65          /* ------------------------------------------------------------------------------------------------
+     66           *                                           Defines
+     67           * ------------------------------------------------------------------------------------------------
+     68           */
+     69          
+     70          /* for optimized indexing of uint32's */
+     71          #if HAL_MCU_LITTLE_ENDIAN()
+     72          #define UINT32_NDX0   0
+     73          #define UINT32_NDX1   1
+     74          #define UINT32_NDX2   2
+     75          #define UINT32_NDX3   3
+     76          #else
+     77          #define UINT32_NDX0   3
+     78          #define UINT32_NDX1   2
+     79          #define UINT32_NDX2   1
+     80          #define UINT32_NDX3   0
+     81          #endif
+     82          
+     83          /* ------------------------------------------------------------------------------------------------
+     84           *                                        Local Variables
+     85           * ------------------------------------------------------------------------------------------------
+     86           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     87          uint8       macChipVersion = 0;
+   \                     macChipVersion:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     88          static int8 maxRssi;
+   \                     maxRssi:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     89          
+     90          
+     91          /*
+     92           *  This number is used to calculate the precision count for OSAL timer update. In Beacon mode,
+     93           *  the overflow count may be initialized to zero or to a constant. The "skip" in overflow count
+     94           *  needs to be accounted for in this variable.
+     95           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     96          static uint32 accumulatedOverflowCount = 0;
+   \                     accumulatedOverflowCount:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+     97          
+     98          /* Function pointer for the random seed callback */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     99          static macRNGFcn_t pRandomSeedCB = NULL;
+   \                     pRandomSeedCB:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    100          /* ------------------------------------------------------------------------------------------------
+    101           *                                       Local Prototypes
+    102           * ------------------------------------------------------------------------------------------------
+    103           */
+    104          static void mcuRecordMaxRssiIsr(void);
+    105          static uint32 macMcuOverflowGetCompare(void);
+    106          
+    107          void MAC_SetRandomSeedCB(macRNGFcn_t pCBFcn);
+    108          
+    109          /**************************************************************************************************
+    110           * @fn          MAC_SetRandomSeedCB
+    111           *
+    112           * @brief       Set the function pointer for the random seed callback.
+    113           *
+    114           * @param       pCBFcn - function pointer of the random seed callback
+    115           *
+    116           * @return      none
+    117           **************************************************************************************************
+    118           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    119          void MAC_SetRandomSeedCB(macRNGFcn_t pCBFcn)
+   \                     MAC_SetRandomSeedCB:
+    120          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    121            pRandomSeedCB = pCBFcn;
+   \   000004   90....       MOV       DPTR,#pRandomSeedCB
+   \   000007   EA           MOV       A,R2
+   \   000008   F0           MOVX      @DPTR,A
+   \   000009   A3           INC       DPTR
+   \   00000A   EB           MOV       A,R3
+   \   00000B   F0           MOVX      @DPTR,A
+    122          }
+   \   00000C   80..         SJMP      ??Subroutine9_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine9_0:
+   \   000000   D083         POP       DPH
+   \   000002   D082         POP       DPL
+   \   000004   02....       LJMP      ?BRET
+    123          
+    124          /**************************************************************************************************
+    125           * @fn          macMcuInit
+    126           *
+    127           * @brief       Initialize the MCU.
+    128           *
+    129           * @param       none
+    130           *
+    131           * @return      none
+    132           **************************************************************************************************
+    133           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine8_0:
+   \   000000   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000003                REQUIRE ??Subroutine9_0
+   \   000003                ; // Fall through to label ??Subroutine9_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    134          MAC_INTERNAL_API void macMcuInit(void)
+   \                     macMcuInit:
+    135          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 16
+   \   000004   74F0         MOV       A,#-0x10
+   \   000006   12....       LCALL     ?ALLOC_XSTACK8
+    136            halIntState_t  s;
+    137          
+    138            /* This CORR_THR value should be changed to 0x14 before attempting RX. Testing has shown that
+    139             * too many false frames are received if the reset value is used. Make it more likely to detect
+    140             * sync by removing the requirement that both symbols in the SFD must have a correlation value
+    141             * above the correlation threshold, and make sync word detection less likely by raising the
+    142             * correlation threshold.
+    143             */
+    144            MDMCTRL1 = CORR_THR;
+   \   000009   9061A9       MOV       DPTR,#0x61a9
+   \   00000C   7414         MOV       A,#0x14
+   \   00000E   F0           MOVX      @DPTR,A
+    145          
+    146          #ifdef FEATURE_CC253X_LOW_POWER_RX
+    147            /* Reduce RX power consumption current to 20mA at the cost of some sensitivity
+    148             * Note: This feature can be applied to CC2530 and CC2533 only.
+    149             */
+    150            RXCTRL = 0x00;
+    151            FSCTRL = 0x50;
+    152          #else
+    153            /* tuning adjustments for optimal radio performance; details available in datasheet */
+    154            RXCTRL = 0x3F;
+   \   00000F   9061AB       MOV       DPTR,#0x61ab
+   \   000012   743F         MOV       A,#0x3f
+   \   000014   F0           MOVX      @DPTR,A
+    155            
+    156            /* Adjust current in synthesizer; details available in datasheet. */
+    157            FSCTRL = 0x55;
+   \   000015   A3           INC       DPTR
+   \   000016   7455         MOV       A,#0x55
+   \   000018   F0           MOVX      @DPTR,A
+    158          #endif /* #ifdef FEATURE_CC253X_LOW_POWER_RX */ 
+    159          
+    160          #if !(defined HAL_PA_LNA || defined HAL_PA_LNA_CC2590)
+    161            /* Raises the CCA threshold from about -108 dBm to about -80 dBm input level.
+    162             */
+    163            CCACTRL0 = CCA_THR;
+   \   000019   906196       MOV       DPTR,#0x6196
+   \   00001C   74FC         MOV       A,#-0x4
+   \   00001E   F0           MOVX      @DPTR,A
+    164          #endif
+    165          
+    166          #ifdef CC2591_COMPRESSION_WORKAROUND
+    167            /* For Coordinators/Routers with CC2591, increase preamble from 4 to 12 bytes */
+    168            MDMCTRL0 = 0x95; 
+    169          
+    170            /* For End devices without CC2591, increase preamble from 4 to 8 bytes */
+    171            /* MDMCTRL0 = 0x8D; */
+    172          #else
+    173            /* Makes sync word detection less likely by requiring two zero symbols before the sync word.
+    174             * details available in datasheet.
+    175             */
+    176            MDMCTRL0 = 0x85;
+   \   00001F   9061A8       MOV       DPTR,#0x61a8
+   \   000022   7485         MOV       A,#-0x7b
+   \   000024   F0           MOVX      @DPTR,A
+    177          #endif /* CC2591_COMPRESSION_WORKAROUND */
+    178          
+    179            if (*(uint8 *)(P_INFOPAGE+0x03) == 0x95)  // Device is a CC2533
+   \   000025   907803       MOV       DPTR,#0x7803
+   \   000028   E0           MOVX      A,@DPTR
+   \   000029   6495         XRL       A,#0x95
+   \   00002B   7006         JNZ       ??macMcuInit_0
+    180            {
+    181              /* In case the device is a 2533, just update the IVCTRL regoster which is 2533 specific */
+    182              #define IVCTRL          XREG( 0x6265 )  
+    183              IVCTRL = 0xF;
+   \   00002D   906265       MOV       DPTR,#0x6265
+   \   000030   740F         MOV       A,#0xf
+   \   000032   F0           MOVX      @DPTR,A
+    184            }
+    185            /* Adjust current in VCO; details available in datasheet. */
+    186            FSCAL1 = 0x00;
+   \                     ??macMcuInit_0:
+   \   000033   9061AE       MOV       DPTR,#0x61ae
+   \   000036   E4           CLR       A
+   \   000037   F0           MOVX      @DPTR,A
+    187          
+    188            /* Adjust target value for AGC control loop; details available in datasheet. */
+    189            AGCCTRL1 = 0x15;
+   \   000038   9061B2       MOV       DPTR,#0x61b2
+   \   00003B   7415         MOV       A,#0x15
+   \   00003D   F0           MOVX      @DPTR,A
+    190          
+    191            /* Disable source address matching an autopend for now */
+    192            SRCMATCH = 0;
+   \   00003E   906182       MOV       DPTR,#0x6182
+   \   000041   E4           CLR       A
+   \   000042   F0           MOVX      @DPTR,A
+    193          
+    194            /* Tune ADC performance, details available in datasheet. */
+    195            ADCTEST0 = 0x10;
+   \   000043   9061B5       MOV       DPTR,#0x61b5
+   \   000046   7410         MOV       A,#0x10
+   \   000048   F0           MOVX      @DPTR,A
+    196            ADCTEST1 = 0x0E;
+   \   000049   A3           INC       DPTR
+   \   00004A   740E         MOV       A,#0xe
+   \   00004C   F0           MOVX      @DPTR,A
+    197            ADCTEST2 = 0x03;
+   \   00004D   A3           INC       DPTR
+   \   00004E   7403         MOV       A,#0x3
+   \   000050   F0           MOVX      @DPTR,A
+    198          
+    199            /* Sets TX anti-aliasing filter to appropriate bandwidth.
+    200             * Reduces spurious emissions close to signal.
+    201             */
+    202            TXFILTCFG = TXFILTCFG_RESET_VALUE;
+   \   000051   9061FA       MOV       DPTR,#0x61fa
+   \   000054   7409         MOV       A,#0x9
+   \   000056   F0           MOVX      @DPTR,A
+    203          
+    204            /* disable the CSPT register compare function */
+    205            CSPT = 0xFF;
+   \   000057   9061E5       MOV       DPTR,#0x61e5
+   \   00005A   74FF         MOV       A,#-0x1
+   \   00005C   F0           MOVX      @DPTR,A
+    206          
+    207            /* enable general RF interrupts */
+    208            IEN2 |= RFIE;
+   \   00005D   439A01       ORL       0x9a,#0x1
+    209          
+    210            /* enable general REERR interrupts */
+    211            IEN0 |= RFERRIE;
+   \   000060   D2A8         SETB      0xa8.0
+    212          
+    213            /* set RF interrupts one notch above lowest priority (four levels available) */
+    214            IP0 |=  IP_RFERR_RF_DMA_BV;
+   \   000062   43A901       ORL       0xa9,#0x1
+    215            IP1 &= ~IP_RFERR_RF_DMA_BV;
+   \   000065   53B9FE       ANL       0xb9,#0xfe
+    216          
+    217            /* set T2 interrupts one notch above lowest priority (four levels available)
+    218             * This effectively turned off nested interrupt between T2 and RF.
+    219             */
+    220            IP0 |=  IP_RXTX0_T2_BV;
+   \   000068   43A904       ORL       0xa9,#0x4
+    221            IP1 &= ~IP_RXTX0_T2_BV;
+   \   00006B   53B9FB       ANL       0xb9,#0xfb
+    222          
+    223            /* read chip version */
+    224            macChipVersion = CHVER;
+   \   00006E   906249       MOV       DPTR,#0x6249
+   \   000071   E0           MOVX      A,@DPTR
+   \   000072   90....       MOV       DPTR,#macChipVersion
+   \   000075   F0           MOVX      @DPTR,A
+    225          
+    226            /*-------------------------------------------------------------------------------
+    227             *  Initialize MAC timer.
+    228             */
+    229          
+    230            /* set timer rollover */
+    231            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000076   A8A8         MOV       R0,0xa8+0x0
+   \   000078   C2AF         CLR       0xa8.7
+    232            MAC_MCU_T2_ACCESS_PERIOD_VALUE();
+   \   00007A   75C302       MOV       0xc3,#0x2
+    233            T2M0 = MAC_RADIO_TIMER_TICKS_PER_BACKOFF() & 0xFF;
+   \   00007D   75A200       MOV       0xa2,#0x0
+    234            T2M1 = MAC_RADIO_TIMER_TICKS_PER_BACKOFF() >> 8;
+   \   000080   75A328       MOV       0xa3,#0x28
+    235            HAL_EXIT_CRITICAL_SECTION(s);
+   \   000083   E8           MOV       A,R0
+   \   000084   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000086   92AF         MOV       0xa8.7,C
+    236          
+    237            /* start timer */
+    238            MAC_RADIO_TIMER_WAKE_UP();
+   \                     ??macMcuInit_1:
+   \   000088   E59E         MOV       A,0x9e
+   \   00008A   70FC         JNZ       ??macMcuInit_1
+   \   00008C   439403       ORL       0x94,#0x3
+   \                     ??macMcuInit_2:
+   \   00008F   E594         MOV       A,0x94
+   \   000091   A2E2         MOV       C,0xE0 /* A   */.2
+   \   000093   50FA         JNC       ??macMcuInit_2
+    239          
+    240            /* Enable latch mode and T2 SYNC start. OSAL timer is based on MAC timer. 
+    241             * The SYNC start msut be on when POWER_SAVING is on for this design to work.
+    242             */
+    243            T2CTRL |= (LATCH_MODE | TIMER2_SYNC);
+   \   000095   43940A       ORL       0x94,#0xa
+    244            
+    245            /* enable timer interrupts */
+    246            T2IE = 1;
+   \   000098   D2BA         SETB      0xb8.2
+    247          
+    248           /*----------------------------------------------------------------------------------------------
+    249            *  Initialize random seed value.
+    250            */
+    251          
+    252            /*
+    253             *  Set radio for infinite reception.  Once radio reaches this state,
+    254             *  it will stay in receive mode regardless RF activity.
+    255             */
+    256            FRMCTRL0 = FRMCTRL0_RESET_VALUE | RX_MODE_INFINITE_RECEPTION;
+   \   00009A   906189       MOV       DPTR,#0x6189
+   \   00009D   7448         MOV       A,#0x48
+   \   00009F   F0           MOVX      @DPTR,A
+    257          
+    258            /* turn on the receiver */
+    259            macRxOn();
+   \   0000A0                ; Setup parameters for call to function macRxOn
+   \   0000A0   12....       LCALL     `??macRxOn::?relay`; Banked call to: macRxOn
+    260          
+    261            /*
+    262             *  Wait for radio to reach infinite reception state by checking RSSI valid flag.
+    263             *  Once it does, the least significant bit of ADTSTH should be pretty random.
+    264             */
+    265            while (!(RSSISTAT & 0x01));
+   \                     ??macMcuInit_3:
+   \   0000A3   906199       MOV       DPTR,#0x6199
+   \   0000A6   E0           MOVX      A,@DPTR
+   \   0000A7   A2E0         MOV       C,0xE0 /* A   */.0
+   \   0000A9   50F8         JNC       ??macMcuInit_3
+    266          
+    267            /* put 16 random bits into the seed value */
+    268            {
+    269              uint16 rndSeed;
+    270              uint8  i;
+    271          
+    272              rndSeed = 0;
+   \   0000AB   7800         MOV       R0,#0x0
+   \   0000AD   7900         MOV       R1,#0x0
+    273          
+    274              for(i=0; i<16; i++)
+   \   0000AF   7A10         MOV       R2,#0x10
+    275              {
+    276                /* use most random bit of analog to digital receive conversion to populate the random seed */
+    277                rndSeed = (rndSeed << 1) | (RFRND & 0x01);
+   \                     ??macMcuInit_4:
+   \   0000B1   E8           MOV       A,R0
+   \   0000B2   25E0         ADD       A,0xE0 /* A   */
+   \   0000B4   F8           MOV       R0,A
+   \   0000B5   E9           MOV       A,R1
+   \   0000B6   33           RLC       A
+   \   0000B7   F9           MOV       R1,A
+   \   0000B8   9061A7       MOV       DPTR,#0x61a7
+   \   0000BB   E0           MOVX      A,@DPTR
+   \   0000BC   A2E0         MOV       C,0xE0 /* A   */.0
+   \   0000BE   E4           CLR       A
+   \   0000BF   33           RLC       A
+   \   0000C0   FC           MOV       R4,A
+   \   0000C1   E8           MOV       A,R0
+   \   0000C2   4C           ORL       A,R4
+   \   0000C3   F8           MOV       R0,A
+    278              }
+   \   0000C4   DAEB         DJNZ      R2,??macMcuInit_4
+    279          
+    280              /*
+    281               *  The seed value must not be zero or 0x0380 (0x8003 in the polynomial).  If it is, the psuedo
+    282               *  random sequence won’t be random.  There is an extremely small chance this seed could randomly
+    283               *  be zero or 0x0380.  The following check makes sure this does not happen.
+    284               */
+    285              if (rndSeed == 0x0000 || rndSeed == 0x0380)
+   \   0000C6   E8           MOV       A,R0
+   \   0000C7   49           ORL       A,R1
+   \   0000C8   600A         JZ        ??macMcuInit_5
+   \   0000CA   7480         MOV       A,#-0x80
+   \   0000CC   68           XRL       A,R0
+   \   0000CD   7003         JNZ       ??macMcuInit_6
+   \   0000CF   7403         MOV       A,#0x3
+   \   0000D1   69           XRL       A,R1
+   \                     ??macMcuInit_6:
+   \   0000D2   7004         JNZ       ??macMcuInit_7
+    286              {
+    287                rndSeed = 0xBABE; /* completely arbitrary "random" value */
+   \                     ??macMcuInit_5:
+   \   0000D4   78BE         MOV       R0,#-0x42
+   \   0000D6   79BA         MOV       R1,#-0x46
+    288              }
+    289          
+    290              /*
+    291               *  Two writes to RNDL will set the random seed.  A write to RNDL copies current contents
+    292               *  of RNDL to RNDH before writing new the value to RNDL.
+    293               */
+    294              RNDL = rndSeed & 0xFF;
+   \                     ??macMcuInit_7:
+   \   0000D8   E8           MOV       A,R0
+   \   0000D9   F5BC         MOV       0xbc,A
+    295              RNDL = rndSeed >> 8;
+   \   0000DB   E9           MOV       A,R1
+   \   0000DC   F5BC         MOV       0xbc,A
+    296            }
+    297          
+    298            /* Read 16*8 random bits and store them in flash for future use in random
+    299               key generation for CBKE key establishment */
+    300            if( pRandomSeedCB )
+   \   0000DE   90....       MOV       DPTR,#pRandomSeedCB
+   \   0000E1   E0           MOVX      A,@DPTR
+   \   0000E2   F8           MOV       R0,A
+   \   0000E3   A3           INC       DPTR
+   \   0000E4   E0           MOVX      A,@DPTR
+   \   0000E5   F9           MOV       R1,A
+   \   0000E6   E8           MOV       A,R0
+   \   0000E7   49           ORL       A,R1
+   \   0000E8   6042         JZ        ??macMcuInit_8
+    301            {
+    302              uint8 randomSeed[MAC_RANDOM_SEED_LEN];
+    303              uint8 i,j;
+    304          
+    305              for(i = 0; i < 16; i++)
+   \   0000EA   7900         MOV       R1,#0x0
+    306              {
+    307                uint8 rndByte = 0;
+   \                     ??macMcuInit_9:
+   \   0000EC   7800         MOV       R0,#0x0
+    308                for(j = 0; j < 8; j++)
+   \   0000EE   7A08         MOV       R2,#0x8
+    309                {
+    310                  /* use most random bit of analog to digital receive conversion to
+    311                     populate the random seed */
+    312                  rndByte = (rndByte << 1) | (RFRND & 0x01);
+   \                     ??macMcuInit_10:
+   \   0000F0   9061A7       MOV       DPTR,#0x61a7
+   \   0000F3   E0           MOVX      A,@DPTR
+   \   0000F4   A2E0         MOV       C,0xE0 /* A   */.0
+   \   0000F6   E4           CLR       A
+   \   0000F7   33           RLC       A
+   \   0000F8   FB           MOV       R3,A
+   \   0000F9   E8           MOV       A,R0
+   \   0000FA   33           RLC       A
+   \   0000FB   4B           ORL       A,R3
+   \   0000FC   F8           MOV       R0,A
+    313                }
+   \   0000FD   DAF1         DJNZ      R2,??macMcuInit_10
+    314                randomSeed[i] = rndByte;
+   \   0000FF   E9           MOV       A,R1
+   \   000100   FA           MOV       R2,A
+   \   000101   85..82       MOV       DPL,?XSP + 0
+   \   000104   85..83       MOV       DPH,?XSP + 1
+   \   000107   E582         MOV       A,DPL
+   \   000109   2A           ADD       A,R2
+   \   00010A   F582         MOV       DPL,A
+   \   00010C   E4           CLR       A
+   \   00010D   3583         ADDC      A,DPH
+   \   00010F   F583         MOV       DPH,A
+   \   000111   E8           MOV       A,R0
+   \   000112   F0           MOVX      @DPTR,A
+    315          
+    316              }
+   \   000113   09           INC       R1
+   \   000114   E9           MOV       A,R1
+   \   000115   C3           CLR       C
+   \   000116   9410         SUBB      A,#0x10
+   \   000118   40D2         JC        ??macMcuInit_9
+    317              pRandomSeedCB( randomSeed );
+   \   00011A                ; Setup parameters for indirect call
+   \   00011A   AA..         MOV       R2,?XSP + 0
+   \   00011C   AB..         MOV       R3,?XSP + 1
+   \   00011E   90....       MOV       DPTR,#pRandomSeedCB
+   \   000121   E0           MOVX      A,@DPTR
+   \   000122   F8           MOV       R0,A
+   \   000123   A3           INC       DPTR
+   \   000124   E0           MOVX      A,@DPTR
+   \   000125   F583         MOV       DPH,A
+   \   000127   8882         MOV       DPL,R0
+   \   000129   12....       LCALL     ?CALL_IND
+    318            }
+    319          
+    320            /* turn off the receiver */
+    321            macRxOff();
+   \                     ??macMcuInit_8:
+   \   00012C                ; Setup parameters for call to function macRxOff
+   \   00012C   12....       LCALL     `??macRxOff::?relay`; Banked call to: macRxOff
+    322          
+    323            /* take receiver out of infinite reception mode; set back to normal operation */
+    324            FRMCTRL0 = FRMCTRL0_RESET_VALUE | RX_MODE_NORMAL_OPERATION;
+   \   00012F   906189       MOV       DPTR,#0x6189
+   \   000132   7440         MOV       A,#0x40
+   \   000134   F0           MOVX      @DPTR,A
+    325          
+    326            /* Turn on autoack */
+    327            MAC_RADIO_TURN_ON_AUTO_ACK();
+   \   000135   E0           MOVX      A,@DPTR
+   \   000136   D2E5         SETB      0xE0 /* A   */.5
+   \   000138   F0           MOVX      @DPTR,A
+    328          
+    329            /* Initialize SRCEXTPENDEN and SRCSHORTPENDEN to zeros */
+    330            MAC_RADIO_SRC_MATCH_INIT_EXTPENDEN();
+   \   000139   906164       MOV       DPTR,#0x6164
+   \   00013C   E4           CLR       A
+   \   00013D   F0           MOVX      @DPTR,A
+   \   00013E   A3           INC       DPTR
+   \   00013F   F0           MOVX      @DPTR,A
+   \   000140   A3           INC       DPTR
+   \   000141   F0           MOVX      @DPTR,A
+    331            MAC_RADIO_SRC_MATCH_INIT_SHORTPENDEN();
+   \   000142   A3           INC       DPTR
+   \   000143   F0           MOVX      @DPTR,A
+   \   000144   A3           INC       DPTR
+   \   000145   F0           MOVX      @DPTR,A
+   \   000146   A3           INC       DPTR
+   \   000147   F0           MOVX      @DPTR,A
+    332          }
+   \   000148   7410         MOV       A,#0x10
+   \   00014A   02....       LJMP      ??Subroutine8_0 & 0xFFFF
+   \   00014D                REQUIRE IEN2
+   \   00014D                REQUIRE _A_IEN0
+   \   00014D                REQUIRE IP0
+   \   00014D                REQUIRE IP1
+   \   00014D                REQUIRE T2MSEL
+   \   00014D                REQUIRE T2M0
+   \   00014D                REQUIRE T2M1
+   \   00014D                REQUIRE CLKCONSTA
+   \   00014D                REQUIRE T2CTRL
+   \   00014D                REQUIRE _A_IEN1
+   \   00014D                REQUIRE RNDL
+    333          
+    334          
+    335          /**************************************************************************************************
+    336           * @fn          macMcuRandomByte
+    337           *
+    338           * @brief       Returns a random byte using a special hardware feature that generates new
+    339           *              random values based on the truly random seed set earlier.
+    340           *
+    341           * @param       none
+    342           *
+    343           * @return      a random byte
+    344           **************************************************************************************************
+    345           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    346          MAC_INTERNAL_API uint8 macMcuRandomByte(void)
+   \                     macMcuRandomByte:
+    347          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    348            /* clock the random generator to get a new random value */
+    349            ADCCON1 = (ADCCON1 & ~RCTRL_BITS) | RCTRL_CLOCK_LFSR;
+   \   000000   E5B4         MOV       A,0xb4
+   \   000002   54F3         ANL       A,#0xf3
+   \   000004   4404         ORL       A,#0x4
+   \   000006   F5B4         MOV       0xb4,A
+    350          
+    351            /* return new randomized value from hardware */
+    352            return(RNDH);
+   \   000008   E5BD         MOV       A,0xbd
+   \   00000A   F9           MOV       R1,A
+   \   00000B   02....       LJMP      ?BRET
+   \   00000E                REQUIRE ADCCON1
+   \   00000E                REQUIRE RNDH
+    353          }
+    354          
+    355          
+    356          /**************************************************************************************************
+    357           * @fn          macMcuRandomWord
+    358           *
+    359           * @brief       Returns a random word using a special hardware feature that generates new
+    360           *              random values based on the truly random seed set earlier.
+    361           *
+    362           * @param       none
+    363           *
+    364           * @return      a random word
+    365           **************************************************************************************************
+    366           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    367          MAC_INTERNAL_API uint16 macMcuRandomWord(void)
+   \                     macMcuRandomWord:
+    368          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    369            uint16 random_word;
+    370          
+    371            /* clock the random generator to get a new random value */
+    372            ADCCON1 = (ADCCON1 & ~RCTRL_BITS) | RCTRL_CLOCK_LFSR;
+   \   000000   E5B4         MOV       A,0xb4
+   \   000002   54F3         ANL       A,#0xf3
+   \   000004   4404         ORL       A,#0x4
+   \   000006   F5B4         MOV       0xb4,A
+    373          
+    374            /* read random word */
+    375            random_word  = (RNDH << 8);
+   \   000008   E5BD         MOV       A,0xbd+0x0
+    376            random_word +=  RNDL;
+    377          
+    378            /* return new randomized value from hardware */
+    379            return(random_word);
+   \   00000A   F9           MOV       R1,A
+   \   00000B   E5BC         MOV       A,0xbc
+   \   00000D   FA           MOV       R2,A
+   \   00000E   E9           MOV       A,R1
+   \   00000F   FB           MOV       R3,A
+   \   000010   02....       LJMP      ?BRET
+   \   000013                REQUIRE ADCCON1
+   \   000013                REQUIRE RNDH
+   \   000013                REQUIRE RNDL
+    380          }
+    381          
+    382          
+    383          /**************************************************************************************************
+    384           * @fn          macMcuTimerForceDelay
+    385           *
+    386           * @brief       Delay the timer by the requested number of ticks.
+    387           *
+    388           * @param       none
+    389           *
+    390           * @return      none
+    391           **************************************************************************************************
+    392           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    393          MAC_INTERNAL_API void macMcuTimerForceDelay(uint16 x)
+   \                     macMcuTimerForceDelay:
+    394          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    395            halIntState_t  s;
+    396          
+    397            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000000   A8A8         MOV       R0,0xa8+0x0
+   \   000002   C2AF         CLR       0xa8.7
+    398            MAC_MCU_T2_ACCESS_COUNT_VALUE();
+   \   000004   75C300       MOV       0xc3,#0x0
+    399            T2M0 = (x) & 0xFF;
+   \   000007   EA           MOV       A,R2
+   \   000008   F5A2         MOV       0xa2,A
+    400            T2M1 = (x) >> 8;
+   \   00000A   EB           MOV       A,R3
+   \   00000B   F5A3         MOV       0xa3,A
+    401            HAL_EXIT_CRITICAL_SECTION(s);
+   \   00000D   E8           MOV       A,R0
+   \   00000E   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000010   92AF         MOV       0xa8.7,C
+    402          }
+   \   000012   02....       LJMP      ?BRET
+   \   000015                REQUIRE _A_IEN0
+   \   000015                REQUIRE T2MSEL
+   \   000015                REQUIRE T2M0
+   \   000015                REQUIRE T2M1
+    403          
+    404          /**************************************************************************************************
+    405           * @fn          macMcuTimerCapture
+    406           *
+    407           * @brief       Returns the last timer capture.  This capture should have occurred at the
+    408           *              receive time of the last frame (the last time SFD transitioned to active).
+    409           *
+    410           * @param       none
+    411           *
+    412           * @return      last capture of hardware timer (full 16-bit value)
+    413           **************************************************************************************************
+    414           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    415          MAC_INTERNAL_API uint16 macMcuTimerCapture(void)
+   \                     macMcuTimerCapture:
+    416          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    417            uint16         timerCapture;
+    418            halIntState_t  s;
+    419          
+    420            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000000   A9A8         MOV       R1,0xa8+0x0
+   \   000002   C2AF         CLR       0xa8.7
+    421            MAC_MCU_T2_ACCESS_CAPTURE_VALUE();
+   \   000004   75C301       MOV       0xc3,#0x1
+    422            timerCapture = T2M1 << 8;
+   \   000007   A8A3         MOV       R0,0xa3+0x0
+    423            timerCapture |= T2M0;
+   \   000009   AAA2         MOV       R2,0xa2+0x0
+    424            HAL_EXIT_CRITICAL_SECTION(s);
+   \   00000B   E9           MOV       A,R1
+   \   00000C   A2E7         MOV       C,0xE0 /* A   */.7
+   \   00000E   92AF         MOV       0xa8.7,C
+    425          
+    426            return (timerCapture);
+   \   000010   E8           MOV       A,R0
+   \   000011   FB           MOV       R3,A
+   \   000012   02....       LJMP      ?BRET
+   \   000015                REQUIRE _A_IEN0
+   \   000015                REQUIRE T2MSEL
+   \   000015                REQUIRE T2M1
+   \   000015                REQUIRE T2M0
+    427          }
+    428          
+    429          
+    430          /**************************************************************************************************
+    431           * @fn          macMcuOverflowCount
+    432           *
+    433           * @brief       Returns the value of the overflow counter which is a special hardware feature.
+    434           *              The overflow count actually is 24 bits of information.
+    435           *
+    436           * @param       none
+    437           *
+    438           * @return      value of overflow counter
+    439           **************************************************************************************************
+    440           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   E5A4         MOV       A,0xa4
+   \   000002   85..82       MOV       DPL,?XSP + 0
+   \   000005   85..83       MOV       DPH,?XSP + 1
+   \   000008   F0           MOVX      @DPTR,A
+   \   000009   E5A5         MOV       A,0xa5
+   \   00000B   C0E0         PUSH      A
+   \   00000D   7401         MOV       A,#0x1
+   \   00000F   12....       LCALL     ?XSTACK_DISP0_8
+   \   000012   D0E0         POP       A
+   \   000014   F0           MOVX      @DPTR,A
+   \   000015   E5A6         MOV       A,0xa6
+   \   000017   C0E0         PUSH      A
+   \   000019   7402         MOV       A,#0x2
+   \   00001B   12....       LCALL     ?XSTACK_DISP0_8
+   \   00001E   D0E0         POP       A
+   \   000020   F0           MOVX      @DPTR,A
+   \   000021   7403         MOV       A,#0x3
+   \   000023   12....       LCALL     ?XSTACK_DISP0_8
+   \   000026   E4           CLR       A
+   \   000027   12....       LCALL     ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00002A   12....       LCALL     ?XLOAD_R2345
+   \   00002D   7404         MOV       A,#0x4
+   \   00002F                REQUIRE ??Subroutine8_0
+   \   00002F                ; // Fall through to label ??Subroutine8_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    441          MAC_INTERNAL_API uint32 macMcuOverflowCount(void)
+   \                     macMcuOverflowCount:
+    442          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 4
+   \   000004   74FC         MOV       A,#-0x4
+   \   000006   12....       LCALL     ?ALLOC_XSTACK8
+    443            uint32         overflowCount;
+    444            halIntState_t  s;
+    445          
+    446            /* for efficiency, the 32-bit value is encoded using endian abstracted indexing */
+    447          
+    448            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000009   A8A8         MOV       R0,0xa8+0x0
+   \   00000B   C2AF         CLR       0xa8.7
+    449          
+    450            /* This T2 access macro allows accessing both T2MOVFx and T2Mx */
+    451            MAC_MCU_T2_ACCESS_OVF_COUNT_VALUE();
+   \   00000D   75C300       MOV       0xc3,#0x0
+    452          
+    453            /* Latch the entire T2MOVFx first by reading T2M0. */
+    454            T2M0;
+   \   000010   E5A2         MOV       A,0xa2
+    455            ((uint8 *)&overflowCount)[UINT32_NDX0] = T2MOVF0;
+   \   000012   02....       LJMP      ?Subroutine0 & 0xFFFF
+   \   000015                REQUIRE _A_IEN0
+   \   000015                REQUIRE T2MSEL
+   \   000015                REQUIRE T2M0
+   \   000015                REQUIRE T2MOVF0
+   \   000015                REQUIRE T2MOVF1
+   \   000015                REQUIRE T2MOVF2
+    456            ((uint8 *)&overflowCount)[UINT32_NDX1] = T2MOVF1;
+    457            ((uint8 *)&overflowCount)[UINT32_NDX2] = T2MOVF2;
+    458            ((uint8 *)&overflowCount)[UINT32_NDX3] = 0;
+    459            HAL_EXIT_CRITICAL_SECTION(s);
+    460          
+    461            return (overflowCount);
+    462          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001   E8           MOV       A,R0
+   \   000002   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000004   92AF         MOV       0xa8.7,C
+   \   000006   85..82       MOV       DPL,?XSP + 0
+   \   000009   85..83       MOV       DPH,?XSP + 1
+   \   00000C   22           RET
+    463          
+    464          
+    465          /**************************************************************************************************
+    466           * @fn          macMcuOverflowCapture
+    467           *
+    468           * @brief       Returns the last capture of the overflow counter.  A special hardware feature
+    469           *              captures the overflow counter when the regular hardware timer is captured.
+    470           *
+    471           * @param       none
+    472           *
+    473           * @return      last capture of overflow count
+    474           **************************************************************************************************
+    475           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    476          MAC_INTERNAL_API uint32 macMcuOverflowCapture(void)
+   \                     macMcuOverflowCapture:
+    477          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 4
+   \   000004   74FC         MOV       A,#-0x4
+   \   000006   12....       LCALL     ?ALLOC_XSTACK8
+    478            uint32         overflowCapture;
+    479            halIntState_t  s;
+    480          
+    481            /* for efficiency, the 32-bit value is encoded using endian abstracted indexing */
+    482            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000009   A8A8         MOV       R0,0xa8+0x0
+   \   00000B   C2AF         CLR       0xa8.7
+    483            MAC_MCU_T2_ACCESS_OVF_CAPTURE_VALUE();
+   \   00000D   75C310       MOV       0xc3,#0x10
+    484            ((uint8 *)&overflowCapture)[UINT32_NDX0] = T2MOVF0;
+   \   000010   02....       LJMP      ?Subroutine0 & 0xFFFF
+   \   000013                REQUIRE _A_IEN0
+   \   000013                REQUIRE T2MSEL
+   \   000013                REQUIRE T2MOVF0
+   \   000013                REQUIRE T2MOVF1
+   \   000013                REQUIRE T2MOVF2
+    485            ((uint8 *)&overflowCapture)[UINT32_NDX1] = T2MOVF1;
+    486            ((uint8 *)&overflowCapture)[UINT32_NDX2] = T2MOVF2;
+    487            ((uint8 *)&overflowCapture)[UINT32_NDX3] = 0;
+    488            HAL_EXIT_CRITICAL_SECTION(s);
+    489          
+    490            return (overflowCapture);
+    491          }
+    492          
+    493          
+    494          /**************************************************************************************************
+    495           * @fn          macMcuOverflowSetCount
+    496           *
+    497           * @brief       Sets the value of the hardware overflow counter.
+    498           *
+    499           * @param       count - new overflow count value
+    500           *
+    501           * @return      none
+    502           **************************************************************************************************
+    503           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    504          MAC_INTERNAL_API void macMcuOverflowSetCount(uint32 count)
+   \                     macMcuOverflowSetCount:
+    505          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV       A,#-0x4
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   12....       LCALL     ?Subroutine7 & 0xFFFF
+    506            halIntState_t  s;
+    507          
+    508            MAC_ASSERT(! (count >> 24) );   /* illegal count value */
+   \                     ??CrossCallReturnLabel_9:
+   \   00000D   85..82       MOV       DPL,?XSP + 0
+   \   000010   85..83       MOV       DPH,?XSP + 1
+   \   000013   78..         MOV       R0,#?V0
+   \   000015   12....       LCALL     ?L_MOV_X
+   \   000018   90....       MOV       DPTR,#__Constant_ff000000
+   \   00001B   78..         MOV       R0,#?V0
+   \   00001D   12....       LCALL     ?L_AND_X
+   \   000020   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000023   6003         JZ        ??macMcuOverflowSetCount_0
+   \   000025                ; Setup parameters for call to function halAssertHandler
+   \   000025   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    509          
+    510            /* save the current overflow count */
+    511            accumulatedOverflowCount += macMcuOverflowCount();
+    512          
+    513            /* deduct the initial count */
+    514            accumulatedOverflowCount -= count;
+   \                     ??macMcuOverflowSetCount_0:
+   \   000028   90....       MOV       DPTR,#accumulatedOverflowCount
+   \   00002B   C082         PUSH      DPL
+   \   00002D   C083         PUSH      DPH
+   \   00002F                ; Setup parameters for call to function macMcuOverflowCount
+   \   00002F   12....       LCALL     ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   000032   D083         POP       DPH
+   \   000034   D082         POP       DPL
+   \   000036   78..         MOV       R0,#?V0
+   \   000038   12....       LCALL     ?L_ADD_X
+   \   00003B   85..82       MOV       DPL,?XSP + 0
+   \   00003E   85..83       MOV       DPH,?XSP + 1
+   \   000041   78..         MOV       R0,#?V0
+   \   000043   12....       LCALL     ?L_SUB_X
+   \   000046   90....       MOV       DPTR,#accumulatedOverflowCount
+   \   000049   78..         MOV       R0,#?V0
+   \   00004B   12....       LCALL     ?L_MOV_TO_X
+    515          
+    516            HAL_ENTER_CRITICAL_SECTION(s);
+   \   00004E   A8A8         MOV       R0,0xa8+0x0
+   \   000050   C2AF         CLR       0xa8.7
+    517            MAC_MCU_T2_ACCESS_OVF_COUNT_VALUE();
+   \   000052   75C300       MOV       0xc3,#0x0
+    518          
+    519            /* for efficiency, the 32-bit value is decoded using endian abstracted indexing */
+    520            /* T2OF2 must be written last */
+    521            T2MOVF0 = ((uint8 *)&count)[UINT32_NDX0];
+   \   000055   85..82       MOV       DPL,?XSP + 0
+   \   000058   85..83       MOV       DPH,?XSP + 1
+   \   00005B   E0           MOVX      A,@DPTR
+   \   00005C   F5A4         MOV       0xa4,A
+    522            T2MOVF1 = ((uint8 *)&count)[UINT32_NDX1];
+   \   00005E   7401         MOV       A,#0x1
+   \   000060   12....       LCALL     ?XSTACK_DISP0_8
+   \   000063   E0           MOVX      A,@DPTR
+   \   000064   F5A5         MOV       0xa5,A
+    523            T2MOVF2 = ((uint8 *)&count)[UINT32_NDX2];
+   \   000066   7402         MOV       A,#0x2
+   \   000068   12....       LCALL     ?XSTACK_DISP0_8
+   \   00006B   E0           MOVX      A,@DPTR
+   \   00006C   F5A6         MOV       0xa6,A
+    524            HAL_EXIT_CRITICAL_SECTION(s);
+   \   00006E   E8           MOV       A,R0
+   \   00006F   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000071   80..         SJMP      ??Subroutine10_0
+   \   000073                REQUIRE _A_IEN0
+   \   000073                REQUIRE T2MSEL
+   \   000073                REQUIRE T2MOVF0
+   \   000073                REQUIRE T2MOVF1
+   \   000073                REQUIRE T2MOVF2
+    525          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine10_0:
+   \   000000   92AF         MOV       0xa8.7,C
+   \   000002                REQUIRE ??Subroutine11_0
+   \   000002                ; // Fall through to label ??Subroutine11_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine11_0:
+   \   000000   7404         MOV       A,#0x4
+   \   000002   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000005   7F04         MOV       R7,#0x4
+   \   000007   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   E5..         MOV       A,?V0
+   \   000002   45..         ORL       A,?V1
+   \   000004   45..         ORL       A,?V2
+   \   000006   45..         ORL       A,?V3
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   85..82       MOV       DPL,?XSP + 0
+   \   000003   85..83       MOV       DPH,?XSP + 1
+   \   000006   EA           MOV       A,R2
+   \   000007   F0           MOVX      @DPTR,A
+   \   000008   A3           INC       DPTR
+   \   000009   EB           MOV       A,R3
+   \   00000A   F0           MOVX      @DPTR,A
+   \   00000B   A3           INC       DPTR
+   \   00000C   EC           MOV       A,R4
+   \   00000D   F0           MOVX      @DPTR,A
+   \   00000E   A3           INC       DPTR
+   \   00000F   ED           MOV       A,R5
+   \   000010   F0           MOVX      @DPTR,A
+   \   000011   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   12....       LCALL     `??macMcuOverflowCount::?relay`; Banked call to: macMcuOverflowCount
+   \   000003   8A..         MOV       ?V0,R2
+   \   000005   8B..         MOV       ?V1,R3
+   \   000007   8C..         MOV       ?V2,R4
+   \   000009   8D..         MOV       ?V3,R5
+   \   00000B   22           RET
+    526          
+    527          
+    528          /**************************************************************************************************
+    529           * @fn          macMcuOverflowSetCompare
+    530           *
+    531           * @brief       Set overflow count compare value.  An interrupt is triggered when the overflow
+    532           *              count equals this compare value.
+    533           *
+    534           * @param       count - overflow count compare value
+    535           *
+    536           * @return      none
+    537           **************************************************************************************************
+    538           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   E8           MOV       A,R0
+   \   000001   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000003                REQUIRE ??Subroutine10_0
+   \   000003                ; // Fall through to label ??Subroutine10_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    539          MAC_INTERNAL_API void macMcuOverflowSetCompare(uint32 count)
+   \                     macMcuOverflowSetCompare:
+    540          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV       A,#-0x4
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   12....       LCALL     ?Subroutine3 & 0xFFFF
+    541            halIntState_t  s;
+    542            uint8 enableCompareInt = 0;
+    543          
+    544            MAC_ASSERT( !(count >> 24) );   /* illegal count value */
+   \                     ??CrossCallReturnLabel_0:
+   \   00000D   12....       LCALL     ?L_MOV_X
+   \   000010   90....       MOV       DPTR,#__Constant_ff000000
+   \   000013   78..         MOV       R0,#?V0
+   \   000015   12....       LCALL     ?L_AND_X
+   \   000018   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   00001B   6003         JZ        ??macMcuOverflowSetCompare_0
+   \   00001D                ; Setup parameters for call to function halAssertHandler
+   \   00001D   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    545          
+    546            HAL_ENTER_CRITICAL_SECTION(s);
+   \                     ??macMcuOverflowSetCompare_0:
+   \   000020   A2AF         MOV       C,0xa8.7
+   \   000022   E4           CLR       A
+   \   000023   33           RLC       A
+   \   000024   F8           MOV       R0,A
+   \   000025   C2AF         CLR       0xa8.7
+    547          
+    548            /*  Disable overflow compare interrupts. */
+    549            if (T2IRQM & TIMER2_OVF_COMPARE1M)
+   \   000027   E5A7         MOV       A,0xa7
+   \   000029   A2E4         MOV       C,0xE0 /* A   */.4
+   \   00002B   5005         JNC       ??macMcuOverflowSetCompare_1
+    550            {
+    551              enableCompareInt = 1;
+   \   00002D   D2..         SETB      ?VB.0
+    552              T2IRQM &= ~TIMER2_OVF_COMPARE1M;
+   \   00002F   53A7EF       ANL       0xa7,#0xef
+    553            }
+    554          
+    555            MAC_MCU_T2_ACCESS_OVF_CMP1_VALUE();
+   \                     ??macMcuOverflowSetCompare_1:
+   \   000032   75C330       MOV       0xc3,#0x30
+    556          
+    557            /* for efficiency, the 32-bit value is decoded using endian abstracted indexing */
+    558            T2MOVF0 = ((uint8 *)&count)[UINT32_NDX0];
+   \   000035   85..82       MOV       DPL,?XSP + 0
+   \   000038   85..83       MOV       DPH,?XSP + 1
+   \   00003B   E0           MOVX      A,@DPTR
+   \   00003C   F5A4         MOV       0xa4,A
+    559            T2MOVF1 = ((uint8 *)&count)[UINT32_NDX1];
+   \   00003E   7401         MOV       A,#0x1
+   \   000040   12....       LCALL     ?XSTACK_DISP0_8
+   \   000043   E0           MOVX      A,@DPTR
+   \   000044   F5A5         MOV       0xa5,A
+    560            T2MOVF2 = ((uint8 *)&count)[UINT32_NDX2];
+   \   000046   7402         MOV       A,#0x2
+   \   000048   12....       LCALL     ?XSTACK_DISP0_8
+   \   00004B   E0           MOVX      A,@DPTR
+   \   00004C   F5A6         MOV       0xa6,A
+    561          
+    562            /*
+    563             *  Now that new compare value is stored, clear the interrupt flag.  This is important just
+    564             *  in case a false match was generated as the multi-byte compare value was written.
+    565             */
+    566            T2IRQF = ~TIMER2_OVF_COMPARE1F;
+   \   00004E   75A1EF       MOV       0xa1,#-0x11
+    567          
+    568            /* re-enable overflow compare interrupts if they were previously enabled */
+    569            if (enableCompareInt)
+   \   000051   A2..         MOV       C,?VB.0
+   \   000053   5003         JNC       ??macMcuOverflowSetCompare_2
+    570            {
+    571              T2IRQM |= TIMER2_OVF_COMPARE1M;
+   \   000055   43A710       ORL       0xa7,#0x10
+    572            }
+    573          
+    574            HAL_EXIT_CRITICAL_SECTION(s);
+   \                     ??macMcuOverflowSetCompare_2:
+   \   000058   80..         SJMP      ?Subroutine1
+   \   00005A                REQUIRE _A_IEN0
+   \   00005A                REQUIRE T2IRQM
+   \   00005A                REQUIRE T2MSEL
+   \   00005A                REQUIRE T2MOVF0
+   \   00005A                REQUIRE T2MOVF1
+   \   00005A                REQUIRE T2MOVF2
+   \   00005A                REQUIRE T2IRQF
+    575          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL     ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   000003   C2..         CLR       ?VB.0
+   \   000005   85..82       MOV       DPL,?XSP + 0
+   \   000008   85..83       MOV       DPH,?XSP + 1
+   \   00000B   78..         MOV       R0,#?V0
+   \   00000D   22           RET
+    576          
+    577          
+    578          /**************************************************************************************************
+    579           * @fn          macMcuOverflowSetPeriod
+    580           *
+    581           * @brief       Set overflow count period value.  An interrupt is triggered when the overflow
+    582           *              count equals this period value.
+    583           *
+    584           * @param       count - overflow count compare value
+    585           *
+    586           * @return      none
+    587           **************************************************************************************************
+    588           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    589          MAC_INTERNAL_API void macMcuOverflowSetPeriod(uint32 count)
+   \                     macMcuOverflowSetPeriod:
+    590          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV       A,#-0x4
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   12....       LCALL     ?Subroutine3 & 0xFFFF
+    591            halIntState_t  s;
+    592            uint8 enableCompareInt = 0;
+    593          
+    594            MAC_ASSERT( !(count >> 24) );   /* illegal count value */
+   \                     ??CrossCallReturnLabel_1:
+   \   00000D   12....       LCALL     ?L_MOV_X
+   \   000010   90....       MOV       DPTR,#__Constant_ff000000
+   \   000013   78..         MOV       R0,#?V0
+   \   000015   12....       LCALL     ?L_AND_X
+   \   000018   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   00001B   6003         JZ        ??macMcuOverflowSetPeriod_0
+   \   00001D                ; Setup parameters for call to function halAssertHandler
+   \   00001D   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    595          
+    596            HAL_ENTER_CRITICAL_SECTION(s);
+   \                     ??macMcuOverflowSetPeriod_0:
+   \   000020   A2AF         MOV       C,0xa8.7
+   \   000022   E4           CLR       A
+   \   000023   33           RLC       A
+   \   000024   F8           MOV       R0,A
+   \   000025   C2AF         CLR       0xa8.7
+    597          
+    598            /*  Disable overflow compare interrupts. */
+    599            if (T2IRQM & TIMER2_OVF_PERM)
+   \   000027   E5A7         MOV       A,0xa7
+   \   000029   A2E3         MOV       C,0xE0 /* A   */.3
+   \   00002B   5005         JNC       ??macMcuOverflowSetPeriod_1
+    600            {
+    601              enableCompareInt = 1;
+   \   00002D   D2..         SETB      ?VB.0
+    602              T2IRQM &= ~TIMER2_OVF_PERM;
+   \   00002F   53A7F7       ANL       0xa7,#0xf7
+    603            }
+    604          
+    605            MAC_MCU_T2_ACCESS_OVF_PERIOD_VALUE();
+   \                     ??macMcuOverflowSetPeriod_1:
+   \   000032   75C320       MOV       0xc3,#0x20
+    606          
+    607            /* for efficiency, the 32-bit value is decoded using endian abstracted indexing */
+    608            T2MOVF0 = ((uint8 *)&count)[UINT32_NDX0];
+   \   000035   85..82       MOV       DPL,?XSP + 0
+   \   000038   85..83       MOV       DPH,?XSP + 1
+   \   00003B   E0           MOVX      A,@DPTR
+   \   00003C   F5A4         MOV       0xa4,A
+    609            T2MOVF1 = ((uint8 *)&count)[UINT32_NDX1];
+   \   00003E   7401         MOV       A,#0x1
+   \   000040   12....       LCALL     ?XSTACK_DISP0_8
+   \   000043   E0           MOVX      A,@DPTR
+   \   000044   F5A5         MOV       0xa5,A
+    610            T2MOVF2 = ((uint8 *)&count)[UINT32_NDX2];
+   \   000046   7402         MOV       A,#0x2
+   \   000048   12....       LCALL     ?XSTACK_DISP0_8
+   \   00004B   E0           MOVX      A,@DPTR
+   \   00004C   F5A6         MOV       0xa6,A
+    611          
+    612            /*
+    613             *  Now that new compare value is stored, clear the interrupt flag.  This is important just
+    614             *  in case a false match was generated as the multi-byte compare value was written.
+    615             */
+    616            T2IRQF &= ~TIMER2_OVF_PERF;
+   \   00004E   53A1F7       ANL       0xa1,#0xf7
+    617          
+    618            /* re-enable overflow compare interrupts if they were previously enabled */
+    619            if (enableCompareInt)
+   \   000051   A2..         MOV       C,?VB.0
+   \   000053   5003         JNC       ??macMcuOverflowSetPeriod_2
+    620            {
+    621              T2IRQM |= TIMER2_OVF_PERM;
+   \   000055   43A708       ORL       0xa7,#0x8
+    622            }
+    623          
+    624            HAL_EXIT_CRITICAL_SECTION(s);
+   \                     ??macMcuOverflowSetPeriod_2:
+   \   000058   02....       LJMP      ?Subroutine1 & 0xFFFF
+   \   00005B                REQUIRE _A_IEN0
+   \   00005B                REQUIRE T2IRQM
+   \   00005B                REQUIRE T2MSEL
+   \   00005B                REQUIRE T2MOVF0
+   \   00005B                REQUIRE T2MOVF1
+   \   00005B                REQUIRE T2MOVF2
+   \   00005B                REQUIRE T2IRQF
+    625          }
+    626          
+    627          
+    628          /**************************************************************************************************
+    629           * @fn          macMcuOverflowGetCompare
+    630           *
+    631           * @brief       Get overflow count compare value.
+    632           *
+    633           * @param       none
+    634           *
+    635           * @return      overflow count compare value
+    636           **************************************************************************************************
+    637           */
+    638          MAC_INTERNAL_API uint32 macMcuOverflowGetCompare(void)
+    639          {
+    640            halIntState_t  s;
+    641            uint32         compare;
+    642          
+    643            HAL_ENTER_CRITICAL_SECTION(s);
+    644          
+    645            MAC_MCU_T2_ACCESS_OVF_CMP1_VALUE();
+    646          
+    647            /* for efficiency, the 32-bit value is decoded using endian abstracted indexing */
+    648            ((uint8 *)&compare)[UINT32_NDX0] = T2MOVF0;
+    649            ((uint8 *)&compare)[UINT32_NDX1] = T2MOVF1;
+    650            ((uint8 *)&compare)[UINT32_NDX2] = T2MOVF2;
+    651            ((uint8 *)&compare)[UINT32_NDX3] = 0;
+    652          
+    653            HAL_EXIT_CRITICAL_SECTION(s);
+    654          
+    655            return(compare);
+    656          }
+    657          
+    658          
+    659          /**************************************************************************************************
+    660           * @fn          macMcuTimer2Isr
+    661           *
+    662           * @brief       Interrupt service routine for timer2, the MAC timer.
+    663           *
+    664           * @param       none
+    665           *
+    666           * @return      none
+    667           **************************************************************************************************
+    668           */
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+    669          HAL_ISR_FUNCTION( macMcuTimer2Isr, T2_VECTOR )
+   \                     macMcuTimer2Isr:
+    670          {
+   \   000000                REQUIRE ?V0
+   \   000000   C0E0         PUSH      A
+   \   000002   74F2         MOV       A,#-0xe
+   \   000004   12....       LCALL     ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 14
+   \   000007                ; Auto size: 0
+    671            uint8 t2irqm;
+    672            uint8 t2irqf;
+    673            
+    674            HAL_ENTER_ISR();
+   \   000007   A2AF         MOV       C,0xa8.7
+   \   000009   E4           CLR       A
+   \   00000A   33           RLC       A
+   \   00000B   F5..         MOV       ?V0,A
+   \   00000D   D2AF         SETB      0xa8.7
+    675          
+    676            t2irqm = T2IRQM;
+   \   00000F   AFA7         MOV       R7,0xa7+0x0
+    677            t2irqf = T2IRQF;
+   \   000011   AEA1         MOV       R6,0xa1+0x0
+    678          
+    679            /*------------------------------------------------------------------------------------------------
+    680             *  Overflow compare interrupt - triggers when then overflow counter is
+    681             *  equal to the overflow compare register.
+    682             */
+    683            if ((t2irqf & TIMER2_OVF_COMPARE1F) & t2irqm)
+   \   000013   EE           MOV       A,R6
+   \   000014   5F           ANL       A,R7
+   \   000015   5410         ANL       A,#0x10
+   \   000017   6006         JZ        ??macMcuTimer2Isr_0
+    684            {
+    685          
+    686              /* call function for dealing with the timer compare interrupt */
+    687              macBackoffTimerCompareIsr();
+   \   000019                ; Setup parameters for call to function macBackoffTimerCompareIsr
+   \   000019   12....       LCALL     `??macBackoffTimerCompareIsr::?relay`; Banked call to: macBackoffTimerCompareIsr
+    688          
+    689              /* clear overflow compare interrupt flag */
+    690              T2IRQF = ~TIMER2_OVF_COMPARE1F;
+   \   00001C   75A1EF       MOV       0xa1,#-0x11
+    691            }
+    692          
+    693            /*------------------------------------------------------------------------------------------------
+    694             *  Overflow compare interrupt - triggers when then overflow counter is
+    695             *  equal to the overflow compare register.
+    696             */
+    697            if ((t2irqf & TIMER2_OVF_PERF) & t2irqm)
+   \                     ??macMcuTimer2Isr_0:
+   \   00001F   EE           MOV       A,R6
+   \   000020   5F           ANL       A,R7
+   \   000021   5408         ANL       A,#0x8
+   \   000023   6008         JZ        ??macMcuTimer2Isr_1
+    698            {
+    699          
+    700              /* call function for dealing with the timer compare interrupt */
+    701              macBackoffTimerPeriodIsr();
+   \   000025                ; Setup parameters for call to function macBackoffTimerPeriodIsr
+   \   000025   12....       LCALL     `??macBackoffTimerPeriodIsr::?relay`; Banked call to: macBackoffTimerPeriodIsr
+    702          
+    703              /* clear overflow compare interrupt flag */
+    704              T2IRQF = ~TIMER2_OVF_PERF;
+   \   000028   75A1F7       MOV       0xa1,#-0x9
+   \   00002B   8023         SJMP      ??macMcuTimer2Isr_2
+    705            }
+    706          
+    707            /*------------------------------------------------------------------------------------------------
+    708             *  Overflow interrupt - triggers when the hardware timer rolls over.
+    709             */
+    710            else if ((t2irqf & TIMER2_PERF) & t2irqm)
+   \                     ??macMcuTimer2Isr_1:
+   \   00002D   EE           MOV       A,R6
+   \   00002E   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000030   92F0         MOV       B.0,C
+   \   000032   EF           MOV       A,R7
+   \   000033   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000035   82F0         ANL       C,B.0
+   \   000037   5017         JNC       ??macMcuTimer2Isr_2
+    711            {
+    712              /* call energy detect interrupt function, this interrupt not used for any other functionality */
+    713              mcuRecordMaxRssiIsr();
+   \   000039   906198       MOV       DPTR,#0x6198
+   \   00003C   E0           MOVX      A,@DPTR
+   \   00003D   F8           MOV       R0,A
+   \   00003E   90....       MOV       DPTR,#maxRssi
+   \   000041   E0           MOVX      A,@DPTR
+   \   000042   C3           CLR       C
+   \   000043   98           SUBB      A,R0
+   \   000044   A2D2         MOV       C,0xD0 /* PSW */.2
+   \   000046   65D0         XRL       A,PSW
+   \   000048   33           RLC       A
+   \   000049   5002         JNC       ??macMcuTimer2Isr_3
+   \   00004B   E8           MOV       A,R0
+   \   00004C   F0           MOVX      @DPTR,A
+    714          
+    715              /* clear the interrupt flag */
+    716              T2IRQF = ~TIMER2_PERF;
+   \                     ??macMcuTimer2Isr_3:
+   \   00004D   75A1FE       MOV       0xa1,#-0x2
+    717            }
+    718            
+    719            CLEAR_SLEEP_MODE();
+    720            HAL_EXIT_ISR();  
+   \                     ??macMcuTimer2Isr_2:
+   \   000050   E5..         MOV       A,?V0
+   \   000052   80..         SJMP      ??Subroutine12_0
+   \   000054                REQUIRE _A_IEN0
+   \   000054                REQUIRE T2IRQM
+   \   000054                REQUIRE T2IRQF
+    721          }
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+   \                     ??Subroutine12_0:
+   \   000000   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000002   92AF         MOV       0xa8.7,C
+   \   000004   7F01         MOV       R7,#0x1
+   \   000006   02....       LJMP      ?INTERRUPT_LEAVE_XSP
+    722          
+    723          
+    724          /**************************************************************************************************
+    725           * @fn          macMcuTimer2OverflowWorkaround
+    726           *
+    727           * @brief       For CC2530, T2 interrupt won’t be generated when the current count is greater than
+    728           *              the comparator. The interrupt is only generated when the current count is equal to
+    729           *              the comparator. When the CC2530 is waking up from sleep, there is a small window
+    730           *              that the count may be grater than the comparator, therefore, missing the interrupt.
+    731           *              This workaround will call the T2 ISR when the current T2 count is greater than the
+    732           *              comparator.
+    733           *
+    734           * @param       none
+    735           *
+    736           * @return      none
+    737           **************************************************************************************************
+    738           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    739          void macMcuTimer2OverflowWorkaround(void)
+   \                     macMcuTimer2OverflowWorkaround:
+    740          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV       A,#-0x4
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+    741            if (T2IRQM & TIMER2_OVF_COMPARE1F)
+   \   00000A   E5A7         MOV       A,0xa7
+   \   00000C   A2E4         MOV       C,0xE0 /* A   */.4
+   \   00000E   5050         JNC       ??macMcuTimer2OverflowWorkaround_0
+    742            {
+    743              /* T2 comapre 1 interrupt is enabled but T2 compare 1 intererrupt is not generated */
+    744              if (!(T2IRQF & TIMER2_OVF_COMPARE1F))
+   \   000010   E5A1         MOV       A,0xa1
+   \   000012   A2E4         MOV       C,0xE0 /* A   */.4
+   \   000014   404A         JC        ??macMcuTimer2OverflowWorkaround_0
+    745              {
+    746                if (MAC_RADIO_BACKOFF_COUNT() > macMcuOverflowGetCompare())
+   \   000016   A8A8         MOV       R0,0xa8+0x0
+   \   000018   C2AF         CLR       0xa8.7
+   \   00001A   75C330       MOV       0xc3,#0x30
+   \   00001D   E5A4         MOV       A,0xa4
+   \   00001F   85..82       MOV       DPL,?XSP + 0
+   \   000022   85..83       MOV       DPH,?XSP + 1
+   \   000025   F0           MOVX      @DPTR,A
+   \   000026   E5A5         MOV       A,0xa5
+   \   000028   C0E0         PUSH      A
+   \   00002A   7401         MOV       A,#0x1
+   \   00002C   12....       LCALL     ?XSTACK_DISP0_8
+   \   00002F   D0E0         POP       A
+   \   000031   F0           MOVX      @DPTR,A
+   \   000032   E5A6         MOV       A,0xa6
+   \   000034   C0E0         PUSH      A
+   \   000036   7402         MOV       A,#0x2
+   \   000038   12....       LCALL     ?XSTACK_DISP0_8
+   \   00003B   D0E0         POP       A
+   \   00003D   F0           MOVX      @DPTR,A
+   \   00003E   7403         MOV       A,#0x3
+   \   000040   12....       LCALL     ?XSTACK_DISP0_8
+   \   000043   E4           CLR       A
+   \   000044   F0           MOVX      @DPTR,A
+   \   000045   E8           MOV       A,R0
+   \   000046   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000048   92AF         MOV       0xa8.7,C
+   \   00004A                ; Setup parameters for call to function macMcuOverflowCount
+   \   00004A   12....       LCALL     ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   00004D   85..82       MOV       DPL,?XSP + 0
+   \   000050   85..83       MOV       DPH,?XSP + 1
+   \   000053   78..         MOV       R0,#?V0
+   \   000055   12....       LCALL     ?UL_GT_X
+   \   000058   5006         JNC       ??macMcuTimer2OverflowWorkaround_0
+    747                {
+    748                  /* Set the flag to trigger the timer compare interrupt */
+    749                  macBackoffTimerCompareIsr();
+   \   00005A                ; Setup parameters for call to function macBackoffTimerCompareIsr
+   \   00005A   12....       LCALL     `??macBackoffTimerCompareIsr::?relay`; Banked call to: macBackoffTimerCompareIsr
+    750                  T2IRQF = ~TIMER2_OVF_COMPARE1F;
+   \   00005D   75A1EF       MOV       0xa1,#-0x11
+    751                }
+    752              }
+    753            }
+    754          }
+   \                     ??macMcuTimer2OverflowWorkaround_0:
+   \   000060   02....       LJMP      ??Subroutine11_0 & 0xFFFF
+   \   000063                REQUIRE T2IRQM
+   \   000063                REQUIRE T2IRQF
+   \   000063                REQUIRE _A_IEN0
+   \   000063                REQUIRE T2MSEL
+   \   000063                REQUIRE T2MOVF0
+   \   000063                REQUIRE T2MOVF1
+   \   000063                REQUIRE T2MOVF2
+    755          
+    756          
+    757          /**************************************************************************************************
+    758           * @fn          macMcuPrecisionCount
+    759           *
+    760           * @brief       This function is used by higher layer to read a free running counter driven by
+    761           *              MAC timer.
+    762           *
+    763           * @param       none
+    764           *
+    765           * @return      overflowCount
+    766           **************************************************************************************************
+    767           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    768          uint32 macMcuPrecisionCount(void)
+   \                     macMcuPrecisionCount:
+    769          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV       A,#-0x4
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+    770            uint32         overflowCount = 0;
+   \   00000A   85..82       MOV       DPL,?XSP + 0
+   \   00000D   85..83       MOV       DPH,?XSP + 1
+   \   000010   E4           CLR       A
+   \   000011   F0           MOVX      @DPTR,A
+   \   000012   A3           INC       DPTR
+   \   000013   F0           MOVX      @DPTR,A
+   \   000014   A3           INC       DPTR
+   \   000015   F0           MOVX      @DPTR,A
+   \   000016   A3           INC       DPTR
+   \   000017   F0           MOVX      @DPTR,A
+    771            halIntState_t  s;
+    772          
+    773            HAL_ENTER_CRITICAL_SECTION(s);
+   \   000018   A8A8         MOV       R0,0xa8+0x0
+   \   00001A   C2AF         CLR       0xa8.7
+    774          
+    775            /* This T2 access macro allows accessing both T2MOVFx and T2Mx */
+    776            MAC_MCU_T2_ACCESS_OVF_COUNT_VALUE();
+   \   00001C   75C300       MOV       0xc3,#0x0
+    777          
+    778            /* Latch the entire T2MOVFx first by reading T2M0.
+    779             * T2M0 is discarded.
+    780             */
+    781            T2M0;
+   \   00001F   E5A2         MOV       A,0xa2
+    782            ((uint8 *)&overflowCount)[UINT32_NDX0] = T2MOVF0;
+   \   000021   E5A4         MOV       A,0xa4
+   \   000023   85..82       MOV       DPL,?XSP + 0
+   \   000026   85..83       MOV       DPH,?XSP + 1
+   \   000029   F0           MOVX      @DPTR,A
+    783            ((uint8 *)&overflowCount)[UINT32_NDX1] = T2MOVF1;
+   \   00002A   E5A5         MOV       A,0xa5
+   \   00002C   C0E0         PUSH      A
+   \   00002E   7401         MOV       A,#0x1
+   \   000030   12....       LCALL     ?XSTACK_DISP0_8
+   \   000033   D0E0         POP       A
+   \   000035   F0           MOVX      @DPTR,A
+    784            ((uint8 *)&overflowCount)[UINT32_NDX2] = T2MOVF2;
+   \   000036   E5A6         MOV       A,0xa6
+   \   000038   C0E0         PUSH      A
+   \   00003A   7402         MOV       A,#0x2
+   \   00003C   12....       LCALL     ?XSTACK_DISP0_8
+   \   00003F   D0E0         POP       A
+   \   000041   12....       LCALL     ?Subroutine4 & 0xFFFF
+    785          
+    786            /* the overflowCount needs to account for the accumulated overflow count in Beacon mode.
+    787             */
+    788            overflowCount += accumulatedOverflowCount;
+    789            HAL_EXIT_CRITICAL_SECTION(s);
+    790          
+    791            return(overflowCount);
+   \                     ??CrossCallReturnLabel_3:
+   \   000044   78..         MOV       R0,#?V0
+   \   000046   12....       LCALL     ?L_MOV_X
+   \   000049   90....       MOV       DPTR,#accumulatedOverflowCount
+   \   00004C   78..         MOV       R0,#?V0
+   \   00004E   12....       LCALL     ?L_ADD_X
+   \   000051   AA..         MOV       R2,?V0
+   \   000053   AB..         MOV       R3,?V1
+   \   000055   AC..         MOV       R4,?V2
+   \   000057   AD..         MOV       R5,?V3
+   \   000059   02....       LJMP      ??Subroutine11_0 & 0xFFFF
+   \   00005C                REQUIRE _A_IEN0
+   \   00005C                REQUIRE T2MSEL
+   \   00005C                REQUIRE T2M0
+   \   00005C                REQUIRE T2MOVF0
+   \   00005C                REQUIRE T2MOVF1
+   \   00005C                REQUIRE T2MOVF2
+    792          }
+    793          
+    794          
+    795          /**************************************************************************************************
+    796           * @fn          macMcuRfIsr
+    797           *
+    798           * @brief       Interrupt service routine that handles all RF interrupts.  There are a number
+    799           *              of conditions "ganged" onto this one ISR so each condition must be tested for.
+    800           *
+    801           * @param       none
+    802           *
+    803           * @return      none
+    804           **************************************************************************************************
+    805           */
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+    806          HAL_ISR_FUNCTION( macMcuRfIsr, RF_VECTOR )
+   \                     macMcuRfIsr:
+    807          {
+   \   000000   C0E0         PUSH      A
+   \   000002   74F2         MOV       A,#-0xe
+   \   000004   12....       LCALL     ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 14
+   \   000007                ; Auto size: 0
+    808            uint8 rfim;
+    809            
+    810            HAL_ENTER_ISR();
+   \   000007   A2AF         MOV       C,0xa8.7
+   \   000009   E4           CLR       A
+   \   00000A   33           RLC       A
+   \   00000B   FE           MOV       R6,A
+   \   00000C   D2AF         SETB      0xa8.7
+    811          
+    812            rfim = RFIRQM1;
+   \   00000E   9061A4       MOV       DPTR,#0x61a4
+   \   000011   E0           MOVX      A,@DPTR
+   \   000012   F8           MOV       R0,A
+    813          
+    814            /*  The CPU level RF interrupt flag must be cleared here (before clearing RFIRQFx).
+    815             *  to allow the interrupts to be nested.
+    816             */
+    817            S1CON = 0x00;
+   \   000013   759B00       MOV       0x9b,#0x0
+    818          
+    819            if ((RFIRQF1 & IRQ_CSP_MANINT) & rfim)
+   \   000016   E591         MOV       A,0x91
+   \   000018   58           ANL       A,R0
+   \   000019   5408         ANL       A,#0x8
+   \   00001B   6008         JZ        ??macMcuRfIsr_0
+    820            {
+    821              /*
+    822               *  Important!  Because of how the CSP programs are written, CSP_INT interrupts should
+    823               *  be processed before CSP_STOP interrupts.  This becomes an issue when there are
+    824               *  long critical sections.
+    825               */
+    826              /* clear flag */
+    827              RFIRQF1 = ~IRQ_CSP_MANINT;
+   \   00001D   7591F7       MOV       0x91,#-0x9
+    828              macCspTxIntIsr();
+   \   000020                ; Setup parameters for call to function macCspTxIntIsr
+   \   000020   12....       LCALL     `??macCspTxIntIsr::?relay`; Banked call to: macCspTxIntIsr
+   \   000023   8023         SJMP      ??macMcuRfIsr_1
+    829            }
+    830            else if ((RFIRQF1 & IRQ_CSP_STOP) & rfim)
+   \                     ??macMcuRfIsr_0:
+   \   000025   E591         MOV       A,0x91
+   \   000027   58           ANL       A,R0
+   \   000028   5410         ANL       A,#0x10
+   \   00002A   6008         JZ        ??macMcuRfIsr_2
+    831            {
+    832              /* clear flag */
+    833              RFIRQF1 = ~IRQ_CSP_STOP;
+   \   00002C   7591EF       MOV       0x91,#-0x11
+    834              macCspTxStopIsr();
+   \   00002F                ; Setup parameters for call to function macCspTxStopIsr
+   \   00002F   12....       LCALL     `??macCspTxStopIsr::?relay`; Banked call to: macCspTxStopIsr
+   \   000032   8014         SJMP      ??macMcuRfIsr_1
+    835            }
+    836            else if ((RFIRQF1 & IRQ_TXACKDONE) & rfim)
+   \                     ??macMcuRfIsr_2:
+   \   000034   E591         MOV       A,0x91
+   \   000036   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000038   92F0         MOV       B.0,C
+   \   00003A   E8           MOV       A,R0
+   \   00003B   A2E0         MOV       C,0xE0 /* A   */.0
+   \   00003D   82F0         ANL       C,B.0
+   \   00003F   5007         JNC       ??macMcuRfIsr_1
+    837            {
+    838              /* disable interrupt - set up is for "one shot" operation */
+    839              RFIRQM1 &= ~IM_TXACKDONE;
+   \   000041   E0           MOVX      A,@DPTR
+   \   000042   C2E0         CLR       0xE0 /* A   */.0
+   \   000044   F0           MOVX      @DPTR,A
+    840              macRxAckTxDoneCallback();
+   \   000045                ; Setup parameters for call to function macRxAckTxDoneCallback
+   \   000045   12....       LCALL     `??macRxAckTxDoneCallback::?relay`; Banked call to: macRxAckTxDoneCallback
+    841            }
+    842          
+    843            rfim = RFIRQM0;
+   \                     ??macMcuRfIsr_1:
+   \   000048   9061A3       MOV       DPTR,#0x61a3
+   \   00004B   E0           MOVX      A,@DPTR
+   \   00004C   F8           MOV       R0,A
+    844          
+    845            /* process RFIRQF0 next */
+    846            if ((RFIRQF0 & IRQ_FIFOP) & rfim)
+   \   00004D   E5E9         MOV       A,0xe9
+   \   00004F   58           ANL       A,R0
+   \   000050   5404         ANL       A,#0x4
+   \   000052   600E         JZ        ??macMcuRfIsr_3
+    847            {
+    848              /* continue to execute interrup                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        t handler as long as FIFOP is active */
+    849              do
+    850              {
+    851                macRxThresholdIsr();
+   \                     ??macMcuRfIsr_4:
+   \   000054                ; Setup parameters for call to function macRxThresholdIsr
+   \   000054   12....       LCALL     `??macRxThresholdIsr::?relay`; Banked call to: macRxThresholdIsr
+    852                RFIRQF0 = ~IRQ_FIFOP;
+   \   000057   75E9FB       MOV       0xe9,#-0x5
+    853              } while (FSMSTAT1 & FIFOP);
+   \   00005A   906193       MOV       DPTR,#0x6193
+   \   00005D   E0           MOVX      A,@DPTR
+   \   00005E   A2E6         MOV       C,0xE0 /* A   */.6
+   \   000060   40F2         JC        ??macMcuRfIsr_4
+    854            }
+    855            
+    856            CLEAR_SLEEP_MODE();
+    857            HAL_EXIT_ISR();  
+   \                     ??macMcuRfIsr_3:
+   \   000062                REQUIRE ?Subroutine2
+   \   000062                REQUIRE _A_IEN0
+   \   000062                REQUIRE S1CON
+   \   000062                REQUIRE RFIRQF1
+   \   000062                REQUIRE RFIRQF0
+   \   000062                ; // Fall through to label ?Subroutine2
+    858          }
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   EE           MOV       A,R6
+   \   000001                REQUIRE ??Subroutine12_0
+   \   000001                ; // Fall through to label ??Subroutine12_0
+    859          
+    860          
+    861          /**************************************************************************************************
+    862           * @fn          macMcuRfErrIsr
+    863           *
+    864           * @brief       Interrupt service routine that handles all RF Error interrupts.  Only the RX FIFO
+    865           *              overflow condition is handled.
+    866           *
+    867           * @param       none
+    868           *
+    869           * @return      none
+    870           **************************************************************************************************
+    871           */
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+    872          HAL_ISR_FUNCTION( macMcuRfErrIsr, RFERR_VECTOR )
+   \                     macMcuRfErrIsr:
+    873          {
+   \   000000   C0E0         PUSH      A
+   \   000002   74F2         MOV       A,#-0xe
+   \   000004   12....       LCALL     ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 14
+   \   000007                ; Auto size: 0
+    874            uint8 rferrm;
+    875            
+    876            HAL_ENTER_ISR();
+   \   000007   A2AF         MOV       C,0xa8.7
+   \   000009   E4           CLR       A
+   \   00000A   33           RLC       A
+   \   00000B   FE           MOV       R6,A
+   \   00000C   D2AF         SETB      0xa8.7
+    877            
+    878            rferrm = RFERRM;
+   \   00000E   9061A5       MOV       DPTR,#0x61a5
+   \   000011   E0           MOVX      A,@DPTR
+   \   000012   F8           MOV       R0,A
+    879          
+    880            if ((RFERRF & RFERR_RXOVERF) & rferrm)
+   \   000013   E5BF         MOV       A,0xbf
+   \   000015   58           ANL       A,R0
+   \   000016   5404         ANL       A,#0x4
+   \   000018   6006         JZ        ??macMcuRfErrIsr_0
+    881            {
+    882              RFERRF = ~RFERR_RXOVERF;
+   \   00001A   75BFFB       MOV       0xbf,#-0x5
+    883              macRxFifoOverflowIsr();
+   \   00001D                ; Setup parameters for call to function macRxFifoOverflowIsr
+   \   00001D   12....       LCALL     `??macRxFifoOverflowIsr::?relay`; Banked call to: macRxFifoOverflowIsr
+    884            }
+    885          
+    886            CLEAR_SLEEP_MODE();
+    887            HAL_EXIT_ISR();  
+   \                     ??macMcuRfErrIsr_0:
+   \   000020   80..         SJMP      ?Subroutine2
+   \   000022                REQUIRE _A_IEN0
+   \   000022                REQUIRE RFERRF
+    888          }
+    889          
+    890          
+    891          /**************************************************************************************************
+    892           * @fn          macMcuRecordMaxRssiStart
+    893           *
+    894           * @brief       Starts recording of the maximum received RSSI value.
+    895           *
+    896           * @param       none
+    897           *
+    898           * @return      none
+    899           **************************************************************************************************
+    900           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    901          MAC_INTERNAL_API void macMcuRecordMaxRssiStart(void)
+   \                     macMcuRecordMaxRssiStart:
+    902          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    903            /* start maximum recorded value at the lowest possible value */
+    904            maxRssi = -128;
+   \   000004   90....       MOV       DPTR,#maxRssi
+   \   000007   7480         MOV       A,#-0x80
+   \   000009   F0           MOVX      @DPTR,A
+    905          
+    906            /* enable timer overflow interrupt */
+    907            T2IRQM |= TIMER2_PERM;
+   \   00000A   43A701       ORL       0xa7,#0x1
+    908          }
+   \   00000D   02....       LJMP      ??Subroutine9_0 & 0xFFFF
+   \   000010                REQUIRE T2IRQM
+    909          
+    910          
+    911          /**************************************************************************************************
+    912           * @fn          macMcuRecordMaxRssiStop
+    913           *
+    914           * @brief       Stops recording of the maximum received RSSI.  It returns the maximum value
+    915           *              received since starting the recording.
+    916           *
+    917           * @param       none
+    918           *
+    919           * @return      maximum received RSSI value
+    920           **************************************************************************************************
+    921           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    922          MAC_INTERNAL_API int8 macMcuRecordMaxRssiStop(void)
+   \                     macMcuRecordMaxRssiStop:
+    923          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    924            /* disable timer overflow interrupt */
+    925            T2IRQM &= ~TIMER2_PERM;
+   \   000004   53A7FE       ANL       0xa7,#0xfe
+    926          
+    927            return(maxRssi);
+   \   000007   90....       MOV       DPTR,#maxRssi
+   \   00000A   E0           MOVX      A,@DPTR
+   \   00000B   F9           MOV       R1,A
+   \   00000C   02....       LJMP      ??Subroutine9_0 & 0xFFFF
+   \   00000F                REQUIRE T2IRQM
+    928          }
+
+   \                                 In  segment INTVEC, offset 0x3, root
+   \                     `??macMcuRfErrIsr::??INTVEC 3`:
+   \   000003   02....       LJMP       (macMcuRfErrIsr)
+
+   \                                 In  segment INTVEC, offset 0x53, root
+   \                     `??macMcuTimer2Isr::??INTVEC 83`:
+   \   000053   02....       LJMP       (macMcuTimer2Isr)
+
+   \                                 In  segment INTVEC, offset 0x83, root
+   \                     `??macMcuRfIsr::??INTVEC 131`:
+   \   000083   02....       LJMP       (macMcuRfIsr)
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_ff000000:
+   \   000000   000000FF     DD 4278190080
+    929          
+    930          
+    931          /*=================================================================================================
+    932           * @fn          macMcuRecordMaxRssiIsr
+    933           *
+    934           * @brief       Interrupt service routine called during recording of max RSSI value.
+    935           *
+    936           * @param       none
+    937           *
+    938           * @return      none
+    939           *=================================================================================================
+    940           */
+    941          static void mcuRecordMaxRssiIsr(void)
+    942          {
+    943            int8 rssi;
+    944          
+    945            /* read latest RSSI value */
+    946            rssi = RSSI;
+    947          
+    948            /* if new RSSI value is greater than the maximum already received, it is the new maximum */
+    949            if (rssi > maxRssi)
+    950            {
+    951              maxRssi = rssi;
+    952            }
+    953          }
+    954          
+    955          
+    956          /**************************************************************************************************
+    957           *                                  Compile Time Integrity Checks
+    958           **************************************************************************************************
+    959           */
+    960          #if ((IRQ_SFD != IM_SFD) || (IRQ_FIFOP != IM_FIFOP) || (IRQ_TXACKDONE != IM_TXACKDONE))
+    961          #error "ERROR: Compile time error with RFIRQFx vs RFIRQMx register defines."
+    962          #endif
+    963          
+    964          #if defined (FEATURE_CC253X_LOW_POWER_RX) && !(defined (HAL_MCU_CC2530) || defined (HAL_MCU_CC2533))
+    965          #error "ERROR: FEATURE_CC253X_LOW_POWER_RX can only be used with CC2530 or CC2533."
+    966          #endif
+    967          
+    968          /**************************************************************************************************
+    969          */
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   MAC_SetRandomSeedCB
+      3     16   macMcuInit
+        2     16   -> macRxOff
+        2     16   -> macRxOn
+      3      4   macMcuOverflowCapture
+      3     20   macMcuOverflowCount
+      0     16   macMcuOverflowSetCompare
+        0     16   -> halAssertHandler
+      2     16   macMcuOverflowSetCount
+        0     16   -> halAssertHandler
+        2     16   -> macMcuOverflowCount
+      0     16   macMcuOverflowSetPeriod
+        0     16   -> halAssertHandler
+      1     16   macMcuPrecisionCount
+      0      0   macMcuRandomByte
+      0      0   macMcuRandomWord
+      2      0   macMcuRecordMaxRssiStart
+      2      0   macMcuRecordMaxRssiStop
+      0     14   macMcuRfErrIsr
+        0     14   -> macRxFifoOverflowIsr
+      0     14   macMcuRfIsr
+        0     14   -> macCspTxIntIsr
+        0     14   -> macCspTxStopIsr
+        0     14   -> macRxAckTxDoneCallback
+        0     14   -> macRxThresholdIsr
+      0     14   macMcuTimer2Isr
+        0     14   -> macBackoffTimerCompareIsr
+        0     14   -> macBackoffTimerPeriodIsr
+      1     16   macMcuTimer2OverflowWorkaround
+        0     16   -> macBackoffTimerCompareIsr
+        0     16   -> macMcuOverflowCount
+      0      0   macMcuTimerCapture
+      0      0   macMcuTimerForceDelay
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  ??Subroutine10_0
+      10  ??Subroutine11_0
+       9  ??Subroutine12_0
+       3  ??Subroutine8_0
+       7  ??Subroutine9_0
+      47  ?Subroutine0
+       3  ?Subroutine1
+       1  ?Subroutine2
+      14  ?Subroutine3
+      13  ?Subroutine4
+      12  ?Subroutine5
+       9  ?Subroutine6
+      18  ?Subroutine7
+       1  ADCCON1
+       1  CLKCONSTA
+       1  IEN2
+       1  IP0
+       1  IP1
+      14  MAC_SetRandomSeedCB
+       1  RFERRF
+       1  RFIRQF0
+       1  RFIRQF1
+       1  RNDH
+       1  RNDL
+       1  S1CON
+       1  T2CTRL
+       1  T2IRQF
+       1  T2IRQM
+       1  T2M0
+       1  T2M1
+       1  T2MOVF0
+       1  T2MOVF1
+       1  T2MOVF2
+       1  T2MSEL
+       1  _A_IEN0
+       1  _A_IEN1
+       4  __Constant_ff000000
+       4  accumulatedOverflowCount
+       1  macChipVersion
+     333  macMcuInit
+      19  macMcuOverflowCapture
+      21  macMcuOverflowCount
+      90  macMcuOverflowSetCompare
+     115  macMcuOverflowSetCount
+      91  macMcuOverflowSetPeriod
+      92  macMcuPrecisionCount
+      14  macMcuRandomByte
+      19  macMcuRandomWord
+      16  macMcuRecordMaxRssiStart
+      15  macMcuRecordMaxRssiStop
+      34  macMcuRfErrIsr
+       3  macMcuRfErrIsr::??INTVEC 3
+      98  macMcuRfIsr
+       3  macMcuRfIsr::??INTVEC 131
+      84  macMcuTimer2Isr
+       3  macMcuTimer2Isr::??INTVEC 83
+      99  macMcuTimer2OverflowWorkaround
+      21  macMcuTimerCapture
+      21  macMcuTimerForceDelay
+       1  maxRssi
+       2  pRandomSeedCB
+      90  -- Other
+
+ 
+ 1 118 bytes in segment BANKED_CODE
+    90 bytes in segment BANK_RELAYS
+     9 bytes in segment INTVEC
+   226 bytes in segment NEAR_CODE
+    22 bytes in segment SFR_AN
+     4 bytes in segment XDATA_ROM_C
+     8 bytes in segment XDATA_Z
+ 
+   316 bytes of CODE     memory (+  9 bytes shared)
+     0 bytes of CONST    memory (+  4 bytes shared)
+     0 bytes of DATA     memory (+ 22 bytes shared)
+ 1 118 bytes of HUGECODE memory
+     8 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,1978 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.30.1.6000 for 8051              22/Aug/2019  20:43:48
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\hal\target\CC2530EB\sht10.c
+//    Command line       =  
+//        -f C:\Users\VULCAN\AppData\Local\Temp\EW9E2.tmp
+//        (E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\hal\target\CC2530EB\sht10.c
+//        -D ZIGBEEPRO -D NWK_AUTO_POLL -D ZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC
+//        -D MT_ZDO_FUNC -D SAPP_ZSTACK -lC
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+//        -lA
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+//        --diag_suppress Pe001,Pa010 -o
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\Obj
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 8 -f
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wEndev.cfg
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+//        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+//        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0057
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\Source\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+//        -Ohz --require_prototypes --no_code_motion)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List\sht10.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME sht10
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?V6
+        EXTERN ?V7
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?FLT_ADD
+        EXTERN ?FLT_GE
+        EXTERN ?FLT_LT
+        EXTERN ?FLT_MUL
+        EXTERN ?L_MOV_TO_X
+        EXTERN ?L_MOV_X
+        EXTERN ?UL_TO_FLT
+        EXTERN ?XSP
+
+        PUBLIC `??SHT10_Calculate::?relay`
+        FUNCTION `??SHT10_Calculate::?relay`,0203H
+        PUBLIC `??SHT10_Connectionreset::?relay`
+        FUNCTION `??SHT10_Connectionreset::?relay`,0203H
+        PUBLIC `??SHT10_Measure::?relay`
+        FUNCTION `??SHT10_Measure::?relay`,0203H
+        PUBLIC `??SHT10_ReadByte::?relay`
+        FUNCTION `??SHT10_ReadByte::?relay`,0203H
+        PUBLIC `??SHT10_ReadStatusReg::?relay`
+        FUNCTION `??SHT10_ReadStatusReg::?relay`,0203H
+        PUBLIC `??SHT10_Softreset::?relay`
+        FUNCTION `??SHT10_Softreset::?relay`,0203H
+        PUBLIC `??SHT10_Transstart::?relay`
+        FUNCTION `??SHT10_Transstart::?relay`,0203H
+        PUBLIC `??SHT10_WriteByte::?relay`
+        FUNCTION `??SHT10_WriteByte::?relay`,0203H
+        PUBLIC `??SHT10_WriteStatusReg::?relay`
+        FUNCTION `??SHT10_WriteStatusReg::?relay`,0203H
+        PUBLIC `??SHT10_init::?relay`
+        FUNCTION `??SHT10_init::?relay`,0203H
+        PUBWEAK P0DIR
+        PUBLIC SHT10_Calculate
+        FUNCTION SHT10_Calculate,080203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 8, STACK
+        LOCFRAME XSTACK, 20, STACK
+        PUBLIC SHT10_Connectionreset
+        FUNCTION SHT10_Connectionreset,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC SHT10_Measure
+        FUNCTION SHT10_Measure,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 13, STACK
+        PUBLIC SHT10_ReadByte
+        FUNCTION SHT10_ReadByte,0203H
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        PUBLIC SHT10_ReadStatusReg
+        FUNCTION SHT10_ReadStatusReg,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC SHT10_Softreset
+        FUNCTION SHT10_Softreset,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC SHT10_Transstart
+        FUNCTION SHT10_Transstart,0203H
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC SHT10_WriteByte
+        FUNCTION SHT10_WriteByte,0203H
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC SHT10_WriteStatusReg
+        FUNCTION SHT10_WriteStatusReg,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC SHT10_init
+        FUNCTION SHT10_init,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBWEAK _A_P0
+        PUBWEAK __Constant_3aa7c5ac
+        PUBWEAK __Constant_3c23d70a
+        PUBWEAK __Constant_3d23d70a
+        PUBWEAK __Constant_3dcccccd
+        PUBWEAK __Constant_3f25e354
+        PUBWEAK __Constant_42c80001
+        PUBWEAK __Constant_b6f19787
+        PUBWEAK __Constant_c0800000
+        PUBWEAK __Constant_c1c80000
+        PUBWEAK __Constant_c21e6666
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+SHT10_Calculate     SYMBOL "SHT10_Calculate"
+`??SHT10_Calculate::?relay` SYMBOL "?relay", SHT10_Calculate
+SHT10_Connectionreset SYMBOL "SHT10_Connectionreset"
+`??SHT10_Connectionreset::?relay` SYMBOL "?relay", SHT10_Connectionreset
+SHT10_Measure       SYMBOL "SHT10_Measure"
+`??SHT10_Measure::?relay` SYMBOL "?relay", SHT10_Measure
+SHT10_ReadByte      SYMBOL "SHT10_ReadByte"
+`??SHT10_ReadByte::?relay` SYMBOL "?relay", SHT10_ReadByte
+SHT10_ReadStatusReg SYMBOL "SHT10_ReadStatusReg"
+`??SHT10_ReadStatusReg::?relay` SYMBOL "?relay", SHT10_ReadStatusReg
+SHT10_Softreset     SYMBOL "SHT10_Softreset"
+`??SHT10_Softreset::?relay` SYMBOL "?relay", SHT10_Softreset
+SHT10_Transstart    SYMBOL "SHT10_Transstart"
+`??SHT10_Transstart::?relay` SYMBOL "?relay", SHT10_Transstart
+SHT10_WriteByte     SYMBOL "SHT10_WriteByte"
+`??SHT10_WriteByte::?relay` SYMBOL "?relay", SHT10_WriteByte
+SHT10_WriteStatusReg SYMBOL "SHT10_WriteStatusReg"
+`??SHT10_WriteStatusReg::?relay` SYMBOL "?relay", SHT10_WriteStatusReg
+SHT10_init          SYMBOL "SHT10_init"
+`??SHT10_init::?relay` SYMBOL "?relay", SHT10_init
+
+// E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\hal\target\CC2530EB\sht10.c
+//    1 
+//    2 #include "sht10.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,080H
+// union <unnamed> volatile __sfr _A_P0
+_A_P0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0fdH
+// unsigned char volatile __sfr P0DIR
+P0DIR:
+        DATA8
+        DS 1
+//    3 
+//    4 /***********************************************
+//    5 **Function Name:      SHT10_Transstart
+//    6 **Description:        发送开始时序
+//    7 **
+//    8 **                    generates a transmission start
+//    9 **                          _____         ________
+//   10 **                    DATA:      |_______|
+//   11 **                              ___     ___
+//   12 **                    SCK : ___|   |___|   |______
+//   13 **Input Parameters:   	无
+//   14 **Output Parameters: 	无
+//   15 ************************************************/
+//   16 
+//   17 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   18 void SHT10_Transstart(void)
+SHT10_Transstart:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function SHT10_Transstart
+        CODE
+//   19 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   20     SDIO_DIR_OUT;
+        LCALL     ?Subroutine5 & 0xFFFF
+//   21     SCLK_DIR_OUT;
+//   22     SCLK_LOW;
+??CrossCallReturnLabel_21:
+        CLR       0x80.0
+//   23     SDIO_HIGH;
+        SETB      0x80.6
+//   24     DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Transstart_0:
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_0:
+        JNZ       ??SHT10_Transstart_0
+//   25     DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Transstart_1:
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_1:
+        JNZ       ??SHT10_Transstart_1
+//   26     SCLK_HIGH;
+        SETB      0x80.0
+//   27     DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Transstart_2:
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_2:
+        JNZ       ??SHT10_Transstart_2
+//   28     SDIO_LOW;
+        CLR       0x80.6
+//   29     DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Transstart_3:
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_3:
+        JNZ       ??SHT10_Transstart_3
+//   30     SCLK_LOW;
+        CLR       0x80.0
+//   31     DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Transstart_4:
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_4:
+        JNZ       ??SHT10_Transstart_4
+//   32     SCLK_HIGH;
+        SETB      0x80.0
+//   33     DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Transstart_5:
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_5:
+        JNZ       ??SHT10_Transstart_5
+//   34     SDIO_HIGH;
+        SETB      0x80.6
+//   35     DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Transstart_6:
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_6:
+        JNZ       ??SHT10_Transstart_6
+//   36     SCLK_LOW;	
+        CLR       0x80.0
+//   37 }
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock0
+        REQUIRE P0DIR
+        REQUIRE _A_P0
+//   38 
+//   39 /**********************************************************************************************************
+//   40 **Function Name:      SHT10_WriteByte
+//   41 **Description:        写时序
+//   42 **Input Parameters:   无
+//   43 **Output Parameters: 无
+//   44 **************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   45 unsigned char SHT10_WriteByte(unsigned char data)
+SHT10_WriteByte:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function SHT10_WriteByte
+        CODE
+//   46 {
+        ; Saved register size: 0
+        ; Auto size: 0
+        MOV       A,R1
+        MOV       R3,A
+//   47   unsigned char i;
+//   48   SDIO_DIR_OUT;
+        LCALL     ?Subroutine5 & 0xFFFF
+//   49   SCLK_DIR_OUT;
+//   50   for(i=0x80;i>0;i=(i>>1))              //shift bit for masking
+??CrossCallReturnLabel_22:
+        MOV       R2,#-0x80
+//   51   {
+//   52     if(i&data)
+??SHT10_WriteByte_0:
+        MOV       A,R2
+        ANL       A,R3
+        JZ        ??SHT10_WriteByte_1
+//   53       SDIO_HIGH;                        //masking value with i , write to SENSI-BUS
+        SETB      0x80.6
+        SJMP      ??SHT10_WriteByte_2
+//   54     else
+//   55       SDIO_LOW;
+??SHT10_WriteByte_1:
+        CLR       0x80.6
+//   56     DELAY(DURATION1);          //pulswith approx. 5 us
+??SHT10_WriteByte_2:
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_WriteByte_3:
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_11:
+        JNZ       ??SHT10_WriteByte_3
+//   57     SCLK_HIGH;                          //clk for SENSI-BUS
+        SETB      0x80.0
+//   58     DELAY(DURATION1);          //pulswith approx. 5 us
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_WriteByte_4:
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_12:
+        JNZ       ??SHT10_WriteByte_4
+//   59     SCLK_LOW;
+        CLR       0x80.0
+//   60     DELAY(DURATION1);          //pulswith approx. 5 us
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_WriteByte_5:
+        LCALL     ?Subroutine3 & 0xFFFF
+//   61   }
+??CrossCallReturnLabel_13:
+        JNZ       ??SHT10_WriteByte_5
+        MOV       A,R2
+        CLR       C
+        RRC       A
+        MOV       R2,A
+        JNZ       ??SHT10_WriteByte_0
+//   62   SDIO_HIGH;                            //release DATA-line
+        SETB      0x80.6
+//   63             //pulswith approx. 5 us
+//   64   SDIO_DIR_IN;                     	 //Change SDA to be input
+        ANL       0xfd,#0xbf
+//   65   DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_WriteByte_6:
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_14:
+        JNZ       ??SHT10_WriteByte_6
+//   66   SCLK_HIGH;                          //clk for SENSI-BUS
+        SETB      0x80.0
+//   67   if(READ_SDIO)
+        MOV       C,0x80.6
+        JNC       ??SHT10_WriteByte_7
+//   68   {
+//   69           return 1; 						//error=1 in case of no acknowledge
+        MOV       R1,#0x1
+        SJMP      ??SHT10_WriteByte_8
+//   70   }
+//   71   DELAY(DURATION1);          //pulswith approx. 5 us
+??SHT10_WriteByte_7:
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_WriteByte_9:
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_15:
+        JNZ       ??SHT10_WriteByte_9
+//   72   SCLK_LOW;
+        CLR       0x80.0
+//   73   return 0;
+        MOV       R1,#0x0
+??SHT10_WriteByte_8:
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock1
+        REQUIRE P0DIR
+        REQUIRE _A_P0
+//   74 }
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine5:
+          CFI Block cfiCond2 Using cfiCommon0
+          CFI Function SHT10_Transstart
+          CFI Conditional ??CrossCallReturnLabel_21
+          CFI CFA_SP SP+-5
+          CFI Block cfiCond3 Using cfiCommon0
+          CFI (cfiCond3) Function SHT10_WriteByte
+          CFI (cfiCond3) Conditional ??CrossCallReturnLabel_22
+          CFI (cfiCond3) CFA_SP SP+-5
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI (cfiCond4) Function SHT10_Connectionreset
+          CFI (cfiCond4) Conditional ??CrossCallReturnLabel_23
+          CFI (cfiCond4) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond4) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond4) CFA_SP SP+-7
+          CFI Block cfiPicker5 Using cfiCommon1
+          CFI (cfiPicker5) NoFunction
+          CFI (cfiPicker5) Picker
+        ORL       0xfd,#0x40
+        ORL       0xfd,#0x1
+        RET
+          CFI EndBlock cfiCond2
+          CFI EndBlock cfiCond3
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiPicker5
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiCond6 Using cfiCommon0
+          CFI Function SHT10_WriteByte
+          CFI Conditional ??CrossCallReturnLabel_11
+          CFI CFA_SP SP+-5
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI (cfiCond7) Function SHT10_WriteByte
+          CFI (cfiCond7) Conditional ??CrossCallReturnLabel_12
+          CFI (cfiCond7) CFA_SP SP+-5
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI (cfiCond8) Function SHT10_WriteByte
+          CFI (cfiCond8) Conditional ??CrossCallReturnLabel_13
+          CFI (cfiCond8) CFA_SP SP+-5
+          CFI Block cfiCond9 Using cfiCommon0
+          CFI (cfiCond9) Function SHT10_WriteByte
+          CFI (cfiCond9) Conditional ??CrossCallReturnLabel_14
+          CFI (cfiCond9) CFA_SP SP+-5
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI (cfiCond10) Function SHT10_WriteByte
+          CFI (cfiCond10) Conditional ??CrossCallReturnLabel_15
+          CFI (cfiCond10) CFA_SP SP+-5
+          CFI Block cfiPicker11 Using cfiCommon1
+          CFI (cfiPicker11) NoFunction
+          CFI (cfiPicker11) Picker
+        MOV       A,R0
+        MOV       R4,A
+        MOV       A,R1
+        MOV       R5,A
+        MOV       A,R4
+        ADD       A,#-0x1
+        DEC       R0
+        MOV       A,R5
+        ADDC      A,#-0x1
+        MOV       R1,A
+        MOV       A,R4
+        ORL       A,R5
+        RET
+          CFI EndBlock cfiCond6
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiCond9
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiPicker11
+//   75 
+//   76 /**********************************************************************************************************
+//   77 **Function Name:      SHT10_ReadByte
+//   78 **Description:        读时序
+//   79 **Input Parameters:   ack--->reads a byte form the Sensibus and gives an acknowledge in case of "ack=1"
+//   80 **Output Parameters: 无
+//   81 **********************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   82 unsigned char SHT10_ReadByte(unsigned char ack)
+SHT10_ReadByte:
+          CFI Block cfiBlock12 Using cfiCommon0
+          CFI Function SHT10_ReadByte
+        CODE
+//   83 {
+        MOV       A,R6
+          CFI R6 A
+        PUSH      A
+          CFI R6 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        ; Saved register size: 1
+        ; Auto size: 0
+        MOV       A,R1
+        MOV       R6,A
+//   84   unsigned char i,val=0;
+        MOV       R1,#0x0
+//   85   SDIO_DIR_OUT;
+        ORL       0xfd,#0x40
+//   86   SDIO_HIGH;                            //release DATA-line
+        SETB      0x80.6
+//   87   SDIO_DIR_IN;
+        ANL       0xfd,#0xbf
+//   88   for(i=0x80;i>0;i=(i>>1))             //shift bit for masking
+        MOV       R0,#-0x80
+//   89   {
+//   90       SCLK_HIGH;                          //clk for SENSI-BUS
+??SHT10_ReadByte_0:
+        SETB      0x80.0
+//   91       DELAY(DURATION1);
+        MOV       R2,#-0x18
+        MOV       R3,#0x3
+??SHT10_ReadByte_1:
+        LCALL     ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_16:
+        JNZ       ??SHT10_ReadByte_1
+//   92       if(READ_SDIO)
+        MOV       C,0x80.6
+        JNC       ??SHT10_ReadByte_2
+//   93         val=(val|i);                  //read bit
+        MOV       A,R0
+        XCH       A,R1
+        ORL       A,R1
+        MOV       R1,A
+//   94       SCLK_LOW;
+??SHT10_ReadByte_2:
+        CLR       0x80.0
+//   95       DELAY(DURATION1);
+        MOV       R2,#-0x18
+        MOV       R3,#0x3
+??SHT10_ReadByte_3:
+        LCALL     ?Subroutine4 & 0xFFFF
+//   96   }
+??CrossCallReturnLabel_17:
+        JNZ       ??SHT10_ReadByte_3
+        MOV       A,R0
+        CLR       C
+        RRC       A
+        MOV       R0,A
+        JNZ       ??SHT10_ReadByte_0
+//   97   SDIO_DIR_OUT;
+        ORL       0xfd,#0x40
+//   98   if(ack)                           //in case of "ack==1" pull down DATA-Line
+        MOV       A,R6
+        JZ        ??SHT10_ReadByte_4
+//   99       SDIO_LOW;
+        CLR       0x80.6
+        SJMP      ??SHT10_ReadByte_5
+//  100   else
+//  101       SDIO_HIGH;
+??SHT10_ReadByte_4:
+        SETB      0x80.6
+//  102   SCLK_HIGH;                            //clk #9 for ack
+??SHT10_ReadByte_5:
+        SETB      0x80.0
+//  103   DELAY(DURATION1);              //pulswith approx. 5 us
+        MOV       R2,#-0x18
+        MOV       R3,#0x3
+??SHT10_ReadByte_6:
+        LCALL     ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_18:
+        JNZ       ??SHT10_ReadByte_6
+//  104   SCLK_LOW;
+        CLR       0x80.0
+//  105   DELAY(DURATION1);
+        MOV       R2,#-0x18
+        MOV       R3,#0x3
+??SHT10_ReadByte_7:
+        LCALL     ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_19:
+        JNZ       ??SHT10_ReadByte_7
+//  106   SDIO_HIGH;                            //release DATA-line
+        SETB      0x80.6
+//  107   DELAY(DURATION1);
+        MOV       R2,#-0x18
+        MOV       R3,#0x3
+??SHT10_ReadByte_8:
+        LCALL     ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_20:
+        JNZ       ??SHT10_ReadByte_8
+//  108   SDIO_DIR_IN;
+        ANL       0xfd,#0xbf
+//  109   return val;
+        POP       A
+          CFI R6 A
+          CFI CFA_SP SP+-3
+        MOV       R6,A
+          CFI R6 SameValue
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock12
+        REQUIRE P0DIR
+        REQUIRE _A_P0
+//  110 }
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine4:
+          CFI Block cfiCond13 Using cfiCommon0
+          CFI Function SHT10_ReadByte
+          CFI Conditional ??CrossCallReturnLabel_16
+          CFI R6 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-6
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI (cfiCond14) Function SHT10_ReadByte
+          CFI (cfiCond14) Conditional ??CrossCallReturnLabel_17
+          CFI (cfiCond14) R6 Frame(CFA_SP, 4)
+          CFI (cfiCond14) CFA_SP SP+-6
+          CFI Block cfiCond15 Using cfiCommon0
+          CFI (cfiCond15) Function SHT10_ReadByte
+          CFI (cfiCond15) Conditional ??CrossCallReturnLabel_18
+          CFI (cfiCond15) R6 Frame(CFA_SP, 4)
+          CFI (cfiCond15) CFA_SP SP+-6
+          CFI Block cfiCond16 Using cfiCommon0
+          CFI (cfiCond16) Function SHT10_ReadByte
+          CFI (cfiCond16) Conditional ??CrossCallReturnLabel_19
+          CFI (cfiCond16) R6 Frame(CFA_SP, 4)
+          CFI (cfiCond16) CFA_SP SP+-6
+          CFI Block cfiCond17 Using cfiCommon0
+          CFI (cfiCond17) Function SHT10_ReadByte
+          CFI (cfiCond17) Conditional ??CrossCallReturnLabel_20
+          CFI (cfiCond17) R6 Frame(CFA_SP, 4)
+          CFI (cfiCond17) CFA_SP SP+-6
+          CFI Block cfiPicker18 Using cfiCommon1
+          CFI (cfiPicker18) NoFunction
+          CFI (cfiPicker18) Picker
+        MOV       A,R2
+        MOV       R4,A
+        MOV       A,R3
+        MOV       R5,A
+        MOV       A,R4
+        ADD       A,#-0x1
+        DEC       R2
+        MOV       A,R5
+        ADDC      A,#-0x1
+        MOV       R3,A
+        MOV       A,R4
+        ORL       A,R5
+        RET
+          CFI EndBlock cfiCond13
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiCond15
+          CFI EndBlock cfiCond16
+          CFI EndBlock cfiCond17
+          CFI EndBlock cfiPicker18
+//  111 
+//  112 /**********************************************************************************************************
+//  113 **Function Name:      SHT10_Connectionreset
+//  114 **Description:        通讯复位时序
+//  115 **                   communication reset: DATA-line=1 and at least 9 SCK cycles followed by transstart
+//  116 **                          _____________________________________________________         ________
+//  117 **                    DATA:                                                      |_______|
+//  118 **                             _    _    _    _    _    _    _    _    _        ___     ___
+//  119 **                    SCK : __| |__| |__| |__| |__| |__| |__| |__| |__| |______|   |___|   |______
+//  120 **Input Parameters:   无
+//  121 **Output Parameters: 无
+//  122 **********************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  123 void SHT10_Connectionreset(void)
+SHT10_Connectionreset:
+          CFI Block cfiBlock19 Using cfiCommon0
+          CFI Function SHT10_Connectionreset
+        CODE
+//  124 {
+        FUNCALL SHT10_Connectionreset, SHT10_Transstart
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  125   unsigned char ClkCnt;
+//  126   SDIO_DIR_OUT;
+        LCALL     ?Subroutine5 & 0xFFFF
+//  127   SCLK_DIR_OUT;
+//  128   SDIO_HIGH;
+??CrossCallReturnLabel_23:
+        SETB      0x80.6
+//  129   SCLK_LOW;                              //Initial state
+        CLR       0x80.0
+//  130   DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Connectionreset_0:
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_7:
+        JNZ       ??SHT10_Connectionreset_0
+//  131   for(ClkCnt=0;ClkCnt<9;ClkCnt++)           //9 SCK cycles
+        MOV       R4,#0x9
+//  132   {
+//  133     SCLK_HIGH;
+??SHT10_Connectionreset_1:
+        SETB      0x80.0
+//  134         DELAY(DURATION1); 	
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Connectionreset_2:
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_8:
+        JNZ       ??SHT10_Connectionreset_2
+//  135     SCLK_LOW;
+        CLR       0x80.0
+//  136     DELAY(DURATION1);
+        MOV       R0,#-0x18
+        MOV       R1,#0x3
+??SHT10_Connectionreset_3:
+        LCALL     ?Subroutine2 & 0xFFFF
+//  137   }
+??CrossCallReturnLabel_9:
+        JNZ       ??SHT10_Connectionreset_3
+        DEC       R4
+        MOV       A,R4
+        JNZ       ??SHT10_Connectionreset_1
+//  138   SHT10_Transstart();                           //transmission start
+        ; Setup parameters for call to function SHT10_Transstart
+        LCALL     `??SHT10_Transstart::?relay`; Banked call to: SHT10_Transstart
+//  139 }
+          CFI EndBlock cfiBlock19
+        REQUIRE ?Subroutine0
+        REQUIRE P0DIR
+        REQUIRE _A_P0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock20 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        POP       DPH
+          CFI CFA_SP SP+-4
+          CFI DPH0 SameValue
+        POP       DPL
+          CFI CFA_SP SP+-3
+          CFI DPL0 SameValue
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock20
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiCond21 Using cfiCommon0
+          CFI Function SHT10_Transstart
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI CFA_SP SP+-5
+          CFI Block cfiCond22 Using cfiCommon0
+          CFI (cfiCond22) Function SHT10_Transstart
+          CFI (cfiCond22) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond22) CFA_SP SP+-5
+          CFI Block cfiCond23 Using cfiCommon0
+          CFI (cfiCond23) Function SHT10_Transstart
+          CFI (cfiCond23) Conditional ??CrossCallReturnLabel_2
+          CFI (cfiCond23) CFA_SP SP+-5
+          CFI Block cfiCond24 Using cfiCommon0
+          CFI (cfiCond24) Function SHT10_Transstart
+          CFI (cfiCond24) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond24) CFA_SP SP+-5
+          CFI Block cfiCond25 Using cfiCommon0
+          CFI (cfiCond25) Function SHT10_Transstart
+          CFI (cfiCond25) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond25) CFA_SP SP+-5
+          CFI Block cfiCond26 Using cfiCommon0
+          CFI (cfiCond26) Function SHT10_Transstart
+          CFI (cfiCond26) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond26) CFA_SP SP+-5
+          CFI Block cfiCond27 Using cfiCommon0
+          CFI (cfiCond27) Function SHT10_Transstart
+          CFI (cfiCond27) Conditional ??CrossCallReturnLabel_6
+          CFI (cfiCond27) CFA_SP SP+-5
+          CFI Block cfiCond28 Using cfiCommon0
+          CFI (cfiCond28) Function SHT10_Connectionreset
+          CFI (cfiCond28) Conditional ??CrossCallReturnLabel_7
+          CFI (cfiCond28) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond28) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond28) CFA_SP SP+-7
+          CFI Block cfiCond29 Using cfiCommon0
+          CFI (cfiCond29) Function SHT10_Connectionreset
+          CFI (cfiCond29) Conditional ??CrossCallReturnLabel_8
+          CFI (cfiCond29) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond29) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond29) CFA_SP SP+-7
+          CFI Block cfiCond30 Using cfiCommon0
+          CFI (cfiCond30) Function SHT10_Connectionreset
+          CFI (cfiCond30) Conditional ??CrossCallReturnLabel_9
+          CFI (cfiCond30) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond30) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond30) CFA_SP SP+-7
+          CFI Block cfiCond31 Using cfiCommon0
+          CFI (cfiCond31) Function SHT10_Measure
+          CFI (cfiCond31) Conditional ??CrossCallReturnLabel_10
+          CFI (cfiCond31) R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond31) VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond31) V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond31) V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond31) V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond31) V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond31) V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond31) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond31) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond31) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond31) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond31) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond31) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond31) CFA_SP SP+-2
+          CFI (cfiCond31) CFA_XSP16 add(XSP16, 13)
+          CFI Block cfiPicker32 Using cfiCommon1
+          CFI (cfiPicker32) NoFunction
+          CFI (cfiPicker32) Picker
+        MOV       A,R0
+        MOV       R2,A
+        MOV       A,R1
+        MOV       R3,A
+        MOV       A,R2
+        ADD       A,#-0x1
+        DEC       R0
+        MOV       A,R3
+        ADDC      A,#-0x1
+        MOV       R1,A
+        MOV       A,R2
+        ORL       A,R3
+        RET
+          CFI EndBlock cfiCond21
+          CFI EndBlock cfiCond22
+          CFI EndBlock cfiCond23
+          CFI EndBlock cfiCond24
+          CFI EndBlock cfiCond25
+          CFI EndBlock cfiCond26
+          CFI EndBlock cfiCond27
+          CFI EndBlock cfiCond28
+          CFI EndBlock cfiCond29
+          CFI EndBlock cfiCond30
+          CFI EndBlock cfiCond31
+          CFI EndBlock cfiPicker32
+//  140 
+//  141 /**********************************************************************************************************
+//  142 **Function Name:      SHT10_Softreset
+//  143 **Description:        软件复位时序resets the sensor by a softreset
+//  144 **Input Parameters:   无
+//  145 **Output Parameters: 无
+//  146 **********************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  147 unsigned char SHT10_Softreset(void)
+SHT10_Softreset:
+          CFI Block cfiBlock33 Using cfiCommon0
+          CFI Function SHT10_Softreset
+        CODE
+//  148 {
+        FUNCALL SHT10_Softreset, SHT10_Connectionreset
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_Softreset, SHT10_WriteByte
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  149   unsigned char error=0;
+//  150   SHT10_Connectionreset();              //reset communication
+        ; Setup parameters for call to function SHT10_Connectionreset
+        LCALL     `??SHT10_Connectionreset::?relay`; Banked call to: SHT10_Connectionreset
+//  151   error+=SHT10_WriteByte(CMD_Soft_Reset);        //send RESET-command to sensor
+//  152   return error;                     //error=1 in case of no response form the sensor
+        ; Setup parameters for call to function SHT10_WriteByte
+        MOV       R1,#0x1e
+        LCALL     `??SHT10_WriteByte::?relay`; Banked call to: SHT10_WriteByte
+        SJMP      ?Subroutine0
+//  153 }
+          CFI EndBlock cfiBlock33
+//  154 
+//  155 /**********************************************************************************************************
+//  156 **Function Name:      SHT10_WriteStatusReg
+//  157 **Description:        写状态寄存器
+//  158 **Input Parameters:   *p_value
+//  159 **Output Parameters: 无
+//  160 **********************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  161 unsigned char SHT10_WriteStatusReg(unsigned char RegVlaue)
+SHT10_WriteStatusReg:
+          CFI Block cfiBlock34 Using cfiCommon0
+          CFI Function SHT10_WriteStatusReg
+        CODE
+//  162 {
+        FUNCALL SHT10_WriteStatusReg, SHT10_Transstart
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_WriteStatusReg, SHT10_WriteByte
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_WriteStatusReg, SHT10_WriteByte
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R1
+        MOV       R7,A
+//  163   unsigned char error=0;
+//  164   SHT10_Transstart();                           //transmission start
+        ; Setup parameters for call to function SHT10_Transstart
+        LCALL     `??SHT10_Transstart::?relay`; Banked call to: SHT10_Transstart
+//  165   error+=SHT10_WriteByte(CMD_Write_STATUS_REG); //send command to sensor
+        ; Setup parameters for call to function SHT10_WriteByte
+        MOV       R1,#0x6
+        LCALL     `??SHT10_WriteByte::?relay`; Banked call to: SHT10_WriteByte
+        MOV       A,R1
+        MOV       R6,A
+//  166   error+=SHT10_WriteByte(RegVlaue);             //send value of status register
+//  167   return error;                             //error>=1 in case of no response form the sensor
+        ; Setup parameters for call to function SHT10_WriteByte
+        MOV       A,R7
+        MOV       R1,A
+        LCALL     `??SHT10_WriteByte::?relay`; Banked call to: SHT10_WriteByte
+        MOV       A,R1
+        ADD       A,R6
+        MOV       R1,A
+          CFI EndBlock cfiBlock34
+        REQUIRE ?Subroutine1
+        ; // Fall through to label ?Subroutine1
+//  168 }
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiBlock35 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV       R7,#0x1
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock35
+//  169 
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  170 unsigned char SHT10_ReadStatusReg(void)
+SHT10_ReadStatusReg:
+          CFI Block cfiBlock36 Using cfiCommon0
+          CFI Function SHT10_ReadStatusReg
+        CODE
+//  171 {
+        FUNCALL SHT10_ReadStatusReg, SHT10_Transstart
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_ReadStatusReg, SHT10_WriteByte
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_ReadStatusReg, SHT10_ReadByte
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  172   unsigned char tmp=0;
+//  173   SHT10_Transstart();                           //transmission start
+        ; Setup parameters for call to function SHT10_Transstart
+        LCALL     `??SHT10_Transstart::?relay`; Banked call to: SHT10_Transstart
+//  174   SHT10_WriteByte(CMD_Read_STATUS_REG);         //send command to sensor
+        ; Setup parameters for call to function SHT10_WriteByte
+        MOV       R1,#0x7
+        LCALL     `??SHT10_WriteByte::?relay`; Banked call to: SHT10_WriteByte
+//  175   tmp = SHT10_ReadByte(ACK);             				//send value of status register
+//  176   return tmp;                             			//error>=1 in case of no response form the sensor
+        ; Setup parameters for call to function SHT10_ReadByte
+        MOV       R1,#0x1
+        LCALL     `??SHT10_ReadByte::?relay`; Banked call to: SHT10_ReadByte
+        SJMP      ?Subroutine0
+//  177 }
+          CFI EndBlock cfiBlock36
+//  178 /**********************************************************************************************************
+//  179 **Function Name:      SHT10_Mearsure
+//  180 **Description:        读时序      makes a measurement (humidity/temperature) with checksum
+//  181 **Input Parameters:   *p_value       ,*p_checknum       ,mode
+//  182 **Output Parameters: 无
+//  183 **********************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  184 unsigned char SHT10_Measure(unsigned int *p_value, unsigned char *p_checksum, unsigned char mode)
+SHT10_Measure:
+          CFI Block cfiBlock37 Using cfiCommon0
+          CFI Function SHT10_Measure
+        CODE
+//  185 {
+        FUNCALL SHT10_Measure, SHT10_Transstart
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_Measure, SHT10_WriteByte
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_Measure, SHT10_WriteByte
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_Measure, SHT10_ReadByte
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_Measure, SHT10_ReadByte
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_Measure, SHT10_ReadByte
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        MOV       A,#-0xd
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 13)
+        ; Saved register size: 13
+        ; Auto size: 0
+        MOV       A,R2
+        MOV       R6,A
+        MOV       A,R3
+        MOV       R7,A
+        MOV       ?V2,R4
+        MOV       ?V3,R5
+        MOV       ?V4,R1
+//  186   unsigned error=0;
+        MOV       ?V0,#0x0
+//  187   unsigned int i;
+//  188   SHT10_Transstart();                   //transmission start
+        ; Setup parameters for call to function SHT10_Transstart
+        LCALL     `??SHT10_Transstart::?relay`; Banked call to: SHT10_Transstart
+//  189   switch(mode)
+        MOV       A,?V4
+        DEC       A
+        JZ        ??SHT10_Measure_0
+        DEC       A
+        JZ        ??SHT10_Measure_1
+        SJMP      ??SHT10_Measure_2
+//  190   {                                 //send command to sensor
+//  191     case TEMPERATURE:
+//  192         error+=SHT10_WriteByte(CMD_TEM_MES);
+??SHT10_Measure_0:
+        ; Setup parameters for call to function SHT10_WriteByte
+        MOV       R1,#0x3
+        SJMP      ??SHT10_Measure_3
+//  193         break;
+//  194     case HUMIDITY:
+//  195         error+=SHT10_WriteByte(CMD_HUMI_MES);
+??SHT10_Measure_1:
+        ; Setup parameters for call to function SHT10_WriteByte
+        MOV       R1,#0x5
+??SHT10_Measure_3:
+        LCALL     `??SHT10_WriteByte::?relay`; Banked call to: SHT10_WriteByte
+        MOV       A,R1
+        MOV       ?V0,A
+//  196         break;
+//  197   }
+//  198   SDIO_DIR_IN;
+??SHT10_Measure_2:
+        ANL       0xfd,#0xbf
+//  199   for(i=0;i<1500;i++)              //wait until sensor has finished the measurement
+        MOV       R4,#-0x24
+        MOV       R5,#0x5
+//  200   {
+//  201       if(READ_SDIO == 0)
+??SHT10_Measure_4:
+        MOV       C,0x80.6
+        JNC       ??SHT10_Measure_5
+//  202         break;
+//  203       else
+//  204         DELAY(100);
+        MOV       R0,#0x64
+        MOV       R1,#0x0
+??SHT10_Measure_6:
+        LCALL     ?Subroutine2 & 0xFFFF
+//  205   }
+??CrossCallReturnLabel_10:
+        JNZ       ??SHT10_Measure_6
+        MOV       A,R4
+        ADD       A,#-0x1
+        DEC       R4
+        MOV       A,R5
+        ADDC      A,#-0x1
+        MOV       R5,A
+        MOV       A,R4
+        ORL       A,R5
+        JNZ       ??SHT10_Measure_4
+//  206   if(READ_SDIO)
+??SHT10_Measure_5:
+        MOV       C,0x80.6
+        JNC       ??SHT10_Measure_7
+//  207       error+=1;                       			//or timeout (~2 sec.) is reached
+        INC       ?V0
+        MOV       A,?V0
+//  208   *(p_value)=SHT10_ReadByte(ACK);      		 		//read the first byte (MSB)
+??SHT10_Measure_7:
+        ; Setup parameters for call to function SHT10_ReadByte
+        MOV       R1,#0x1
+        LCALL     `??SHT10_ReadByte::?relay`; Banked call to: SHT10_ReadByte
+        MOV       A,R1
+        MOV       DPL,R6
+        MOV       DPH,R7
+        MOVX      @DPTR,A
+        INC       DPTR
+        CLR       A
+        MOVX      @DPTR,A
+//  209   *(p_value)=SHT10_ReadByte(ACK)+(*(p_value)<<8);     //read the second byte (LSB)
+        ; Setup parameters for call to function SHT10_ReadByte
+        MOV       R1,#0x1
+        LCALL     `??SHT10_ReadByte::?relay`; Banked call to: SHT10_ReadByte
+        MOV       A,R1
+        MOV       R2,A
+        MOV       DPL,R6
+        MOV       DPH,R7
+        MOVX      A,@DPTR
+        MOV       R1,A
+        MOV       A,R2
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R1
+        MOVX      @DPTR,A
+//  210   *p_checksum=SHT10_ReadByte(noACK);    				//read checksum
+        ; Setup parameters for call to function SHT10_ReadByte
+        MOV       R1,#0x0
+        LCALL     `??SHT10_ReadByte::?relay`; Banked call to: SHT10_ReadByte
+        MOV       A,R1
+        MOV       DPL,?V2
+        MOV       DPH,?V3
+        MOVX      @DPTR,A
+//  211   return(error);
+        MOV       R1,?V0
+        MOV       R7,#0x5
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock37
+        REQUIRE P0DIR
+        REQUIRE _A_P0
+//  212 }
+//  213 
+//  214 /**********************************************************************************************************
+//  215 **Function Name:      SHT10_Calculate
+//  216 **Description:        计算
+//  217 **Input Parameters:   humi [Ticks] (12 bit)
+//  218 **                    temp [Ticks] (14 bit)
+//  219 **Output Parameters: humi [%RH]
+//  220 **                    temp []
+//  221 **********************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  222 float SHT10_Calculate(unsigned int data,unsigned char mode)
+SHT10_Calculate:
+          CFI Block cfiBlock38 Using cfiCommon0
+          CFI Function SHT10_Calculate
+        CODE
+//  223 {
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        REQUIRE ?V6
+        REQUIRE ?V7
+        MOV       A,#-0x10
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 16)
+        ; Saved register size: 16
+        ; Auto size: 4
+        MOV       A,#-0x4
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 20)
+        MOV       A,R1
+        MOV       R6,A
+//  224   const float C1=-4.0;              // for 8 Bit
+//  225   const float C2=+0.648;            // for 8 Bit
+//  226   const float C3=-0.0000072;        // for 8 Bit
+//  227   const float D1=-39.6;             // for 12 Bit @ 3V
+//  228   const float D2=+0.04;             // for 12 Bit @ 3V
+//  229   const float T1=0.01;              // for 8 bit
+//  230   const float T2=0.00128;           // for 8 bit
+//  231   float rh_lin;                     // rh_lin: Humidity linear
+//  232   float rh_true;                    // rh_true: Temperature compensated humidity
+//  233   float t_C;                        // t_C   : Temperature []
+//  234   if (mode == 1)
+        MOV       A,#0x1
+        XRL       A,R6
+        JNZ       ??SHT10_Calculate_0
+//  235   {
+//  236     t_C=data*D2+D1;                      //calc. temperature from ticks to []
+//  237     return (t_C);
+        MOV       ?V0,R2
+        MOV       ?V1,R3
+        CLR       A
+        MOV       ?V2,A
+        MOV       ?V3,A
+        MOV       R0,#?V0
+        LCALL     ?UL_TO_FLT
+        MOV       DPTR,#__Constant_3d23d70a
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?FLT_MUL
+        MOV       DPTR,#__Constant_c21e6666
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?FLT_ADD
+        MOV       R2,?V0
+        MOV       R3,?V1
+        MOV       R4,?V2
+        MOV       R5,?V3
+        LJMP      ??SHT10_Calculate_1 & 0xFFFF
+//  238   }
+//  239   else if(mode == 2)
+??SHT10_Calculate_0:
+        MOV       A,#0x2
+        XRL       A,R6
+        JZ        $+5
+        LJMP      ??SHT10_Calculate_2 & 0xFFFF
+//  240   {
+//  241     rh_lin=C3*data*data + C2*data + C1;     //calc. humidity from ticks to [%RH]
+//  242     rh_true=(t_C-25)*(T1+T2*data)+rh_lin;   //calc. temperature compensated humidity [%RH]
+        MOV       ?V4,R2
+        MOV       ?V5,R3
+        CLR       A
+        MOV       ?V6,A
+        MOV       ?V7,A
+        MOV       R0,#?V4
+        LCALL     ?UL_TO_FLT
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_TO_X
+        MOV       DPTR,#__Constant_c1c80000
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?FLT_ADD
+        PUSH      ?V0
+          CFI CFA_SP SP+-1
+        PUSH      ?V1
+          CFI CFA_SP SP+-2
+        PUSH      ?V2
+          CFI CFA_SP SP+-3
+        PUSH      ?V3
+          CFI CFA_SP SP+-4
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       R0,#?V0
+        LCALL     ?L_MOV_X
+        MOV       DPTR,#__Constant_3aa7c5ac
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?FLT_MUL
+        MOV       DPTR,#__Constant_3c23d70a
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?FLT_ADD
+        POP       ?V7
+          CFI CFA_SP SP+-3
+        POP       ?V6
+          CFI CFA_SP SP+-2
+        POP       ?V5
+          CFI CFA_SP SP+-1
+        POP       ?V4
+          CFI CFA_SP SP+0
+        MOV       R0,#?V4
+        MOV       R1,#?V0
+        LCALL     ?FLT_MUL
+        PUSH      ?V4
+          CFI CFA_SP SP+-1
+        PUSH      ?V5
+          CFI CFA_SP SP+-2
+        PUSH      ?V6
+          CFI CFA_SP SP+-3
+        PUSH      ?V7
+          CFI CFA_SP SP+-4
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       R0,#?V0
+        LCALL     ?L_MOV_X
+        MOV       DPTR,#__Constant_b6f19787
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?FLT_MUL
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?FLT_MUL
+        PUSH      ?V0
+          CFI CFA_SP SP+-5
+        PUSH      ?V1
+          CFI CFA_SP SP+-6
+        PUSH      ?V2
+          CFI CFA_SP SP+-7
+        PUSH      ?V3
+          CFI CFA_SP SP+-8
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       DPTR,#__Constant_3f25e354
+        MOV       R0,#?V0
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V4
+        MOV       R1,#?V0
+        LCALL     ?FLT_MUL
+        POP       ?V3
+          CFI CFA_SP SP+-7
+        POP       ?V2
+          CFI CFA_SP SP+-6
+        POP       ?V1
+          CFI CFA_SP SP+-5
+        POP       ?V0
+          CFI CFA_SP SP+-4
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?FLT_ADD
+        MOV       DPTR,#__Constant_c0800000
+        MOV       R0,#?V4
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V0
+        MOV       R1,#?V4
+        LCALL     ?FLT_ADD
+        POP       ?V7
+          CFI CFA_SP SP+-3
+        POP       ?V6
+          CFI CFA_SP SP+-2
+        POP       ?V5
+          CFI CFA_SP SP+-1
+        POP       ?V4
+          CFI CFA_SP SP+0
+        MOV       R0,#?V4
+        MOV       R1,#?V0
+        LCALL     ?FLT_ADD
+//  243     if(rh_true>100)rh_true=100;       //cut if the value is outside of
+        MOV       DPTR,#__Constant_42c80001
+        MOV       R0,#?V0
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V4
+        MOV       R1,#?V0
+        LCALL     ?FLT_GE
+        JNC       ??SHT10_Calculate_3
+        MOV       ?V4,#0x0
+        MOV       ?V5,#0x0
+        MOV       ?V6,#-0x38
+        MOV       ?V7,#0x42
+        SJMP      ??SHT10_Calculate_4
+//  244     if(rh_true<0.1)rh_true=0.1;       //the physical possible range
+??SHT10_Calculate_3:
+        MOV       DPTR,#__Constant_3dcccccd
+        MOV       R0,#?V0
+        LCALL     ?L_MOV_X
+        MOV       R0,#?V4
+        MOV       R1,#?V0
+        LCALL     ?FLT_LT
+        JNC       ??SHT10_Calculate_4
+        MOV       ?V4,#-0x33
+        MOV       ?V5,#-0x34
+        MOV       ?V6,#-0x34
+        MOV       ?V7,#0x3d
+//  245     return (rh_true);
+??SHT10_Calculate_4:
+        MOV       R2,?V4
+        MOV       R3,?V5
+        MOV       R4,?V6
+        MOV       R5,?V7
+        SJMP      ??SHT10_Calculate_1
+//  246   }
+//  247   else
+//  248     return 0;
+??SHT10_Calculate_2:
+        MOV       R2,#0x0
+        MOV       R3,#0x0
+        MOV       R4,#0x0
+        MOV       R5,#0x0
+??SHT10_Calculate_1:
+        MOV       A,#0x4
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 16)
+        MOV       R7,#0x8
+        LJMP      ?BANKED_LEAVE_XDATA
+//  249 }
+          CFI EndBlock cfiBlock38
+//  250 /**********************************************************************************************************
+//  251 **Function Name:      SHT10_init
+//  252 **Description:        初始化SHT10
+//  253 **********************************************************************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  254 void SHT10_init(unsigned int Initial_Reg)
+SHT10_init:
+          CFI Block cfiBlock39 Using cfiCommon0
+          CFI Function SHT10_init
+        CODE
+//  255 {
+        FUNCALL SHT10_init, SHT10_Connectionreset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL SHT10_init, SHT10_WriteStatusReg
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R2
+        MOV       R6,A
+//  256   SHT10_Connectionreset();
+        ; Setup parameters for call to function SHT10_Connectionreset
+        LCALL     `??SHT10_Connectionreset::?relay`; Banked call to: SHT10_Connectionreset
+//  257   SHT10_WriteStatusReg(Initial_Reg);
+        ; Setup parameters for call to function SHT10_WriteStatusReg
+        MOV       A,R6
+        MOV       R1,A
+        LCALL     `??SHT10_WriteStatusReg::?relay`; Banked call to: SHT10_WriteStatusReg
+//  258 }
+        LJMP      ?Subroutine1 & 0xFFFF
+          CFI EndBlock cfiBlock39
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_3d23d70a:
+        DD 3D23D70AH
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_c21e6666:
+        DD 0C21E6666H
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_c1c80000:
+        DD 0C1C80000H
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_3aa7c5ac:
+        DD 3AA7C5ACH
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_3c23d70a:
+        DD 3C23D70AH
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_b6f19787:
+        DD 0B6F19787H
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_3f25e354:
+        DD 3F25E354H
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_c0800000:
+        DD 0C0800000H
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_42c80001:
+        DD 42C80001H
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_3dcccccd:
+        DD 3DCCCCCDH
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_Transstart::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_Transstart
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_WriteByte::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_WriteByte
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_ReadByte::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_ReadByte
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_Connectionreset::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_Connectionreset
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_Softreset::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_Softreset
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_WriteStatusReg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_WriteStatusReg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_ReadStatusReg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_ReadStatusReg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_Measure::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_Measure
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_Calculate::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_Calculate
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??SHT10_init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    SHT10_init
+
+        END
+//  259 
+//  260 
+//  261 
+// 
+// 1 015 bytes in segment BANKED_CODE
+//    60 bytes in segment BANK_RELAYS
+//     2 bytes in segment SFR_AN
+//    40 bytes in segment XDATA_ROM_C
+// 
+//    60 bytes of CODE     memory
+//     0 bytes of CONST    memory (+ 40 bytes shared)
+//     0 bytes of DATA     memory (+  2 bytes shared)
+// 1 015 bytes of HUGECODE memory
+//
+//Errors: none
+//Warnings: none

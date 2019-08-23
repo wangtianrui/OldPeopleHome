@@ -1,0 +1,1877 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.30.1.6000 for 8051              22/Aug/2019  20:42:34
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\mac\high_level\mac_pib.c
+//    Command line       =  
+//        -f C:\Users\VULCAN\AppData\Local\Temp\EWEAA0.tmp
+//        (E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\mac\high_level\mac_pib.c
+//        -D ZIGBEEPRO -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
+//        LCD_SUPPORTED=DEBUG -D SAPP_ZSTACK -lC
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List
+//        -lA
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List
+//        --diag_suppress Pe001,Pa010 -o
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\Obj
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 8 -f
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wRouter.cfg
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+//        -DRTR_NWK) -f
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+//        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0057
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\Source\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+//        -Ohz --require_prototypes --no_code_motion)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List\mac_pib.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME mac_pib
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?V3
+        EXTERN ?V6
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?MOVE_LONG8_XDATA_CODE
+        EXTERN ?PUSH_XSTACK_I_THREE
+        EXTERN ?S_SHL
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC `??MAC_MlmeGetReq::?relay`
+        FUNCTION `??MAC_MlmeGetReq::?relay`,0203H
+        PUBLIC `??MAC_MlmeSetReq::?relay`
+        FUNCTION `??MAC_MlmeSetReq::?relay`,0203H
+        FUNCTION `??macPibIndex::?relay`,0203H
+        PUBLIC `??macPibReset::?relay`
+        FUNCTION `??macPibReset::?relay`,0203H
+        PUBLIC MAC_MlmeGetReq
+        FUNCTION MAC_MlmeGetReq,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 17, STACK
+        PUBLIC MAC_MlmeSetReq
+        FUNCTION MAC_MlmeSetReq,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        PUBWEAK _A_IEN0
+        PUBLIC macPib
+        FUNCTION macPibIndex,0203H
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC macPibReset
+        FUNCTION macPibReset,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+macRadioRandomByte  SYMBOL "macRadioRandomByte"
+`??macRadioRandomByte::?relay` SYMBOL "?relay", macRadioRandomByte
+macRadioSetChannel  SYMBOL "macRadioSetChannel"
+`??macRadioSetChannel::?relay` SYMBOL "?relay", macRadioSetChannel
+macRadioSetIEEEAddr SYMBOL "macRadioSetIEEEAddr"
+`??macRadioSetIEEEAddr::?relay` SYMBOL "?relay", macRadioSetIEEEAddr
+macRadioSetPanID    SYMBOL "macRadioSetPanID"
+`??macRadioSetPanID::?relay` SYMBOL "?relay", macRadioSetPanID
+macRadioSetShortAddr SYMBOL "macRadioSetShortAddr"
+`??macRadioSetShortAddr::?relay` SYMBOL "?relay", macRadioSetShortAddr
+macRadioSetTxPower  SYMBOL "macRadioSetTxPower"
+`??macRadioSetTxPower::?relay` SYMBOL "?relay", macRadioSetTxPower
+macRxDisable        SYMBOL "macRxDisable"
+`??macRxDisable::?relay` SYMBOL "?relay", macRxDisable
+macRxEnable         SYMBOL "macRxEnable"
+`??macRxEnable::?relay` SYMBOL "?relay", macRxEnable
+osal_memcpy         SYMBOL "osal_memcpy"
+`??osal_memcpy::?relay` SYMBOL "?relay", osal_memcpy
+MAC_MlmeGetReq      SYMBOL "MAC_MlmeGetReq"
+`??MAC_MlmeGetReq::?relay` SYMBOL "?relay", MAC_MlmeGetReq
+MAC_MlmeSetReq      SYMBOL "MAC_MlmeSetReq"
+`??MAC_MlmeSetReq::?relay` SYMBOL "?relay", MAC_MlmeSetReq
+macPibReset         SYMBOL "macPibReset"
+`??macPibReset::?relay` SYMBOL "?relay", macPibReset
+
+        EXTERN `??macRadioRandomByte::?relay`
+        FUNCTION `??macRadioRandomByte::?relay`,00H
+        EXTERN `??macRadioSetChannel::?relay`
+        FUNCTION `??macRadioSetChannel::?relay`,00H
+        EXTERN `??macRadioSetIEEEAddr::?relay`
+        FUNCTION `??macRadioSetIEEEAddr::?relay`,00H
+        EXTERN `??macRadioSetPanID::?relay`
+        FUNCTION `??macRadioSetPanID::?relay`,00H
+        EXTERN `??macRadioSetShortAddr::?relay`
+        FUNCTION `??macRadioSetShortAddr::?relay`,00H
+        EXTERN `??macRadioSetTxPower::?relay`
+        FUNCTION `??macRadioSetTxPower::?relay`,00H
+        EXTERN `??macRxDisable::?relay`
+        FUNCTION `??macRxDisable::?relay`,00H
+        EXTERN `??macRxEnable::?relay`
+        FUNCTION `??macRxEnable::?relay`,00H
+        EXTERN `??osal_memcpy::?relay`
+        FUNCTION `??osal_memcpy::?relay`,00H
+        EXTERN macRadioRandomByte
+        FUNCTION macRadioRandomByte,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macRadioSetChannel
+        FUNCTION macRadioSetChannel,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macRadioSetIEEEAddr
+        FUNCTION macRadioSetIEEEAddr,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macRadioSetPanID
+        FUNCTION macRadioSetPanID,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macRadioSetShortAddr
+        FUNCTION macRadioSetShortAddr,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macRadioSetTxPower
+        FUNCTION macRadioSetTxPower,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macRxDisable
+        FUNCTION macRxDisable,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macRxEnable
+        FUNCTION macRxEnable,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\mac\high_level\mac_pib.c
+//    1 /**************************************************************************************************
+//    2   Filename:       mac_pib.c
+//    3   Revised:        $Date: 2010-07-15 09:13:13 -0700 (Thu, 15 Jul 2010) $
+//    4   Revision:       $Revision: 23019 $
+//    5 
+//    6   Description:    This module contains procedures for the MAC PIB.
+//    7 
+//    8 
+//    9   Copyright 2006-2010 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /* ------------------------------------------------------------------------------------------------
+//   41  *                                          Includes
+//   42  * ------------------------------------------------------------------------------------------------
+//   43  */
+//   44 #include "hal_mcu.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,0a8H
+// union <unnamed> volatile __sfr _A_IEN0
+_A_IEN0:
+        DATA8
+        DS 1
+//   45 #include "hal_board.h"
+//   46 #include "mac_api.h"
+//   47 #include "mac_spec.h"
+//   48 #include "mac_low_level.h"
+//   49 #include "mac_radio_defs.h"
+//   50 #include "mac_main.h"
+//   51 #include "mac_pib.h"
+//   52 #include "OSAL.h"
+//   53 #include <stddef.h>
+//   54 
+//   55 /* ------------------------------------------------------------------------------------------------
+//   56  *                                           Constants
+//   57  * ------------------------------------------------------------------------------------------------
+//   58  */
+//   59 
+//   60 /* Attribute index constants, based on attribute ID values from spec */
+//   61 #define MAC_ATTR_SET1_START       0x40
+//   62 #define MAC_ATTR_SET1_END         0x5D
+//   63 #define MAC_ATTR_SET1_OFFSET      0
+//   64 #define MAC_ATTR_SET2_START       0xE0
+//   65 #define MAC_ATTR_SET2_END         0xE5
+//   66 #define MAC_ATTR_SET2_OFFSET      (MAC_ATTR_SET1_END - MAC_ATTR_SET1_START + MAC_ATTR_SET1_OFFSET + 1)
+//   67 
+//   68 /* frame response values */
+//   69 #define MAC_MAX_FRAME_RESPONSE_MIN  143
+//   70 #define MAC_MAX_FRAME_RESPONSE_MAX  25776
+//   71 
+//   72 /* ------------------------------------------------------------------------------------------------
+//   73  *                                           Typedefs
+//   74  * ------------------------------------------------------------------------------------------------
+//   75  */
+//   76 
+//   77 /* PIB access and min/max table type */
+//   78 typedef struct
+//   79 {
+//   80   uint8     offset;
+//   81   uint8     len;
+//   82   uint8     min;
+//   83   uint8     max;
+//   84 } macPibTbl_t;
+//   85 
+//   86 /* ------------------------------------------------------------------------------------------------
+//   87  *                                           Local Variables
+//   88  * ------------------------------------------------------------------------------------------------
+//   89  */
+//   90 
+//   91 /* PIB default values */
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//   92 static CODE const macPib_t macPibDefaults =
+macPibDefaults:
+        DB 54
+        DB 0
+        DB 1
+        DB 0
+        DB 6
+        DATA16
+        DW 0H
+        DATA8
+        DB 0
+        DB 15
+        DATA32
+        DD 0
+        DATA8
+        DB 0
+        DATA16
+        DW 0
+        DB 0, 0, 0, 0, 0, 0
+        DATA8
+        DB 3
+        DATA16
+        DW 65535
+        DATA8
+        DB 0
+        DB 0
+        DB 4
+        DB 3
+        DATA16
+        DW 65535
+        DATA8
+        DB 0
+        DB 0
+        DATA16
+        DW 65535
+        DATA8
+        DB 15
+        DATA16
+        DW 500
+        DATA8
+        DB 0
+        DB 5
+        DATA16
+        DW 1220
+        DATA8
+        DB 3
+        DB 32
+        DB 0
+        DB 1
+        DB 0
+        DB 0
+        DB 11
+        DATA16
+        DW 0
+        DB 0, 0, 0, 0, 0, 0
+        DATA8
+        DB 3
+        DB 1
+        DB 15
+//   93 {
+//   94   54,                                         /* ackWaitDuration */
+//   95   FALSE,                                      /* associationPermit */
+//   96   TRUE,                                       /* autoRequest */
+//   97   FALSE,                                      /* battLifeExt */
+//   98   6,                                          /* battLifeExtPeriods */
+//   99 
+//  100   NULL,                                       /* *pMacBeaconPayload */
+//  101   0,                                          /* beaconPayloadLength */
+//  102   MAC_BO_NON_BEACON,                          /* beaconOrder */
+//  103   0,                                          /* beaconTxTime */
+//  104   0,                                          /* bsn */
+//  105 
+//  106   {0, SADDR_MODE_EXT},                        /* coordExtendedAddress */
+//  107   MAC_SHORT_ADDR_NONE,                        /* coordShortAddress */
+//  108   0,                                          /* dsn */
+//  109   FALSE,                                      /* gtsPermit */
+//  110   4,                                          /* maxCsmaBackoffs */
+//  111 
+//  112   3,                                          /* minBe */
+//  113   0xFFFF,                                     /* panId */
+//  114   FALSE,                                      /* promiscuousMode */
+//  115   FALSE,                                      /* rxOnWhenIdle */
+//  116   MAC_SHORT_ADDR_NONE,                        /* shortAddress */
+//  117 
+//  118   MAC_SO_NONE,                                /* superframeOrder */
+//  119   0x01F4,                                     /* transactionPersistenceTime */
+//  120   FALSE,                                      /* assocciatedPanCoord */
+//  121   5,                                          /* maxBe */
+//  122   1220,                                       /* maxFrameTotalWaitTime */
+//  123 
+//  124   3,                                          /* maxFrameRetries */
+//  125   32,                                         /* ResponseWaitTime */
+//  126   0,                                          /* syncSymbolOffset */
+//  127   TRUE,                                       /* timeStampSupported */
+//  128   FALSE,                                      /* securityEnabled */
+//  129 
+//  130   /* Proprietary */
+//  131 #if defined (HAL_PA_LNA)
+//  132   19,                                         /* phyTransmitPower for CC2591 */
+//  133 #elif defined (HAL_PA_LNA_CC2590)
+//  134   11,                                         /* phyTransmitPower for CC2590 */
+//  135 #else
+//  136   0,                                          /* phyTransmitPower without frontend */
+//  137 #endif
+//  138   MAC_CHAN_11,                                /* logicalChannel */
+//  139   {0, SADDR_MODE_EXT},                        /* extendedAddress */
+//  140   1,                                          /* altBe */
+//  141   MAC_BO_NON_BEACON,                          /* deviceBeaconOrder */
+//  142 };
+//  143 
+//  144 /* PIB access and min/max table.  min/max of 0/0 means not checked; if min/max are
+//  145  * equal, element is read-only
+//  146  */
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  147 static CODE const macPibTbl_t macPibTbl[] =
+macPibTbl:
+        DB 0
+        DB 1
+        DB 54
+        DB 54
+        DB 1
+        DB 1
+        DB 0
+        DB 1
+        DB 2
+        DB 1
+        DB 0
+        DB 1
+        DB 3
+        DB 1
+        DB 0
+        DB 1
+        DB 4
+        DB 1
+        DB 6
+        DB 6
+        DB 5
+        DB 2
+        DB 0
+        DB 0
+        DB 7
+        DB 1
+        DB 0
+        DB 52
+        DB 8
+        DB 1
+        DB 0
+        DB 15
+        DB 9
+        DB 4
+        DB 1
+        DB 1
+        DB 13
+        DB 1
+        DB 0
+        DB 255
+        DB 14
+        DB 8
+        DB 0
+        DB 0
+        DB 23
+        DB 2
+        DB 0
+        DB 0
+        DB 25
+        DB 1
+        DB 0
+        DB 255
+        DB 26
+        DB 1
+        DB 0
+        DB 1
+        DB 27
+        DB 1
+        DB 0
+        DB 254
+        DB 28
+        DB 1
+        DB 0
+        DB 8
+        DB 29
+        DB 2
+        DB 0
+        DB 0
+        DB 31
+        DB 1
+        DB 0
+        DB 1
+        DB 32
+        DB 1
+        DB 0
+        DB 1
+        DB 33
+        DB 2
+        DB 0
+        DB 0
+        DB 35
+        DB 1
+        DB 0
+        DB 15
+        DB 36
+        DB 2
+        DB 0
+        DB 0
+        DB 38
+        DB 1
+        DB 0
+        DB 1
+        DB 39
+        DB 1
+        DB 0
+        DB 8
+        DB 40
+        DB 2
+        DB 0
+        DB 255
+        DB 42
+        DB 1
+        DB 0
+        DB 7
+        DB 43
+        DB 1
+        DB 2
+        DB 64
+        DB 44
+        DB 1
+        DB 0
+        DB 0
+        DB 45
+        DB 1
+        DB 0
+        DB 1
+        DB 46
+        DB 1
+        DB 0
+        DB 1
+        DB 47
+        DB 1
+        DB 0
+        DB 255
+        DB 48
+        DB 1
+        DB 11
+        DB 28
+        DB 49
+        DB 8
+        DB 0
+        DB 0
+        DB 58
+        DB 1
+        DB 0
+        DB 8
+        DB 59
+        DB 1
+        DB 0
+        DB 15
+        DB 47
+        DB 1
+        DB 0
+        DB 0
+//  148 {
+//  149   {offsetof(macPib_t, ackWaitDuration), sizeof(uint8), 54, 54},                      /* MAC_ACK_WAIT_DURATION */
+//  150   {offsetof(macPib_t, associationPermit), sizeof(bool), FALSE, TRUE},                /* MAC_ASSOCIATION_PERMIT */
+//  151   {offsetof(macPib_t, autoRequest), sizeof(bool), FALSE, TRUE},                      /* MAC_AUTO_REQUEST */
+//  152   {offsetof(macPib_t, battLifeExt), sizeof(bool), FALSE, TRUE},                      /* MAC_BATT_LIFE_EXT */
+//  153   {offsetof(macPib_t, battLifeExtPeriods), sizeof(uint8), 6, 6},                     /* MAC_BATT_LIFE_EXT_PERIODS */
+//  154 
+//  155   {offsetof(macPib_t, pBeaconPayload), sizeof(uint8 *), 0, 0},                       /* MAC_BEACON_PAYLOAD */
+//  156   {offsetof(macPib_t, beaconPayloadLength), sizeof(uint8), 0, 52},                   /* MAC_BEACON_PAYLOAD_LENGTH */
+//  157   {offsetof(macPib_t, beaconOrder), sizeof(uint8), 0, 15},                           /* MAC_BEACON_ORDER */
+//  158   {offsetof(macPib_t, beaconTxTime), sizeof(uint32), 1, 1},                          /* MAC_BEACON_TX_TIME */
+//  159   {offsetof(macPib_t, bsn), sizeof(uint8), 0x00, 0xFF},                              /* MAC_BSN */
+//  160 
+//  161   {offsetof(macPib_t, coordExtendedAddress.addr.extAddr), sizeof(sAddrExt_t), 0, 0}, /* MAC_COORD_EXTENDED_ADDRESS */
+//  162   {offsetof(macPib_t, coordShortAddress), sizeof(uint16), 0, 0},                     /* MAC_COORD_SHORT_ADDRESS */
+//  163   {offsetof(macPib_t, dsn), sizeof(uint8), 0x00, 0xFF},                              /* MAC_DSN */
+//  164   {offsetof(macPib_t, gtsPermit), sizeof(bool), FALSE, TRUE},                        /* MAC_GTS_PERMIT */
+//  165 
+//  166   /* Range of maxCsmaBackoffs is between 0 and 5 in IEEE 802.15.4.
+//  167    * Such restriction is removed here to allow 802.15.4 non-compliant experimental
+//  168    * applications.
+//  169    * To be compliant with 802.15.4, application or upper layer must not set this
+//  170    * PIB attribute out of range of 802.15.4.
+//  171    * The range is still restricted to 254 since value 255 would cause backoff
+//  172    * counter to overflow, wrap around and loop infinitely. */
+//  173   {offsetof(macPib_t, maxCsmaBackoffs), sizeof(uint8), 0, 254},                      /* MAC_MAX_CSMA_BACKOFFS */
+//  174 
+//  175   {offsetof(macPib_t, minBe), sizeof(uint8), 0, 8},                                  /* MAC_MIN_BE */
+//  176   {offsetof(macPib_t, panId), sizeof(uint16), 0, 0},                                 /* MAC_PAN_ID */
+//  177   {offsetof(macPib_t, promiscuousMode), sizeof(bool), FALSE, TRUE},                  /* MAC_PROMISCUOUS_MODE */
+//  178   {offsetof(macPib_t, rxOnWhenIdle), sizeof(bool), FALSE, TRUE},                     /* MAC_RX_ON_WHEN_IDLE */
+//  179   {offsetof(macPib_t, shortAddress), sizeof(uint16), 0, 0},                          /* MAC_SHORT_ADDRESS */
+//  180 
+//  181   {offsetof(macPib_t, superframeOrder), sizeof(uint8), 0, 15},                       /* MAC_SUPERFRAME_ORDER */
+//  182   {offsetof(macPib_t, transactionPersistenceTime), sizeof(uint16), 0, 0},            /* MAC_TRANSACTION_PERSISTENCE_TIME */
+//  183   {offsetof(macPib_t, associatedPanCoord), sizeof(bool), FALSE, TRUE},               /* MAC_ASSOCIATED_PAN_COORD */
+//  184 
+//  185   /* Range of maxBe is between 3 and 8 in IEEE 802.15.4.
+//  186    * Such restriction is removed here to allow 802.15.4 non-compliant experimental
+//  187    * applications.
+//  188    * To be compliant with 802.15.4, application or upper layer must not set this
+//  189    * PIB attribute out of range of 802.15.4. */
+//  190   {offsetof(macPib_t, maxBe), sizeof(uint8), 0, 8},                                  /* MAC_MAX_BE */
+//  191   {offsetof(macPib_t, maxFrameTotalWaitTime), sizeof(uint16), 0x00, 0xFF},           /* MAC_MAX_FRAME_RESPONSE_TIME */
+//  192 
+//  193   {offsetof(macPib_t, maxFrameRetries), sizeof(uint8), 0, 7},                        /* MAC_MAX_FRAME_RETRIES */
+//  194   {offsetof(macPib_t, responseWaitTime), sizeof(uint8), 2, 64},                      /* MAC_RESPONSE_WAIT_TIME */
+//  195   {offsetof(macPib_t, syncSymbolOffset), sizeof(uint8), 0, 0},                       /* MAC_SYNC_SYMBOL_OFFSET */
+//  196   {offsetof(macPib_t, timeStampSupported), sizeof(bool), FALSE, TRUE},               /* MAC_TIMESTAMP_SUPPORTED */
+//  197   {offsetof(macPib_t, securityEnabled), sizeof(bool), FALSE, TRUE},                  /* MAC_SECURITY_ENABLED */
+//  198 
+//  199   /* Proprietary PIBs */
+//  200   {offsetof(macPib_t, phyTransmitPower), sizeof(uint8), 0, 0xFF},                    /* MAC_PHY_TRANSMIT_POWER */
+//  201   {offsetof(macPib_t, logicalChannel), sizeof(uint8), MAC_CHAN_11, MAC_CHAN_28},     /* MAC_LOGICAL_CHANNEL */
+//  202   {offsetof(macPib_t, extendedAddress.addr.extAddr), sizeof(sAddrExt_t), 0, 0},      /* MAC_EXTENDED_ADDRESS */
+//  203   {offsetof(macPib_t, altBe), sizeof(uint8), 0, 8},                                  /* MAC_ALT_BE */
+//  204   {offsetof(macPib_t, deviceBeaconOrder), sizeof(uint8), 0, 15},                     /* MAC_DEVICE_BEACON_ORDER */
+//  205   {offsetof(macPib_t, phyTransmitPower), sizeof(uint8), 0, 0},                       /* MAC_PHY_TRANSMIT_POWER_SIGNED */
+//  206 };
+//  207 
+//  208 /* Invalid PIB table index used for error code */
+//  209 #define MAC_PIB_INVALID     ((uint8) (sizeof(macPibTbl) / sizeof(macPibTbl[0])))
+//  210 
+//  211 /* ------------------------------------------------------------------------------------------------
+//  212  *                                           Global Variables
+//  213  * ------------------------------------------------------------------------------------------------
+//  214  */
+//  215 
+//  216 /* MAC PIB */
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  217 macPib_t macPib;
+macPib:
+        DS 60
+        REQUIRE __INIT_XDATA_Z
+//  218 
+//  219 
+//  220 /**************************************************************************************************
+//  221  * @fn          macPibReset
+//  222  *
+//  223  * @brief       This function initializes the PIB.
+//  224  *
+//  225  * input parameters
+//  226  *
+//  227  * @param       None.
+//  228  *
+//  229  * output parameters
+//  230  *
+//  231  * None.
+//  232  *
+//  233  * @return      None.
+//  234  **************************************************************************************************
+//  235  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  236 MAC_INTERNAL_API void macPibReset(void)
+macPibReset:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function macPibReset
+        CODE
+//  237 {
+        FUNCALL macPibReset, macRadioRandomByte
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL macPibReset, macRadioRandomByte
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  238   /* copy PIB defaults */
+//  239   macPib = macPibDefaults;
+        MOV       DPTR,#macPibDefaults
+        MOV       R4,#macPib & 0xff
+        MOV       R5,#(macPib >> 8) & 0xff
+        MOV       A,#0x3c
+        LCALL     ?MOVE_LONG8_XDATA_CODE
+//  240 
+//  241   /* initialize random sequence numbers */
+//  242   macPib.dsn = macRadioRandomByte();
+        ; Setup parameters for call to function macRadioRandomByte
+        LCALL     `??macRadioRandomByte::?relay`; Banked call to: macRadioRandomByte
+        MOV       A,R1
+        MOV       DPTR,#macPib + 25
+        MOVX      @DPTR,A
+//  243   macPib.bsn = macRadioRandomByte();
+        ; Setup parameters for call to function macRadioRandomByte
+        LCALL     `??macRadioRandomByte::?relay`; Banked call to: macRadioRandomByte
+        MOV       A,R1
+        MOV       DPTR,#macPib + 13
+        MOVX      @DPTR,A
+//  244 }
+        POP       DPH
+          CFI DPH0 SameValue
+          CFI CFA_SP SP+-4
+        POP       DPL
+          CFI DPL0 SameValue
+          CFI CFA_SP SP+-3
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock0
+//  245 
+//  246 /**************************************************************************************************
+//  247  * @fn          macPibIndex
+//  248  *
+//  249  * @brief       This function takes an PIB attribute and returns the index in to
+//  250  *              macPibTbl for the attribute.
+//  251  *
+//  252  * input parameters
+//  253  *
+//  254  * @param       pibAttribute - PIB attribute to look up.
+//  255  *
+//  256  * output parameters
+//  257  *
+//  258  * None.
+//  259  *
+//  260  * @return      Index in to macPibTbl for the attribute or MAC_PIB_INVALID.
+//  261  **************************************************************************************************
+//  262  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  263 static uint8 macPibIndex(uint8 pibAttribute)
+macPibIndex:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function macPibIndex
+        CODE
+//  264 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  265   if ((pibAttribute >= MAC_ATTR_SET1_START) && (pibAttribute <= MAC_ATTR_SET1_END))
+        MOV       A,#-0x40
+        ADD       A,R1
+        CLR       C
+        SUBB      A,#0x1e
+        JNC       ??macPibIndex_0
+//  266   {
+//  267     return (pibAttribute - MAC_ATTR_SET1_START + MAC_ATTR_SET1_OFFSET);
+        MOV       A,#-0x40
+        SJMP      ??macPibIndex_1
+//  268   }
+//  269   else if ((pibAttribute >= MAC_ATTR_SET2_START) && (pibAttribute <= MAC_ATTR_SET2_END))
+??macPibIndex_0:
+        MOV       A,#0x20
+        ADD       A,R1
+        CLR       C
+        SUBB      A,#0x6
+        JNC       ??macPibIndex_2
+//  270   {
+//  271     return (pibAttribute - MAC_ATTR_SET2_START + MAC_ATTR_SET2_OFFSET);
+        MOV       A,#0x3e
+??macPibIndex_1:
+        ADD       A,R1
+        MOV       R1,A
+        SJMP      ??macPibIndex_3
+//  272   }
+//  273   else
+//  274   {
+//  275     return MAC_PIB_INVALID;
+??macPibIndex_2:
+        MOV       R1,#0x24
+??macPibIndex_3:
+        LJMP      ?BRET
+//  276   }
+//  277 }
+          CFI EndBlock cfiBlock1
+//  278 
+//  279 
+//  280 /**************************************************************************************************
+//  281  * @fn          MAC_MlmeGetReq
+//  282  *
+//  283  * @brief       This direct execute function retrieves an attribute value
+//  284  *              from the MAC PIB.
+//  285  *
+//  286  * input parameters
+//  287  *
+//  288  * @param       pibAttribute - The attribute identifier.
+//  289  * @param       pValue - pointer to the attribute value.
+//  290  *
+//  291  * output parameters
+//  292  *
+//  293  * @param       pValue - pointer to the attribute value.
+//  294  *
+//  295  * @return      The status of the request, as follows:
+//  296  *              MAC_SUCCESS Operation successful.
+//  297  *              MAC_UNSUPPORTED_ATTRIBUTE Attribute not found.
+//  298  *
+//  299  **************************************************************************************************
+//  300  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  301 uint8 MAC_MlmeGetReq(uint8 pibAttribute, void *pValue)
+MAC_MlmeGetReq:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function MAC_MlmeGetReq
+        CODE
+//  302 {
+        FUNCALL MAC_MlmeGetReq, macPibIndex
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MAC_MlmeGetReq, osal_memcpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 17, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 17, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V4
+        REQUIRE ?V5
+        MOV       A,#-0xe
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 14)
+        ; Saved register size: 14
+        ; Auto size: 0
+        MOV       ?V4,R2
+        MOV       ?V5,R3
+//  303   uint8         i;
+//  304   halIntState_t intState;
+//  305 
+//  306   if ((i = macPibIndex(pibAttribute)) == MAC_PIB_INVALID)
+        ; Setup parameters for call to function macPibIndex
+        LCALL     `??macPibIndex::?relay`; Banked call to: macPibIndex
+        MOV       A,R1
+        MOV       R0,A
+        MOV       A,#0x24
+        XRL       A,R0
+        JNZ       ??MAC_MlmeGetReq_0
+//  307   {
+//  308     return MAC_UNSUPPORTED_ATTRIBUTE;
+        MOV       R1,#-0xc
+        SJMP      ??MAC_MlmeGetReq_1
+//  309   }
+//  310 
+//  311   HAL_ENTER_CRITICAL_SECTION(intState);
+??MAC_MlmeGetReq_0:
+        MOV       R6,0xa8+0x0
+        CLR       0xa8.7
+//  312   osal_memcpy(pValue, (uint8 *) &macPib + macPibTbl[i].offset, macPibTbl[i].len);
+        MOV       A,R1
+        MOV       ?V0,A
+        MOV       ?V1,#0x0
+        MOV       A,#0x2
+        MOV       R0,#?V0
+        LCALL     ?S_SHL
+        MOV       A,#macPibTbl & 0xff
+        ADD       A,?V0
+        MOV       R2,A
+        MOV       A,#(macPibTbl >> 8) & 0xff
+        ADDC      A,?V1
+        MOV       R3,A
+        ; Setup parameters for call to function osal_memcpy
+        MOV       DPL,R2
+        MOV       DPH,A
+        CLR       A
+        MOVC      A,@A+DPTR
+        MOV       R0,A
+        MOV       A,#macPib & 0xff
+        ADD       A,R0
+        MOV       ?V0,A
+        CLR       A
+        ADDC      A,#(macPib >> 8) & 0xff
+        MOV       ?V1,A
+        MOV       ?V2,#0x0
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_THREE
+          CFI CFA_XSP16 add(XSP16, 17)
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        CLR       A
+        MOVC      A,@A+DPTR
+        MOV       R4,A
+        MOV       R5,#0x0
+        MOV       R2,?V4
+        MOV       R3,?V5
+        LCALL     `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+        MOV       A,#0x3
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 14)
+//  313   HAL_EXIT_CRITICAL_SECTION(intState);
+        MOV       A,R6
+        MOV       C,0xE0 /* A   */.7
+        MOV       0xa8.7,C
+//  314   return MAC_SUCCESS;
+        MOV       R1,#0x0
+??MAC_MlmeGetReq_1:
+        MOV       R7,#0x6
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock2
+        REQUIRE _A_IEN0
+//  315 }
+//  316 
+//  317 /**************************************************************************************************
+//  318  * @fn          MAC_MlmeSetReq
+//  319  *
+//  320  * @brief       This direct execute function sets an attribute value
+//  321  *              in the MAC PIB.
+//  322  *
+//  323  * input parameters
+//  324  *
+//  325  * @param       pibAttribute - The attribute identifier.
+//  326  * @param       pValue - pointer to the attribute value.
+//  327  *
+//  328  * output parameters
+//  329  *
+//  330  * None.
+//  331  *
+//  332  * @return      The status of the request, as follows:
+//  333  *              MAC_SUCCESS Operation successful.
+//  334  *              MAC_UNSUPPORTED_ATTRIBUTE Attribute not found.
+//  335  *
+//  336  **************************************************************************************************
+//  337  */
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  338 uint8 MAC_MlmeSetReq(uint8 pibAttribute, void *pValue)
+MAC_MlmeSetReq:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function MAC_MlmeSetReq
+        CODE
+//  339 {
+        FUNCALL MAC_MlmeSetReq, macPibIndex
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MAC_MlmeSetReq, osal_memcpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MAC_MlmeSetReq, macRadioSetPanID
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MAC_MlmeSetReq, macRadioSetShortAddr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MAC_MlmeSetReq, macRxEnable
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MAC_MlmeSetReq, macRxDisable
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MAC_MlmeSetReq, macRadioSetChannel
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MAC_MlmeSetReq, macRadioSetIEEEAddr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MAC_MlmeSetReq, macRadioSetTxPower
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        REQUIRE ?V6
+        MOV       A,#-0xf
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 15)
+        ; Saved register size: 15
+        ; Auto size: 0
+        MOV       ?V0,R1
+        MOV       A,R2
+        MOV       R6,A
+        MOV       A,R3
+        MOV       R7,A
+//  340   uint8         i;
+//  341   halIntState_t intState;
+//  342 
+//  343   if (pibAttribute == MAC_BEACON_PAYLOAD)
+        MOV       A,#0x45
+        XRL       A,R1
+        JNZ       ??MAC_MlmeSetReq_0
+//  344   {
+//  345     macPib.pBeaconPayload = pValue;
+        MOV       DPTR,#macPib + 5
+        MOV       A,R2
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R3
+        MOVX      @DPTR,A
+//  346     return MAC_SUCCESS;
+        LJMP      ??MAC_MlmeSetReq_1 & 0xFFFF
+//  347   }
+//  348 
+//  349   /* look up attribute in PIB table */
+//  350   if ((i = macPibIndex(pibAttribute)) == MAC_PIB_INVALID)
+??MAC_MlmeSetReq_0:
+        ; Setup parameters for call to function macPibIndex
+        LCALL     `??macPibIndex::?relay`; Banked call to: macPibIndex
+        MOV       A,R1
+        MOV       R4,A
+        MOV       A,#0x24
+        XRL       A,R4
+        JNZ       ??MAC_MlmeSetReq_2
+//  351   {
+//  352     return MAC_UNSUPPORTED_ATTRIBUTE;
+        MOV       R1,#-0xc
+        LJMP      ??MAC_MlmeSetReq_3 & 0xFFFF
+//  353   }
+//  354 
+//  355   /* do range check; no range check if min and max are zero */
+//  356   if ((macPibTbl[i].min != 0) || (macPibTbl[i].max != 0))
+??MAC_MlmeSetReq_2:
+        MOV       A,R1
+        MOV       ?V2,A
+        MOV       ?V3,#0x0
+        MOV       A,#0x2
+        MOV       R0,#?V2
+        LCALL     ?S_SHL
+        LCALL     ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_0:
+        JNZ       ??MAC_MlmeSetReq_4
+        MOV       A,R1
+        MOV       ?V2,A
+        MOV       ?V3,#0x0
+        MOV       A,#0x2
+        MOV       R0,#?V2
+        LCALL     ?S_SHL
+        LCALL     ?Subroutine1 & 0xFFFF
+??CrossCallReturnLabel_2:
+        JZ        ??MAC_MlmeSetReq_5
+//  357   {
+//  358     /* if min == max, this is a read-only attribute */
+//  359     if (macPibTbl[i].min == macPibTbl[i].max)
+??MAC_MlmeSetReq_4:
+        MOV       A,R1
+        MOV       ?V2,A
+        MOV       ?V3,#0x0
+        MOV       A,#0x2
+        MOV       R0,#?V2
+        LCALL     ?S_SHL
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_4:
+        MOV       DPL,R2
+        MOV       DPH,A
+        INC       DPTR
+        INC       DPTR
+        CLR       A
+        MOVC      A,@A+DPTR
+        MOV       R0,A
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        CLR       A
+        MOVC      A,@A+DPTR
+        XRL       A,R0
+        JNZ       ??MAC_MlmeSetReq_6
+//  360     {
+//  361       return MAC_READ_ONLY;
+        MOV       R1,#-0x5
+        LJMP      ??MAC_MlmeSetReq_3 & 0xFFFF
+//  362     }
+//  363 
+//  364     /* check for special cases */
+//  365     if (pibAttribute == MAC_MAX_FRAME_TOTAL_WAIT_TIME)
+??MAC_MlmeSetReq_6:
+        MOV       A,#0x58
+        XRL       A,?V0
+        JNZ       ??MAC_MlmeSetReq_7
+//  366     {
+//  367       if ((*((uint16 *) pValue) < MAC_MAX_FRAME_RESPONSE_MIN) ||
+//  368           (*((uint16 *) pValue) > MAC_MAX_FRAME_RESPONSE_MAX))
+        MOV       DPL,R6
+        MOV       DPH,R7
+        MOVX      A,@DPTR
+        ADD       A,#0x71
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        ADDC      A,#-0x1
+        MOV       R1,A
+        CLR       C
+        MOV       A,R0
+        SUBB      A,#0x22
+        MOV       A,R1
+        SUBB      A,#0x64
+        JNC       ??MAC_MlmeSetReq_8
+//  369       {
+//  370         return MAC_INVALID_PARAMETER;
+//  371       }
+//  372     }
+//  373 
+//  374     /* range check for general case */
+//  375     if ((*((uint8 *) pValue) < macPibTbl[i].min) || (*((uint8 *) pValue) > macPibTbl[i].max))
+??MAC_MlmeSetReq_7:
+        MOV       A,R4
+        MOV       ?V2,A
+        MOV       ?V3,#0x0
+        MOV       A,#0x2
+        MOV       R0,#?V2
+        LCALL     ?S_SHL
+        LCALL     ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_1:
+        MOV       R0,A
+        MOV       DPL,R6
+        MOV       DPH,R7
+        MOVX      A,@DPTR
+        CLR       C
+        SUBB      A,R0
+        JC        ??MAC_MlmeSetReq_8
+        MOVX      A,@DPTR
+        MOV       R1,A
+        MOV       A,R4
+        MOV       ?V2,A
+        MOV       ?V3,#0x0
+        MOV       A,#0x2
+        MOV       R0,#?V2
+        LCALL     ?S_SHL
+        LCALL     ?Subroutine1 & 0xFFFF
+??CrossCallReturnLabel_3:
+        CLR       C
+        SUBB      A,R1
+        JNC       ??MAC_MlmeSetReq_5
+//  376     {
+//  377       return MAC_INVALID_PARAMETER;
+??MAC_MlmeSetReq_8:
+        MOV       R1,#-0x18
+        LJMP      ??MAC_MlmeSetReq_3 & 0xFFFF
+//  378     }
+//  379 
+//  380   }
+//  381 
+//  382   /* set value in PIB */
+//  383   HAL_ENTER_CRITICAL_SECTION(intState);
+??MAC_MlmeSetReq_5:
+        MOV       ?V1,0xa8+0x0
+        CLR       0xa8.7
+//  384   osal_memcpy((uint8 *) &macPib + macPibTbl[i].offset, pValue, macPibTbl[i].len);
+        MOV       A,R4
+        MOV       ?V2,A
+        MOV       ?V3,#0x0
+        MOV       A,#0x2
+        MOV       R0,#?V2
+        LCALL     ?S_SHL
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_5:
+        ; Setup parameters for call to function osal_memcpy
+        MOV       ?V4,R6
+        MOV       ?V5,R7
+        MOV       ?V6,#0x0
+        MOV       R0,#?V4
+        LCALL     ?PUSH_XSTACK_I_THREE
+          CFI CFA_XSP16 add(XSP16, 18)
+        MOV       DPL,R2
+        MOV       DPH,R3
+        INC       DPTR
+        CLR       A
+        MOVC      A,@A+DPTR
+        MOV       R4,A
+        MOV       R5,#0x0
+        MOV       DPL,R2
+        MOV       DPH,R3
+        CLR       A
+        MOVC      A,@A+DPTR
+        MOV       R0,A
+        MOV       A,#macPib & 0xff
+        ADD       A,R0
+        MOV       R2,A
+        CLR       A
+        ADDC      A,#(macPib >> 8) & 0xff
+        MOV       R3,A
+        LCALL     `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+        MOV       A,#0x3
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 15)
+//  385   HAL_EXIT_CRITICAL_SECTION(intState);
+        MOV       A,?V1
+        MOV       C,0xE0 /* A   */.7
+        MOV       0xa8.7,C
+//  386 
+//  387   /* handle special cases */
+//  388   switch (pibAttribute)
+        MOV       A,?V0
+        ADD       A,#-0x50
+        JZ        ??MAC_MlmeSetReq_9
+        ADD       A,#-0x2
+        JZ        ??MAC_MlmeSetReq_10
+        DEC       A
+        JZ        ??MAC_MlmeSetReq_11
+        ADD       A,#0x73
+        JZ        ??MAC_MlmeSetReq_12
+        DEC       A
+        JZ        ??MAC_MlmeSetReq_13
+        DEC       A
+        JZ        ??MAC_MlmeSetReq_14
+        ADD       A,#-0x3
+        JZ        ??MAC_MlmeSetReq_15
+        SJMP      ??MAC_MlmeSetReq_1
+//  389   {
+//  390     case MAC_PAN_ID:
+//  391       /* set pan id in radio */
+//  392       macRadioSetPanID(macPib.panId);
+??MAC_MlmeSetReq_9:
+        ; Setup parameters for call to function macRadioSetPanID
+        MOV       DPTR,#macPib + 29
+        MOVX      A,@DPTR
+        MOV       R2,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R3,A
+        LCALL     `??macRadioSetPanID::?relay`; Banked call to: macRadioSetPanID
+//  393       break;
+        SJMP      ??MAC_MlmeSetReq_1
+//  394 
+//  395     case MAC_SHORT_ADDRESS:
+//  396       /* set short address in radio */
+//  397       macRadioSetShortAddr(macPib.shortAddress);
+??MAC_MlmeSetReq_11:
+        ; Setup parameters for call to function macRadioSetShortAddr
+        MOV       DPTR,#macPib + 33
+        MOVX      A,@DPTR
+        MOV       R2,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R3,A
+        LCALL     `??macRadioSetShortAddr::?relay`; Banked call to: macRadioSetShortAddr
+//  398       break;
+        SJMP      ??MAC_MlmeSetReq_1
+//  399 
+//  400     case MAC_RX_ON_WHEN_IDLE:
+//  401       /* turn rx on or off */
+//  402       if (macPib.rxOnWhenIdle)
+??MAC_MlmeSetReq_10:
+        MOV       DPTR,#macPib + 32
+        MOVX      A,@DPTR
+        MOV       R1,#0x2
+        JZ        ??MAC_MlmeSetReq_16
+//  403       {
+//  404         macRxEnable(MAC_RX_WHEN_IDLE);
+        ; Setup parameters for call to function macRxEnable
+        LCALL     `??macRxEnable::?relay`; Banked call to: macRxEnable
+        SJMP      ??MAC_MlmeSetReq_1
+//  405       }
+//  406       else
+//  407       {
+//  408         macRxDisable(MAC_RX_WHEN_IDLE);
+??MAC_MlmeSetReq_16:
+        ; Setup parameters for call to function macRxDisable
+        LCALL     `??macRxDisable::?relay`; Banked call to: macRxDisable
+        SJMP      ??MAC_MlmeSetReq_1
+//  409       }
+//  410       break;
+//  411 
+//  412     case MAC_LOGICAL_CHANNEL:
+//  413       macRadioSetChannel(macPib.logicalChannel);
+??MAC_MlmeSetReq_13:
+        ; Setup parameters for call to function macRadioSetChannel
+        MOV       DPTR,#macPib + 48
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??macRadioSetChannel::?relay`; Banked call to: macRadioSetChannel
+//  414       break;
+        SJMP      ??MAC_MlmeSetReq_1
+//  415 
+//  416     case MAC_EXTENDED_ADDRESS:
+//  417       /* set ext address in radio */
+//  418       macRadioSetIEEEAddr(macPib.extendedAddress.addr.extAddr);
+??MAC_MlmeSetReq_14:
+        ; Setup parameters for call to function macRadioSetIEEEAddr
+        MOV       R2,#(macPib + 49) & 0xff
+        MOV       R3,#((macPib + 49) >> 8) & 0xff
+        LCALL     `??macRadioSetIEEEAddr::?relay`; Banked call to: macRadioSetIEEEAddr
+//  419       break;
+        SJMP      ??MAC_MlmeSetReq_1
+//  420 
+//  421 #ifndef MAC_OBSOLETE_PHY_TRANSMIT_POWER
+//  422     /* Define MAC_OBSOLETE_PHY_TRANSMIT_POWER to save some code */
+//  423 
+//  424     case MAC_PHY_TRANSMIT_POWER:
+//  425       /* Legacy transmit power attribute */
+//  426 #if !defined HAL_MAC_USE_REGISTER_POWER_VALUES && \ 
+//  427   !defined HAL_PA_LNA && !defined HAL_PA_LNA_CC2590
+//  428       /* Legacy transmit power attribute value for CC2530 alone,
+//  429        * or runtime selection support build means a negative absolute value.
+//  430        * However, when used as register power values or
+//  431        * with HAL_PA_LNAxxx definition (without runtime selection)
+//  432        * the attribute value is not a negative absolute value. */
+//  433       macPib.phyTransmitPower = (uint8)(-(int8)macPib.phyTransmitPower);
+??MAC_MlmeSetReq_12:
+        MOV       DPTR,#macPib + 47
+        MOVX      A,@DPTR
+        CPL       A
+        INC       A
+        MOVX      @DPTR,A
+//  434 #endif /* !defined HAL_MAC_USE_REGISTER_POWER_VALUES && ... */
+//  435       /* pass through to next case -- do not break*/
+//  436 
+//  437 #endif /* MAC_OBSOLETE_PHY_TRANSMIT_POWER */
+//  438 
+//  439     case MAC_PHY_TRANSMIT_POWER_SIGNED:
+//  440       /* Set the transmit power */
+//  441       macRadioSetTxPower(macPib.phyTransmitPower);
+??MAC_MlmeSetReq_15:
+        ; Setup parameters for call to function macRadioSetTxPower
+        MOV       DPTR,#macPib + 47
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??macRadioSetTxPower::?relay`; Banked call to: macRadioSetTxPower
+//  442       break;
+//  443 
+//  444     default:
+//  445       break;
+//  446   }
+//  447 
+//  448   return MAC_SUCCESS;
+??MAC_MlmeSetReq_1:
+        MOV       R1,#0x0
+??MAC_MlmeSetReq_3:
+        MOV       R7,#0x7
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_IEN0
+//  449 }
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI Function MAC_MlmeSetReq
+          CFI Conditional ??CrossCallReturnLabel_4
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 15)
+          CFI Block cfiCond5 Using cfiCommon0
+          CFI (cfiCond5) Function MAC_MlmeSetReq
+          CFI (cfiCond5) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond5) R6 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond5) VB load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond5) V0 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond5) V1 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond5) V2 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond5) V3 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond5) V4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond5) V5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond5) V6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond5) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond5) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond5) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond5) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond5) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond5) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond5) CFA_SP SP+-2
+          CFI (cfiCond5) CFA_XSP16 add(XSP16, 15)
+          CFI Block cfiPicker6 Using cfiCommon1
+          CFI (cfiPicker6) NoFunction
+          CFI (cfiPicker6) Picker
+        MOV       A,#macPibTbl & 0xff
+        ADD       A,?V2
+        MOV       R2,A
+        MOV       A,#(macPibTbl >> 8) & 0xff
+        ADDC      A,?V3
+        MOV       R3,A
+        RET
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiCond5
+          CFI EndBlock cfiPicker6
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI Function MAC_MlmeSetReq
+          CFI Conditional ??CrossCallReturnLabel_2
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 15)
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI (cfiCond8) Function MAC_MlmeSetReq
+          CFI (cfiCond8) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond8) R6 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond8) VB load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond8) V0 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond8) V1 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond8) V2 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond8) V3 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond8) V4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond8) V5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond8) V6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond8) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond8) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond8) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond8) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond8) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond8) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond8) CFA_SP SP+-2
+          CFI (cfiCond8) CFA_XSP16 add(XSP16, 15)
+          CFI Block cfiPicker9 Using cfiCommon1
+          CFI (cfiPicker9) NoFunction
+          CFI (cfiPicker9) Picker
+        MOV       A,#(macPibTbl + 3) & 0xff
+        ADD       A,?V2
+        MOV       DPL,A
+        MOV       A,#((macPibTbl + 3) >> 8) & 0xff
+        ADDC      A,?V3
+        MOV       DPH,A
+        CLR       A
+        MOVC      A,@A+DPTR
+        RET
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiPicker9
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI Function MAC_MlmeSetReq
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 15)
+          CFI Block cfiCond11 Using cfiCommon0
+          CFI (cfiCond11) Function MAC_MlmeSetReq
+          CFI (cfiCond11) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond11) R6 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond11) VB load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond11) V0 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond11) V1 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond11) V2 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond11) V3 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond11) V4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond11) V5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond11) V6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond11) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond11) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond11) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond11) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond11) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond11) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond11) CFA_SP SP+-2
+          CFI (cfiCond11) CFA_XSP16 add(XSP16, 15)
+          CFI Block cfiPicker12 Using cfiCommon1
+          CFI (cfiPicker12) NoFunction
+          CFI (cfiPicker12) Picker
+        MOV       A,#(macPibTbl + 2) & 0xff
+        ADD       A,?V2
+        MOV       DPL,A
+        MOV       A,#((macPibTbl + 2) >> 8) & 0xff
+        ADDC      A,?V3
+        MOV       DPH,A
+        CLR       A
+        MOVC      A,@A+DPTR
+        RET
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiCond11
+          CFI EndBlock cfiPicker12
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macPibReset::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macPibReset
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??macPibIndex::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    macPibIndex
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MAC_MlmeGetReq::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MAC_MlmeGetReq
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MAC_MlmeSetReq::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MAC_MlmeSetReq
+
+        END
+//  450 
+// 
+// 607 bytes in segment BANKED_CODE
+//  24 bytes in segment BANK_RELAYS
+// 204 bytes in segment CODE_C
+//   1 byte  in segment SFR_AN
+//  60 bytes in segment XDATA_Z
+// 
+// 228 bytes of CODE     memory
+//   0 bytes of DATA     memory (+ 1 byte shared)
+// 607 bytes of HUGECODE memory
+//  60 bytes of XDATA    memory
+//
+//Errors: none
+//Warnings: none

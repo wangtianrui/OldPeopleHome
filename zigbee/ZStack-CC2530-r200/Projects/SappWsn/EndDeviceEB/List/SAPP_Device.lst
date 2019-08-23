@@ -1,0 +1,1002 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.30.1.6000 for 8051               22/Aug/2019  20:43:47
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\Source\SAPP_Device.c
+#    Command line       =  
+#        -f C:\Users\VULCAN\AppData\Local\Temp\EW8D7.tmp
+#        (E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\Source\SAPP_Device.c
+#        -D ZIGBEEPRO -D NWK_AUTO_POLL -D ZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D SAPP_ZSTACK -lC
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+#        -lA
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+#        --diag_suppress Pe001,Pa010 -o
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\Obj
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 8 -f
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wEndev.cfg
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+#        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0057
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\Source\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+#        -I
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+#        -Ohz --require_prototypes --no_code_motion)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List\SAPP_Device.lst
+#    Object file        =  
+#        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\Obj\SAPP_Device.r51
+#
+###############################################################################
+
+E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\Source\SAPP_Device.c
+      1          #if defined(SAPP_ZSTACK)
+      2          #include "SAPP_Device.h"
+      3          #include "hal_io.h"
+      4          #include <string.h>
+      5          
+      6          /**************************************************************/
+      7          /* 传感器列表                                                 */
+      8          /**************************************************************/
+      9          /********************************/
+     10          /* 燃气传感器                   */
+     11          /********************************/
+     12          #if defined(HAS_GAS)
+     13          #define GAS_IO_GROUP        0
+     14          #define GAS_IO_BIT          0
+     15          void sensorGasResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+     16          void sensorGasResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+     17          {
+     18              if(type == ResInit)
+     19              {
+     20                  HalIOSetInput(GAS_IO_GROUP, GAS_IO_BIT, Pull_Down);
+     21                  HalIOIntSet(ep->ep, GAS_IO_GROUP, GAS_IO_BIT, IOInt_Rising, 0);
+     22              }
+     23              //IO端口中断触发，中断源检测
+     24              if(type == ResIOInt)
+     25              {
+     26                  uint8 GasValue = 1;
+     27                  SendData(ep->ep, &GasValue, 0x0000, TRANSFER_ENDPOINT, sizeof(GasValue));
+     28              }
+     29          }
+     30          void sensorGasTimeout(struct ep_info_t *ep);
+     31          void sensorGasTimeout(struct ep_info_t *ep)
+     32          {
+     33              uint8 value = HalIOGetLevel(GAS_IO_GROUP, GAS_IO_BIT);
+     34              SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+     35          }
+     36          #endif
+     37          /********************************/
+     38          /* 温度传感器                   */
+     39          /********************************/
+     40          #if defined(HAS_TEMP) || defined(HAS_HUMM)
+     41          #include "sht10.h"
+     42          static uint16 TempValue = 0;
+     43          #endif
+     44          #if defined(HAS_TEMP)
+     45          void sensorTempResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+     46          void sensorTempResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+     47          {
+     48              if(type == ResInit)
+     49              {
+     50                  SHT10_init(0x01);
+     51              }
+     52          }
+     53          void sensorTempTimeout(struct ep_info_t *ep);
+     54          void sensorTempTimeout(struct ep_info_t *ep)
+     55          {
+     56              unsigned int value = 0;
+     57              unsigned char checksum = 0;
+     58              SHT10_Measure(&value,&checksum, TEMPERATURE);
+     59              TempValue = (value << 2) - 3960;
+     60              SendData(ep->ep, &TempValue, 0x0000, TRANSFER_ENDPOINT, sizeof(TempValue));
+     61          }
+     62          #endif
+     63          /********************************/
+     64          /* 湿度传感器                   */
+     65          /********************************/
+     66          #if defined(HAS_HUMM)
+     67          void sensorHummResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+     68          void sensorHummResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+     69          {
+     70              if(type == ResInit)
+     71              {
+     72                  SHT10_init(0x01);
+     73              }
+     74          }
+     75          void sensorHummTimeout(struct ep_info_t *ep);
+     76          void sensorHummTimeout(struct ep_info_t *ep)
+     77          {
+     78              const float C1 = -4.0f;              // for 8 Bit
+     79              const float C2 = +0.648f;            // for 8 Bit
+     80              const float C3 = -0.0000072f;        // for 8 Bit
+     81              const float T1 = 0.01f;              // for 8 bit
+     82              const float T2 = 0.00128f;           // for 8 bit
+     83              float rh_lin    =   0.0f;                     // rh_lin: Humidity linear
+     84              float rh_true   =   0.0f;                    // rh_true: Temperature compensated humidity
+     85              float t_C   = 0.0f;                        // t_C   : Temperature []
+     86          
+     87              unsigned int HumiValue = 0;
+     88              unsigned char checksum = 0;
+     89              SHT10_Measure(&HumiValue,&checksum, HUMIDITY);
+     90              rh_lin=C3*HumiValue*HumiValue + C2*HumiValue + C1;     //calc. humidity from ticks to [%RH]
+     91              rh_true=(t_C-25)*(T1+T2*HumiValue)+rh_lin;   //calc. temperature compensated humidity [%RH]
+     92              if(rh_true>100)
+     93                  rh_true=100;       //cut if the value is outside of
+     94              if(rh_true<0.1)
+     95                  rh_true=0.1f;       //the physical possible range
+     96              HumiValue = (unsigned int)(rh_true * 100);
+     97              SendData(ep->ep, &HumiValue, 0x0000, TRANSFER_ENDPOINT, sizeof(HumiValue));
+     98          }
+     99          #endif
+    100          /********************************/
+    101          /* 雨滴传感器                   */
+    102          /********************************/
+    103          #if defined(HAS_RAIN)
+    104          #define RAIN_IO_GROUP       0
+    105          #define RAIN_IO_BIT         0
+    106          void sensorRainResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    107          void sensorRainResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    108          {
+    109              if(type == ResInit)
+    110              {
+    111                  HalIOSetInput(RAIN_IO_GROUP, RAIN_IO_BIT, Pull_None);
+    112                  HalIOIntSet(ep->ep, RAIN_IO_GROUP, RAIN_IO_BIT, IOInt_Rising, 0);
+    113              }
+    114              //IO端口中断触发，中断源检测
+    115              if(type == ResIOInt)
+    116              {
+    117                  uint8 RainValue = 1;
+    118                  SendData(ep->ep, &RainValue, 0x0000, TRANSFER_ENDPOINT, sizeof(RainValue));
+    119              }
+    120          }
+    121          void sensorRainTimeout(struct ep_info_t *ep);
+    122          void sensorRainTimeout(struct ep_info_t *ep)
+    123          {
+    124              uint8 value = HalIOGetLevel(RAIN_IO_GROUP, RAIN_IO_BIT);
+    125              SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+    126          }
+    127          #endif
+    128          /********************************/
+    129          /* 火焰传感器                   */
+    130          /********************************/
+    131          #if defined(HAS_FIRE)
+    132          #define FIRE_IO_GROUP       0
+    133          #define FIRE_IO_BIT         0
+    134          void sensorFireResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    135          void sensorFireResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    136          {
+    137              if(type == ResInit)
+    138              {
+    139                  HalIOSetInput(FIRE_IO_GROUP, FIRE_IO_BIT, Pull_Down);
+    140                  HalIOIntSet(ep->ep, FIRE_IO_GROUP, FIRE_IO_BIT, IOInt_Rising, 0);
+    141              }
+    142              //IO端口中断触发，中断源检测
+    143              if(type == ResIOInt)
+    144              {
+    145                  uint8 FireValue = 1;
+    146                  SendData(ep->ep, &FireValue, 0x0000, TRANSFER_ENDPOINT, sizeof(FireValue));
+    147              }
+    148          }
+    149          void sensorFireTimeout(struct ep_info_t *ep);
+    150          void sensorFireTimeout(struct ep_info_t *ep)
+    151          {
+    152              uint8 value = HalIOGetLevel(FIRE_IO_GROUP, FIRE_IO_BIT);
+    153              SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+    154          }
+    155          #endif
+    156          /********************************/
+    157          /* 烟雾传感器                   */
+    158          /********************************/
+    159          #if defined(HAS_SMOKE)
+    160          #define SMOKE_IO_GROUP      0
+    161          #define SMOKE_IO_BIT        0
+    162          void sensorSmokeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    163          void sensorSmokeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    164          {
+    165              if(type == ResInit)
+    166              {
+    167                  HalIOSetInput(SMOKE_IO_GROUP, SMOKE_IO_BIT, Pull_Down);
+    168                  HalIOIntSet(ep->ep, SMOKE_IO_GROUP, SMOKE_IO_BIT, IOInt_Rising, 0);
+    169              }
+    170              //IO端口中断触发，中断源检测
+    171              if(type == ResIOInt)
+    172              {
+    173                  uint8 SmokeValue = 1;
+    174                  SendData(ep->ep, &SmokeValue, 0x0000, TRANSFER_ENDPOINT, sizeof(SmokeValue));
+    175              }
+    176          }
+    177          void sensorSmokeTimeout(struct ep_info_t *ep);
+    178          void sensorSmokeTimeout(struct ep_info_t *ep)
+    179          {
+    180              uint8 value = HalIOGetLevel(SMOKE_IO_GROUP, SMOKE_IO_BIT);
+    181              SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+    182          }
+    183          #endif
+    184          /********************************/
+    185          /* 光照度传感器                 */
+    186          /********************************/
+    187          #if defined(HAS_ILLUM)
+    188          #include "hal_adc.h"
+    189          void sensorILLumTimeout(struct ep_info_t *ep);
+    190          void sensorILLumTimeout(struct ep_info_t *ep)
+    191          {
+    192              uint16 LightValue = 256 - (HalAdcRead(0, HAL_ADC_RESOLUTION_14) >> 3);
+    193              // 将AD值变换为光照度的100倍
+    194              LightValue = LightValue * 39;// * 10000 / 256;
+    195              SendData(ep->ep, &LightValue, 0x0000, TRANSFER_ENDPOINT, sizeof(LightValue));
+    196          }
+    197          #endif
+    198          /********************************/
+    199          /* 安防传感器                   */
+    200          /********************************/
+    201          #if defined(HAS_IRPERS)
+    202          #define SAFTY_IO_GROUP      1
+    203          #define SAFTY_IO_BIT        0
+    204          void sensorIRPersResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    205          void sensorIRPersResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    206          {
+    207              if(type == ResInit)
+    208              {
+    209                  HalIOSetInput(SAFTY_IO_GROUP, SAFTY_IO_BIT, Pull_Down);
+    210                  HalIOIntSet(ep->ep, SAFTY_IO_GROUP, SAFTY_IO_BIT, IOInt_Rising, 0);
+    211              }
+    212              //IO端口中断触发，中断源检测
+    213              if(type == ResIOInt)
+    214              {
+    215                  uint8 IRPersValue = 1;
+    216                  SendData(ep->ep, &IRPersValue, 0x0000, TRANSFER_ENDPOINT, sizeof(IRPersValue));
+    217              }
+    218          }
+    219          void sensorIRPersTimeout(struct ep_info_t *ep);
+    220          void sensorIRPersTimeout(struct ep_info_t *ep)
+    221          {
+    222              uint8 value = HalIOGetLevel(SAFTY_IO_GROUP, SAFTY_IO_BIT);
+    223              SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+    224          }
+    225          #endif
+    226          /********************************/
+    227          /* 红外测距传感器               */
+    228          /********************************/
+    229          #if defined(HAS_IRDIST)
+    230          #include "hal_adc.h"
+    231          extern uint16 irDistTab[256];
+    232          void sensorIRDistTimeout(struct ep_info_t *ep);
+    233          void sensorIRDistTimeout(struct ep_info_t *ep)
+    234          {
+    235              uint8 value = HalAdcRead(0, HAL_ADC_RESOLUTION_14) >> 3;
+    236              // 计算距离值value的单位为mm
+    237              uint16 IRDistValue = irDistTab[value];
+    238              SendData(ep->ep, &IRDistValue, 0x0000, TRANSFER_ENDPOINT, sizeof(IRDistValue));
+    239          }
+    240          #endif
+    241          /********************************/
+    242          /* 语音传感器                   */
+    243          /********************************/
+    244          #if defined(HAS_VOICE)
+    245          #include "hal_uart.h"
+    246          static struct ep_info_t *voiceEndPoint = NULL;
+    247          static uint8 LastVoiceData = 0;
+    248          static void sensorVoiceUartProcess( uint8 port, uint8 event );
+    249          static void sensorVoiceUartProcess( uint8 port, uint8 event )
+    250          {
+    251              (void)event;  // Intentionally unreferenced parameter
+    252              while (Hal_UART_RxBufLen(port))
+    253              {
+    254                  HalUARTRead(port, &LastVoiceData, 1);
+    255                  if(LastVoiceData == 0xAA)
+    256                      LastVoiceData = 1;
+    257                  else if(LastVoiceData == 0x55)
+    258                      LastVoiceData = 0;
+    259                  else
+    260                      LastVoiceData = -1;
+    261                  if(voiceEndPoint != NULL)
+    262                      SendData(voiceEndPoint->ep, &LastVoiceData, 0x0000, TRANSFER_ENDPOINT, 1);
+    263              }
+    264          }
+    265          void sensorVoiceNwkStateChange(struct ep_info_t *ep);
+    266          void sensorVoiceNwkStateChange(struct ep_info_t *ep)
+    267          {
+    268              voiceEndPoint = ep;
+    269          }
+    270          void sensorVoiceResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    271          void sensorVoiceResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    272          {
+    273              if(type == ResInit)
+    274              {
+    275                  halUARTCfg_t uartConfig;
+    276          
+    277                  voiceEndPoint = ep;
+    278                  /* UART Configuration */
+    279                  uartConfig.configured           = TRUE;
+    280                  uartConfig.baudRate             = HAL_UART_BR_9600;
+    281                  uartConfig.flowControl          = FALSE;
+    282                  uartConfig.flowControlThreshold = MT_UART_DEFAULT_THRESHOLD;
+    283                  uartConfig.rx.maxBufSize        = MT_UART_DEFAULT_MAX_RX_BUFF;
+    284                  uartConfig.tx.maxBufSize        = MT_UART_DEFAULT_MAX_TX_BUFF;
+    285                  uartConfig.idleTimeout          = MT_UART_DEFAULT_IDLE_TIMEOUT;
+    286                  uartConfig.intEnable            = TRUE;
+    287                  uartConfig.callBackFunc         = sensorVoiceUartProcess;
+    288                  HalUARTOpen(HAL_UART_PORT_1, &uartConfig);
+    289              }
+    290          }
+    291          void sensorVoiceTimeout(struct ep_info_t *ep);
+    292          void sensorVoiceTimeout(struct ep_info_t *ep)
+    293          {
+    294              uint8 nulData = 0;
+    295              SendData(ep->ep, &nulData, 0x0000, TRANSFER_ENDPOINT, 1);
+    296          }
+    297          #endif
+    298          /********************************/
+    299          /* 二进制执行器传感器           */
+    300          /********************************/
+    301          #if defined(HAS_EXECUTEB)
+    302          #define ControlInit()   do { HalIOSetOutput(1,4);HalIOSetOutput(1,5);HalIOSetOutput(1,6);HalIOSetOutput(1,7);Control(0); } while(0)
+    303          #define Control(mask)   do { HalIOSetLevel(1,4,mask&0x01);HalIOSetLevel(1,5,mask&0x02);HalIOSetLevel(1,6,mask&0x04);HalIOSetLevel(1,7,mask&0x08); } while(0)
+    304          void OutputExecuteBResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    305          void OutputExecuteBResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    306          {
+    307              if(type == ResInit)
+    308                  ControlInit();
+    309          }
+    310          void outputExecuteB(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+    311          void outputExecuteB(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+    312          {
+    313              //msg->Data[], msg->DataLength, msg->TransSeqNumber
+    314              Control(msg->Data[0]);
+    315              SendData(ep->ep, &msg->Data[0], 0x0000, TRANSFER_ENDPOINT, 1);
+    316          }
+    317          void outputExecuteBTimeout(struct ep_info_t *ep);
+    318          void outputExecuteBTimeout(struct ep_info_t *ep)
+    319          {
+    320              uint8 value = P1 >> 4;
+    321              SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+    322          }
+    323          #endif
+    324          /********************************/
+    325          /* 模拟执行器传感器             */
+    326          /********************************/
+    327          #if defined(HAS_EXECUTEA)
+    328          void outputExecuteA(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+    329          void outputExecuteA(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+    330          {
+    331          }
+    332          #endif
+    333          /********************************/
+    334          /* 遥控器传感器                 */
+    335          /********************************/
+    336          #if defined(HAS_REMOTER)
+    337          #include "IR.h"
+    338          static uint8 lastCode[32];
+    339          static uint8 lastCodeLen = 0;
+    340          void IRSendResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    341          void IRSendResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    342          {
+    343              if(type == ResInit)
+    344                  IRSendInit();   // 需要初始化
+    345          }
+    346          void outputRemoter(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+    347          void outputRemoter(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+    348          {
+    349             lastCodeLen = msg->Data[0];
+    350             memcpy(lastCode, &msg->Data[1], lastCodeLen);
+    351             GenIR(&msg->Data[1], IRGuideLen_9ms, (uint8)lastCodeLen);
+    352             SendData(ep->ep, lastCode, 0x0000, TRANSFER_ENDPOINT, lastCodeLen>>3);
+    353          }
+    354          void outputRemoterTimeout(struct ep_info_t *ep);
+    355          void outputRemoterTimeout(struct ep_info_t *ep)
+    356          {
+    357              if(lastCodeLen <= 0)
+    358              {
+    359                  uint8 value = 0;
+    360                  SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, 1);
+    361              }
+    362              else
+    363                  SendData(ep->ep, lastCode, 0x0000, TRANSFER_ENDPOINT, lastCodeLen>>3);
+    364          }
+    365          #endif
+    366          /********************************/
+    367          /* 虚拟功能                     */
+    368          /********************************/
+    369          #if defined(HAS_TESTFUNCTION)
+    370          #define TEST_STRING     "Z-Stack for SAPP"
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    371          static uint8 lastData[119] = TEST_STRING;
+   \                     lastData:
+   \   000000                DS 119
+   \   000077                REQUIRE `?<Initializer for lastData>`
+   \   000077                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    372          static uint8 lastLen = 0;
+   \                     lastLen:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    373          void testFunc_RecvData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    374          void testFunc_RecvData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+   \                     testFunc_RecvData:
+    375          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV       A,R2
+   \   000006   FE           MOV       R6,A
+   \   000007   EB           MOV       A,R3
+   \   000008   FF           MOV       R7,A
+   \   000009   740A         MOV       A,#0xa
+   \   00000B   12....       LCALL     ?XSTACK_DISP0_8
+   \   00000E   E0           MOVX      A,@DPTR
+   \   00000F   F8           MOV       R0,A
+   \   000010   A3           INC       DPTR
+   \   000011   E0           MOVX      A,@DPTR
+   \   000012   F9           MOV       R1,A
+   \   000013   E8           MOV       A,R0
+   \   000014   FA           MOV       R2,A
+   \   000015   E9           MOV       A,R1
+    376              lastLen = msg->DataLength;
+   \   000016   8882         MOV       DPL,R0
+   \   000018   F583         MOV       DPH,A
+   \   00001A   A3           INC       DPTR
+   \   00001B   E0           MOVX      A,@DPTR
+   \   00001C   90....       MOV       DPTR,#lastLen
+   \   00001F   F0           MOVX      @DPTR,A
+    377              memcpy(&lastData[sizeof(TEST_STRING) - 1], msg->Data, lastLen);
+   \   000020                ; Setup parameters for call to function memcpy
+   \   000020   F5..         MOV       ?V0,A
+   \   000022   75..00       MOV       ?V1,#0x0
+   \   000025   78..         MOV       R0,#?V0
+   \   000027   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00002A   8A82         MOV       DPL,R2
+   \   00002C   8983         MOV       DPH,R1
+   \   00002E   A3           INC       DPTR
+   \   00002F   A3           INC       DPTR
+   \   000030   A3           INC       DPTR
+   \   000031   E0           MOVX      A,@DPTR
+   \   000032   FC           MOV       R4,A
+   \   000033   A3           INC       DPTR
+   \   000034   E0           MOVX      A,@DPTR
+   \   000035   FD           MOV       R5,A
+   \   000036   7A..         MOV       R2,#(lastData + 16) & 0xff
+   \   000038   7B..         MOV       R3,#((lastData + 16) >> 8) & 0xff
+   \   00003A   12....       LCALL     `??memcpy::?relay`; Banked call to: memcpy
+   \   00003D   7402         MOV       A,#0x2
+   \   00003F   12....       LCALL     ?DEALLOC_XSTACK8
+    378              SendData(ep->ep, lastData, 0x0000, TRANSFER_ENDPOINT,
+    379                               lastLen + sizeof(TEST_STRING) - 1);
+   \   000042                ; Setup parameters for call to function SendData
+   \   000042   90....       MOV       DPTR,#lastLen
+   \   000045   E0           MOVX      A,@DPTR
+   \   000046   2410         ADD       A,#0x10
+   \   000048   F5..         MOV       ?V0,A
+   \   00004A   78..         MOV       R0,#?V0
+   \   00004C   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00004F   75..01       MOV       ?V0,#0x1
+   \   000052   78..         MOV       R0,#?V0
+   \   000054   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000057   12....       LCALL     ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00005A   12....       LCALL     ?DEALLOC_XSTACK8
+    380          }
+   \   00005D   7F02         MOV       R7,#0x2
+   \   00005F   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7C00         MOV       R4,#0x0
+   \   000002   7D00         MOV       R5,#0x0
+   \   000004   7A..         MOV       R2,#lastData & 0xff
+   \   000006   7B..         MOV       R3,#(lastData >> 8) & 0xff
+   \   000008   EE           MOV       A,R6
+   \   000009   240B         ADD       A,#0xb
+   \   00000B   F582         MOV       DPL,A
+   \   00000D   E4           CLR       A
+   \   00000E   3F           ADDC      A,R7
+   \   00000F   F583         MOV       DPH,A
+   \   000011   E0           MOVX      A,@DPTR
+   \   000012   F9           MOV       R1,A
+   \   000013   12....       LCALL     `??SendData::?relay`; Banked call to: SendData
+   \   000016   7402         MOV       A,#0x2
+   \   000018   22           RET
+    381          void testFunc_TimeOut(struct ep_info_t *ep);
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    382          void testFunc_TimeOut(struct ep_info_t *ep)
+   \                     testFunc_TimeOut:
+    383          {
+   \   000000                REQUIRE ?V0
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV       A,R2
+   \   000006   FE           MOV       R6,A
+   \   000007   EB           MOV       A,R3
+   \   000008   FF           MOV       R7,A
+    384              SendData(ep->ep, lastData, 0x0000, TRANSFER_ENDPOINT,
+    385                               lastLen + sizeof(TEST_STRING) - 1);
+   \   000009                ; Setup parameters for call to function SendData
+   \   000009   90....       MOV       DPTR,#lastLen
+   \   00000C   E0           MOVX      A,@DPTR
+   \   00000D   2410         ADD       A,#0x10
+   \   00000F   F5..         MOV       ?V0,A
+   \   000011   78..         MOV       R0,#?V0
+   \   000013   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000016   75..01       MOV       ?V0,#0x1
+   \   000019   78..         MOV       R0,#?V0
+   \   00001B   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00001E   12....       LCALL     ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000021   12....       LCALL     ?DEALLOC_XSTACK8
+    386          }
+   \   000024   7F01         MOV       R7,#0x1
+   \   000026   02....       LJMP      ?BANKED_LEAVE_XDATA
+    387          #endif
+    388          /********************************/
+    389          /* 广播发送功能                 */
+    390          /********************************/
+    391          #if defined(HAS_BROADCASTSEND)
+    392          #define BROADCAST_STRING     "\r\nBroadcast Message\r\n"
+    393          void BroadcastSend_TimeOut(struct ep_info_t *ep);
+    394          void BroadcastSend_TimeOut(struct ep_info_t *ep)
+    395          {
+    396              SendData(ep->ep, BROADCAST_STRING, 0XFFFF, TRANSFER_ENDPOINT,
+    397                               sizeof(BROADCAST_STRING) - 1);
+    398              //广播后指示灯 LED_D9 闪烁2次
+    399              HalLedBlink( HAL_LED_2, 2, 50, 100 );
+    400          }
+    401          #endif
+    402          /********************************/
+    403          /* 广播接收功能                 */
+    404          /********************************/
+    405          #if defined(HAS_BROADCASTRECEIVE)
+    406          void BroadcastReceiveData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+    407          void BroadcastReceiveData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+    408          {
+    409              //收到广播数据后 LED_D8 连续闪烁4次!
+    410              HalLedBlink( HAL_LED_1, 4, 50, 120 );
+    411              HalUARTWrite(HAL_UART_PORT_0, msg->Data, msg->DataLength);
+    412          }
+    413          #define BROADCAST_STRING     "Broadcast Message"
+    414          void BroadcastSend_TimeOut(struct ep_info_t *ep);
+    415          void BroadcastSend_TimeOut(struct ep_info_t *ep)
+    416          {
+    417              SendData(ep->ep, BROADCAST_STRING, 0X0000, TRANSFER_ENDPOINT,
+    418                               sizeof(BROADCAST_STRING) - 1);
+    419          }
+    420          #endif
+    421          /********************************/
+    422          /* IC卡读卡器                   */
+    423          /********************************/
+    424          #if defined(HAS_125KREADER)
+    425          #include "hal_uart.h"
+    426          #define CARDID_SIZE     5                   // 卡号长度
+    427          static uint8 lastCardId[CARDID_SIZE];       // 用来保存接收到的卡号
+    428          static uint8 cardRecvIdx;                   // 上一次接收到的长度
+    429          static uint32 lastTick;                     // 上一次接收数据的系统时间
+    430          static struct ep_info_t *cardEndPoint;
+    431          static void sensor125kReaderUartProcess( uint8 port, uint8 event );
+    432          static void sensor125kReaderUartProcess( uint8 port, uint8 event )
+    433          {
+    434              (void)event;  // Intentionally unreferenced parameter
+    435              if((lastTick + 100) <= osal_GetSystemClock())
+    436              {                                       // 如果本次接收到的时间距离上次超过了0.1秒
+    437                  cardRecvIdx = 0;                    // 则清空计数器，重新接收卡号
+    438              }
+    439              lastTick = osal_GetSystemClock();       // 记录下当前的时间
+    440              while (Hal_UART_RxBufLen(port))
+    441              {
+    442                  uint16 restLen = Hal_UART_RxBufLen(port);
+    443                  if(restLen > (CARDID_SIZE - cardRecvIdx))
+    444                      restLen = CARDID_SIZE - cardRecvIdx;
+    445                  HalUARTRead(port, &lastCardId[cardRecvIdx], restLen);
+    446                  cardRecvIdx += restLen;
+    447                  if(cardRecvIdx >= CARDID_SIZE)      // 如果已经接收完成一个完整的卡号
+    448                  {                                   // 则发送给协调器
+    449                      SendData(cardEndPoint->ep, lastCardId, 0x0000, TRANSFER_ENDPOINT, CARDID_SIZE);
+    450                  }
+    451              }
+    452          }
+    453          void sensor125kReaderResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    454          void sensor125kReaderResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    455          {
+    456              if(type == ResInit)
+    457              {
+    458                  halUARTCfg_t uartConfig;
+    459          
+    460                  memset(lastCardId, 0, sizeof(lastCardId));
+    461                  cardRecvIdx = 0;
+    462                  cardEndPoint = ep;
+    463                  /* UART Configuration */
+    464                  uartConfig.configured           = TRUE;
+    465                  uartConfig.baudRate             = HAL_UART_BR_19200;
+    466                  uartConfig.flowControl          = FALSE;
+    467                  uartConfig.flowControlThreshold = MT_UART_DEFAULT_THRESHOLD;
+    468                  uartConfig.rx.maxBufSize        = MT_UART_DEFAULT_MAX_RX_BUFF;
+    469                  uartConfig.tx.maxBufSize        = MT_UART_DEFAULT_MAX_TX_BUFF;
+    470                  uartConfig.idleTimeout          = MT_UART_DEFAULT_IDLE_TIMEOUT;
+    471                  uartConfig.intEnable            = TRUE;
+    472                  uartConfig.callBackFunc         = sensor125kReaderUartProcess;
+    473                  HalUARTOpen(HAL_UART_PORT_0, &uartConfig);
+    474              }
+    475          }
+    476          void sensor125kReaderTimeout(struct ep_info_t *ep);
+    477          void sensor125kReaderTimeout(struct ep_info_t *ep)
+    478          {
+    479              uint8 nullId[CARDID_SIZE] = { 0x00 };
+    480              SendData(cardEndPoint->ep, nullId, 0x0000, TRANSFER_ENDPOINT, CARDID_SIZE);
+    481          }
+    482          #endif
+    483          /********************************/
+    484          /* 语音播放节点                 */
+    485          /********************************/
+    486          #if defined(HAS_SPEAKER)
+    487          void OutputSpeakerResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    488          void OutputSpeakerResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    489          {
+    490              if(type == ResInit)
+    491                  HalUART1HwInit();
+    492          }
+    493          void outputSpeaker(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+    494          void outputSpeaker(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+    495          {
+    496              //msg->Data[], msg->DataLength, msg->TransSeqNumber
+    497              HalUART1HwTxByte(msg->Data[0]);
+    498          //    SendData(ep->ep, &msg->Data[0], 0x0000, TRANSFER_ENDPOINT, 1);
+    499          }
+    500          void outputSpeakerTimeout(struct ep_info_t *ep);
+    501          void outputSpeakerTimeout(struct ep_info_t *ep)
+    502          {
+    503              uint8 value = 0;
+    504              SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+    505          }
+    506          #endif
+    507          /********************************/
+    508          /* 红外接收解码                 */
+    509          /********************************/
+    510          #if defined(HAS_IRDecode)
+    511          #include <hal_irdec.h>
+    512          void IRDecodeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+    513          void IRDecodeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+    514          {
+    515              if(type == ResInit)
+    516              {
+    517                  IRDecodeT1Init(ep->task_id, ep->ep);
+    518              }
+    519              //定时器1通道0一次红外解码结束,向上传送解码结果
+    520              if(type == ResTimerInt)
+    521              {
+    522                  OSALIRDecData_t *irData = (OSALIRDecData_t *)res;
+    523                  SendData(ep->ep, irData->irCode, 0x0000, TRANSFER_ENDPOINT, irData->irLen);
+    524              }
+    525          }
+    526          void IRDecodeTimeout(struct ep_info_t *ep);
+    527          void IRDecodeTimeout(struct ep_info_t *ep)
+    528          {
+    529              uint8 value = 0;
+    530              SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+    531          }
+    532          #endif
+    533          /***************************************************/
+    534          /* 节点功能列表                                    */
+    535          /***************************************************/
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    536          struct ep_info_t funcList[] = {
+   \                     funcList:
+   \   000000                DS 33
+   \   000021                REQUIRE `?<Initializer for funcList>`
+   \   000021                REQUIRE __INIT_XDATA_I
+    537          #if defined(HAS_GAS)
+    538              {
+    539                  // 加入网络,收到数据,超时处理,资源变化
+    540                  NULL, NULL, sensorGasTimeout, sensorGasResAvailable,
+    541                  { DevGas, 0, 5 },                   // type, id, refresh cycle
+    542              },
+    543          #endif
+    544          #if defined(HAS_TEMP)
+    545              {
+    546                  NULL, NULL, sensorTempTimeout, sensorTempResAvailable,
+    547                  { DevTemp, 1, 5 },                 // type, id, refresh cycle
+    548              },
+    549          #endif
+    550          #if defined(HAS_HUMM)
+    551              {
+    552                  NULL, NULL, sensorHummTimeout, sensorHummResAvailable,
+    553                  { DevHumm, 0, 5 },                 // type, id, refresh cycle
+    554              },
+    555          #endif
+    556          #if defined(HAS_ILLUM)
+    557              {
+    558                  NULL, NULL, sensorILLumTimeout, NULL,
+    559                  { DevILLum, 0, 3 },                // type, id, refresh cycle
+    560              },
+    561          #endif
+    562          #if defined(HAS_RAIN)
+    563              {
+    564                  NULL, NULL, sensorRainTimeout, sensorRainResAvailable,
+    565                  { DevRain, 0, 5 },                 // type, id, refresh cycle
+    566              },
+    567          #endif
+    568          #if defined(HAS_IRDIST)
+    569              {
+    570                  NULL, NULL, sensorIRDistTimeout, NULL,
+    571                  { DevIRDist, 0, 3 },               // type, id, refresh cycle
+    572              },
+    573          #endif
+    574          #if defined(HAS_SMOKE)
+    575              {
+    576                  NULL, NULL, sensorSmokeTimeout, sensorSmokeResAvailable,
+    577                  { DevSmoke, 0, 5 },                 // type, id, refresh cycle
+    578              },
+    579          #endif
+    580          #if defined(HAS_FIRE)
+    581              {
+    582                  NULL, NULL, sensorFireTimeout, sensorFireResAvailable,
+    583                  { DevFire, 0, 3 },                  // type, id, refresh cycle
+    584              },
+    585          #endif
+    586          #if defined(HAS_IRPERS)
+    587              {
+    588                  NULL, NULL, sensorIRPersTimeout, sensorIRPersResAvailable,
+    589                  { DevIRPers, 0, 2 },                // type, id, refresh cycle
+    590              },
+    591          #endif
+    592          #if defined(HAS_VOICE)
+    593              {
+    594                  sensorVoiceNwkStateChange, NULL, sensorVoiceTimeout, sensorVoiceResAvailable,
+    595                  { DevVoice, 0, 5 },                // type, id, refresh cycle
+    596              },
+    597          #endif
+    598          #if defined(HAS_EXECUTEB)
+    599              {
+    600                  NULL, outputExecuteB, outputExecuteBTimeout, OutputExecuteBResAvailable,
+    601                  { DevExecuteB, 3, 10 },              // type, id, refresh cycle
+    602              },
+    603          #endif
+    604          #if defined(HAS_EXECUTEA)
+    605              {
+    606                  NULL, outputExecuteA, NULL, NULL,
+    607                  { DevExecuteA, 0, 3 },              // type, id, refresh cycle
+    608              },
+    609          #endif
+    610          #if defined(HAS_REMOTER)
+    611              {
+    612                  NULL, outputRemoter, outputRemoterTimeout, IRSendResAvailable,
+    613                  { DevRemoter, 0, 3 },              // type, id, refresh cycle
+    614              },
+    615          #endif
+    616          #if defined(HAS_TESTFUNCTION)
+    617              {
+    618                  NULL,
+    619                  testFunc_RecvData,
+    620                  testFunc_TimeOut,
+    621                  NULL,
+    622                  { DevTest, 0, 3 },
+    623              },
+    624          #endif
+    625          #if defined(HAS_BROADCASTSEND)
+    626              {
+    627                  NULL,
+    628                  NULL,
+    629                  BroadcastSend_TimeOut,
+    630                  NULL,
+    631                  { DevBroadcastSend, 0, 3 },
+    632              },
+    633          #endif
+    634          #if defined(HAS_BROADCASTRECEIVE)
+    635              {
+    636                  NULL,
+    637                  BroadcastReceiveData,
+    638                  BroadcastSend_TimeOut,
+    639                  NULL,
+    640                  { DevBroadcastReceive, 0, 30 },
+    641              },
+    642          #endif
+    643          #if defined(HAS_125KREADER)
+    644              {
+    645                  NULL, NULL, sensor125kReaderTimeout, sensor125kReaderResAvailable,
+    646                  { Dev125kReader, 0, 10 },
+    647              },
+    648          #endif
+    649          #if defined(HAS_SPEAKER)
+    650              {
+    651                  NULL, outputSpeaker, outputSpeakerTimeout, OutputSpeakerResAvailable,
+    652                  { DevSpeaker, 0, 9 },              // type, id, refresh cycle
+    653              },
+    654          #endif
+    655          #if defined(HAS_IRDecode)
+    656              {
+    657                  NULL, NULL, IRDecodeTimeout, IRDecodeResAvailable,
+    658                  { DevIRDecode, 0, 5 },              // type, id, refresh cycle
+    659              },
+    660          #endif
+    661          #if defined(ZDO_COORDINATOR)
+    662              {   // 协调器
+    663                  CoordinatorNwkStateChangeRoutine,
+    664                  CoordinatorIncomingRoutine,
+    665                  CoordinatorTimeoutRoutine,
+    666                  CoordinatorResAvailableRoutine,
+    667                  { DevCoordinator, 0, 0 },
+    668              },
+    669          #elif defined(RTR_NWK)
+    670              {   // 路由器
+    671                  RouterNwkStateChangeRoutine,
+    672                  RouterIncomingRoutine,
+    673                  RouterTimeoutRoutine,
+    674                  RouterResAvailableRoutine,
+    675                  { DevRouter, 0, 30 },
+    676              },
+    677          #endif
+    678          };
+    679          
+    680          // 不能修改下面的内容!!!
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    681          const uint8 funcCount = sizeof(funcList) / sizeof(funcList[0]);
+   \                     funcCount:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for lastData>`:
+   \   000000   5A2D5374     DB "Z-Stack for SAPP"
+   \            61636B20
+   \            666F7220
+   \            53415050
+   \            00      
+   \   000011   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000019   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000021   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000029   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000031   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000039   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000041   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000049   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000051   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000059   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000061   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000069   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000071   00000000     DB 0, 0, 0, 0, 0, 0
+   \            0000    
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for funcList>`:
+   \   000000   0000         DW 0H
+   \   000002   ....         DW `??testFunc_RecvData::?relay`
+   \   000004   ....         DW `??testFunc_TimeOut::?relay`
+   \   000006   0000         DW 0H
+   \   000008   10           DB 16
+   \   000009   00           DB 0
+   \   00000A   03           DB 3
+   \   00000B   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000013   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   00001B   00000000     DB 0, 0, 0, 0, 0, 0
+   \            0000    
+    682          #endif
+
+   Maximum stack usage in bytes:
+
+   XSTACK Function
+   ------ --------
+     14   testFunc_RecvData
+       12   -> SendData
+       12   -> memcpy
+     11   testFunc_TimeOut
+       11   -> SendData
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      33  ?<Initializer for funcList>
+     119  ?<Initializer for lastData>
+      25  ?Subroutine0
+       1  funcCount
+      33  funcList
+     119  lastData
+       1  lastLen
+      98  testFunc_RecvData
+      41  testFunc_TimeOut
+      12  -- Other
+
+ 
+ 164 bytes in segment BANKED_CODE
+  12 bytes in segment BANK_RELAYS
+ 152 bytes in segment XDATA_I
+ 152 bytes in segment XDATA_ID
+   1 byte  in segment XDATA_ROM_C
+   1 byte  in segment XDATA_Z
+ 
+ 164 bytes of CODE     memory
+   1 byte  of CONST    memory
+ 164 bytes of HUGECODE memory
+ 153 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

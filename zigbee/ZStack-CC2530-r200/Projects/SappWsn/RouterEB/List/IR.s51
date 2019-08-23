@@ -1,0 +1,1455 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.30.1.6000 for 8051              22/Aug/2019  20:42:33
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\hal\target\CC2530EB\IR.c
+//    Command line       =  
+//        -f C:\Users\VULCAN\AppData\Local\Temp\EWE5F4.tmp
+//        (E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\hal\target\CC2530EB\IR.c
+//        -D ZIGBEEPRO -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
+//        LCD_SUPPORTED=DEBUG -D SAPP_ZSTACK -lC
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List
+//        -lA
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List
+//        --diag_suppress Pe001,Pa010 -o
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\Obj
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 8 -f
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wRouter.cfg
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+//        -DRTR_NWK) -f
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+//        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0057
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\Source\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+//        -I
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+//        -Ohz --require_prototypes --no_code_motion)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List\IR.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME IR
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC `??GenIR::?relay`
+        FUNCTION `??GenIR::?relay`,0203H
+        PUBLIC `??IRSendInit::?relay`
+        FUNCTION `??IRSendInit::?relay`,0203H
+        PUBWEAK `??IRSend_T1IntHandle::??INTVEC 75`
+        PUBLIC `??IRSend_T1_Init::?relay`
+        FUNCTION `??IRSend_T1_Init::?relay`,0203H
+        PUBWEAK `??IRSend_T3IntHandle::??INTVEC 91`
+        PUBLIC `??IRSend_T3_Init::?relay`
+        FUNCTION `??IRSend_T3_Init::?relay`,0203H
+        PUBLIC GenIR
+        FUNCTION GenIR,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 12, STACK
+        PUBLIC IRSendInit
+        FUNCTION IRSendInit,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC IRSend_T1IntHandle
+        FUNCTION IRSend_T1IntHandle,0233H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 4, STACK
+        PUBLIC IRSend_T1_Init
+        FUNCTION IRSend_T1_Init,0203H
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC IRSend_T3IntHandle
+        FUNCTION IRSend_T3IntHandle,0233H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        PUBLIC IRSend_T3_Init
+        FUNCTION IRSend_T3_Init,0203H
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBWEAK P1DIR
+        PUBWEAK P1SEL
+        PUBWEAK P2SEL
+        PUBWEAK T1CC0H
+        PUBWEAK T1CC0L
+        PUBWEAK T1CCTL0
+        PUBWEAK T1CTL
+        PUBWEAK T1STAT
+        PUBLIC T1_80usCnt
+        PUBWEAK T3CC0
+        PUBWEAK T3CCTL0
+        PUBWEAK T3CTL
+        PUBWEAK _A_IEN0
+        PUBWEAK _A_IEN1
+        PUBWEAK _A_IRCON
+        PUBWEAK _A_P1
+        PUBWEAK _A_TIMIF
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+GenIR               SYMBOL "GenIR"
+`??GenIR::?relay`   SYMBOL "?relay", GenIR
+IRSendInit          SYMBOL "IRSendInit"
+`??IRSendInit::?relay` SYMBOL "?relay", IRSendInit
+IRSend_T1IntHandle  SYMBOL "IRSend_T1IntHandle"
+`??IRSend_T1IntHandle::??INTVEC 75` SYMBOL "??INTVEC 75", IRSend_T1IntHandle
+IRSend_T1_Init      SYMBOL "IRSend_T1_Init"
+`??IRSend_T1_Init::?relay` SYMBOL "?relay", IRSend_T1_Init
+IRSend_T3IntHandle  SYMBOL "IRSend_T3IntHandle"
+`??IRSend_T3IntHandle::??INTVEC 91` SYMBOL "??INTVEC 91", IRSend_T3IntHandle
+IRSend_T3_Init      SYMBOL "IRSend_T3_Init"
+`??IRSend_T3_Init::?relay` SYMBOL "?relay", IRSend_T3_Init
+
+// E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Components\hal\target\CC2530EB\IR.c
+//    1 /***********************************************************
+//    2 **  FileName:         IR.c
+//    3 **  Introductions:    Sunplusapp CC2530 ZigBee Node IR Romoter Signal Send Functions
+//    4 **  Last Modify time: 2013.05.21
+//    5 **  Modify:           修改红外编码发送，优化时序，添加注释
+//    6 **  Author:           GuoZhenjiang <zhenjiang.guo@sunplusapp.com>
+//    7 ***********************************************************/
+//    8 
+//    9 #include "IR.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,090H
+// union <unnamed> volatile __sfr _A_P1
+_A_P1:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0a8H
+// union <unnamed> volatile __sfr _A_IEN0
+_A_IEN0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0afH
+// unsigned char volatile __sfr T1STAT
+T1STAT:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0b8H
+// union <unnamed> volatile __sfr _A_IEN1
+_A_IEN1:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0c0H
+// union <unnamed> volatile __sfr _A_IRCON
+_A_IRCON:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0cbH
+// unsigned char volatile __sfr T3CTL
+T3CTL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0ccH
+// unsigned char volatile __sfr T3CCTL0
+T3CCTL0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0cdH
+// unsigned char volatile __sfr T3CC0
+T3CC0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0d8H
+// union <unnamed> volatile __sfr _A_TIMIF
+_A_TIMIF:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0daH
+// unsigned char volatile __sfr T1CC0L
+T1CC0L:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0dbH
+// unsigned char volatile __sfr T1CC0H
+T1CC0H:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0e4H
+// unsigned char volatile __sfr T1CTL
+T1CTL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0e5H
+// unsigned char volatile __sfr T1CCTL0
+T1CCTL0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f4H
+// unsigned char volatile __sfr P1SEL
+P1SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f5H
+// unsigned char volatile __sfr P2SEL
+P2SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0feH
+// unsigned char volatile __sfr P1DIR
+P1DIR:
+        DATA8
+        DS 1
+//   10 #include "OSAL.h"
+//   11 
+//   12 #if defined(HAL_IRENC) && (HAL_IRENC == TRUE)
+//   13 
+//   14 // 定时器1中自增量,控制每一位编码的周期
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+//   15 volatile uint16  T1_80usCnt = 0;
+T1_80usCnt:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//   16 
+//   17 // Timer1红外编码初始化
+//   18 void IRSend_T1_Init(void);
+//   19 // Timer3红外编码初始化
+//   20 void IRSend_T3_Init(void);
+//   21 // Timer1 & Timer3 中断处理函数声明
+//   22 __near_func __interrupt void IRSend_T1IntHandle(void);
+//   23 __near_func __interrupt void IRSend_T3IntHandle(void);
+//   24 
+//   25 /***********************************************************
+//   26 **  函数名称: GenIR
+//   27 **  实现功能: 系统时钟设置
+//   28 **  入口参数: IRData:   红外编码数据首地址
+//   29 **            Mode:     引导码分类:1 周期9ms    2:周期13.56ms
+//   30 **            CodeLen:  编码位数(bit,不是Byte)
+//   31 **  返回结果: 0:发送失败    1:发送成功
+//   32 ***********************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   33 int GenIR(uint8 *IRData , uint8 Mode , uint8 CodeLen )
+GenIR:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function GenIR
+        CODE
+//   34 {
+        FUNCALL GenIR, IRSend_T1_Init
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL GenIR, IRSend_T3_Init
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        MOV       A,#-0xc
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 12)
+        ; Saved register size: 12
+        ; Auto size: 0
+        MOV       A,R2
+        MOV       R6,A
+        MOV       A,R3
+        MOV       R7,A
+//   35     uint16  GuideCodeLen=0;
+        MOV       ?V0,#0x0
+//   36     static IRSendSta_t IRSendSta = IRSta_Guide;
+//   37     static uint8 cntByte=0, cntbit=0, bitNum;
+//   38     bitNum = CodeLen;       //保存位数
+        MOV       A,R4
+        MOV       DPTR,#??bitNum
+        MOVX      @DPTR,A
+//   39 
+//   40     if(Mode == 1)
+        MOV       A,#0x1
+        XRL       A,R1
+        JNZ       ??GenIR_0
+//   41       GuideCodeLen = 56;//226;   引导码长度（4.5ms、4.5ms）
+        MOV       ?V0,#0x38
+        SJMP      ??GenIR_1
+//   42     else if(Mode == 2)
+??GenIR_0:
+        MOV       A,#0x2
+        XRL       A,R1
+        JNZ       ??GenIR_1
+//   43       GuideCodeLen = 114;   //引导码长度（9ms、4.5ms）
+        MOV       ?V0,#0x72
+//   44 
+//   45     IRSend_T1_Init();
+??GenIR_1:
+        ; Setup parameters for call to function IRSend_T1_Init
+        LCALL     `??IRSend_T1_Init::?relay`; Banked call to: IRSend_T1_Init
+//   46     IRSend_T3_Init();
+        ; Setup parameters for call to function IRSend_T3_Init
+        LCALL     `??IRSend_T3_Init::?relay`; Banked call to: IRSend_T3_Init
+//   47     IR_SEL_IOOUT;
+        LCALL     ?Subroutine2 & 0xFFFF
+//   48     CLR_IOB_BIT;
+//   49     IRSendSta = IRSta_Guide;
+//   50     T1_80usCnt = 0;
+??CrossCallReturnLabel_4:
+        MOV       DPTR,#T1_80usCnt
+        CLR       A
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      @DPTR,A
+//   51     IR_SEL_T3PWM;
+??GenIR_2:
+        ORL       0xf4,#0x8
+        SJMP      ??CrossCallReturnLabel_5
+//   52     while(1)
+//   53     {
+//   54         // 查询红外编码发送状态
+//   55         switch(IRSendSta)
+//   56         {
+//   57             // 引导码阶段
+//   58         case IRSta_Guide:	
+//   59             // 引导码4.5ms或9ms载波阶段
+//   60             if(T1_80usCnt <= GuideCodeLen)
+//   61             {
+//   62                 IRSendSta = IRSta_Guide;
+//   63                 IR_SEL_T3PWM;
+//   64             }
+//   65             // 引导码4.5ms低电平阶段
+//   66             else if((T1_80usCnt > GuideCodeLen) && (T1_80usCnt <= GuideCodeLen+56))
+//   67             {
+//   68                 IRSendSta = IRSta_Guide;
+//   69                 IR_SEL_IOOUT;
+??GenIR_3:
+        LCALL     ?Subroutine2 & 0xFFFF
+//   70                 CLR_IOB_BIT;
+//   71             }
+??CrossCallReturnLabel_5:
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_7:
+        JNC       ??GenIR_2
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_8:
+        JNC       ??GenIR_4
+        MOV       A,?V0
+        ADD       A,#0x38
+        MOV       R2,A
+        CLR       A
+        ADDC      A,#0x0
+        MOV       R3,A
+        MOV       DPTR,#T1_80usCnt
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R1,A
+        MOV       A,R2
+        SUBB      A,R0
+        MOV       A,R3
+        SUBB      A,R1
+        JNC       ??GenIR_3
+//   72             // 引导码发送完毕,准备发送数据位
+//   73             else
+//   74             {
+//   75                 IRSendSta = IRSta_T3PWM;
+//   76                 IR_SEL_T3PWM;
+??GenIR_4:
+        LCALL     ?Subroutine4 & 0xFFFF
+//   77                 T1_80usCnt = 0;
+//   78             }
+//   79             break;
+//   80             // 数据位中的位0、位1的0.56ms的38kHz载波阶段
+//   81         case IRSta_T3PWM:
+//   82             if(T1_80usCnt >= 7)     // 7 * 80us = 560us
+??CrossCallReturnLabel_9:
+        MOV       DPTR,#T1_80usCnt
+        CLR       C
+        MOVX      A,@DPTR
+        SUBB      A,#0x7
+        INC       DPTR
+        MOVX      A,@DPTR
+        SUBB      A,#0x0
+        JC        ??CrossCallReturnLabel_9
+//   83             {
+//   84                 IR_SEL_IOOUT;
+        LCALL     ?Subroutine1 & 0xFFFF
+//   85                 CLR_IOB_BIT;
+//   86                 IRSendSta = IRSta_Data0;
+//   87             }
+//   88             break;
+//   89             // 数据位中的位0、位1的低电平持续阶段
+//   90         case IRSta_Data0:
+//   91             //发送数据0,低电平持续 0.565ms。
+//   92             if(!(IRData[cntByte] & (0x80 >> (cntbit % 8))))
+??CrossCallReturnLabel_2:
+        MOVX      A,@DPTR
+        ANL       A,#0x7
+        MOV       R0,A
+        MOV       A,#-0x80
+        CJNE      R0,#0x0,??GenIR_5
+        SJMP      ??GenIR_6
+??GenIR_5:
+        CLR       C
+        RRC       A
+        DJNZ      R0,??GenIR_5
+??GenIR_6:
+        MOV       R2,A
+        MOV       DPTR,#??cntByte
+        MOVX      A,@DPTR
+        MOV       R0,A
+        MOV       A,R6
+        ADD       A,R0
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        ANL       A,R2
+        MOV       DPTR,#T1_80usCnt
+        CLR       C
+        JNZ       ??GenIR_7
+//   93             {
+//   94                 if(T1_80usCnt >= 14)
+        MOVX      A,@DPTR
+        SUBB      A,#0xe
+        INC       DPTR
+        MOVX      A,@DPTR
+        SUBB      A,#0x0
+        JC        ??GenIR_8
+//   95                 {
+//   96                     IR_SEL_T3PWM;
+        LCALL     ?Subroutine0 & 0xFFFF
+//   97                     T1_80usCnt = 0;
+//   98                     cntbit++;
+//   99                     if(0 == (cntbit % 8))
+//  100                         cntByte++;
+//  101                 }
+//  102             }
+??CrossCallReturnLabel_0:
+        JNZ       ??GenIR_8
+        SJMP      ??GenIR_9
+//  103             //发送数据1,低电平持续 1.685ms。
+//  104             else if(IRData[cntByte] & (0x80 >> (cntbit % 8)))
+//  105             {
+//  106                 if(T1_80usCnt >= 28)
+??GenIR_7:
+        MOVX      A,@DPTR
+        SUBB      A,#0x1c
+        INC       DPTR
+        MOVX      A,@DPTR
+        SUBB      A,#0x0
+        JC        ??GenIR_8
+//  107                 {				
+//  108                     IR_SEL_T3PWM;
+        LCALL     ?Subroutine0 & 0xFFFF
+//  109                     T1_80usCnt = 0;
+//  110                     cntbit++;
+//  111                     if(0 == (cntbit % 8))
+??CrossCallReturnLabel_1:
+        JNZ       ??GenIR_8
+//  112                         cntByte++;
+??GenIR_9:
+        MOV       DPTR,#??cntByte
+        MOVX      A,@DPTR
+        INC       A
+        MOVX      @DPTR,A
+//  113                 }
+//  114             }	
+//  115             // 发送完毕?
+//  116             if(cntbit >= bitNum)	
+??GenIR_8:
+        MOV       DPTR,#??bitNum
+        MOVX      A,@DPTR
+        MOV       R0,A
+        MOV       DPTR,#??cntbit
+        MOVX      A,@DPTR
+        CLR       C
+        SUBB      A,R0
+        JC        ??CrossCallReturnLabel_9
+//  117                 IRSendSta = IRSta_Stop;
+        MOV       DPTR,#??IRSendSta
+        MOV       A,#0x3
+        MOVX      @DPTR,A
+//  118             // 继续发送?
+//  119             else
+//  120                 IRSendSta = IRSta_T3PWM;
+//  121             break;
+//  122             // 红外编码数据部分发送完毕
+//  123         case IRSta_Stop:
+//  124             // 一组编码发送完毕  结束位是 0.56ms 的 38K 载波
+//  125             while(T1_80usCnt < 7)
+??GenIR_10:
+        MOV       DPTR,#T1_80usCnt
+        CLR       C
+        MOVX      A,@DPTR
+        SUBB      A,#0x7
+        INC       DPTR
+        MOVX      A,@DPTR
+        SUBB      A,#0x0
+        JC        ??GenIR_10
+//  126                 ;
+//  127             STOP_T1_T3; // stop T1 & T3
+        MOV       0xcb,#0x0
+        MOV       0xe4,#0x0
+//  128             T1_80usCnt = 0;
+        MOV       DPTR,#T1_80usCnt
+        CLR       A
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      @DPTR,A
+//  129             IR_SEL_IOOUT;
+        LCALL     ?Subroutine1 & 0xFFFF
+//  130             CLR_IOB_BIT;
+//  131             cntbit = 0;
+??CrossCallReturnLabel_3:
+        MOVX      @DPTR,A
+//  132             cntByte = 0;
+        MOV       DPTR,#??cntByte
+        MOVX      @DPTR,A
+//  133             return 1;
+        MOV       R2,#0x1
+        MOV       R3,A
+        MOV       R7,#0x4
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock0
+        REQUIRE P1SEL
+        REQUIRE P1DIR
+        REQUIRE _A_P1
+        REQUIRE T3CTL
+        REQUIRE T1CTL
+//  134             break;
+//  135         default:
+//  136             return 0;
+//  137             break;
+//  138         }							
+//  139     }
+//  140 }
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiCond1 Using cfiCommon0
+          CFI Function GenIR
+          CFI Conditional ??CrossCallReturnLabel_7
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond2 Using cfiCommon0
+          CFI (cfiCond2) Function GenIR
+          CFI (cfiCond2) Conditional ??CrossCallReturnLabel_8
+          CFI (cfiCond2) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond2) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond2) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond2) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond2) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond2) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond2) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond2) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond2) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond2) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond2) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond2) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond2) CFA_SP SP+-2
+          CFI (cfiCond2) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiPicker3 Using cfiCommon1
+          CFI (cfiPicker3) NoFunction
+          CFI (cfiPicker3) Picker
+        MOV       DPTR,#T1_80usCnt
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R1,A
+        CLR       C
+        MOV       A,?V0
+        SUBB      A,R0
+        CLR       A
+        SUBB      A,R1
+        RET
+          CFI EndBlock cfiCond1
+          CFI EndBlock cfiCond2
+          CFI EndBlock cfiPicker3
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI Function GenIR
+          CFI Conditional ??CrossCallReturnLabel_2
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond5 Using cfiCommon0
+          CFI (cfiCond5) Function GenIR
+          CFI (cfiCond5) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond5) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond5) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond5) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond5) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond5) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond5) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond5) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond5) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond5) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond5) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond5) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond5) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond5) CFA_SP SP+-2
+          CFI (cfiCond5) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiPicker6 Using cfiCommon1
+          CFI (cfiPicker6) NoFunction
+          CFI (cfiPicker6) Picker
+        LCALL     ?Subroutine5 & 0xFFFF
+??CrossCallReturnLabel_11:
+        MOV       DPTR,#??cntbit
+        RET
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiCond5
+          CFI EndBlock cfiPicker6
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI Function GenIR
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI (cfiCond8) Function GenIR
+          CFI (cfiCond8) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond8) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond8) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond8) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond8) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond8) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond8) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond8) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond8) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond8) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond8) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond8) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond8) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond8) CFA_SP SP+-2
+          CFI (cfiCond8) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiPicker9 Using cfiCommon1
+          CFI (cfiPicker9) NoFunction
+          CFI (cfiPicker9) Picker
+        LCALL     ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_10:
+        MOV       DPTR,#??cntbit
+        MOVX      A,@DPTR
+        INC       A
+        MOVX      @DPTR,A
+        ANL       A,#0x7
+        RET
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiPicker9
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine4:
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI Function GenIR
+          CFI Conditional ??CrossCallReturnLabel_9
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond11 Using cfiCommon0
+          CFI (cfiCond11) Function GenIR
+          CFI (cfiCond11) Conditional ??CrossCallReturnLabel_10, ??CrossCallReturnLabel_0
+          CFI (cfiCond11) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond11) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond11) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond11) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond11) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond11) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond11) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond11) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond11) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond11) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond11) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond11) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond11) CFA_SP SP+-4
+          CFI (cfiCond11) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond12 Using cfiCommon0
+          CFI (cfiCond12) Function GenIR
+          CFI (cfiCond12) Conditional ??CrossCallReturnLabel_10, ??CrossCallReturnLabel_1
+          CFI (cfiCond12) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond12) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond12) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond12) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond12) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond12) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond12) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond12) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond12) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond12) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond12) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond12) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond12) CFA_SP SP+-4
+          CFI (cfiCond12) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiPicker13 Using cfiCommon1
+          CFI (cfiPicker13) NoFunction
+          CFI (cfiPicker13) Picker
+        ORL       0xf4,#0x8
+        MOV       DPTR,#T1_80usCnt
+        CLR       A
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      @DPTR,A
+        RET
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiCond11
+          CFI EndBlock cfiCond12
+          CFI EndBlock cfiPicker13
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+??IRSendSta:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+??cntByte:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+??cntbit:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+??bitNum:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  141 
+//  142 /***********************************************************
+//  143 **  函数名称: IRSend_T1_Init
+//  144 **  实现功能: 红外编码发送定时器1初始化
+//  145 **  入口参数: None
+//  146 **  返回结果: None
+//  147 ***********************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  148 void IRSend_T1_Init(void)
+IRSend_T1_Init:
+          CFI Block cfiBlock14 Using cfiCommon0
+          CFI Function IRSend_T1_Init
+        CODE
+//  149 {
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  150     T1CTL = 0x0E;       // f = 32MHz / 128 = 250 000Hz, T = 4us;模模式,从0~T1CC0反复计数。
+        MOV       0xe4,#0xe
+//  151     T1CCTL0 = 0x44;     // Timer1通道0中断允许,比较匹配模式,比较比配时输出置位。
+        MOV       0xe5,#0x44
+//  152     T1CC0L = 19;        // 先写T1CC0L,再写T1CC0H,T1CNT=0时更新。 4us*20 = 80us;
+        MOV       0xda,#0x13
+//  153     T1CC0H = 0;
+        MOV       0xdb,#0x0
+//  154     TIMIF |= BIT_1(6);  // TIMIF.T1OVFIM Timer1溢出中断允许
+        SETB      0xd8.6
+//  155     IEN1 |= BIT_1(1);   // IEN1.T1IE Timer1总中断允许
+        SETB      0xb8.1
+//  156     EA = 1;             // 打开全局总中断
+        SETB      0xa8.7
+//  157     T1_80usCnt = 0;     // 80us溢出中断自增量清零
+        MOV       DPTR,#T1_80usCnt
+        CLR       A
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      @DPTR,A
+//  158 }
+        POP       DPH
+          CFI DPH0 SameValue
+          CFI CFA_SP SP+-4
+        POP       DPL
+          CFI DPL0 SameValue
+          CFI CFA_SP SP+-3
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock14
+        REQUIRE T1CTL
+        REQUIRE T1CCTL0
+        REQUIRE T1CC0L
+        REQUIRE T1CC0H
+        REQUIRE _A_TIMIF
+        REQUIRE _A_IEN1
+        REQUIRE _A_IEN0
+//  159 
+//  160 /***********************************************************
+//  161 **  函数名称: IRSend_T3_Init
+//  162 **  实现功能: 红外编码发送定时器3初始化
+//  163 **  入口参数: None
+//  164 **  返回结果: None
+//  165 ***********************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  166 void IRSend_T3_Init(void)
+IRSend_T3_Init:
+          CFI Block cfiBlock15 Using cfiCommon0
+          CFI Function IRSend_T3_Init
+        CODE
+//  167 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  168     P1SEL |= BIT_1(3);      // P1.3 us as T3 PWM Out Pin.
+        ORL       0xf4,#0x8
+//  169     T3CTL = 0x02;           // T3CTL.MODE[10] 模模式,从0~T3CC0反复计数
+        MOV       0xcb,#0x2
+//  170     T3CTL |= BIT_1(5);      // T3CTL.MODE[001] f = 32MHz / 2 = 16MHz;
+        ORL       0xcb,#0x20
+//  171     T3CCTL0 |= BIT_1(2);    // T3CCTL0.MODE 输出比较比配模式
+        ORL       0xcc,#0x4
+//  172     T3CCTL0 |= BIT_1(4);    // T3CCTL0.CMP[010] 比较匹配时,输出取反
+        ORL       0xcc,#0x10
+//  173 
+//  174     T3CC0 = 208;            // Timer3通道0输出比较匹配上限值,16MHz / 208 = 76923.076923Hz; 76923 / 2 =38k(比较匹配时取反).
+        MOV       0xcd,#-0x30
+//  175     T3CTL |= BIT_1(4);      // T3CTL.START 启动Timer3
+        ORL       0xcb,#0x10
+//  176     P2SEL |= BIT_1(5);      // P2SEL.PRI2P1 当USART1和Timer3占用相同引脚,Timer3优先。
+        ORL       0xf5,#0x20
+//  177     T3CCTL0 |= BIT_1(6);    // T3CCTL0.IM Timer3通道0中断允许。
+        ORL       0xcc,#0x40
+//  178     IEN1 |= BIT_1(3);       // IEN1.T3IE Timer3总中断允许。
+        SETB      0xb8.3
+//  179     EA = 1;                 // 全局总中断允许。
+        SETB      0xa8.7
+//  180 }
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock15
+        REQUIRE P1SEL
+        REQUIRE T3CTL
+        REQUIRE T3CCTL0
+        REQUIRE T3CC0
+        REQUIRE P2SEL
+        REQUIRE _A_IEN1
+        REQUIRE _A_IEN0
+//  181 
+//  182 /***********************************************************
+//  183 **  函数名称: IRSendInit
+//  184 **  实现功能: 红外编码发送初始化
+//  185 **  入口参数: None
+//  186 **  返回结果: None
+//  187 ***********************************************************/
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//  188 void IRSendInit(void)
+IRSendInit:
+          CFI Block cfiBlock16 Using cfiCommon0
+          CFI Function IRSendInit
+        CODE
+//  189 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  190     IR_SEL_IOOUT;
+        LCALL     ?Subroutine2 & 0xFFFF
+//  191     CLR_IOB_BIT;
+//  192 }
+??CrossCallReturnLabel_6:
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock16
+        REQUIRE P1SEL
+        REQUIRE P1DIR
+        REQUIRE _A_P1
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiCond17 Using cfiCommon0
+          CFI Function GenIR
+          CFI Conditional ??CrossCallReturnLabel_4
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond18 Using cfiCommon0
+          CFI (cfiCond18) Function GenIR
+          CFI (cfiCond18) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond18) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond18) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond18) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond18) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond18) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond18) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond18) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond18) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond18) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond18) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond18) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond18) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond18) CFA_SP SP+-2
+          CFI (cfiCond18) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond19 Using cfiCommon0
+          CFI (cfiCond19) Function IRSendInit
+          CFI (cfiCond19) Conditional ??CrossCallReturnLabel_6
+          CFI (cfiCond19) CFA_SP SP+-5
+          CFI Block cfiPicker20 Using cfiCommon1
+          CFI (cfiPicker20) NoFunction
+          CFI (cfiPicker20) Picker
+        LCALL     ?Subroutine5 & 0xFFFF
+??CrossCallReturnLabel_12:
+        RET
+          CFI EndBlock cfiCond17
+          CFI EndBlock cfiCond18
+          CFI EndBlock cfiCond19
+          CFI EndBlock cfiPicker20
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine5:
+          CFI Block cfiCond21 Using cfiCommon0
+          CFI Function GenIR
+          CFI Conditional ??CrossCallReturnLabel_11, ??CrossCallReturnLabel_2
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-4
+          CFI CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond22 Using cfiCommon0
+          CFI (cfiCond22) Function GenIR
+          CFI (cfiCond22) Conditional ??CrossCallReturnLabel_11, ??CrossCallReturnLabel_3
+          CFI (cfiCond22) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond22) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond22) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond22) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond22) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond22) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond22) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond22) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond22) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond22) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond22) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond22) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond22) CFA_SP SP+-4
+          CFI (cfiCond22) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond23 Using cfiCommon0
+          CFI (cfiCond23) Function GenIR
+          CFI (cfiCond23) Conditional ??CrossCallReturnLabel_12, ??CrossCallReturnLabel_4
+          CFI (cfiCond23) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond23) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond23) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond23) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond23) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond23) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond23) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond23) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond23) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond23) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond23) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond23) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond23) CFA_SP SP+-4
+          CFI (cfiCond23) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond24 Using cfiCommon0
+          CFI (cfiCond24) Function GenIR
+          CFI (cfiCond24) Conditional ??CrossCallReturnLabel_12, ??CrossCallReturnLabel_5
+          CFI (cfiCond24) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond24) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond24) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond24) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond24) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond24) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond24) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond24) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond24) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond24) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond24) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond24) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond24) CFA_SP SP+-4
+          CFI (cfiCond24) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond25 Using cfiCommon0
+          CFI (cfiCond25) Function IRSendInit
+          CFI (cfiCond25) Conditional ??CrossCallReturnLabel_12, ??CrossCallReturnLabel_6
+          CFI (cfiCond25) CFA_SP SP+-7
+          CFI Block cfiPicker26 Using cfiCommon1
+          CFI (cfiPicker26) NoFunction
+          CFI (cfiPicker26) Picker
+        ANL       0xf4,#0xf7
+        ORL       0xfe,#0x8
+        CLR       0x90.3
+        RET
+          CFI EndBlock cfiCond21
+          CFI EndBlock cfiCond22
+          CFI EndBlock cfiCond23
+          CFI EndBlock cfiCond24
+          CFI EndBlock cfiCond25
+          CFI EndBlock cfiPicker26
+//  193 
+//  194 /***********************************************************
+//  195 **  函数名称: IRSend_T1IntHandle
+//  196 **  实现功能: Timer1 红外编码发送中的中断处理函数
+//  197 **  入口参数: None
+//  198 **  返回结果: None
+//  199 ***********************************************************/
+//  200 #pragma vector = T1_VECTOR
+
+        RSEG NEAR_CODE:CODE:NOROOT(0)
+//  201 __interrupt void IRSend_T1IntHandle(void)
+IRSend_T1IntHandle:
+          CFI Block cfiBlock27 Using cfiCommon1
+          CFI Function IRSend_T1IntHandle
+        CODE
+//  202 {
+        PUSH      A
+          CFI A Frame(CFA_SP, 3)
+          CFI CFA_SP SP+-3
+        PUSH      PSW
+          CFI PSW Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 6)
+          CFI CFA_SP SP+-6
+        ; Saved register size: 4
+        ; Auto size: 0
+//  203     T1STAT &= BIT_0(5);     // T1STAT.OVFIF 清除Timer1溢出中断标志
+        ANL       0xaf,#0xdf
+//  204     T1STAT &= BIT_0(1);     // T1STAT.CH0IF 清除Timer1通道0中断标志
+        ANL       0xaf,#0xfd
+//  205     IRCON &= BIT_0(1);      // IRCON.T1IF   清除Timer1总中断标志
+        CLR       0xc0.1
+//  206     T1_80usCnt++;
+        MOV       DPTR,#T1_80usCnt
+        MOVX      A,@DPTR
+        ADD       A,#0x1
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        ADDC      A,#0x0
+        MOVX      @DPTR,A
+//  207 }
+        POP       DPH
+          CFI DPH0 SameValue
+          CFI CFA_SP SP+-5
+        POP       DPL
+          CFI DPL0 SameValue
+          CFI CFA_SP SP+-4
+        POP       PSW
+          CFI PSW SameValue
+          CFI CFA_SP SP+-3
+        POP       A
+          CFI A SameValue
+          CFI CFA_SP SP+-2
+        RETI
+          CFI EndBlock cfiBlock27
+        REQUIRE T1STAT
+        REQUIRE _A_IRCON
+//  208 
+//  209 /***********************************************************
+//  210 **  函数名称: IRSend_T3IntHandle
+//  211 **  实现功能: Timer3 红外编码发送中的中断处理函数
+//  212 **  入口参数: None
+//  213 **  返回结果: None
+//  214 ***********************************************************/
+//  215 #pragma vector = T3_VECTOR
+
+        RSEG NEAR_CODE:CODE:NOROOT(0)
+//  216 __near_func __interrupt void IRSend_T3IntHandle(void)
+IRSend_T3IntHandle:
+          CFI Block cfiBlock28 Using cfiCommon1
+          CFI Function IRSend_T3IntHandle
+        CODE
+//  217 {
+        ; Saved register size: 1
+        ; Auto size: 0
+//  218     TIMIF &= BIT_0(1);      // TIMIF.T3CH0IF
+        CLR       0xd8.1
+//  219 }
+        RETI
+          CFI EndBlock cfiBlock28
+        REQUIRE _A_TIMIF
+
+        COMMON INTVEC:CODE:ROOT(0)
+        ORG 75
+`??IRSend_T1IntHandle::??INTVEC 75`:
+        LJMP       (IRSend_T1IntHandle)
+
+        COMMON INTVEC:CODE:ROOT(0)
+        ORG 91
+`??IRSend_T3IntHandle::??INTVEC 91`:
+        LJMP       (IRSend_T3IntHandle)
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??GenIR::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    GenIR
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??IRSend_T1_Init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    IRSend_T1_Init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??IRSend_T3_Init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    IRSend_T3_Init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??IRSendInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    IRSendInit
+
+        END
+//  220 
+//  221 
+//  222 #endif  // defined(HAL_IRENC) && (HAL_IRENC == TRUE)
+// 
+// 379 bytes in segment BANKED_CODE
+//  24 bytes in segment BANK_RELAYS
+//   6 bytes in segment INTVEC
+//  40 bytes in segment NEAR_CODE
+//  16 bytes in segment SFR_AN
+//   6 bytes in segment XDATA_Z
+// 
+//  64 bytes of CODE     memory (+  6 bytes shared)
+//   0 bytes of DATA     memory (+ 16 bytes shared)
+// 379 bytes of HUGECODE memory
+//   6 bytes of XDATA    memory
+//
+//Errors: none
+//Warnings: none
