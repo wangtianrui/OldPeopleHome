@@ -1,12 +1,12 @@
 SET FOREIGN_KEY_CHECKS=0;
-DROP TABLE IF EXISTS `ssmtest`.`child`;
-DROP TABLE IF EXISTS `ssmtest`.`cp`;
-DROP TABLE IF EXISTS `ssmtest`.`heartrate`;
-DROP TABLE IF EXISTS `ssmtest`.`motion`;
-DROP TABLE IF EXISTS `ssmtest`.`parent`;
-DROP TABLE IF EXISTS `ssmtest`.`room`;
-DROP TABLE IF EXISTS `ssmtest`.`rstate`;
-DROP TABLE IF EXISTS `ssmtest`.`sleep`;
+DROP TABLE IF EXISTS `child`;
+DROP TABLE IF EXISTS `cp`;
+DROP TABLE IF EXISTS `heartrate`;
+DROP TABLE IF EXISTS `motion`;
+DROP TABLE IF EXISTS `parent`;
+DROP TABLE IF EXISTS `room`;
+DROP TABLE IF EXISTS `rstate`;
+DROP TABLE IF EXISTS `sleep`;
 CREATE TABLE `parent` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '老人id',
   `longid` char(18) NOT NULL COMMENT '老人身份证',
