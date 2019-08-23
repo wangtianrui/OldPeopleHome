@@ -350,32 +350,75 @@ __call_main:
 ;       defined to set the size for the VREG segment.   	 ;
 ;----------------------------------------------------------------;
 
-   MODULE  VIRTUAL_REGISTERS
-   PUBLIC  ?B0
-   PUBLIC  ?V0
-   PUBLIC  ?PSP
-   PUBLIC  ?XSP
-   RSEG    BREG:BIT:NOROOT
+	MODULE  VIRTUAL_REGISTERS
+	PUBLIC  ?B0
+	PUBLIC  ?V0
+	PUBLIC  ?V1
+	PUBLIC  ?V2
+	PUBLIC  ?V3
+	PUBLIC  ?V4
+	PUBLIC  ?V5
+	PUBLIC  ?V6
+	PUBLIC  ?V7
+	PUBLIC  ?PSP
+	PUBLIC  ?XSP
+	RSEG    BREG:BIT:NOROOT
 
 ?B0:
-   DS      8
+	DS      8
 
-   RSEG    VREG:DATA:NOROOT
-   EXTERN	_NR_OF_VIRTUAL_REGISTERS
+  	RSEG    VREG:DATA:NOROOT
 ?V0:
-   DS      0
+	DS      1
 
-   RSEG    PSP:DATA:NOROOT
-   EXTERN  ?RESET_PSP
-   REQUIRE	?RESET_PSP
+  	RSEG    VREG:DATA:NOROOT
+  	REQUIRE ?V0
+?V1:
+	DS      1
+
+  	RSEG    VREG:DATA:NOROOT
+  	REQUIRE ?V1
+?V2:
+	DS      1
+
+  	RSEG    VREG:DATA:NOROOT
+  	REQUIRE ?V2
+?V3:
+	DS      1
+
+  	RSEG    VREG:DATA:NOROOT
+  	REQUIRE ?V3
+?V4:
+	DS      1
+
+  	RSEG    VREG:DATA:NOROOT
+  	REQUIRE ?V4
+?V5:
+	DS      1
+
+  	RSEG    VREG:DATA:NOROOT
+  	REQUIRE ?V5
+?V6:
+	DS      1
+
+  	RSEG    VREG:DATA:NOROOT
+  	REQUIRE ?V6
+?V7:
+	DS      1
+
+
+
+	RSEG    PSP:DATA:NOROOT
+	EXTERN  ?RESET_PSP
+	REQUIRE	?RESET_PSP
 ?PSP:
-   DS      1
+	DS      1
 
-   RSEG    XSP:DATA:NOROOT
-   EXTERN  ?RESET_XSP
-   REQUIRE	?RESET_XSP
+	RSEG    XSP:DATA:NOROOT
+	EXTERN  ?RESET_XSP
+	REQUIRE	?RESET_XSP
 ?XSP:
-   DS      2
+	DS      2
 
    ENDMOD ; VIRTUAL_REGISTERS
 

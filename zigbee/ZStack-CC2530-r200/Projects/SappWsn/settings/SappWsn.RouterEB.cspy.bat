@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"D:\ZigBee\EW8051\Embedded Workbench 8.1\common\bin\cspybat" -f "E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\settings\SappWsn.RouterEB.general.xcl" --backend -f "E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\settings\SappWsn.RouterEB.driver.xcl" 
+"D:\ZigBee\EW8051\Embedded Workbench 8.1\common\bin\cspybat" -f "E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\settings\SappWsn.RouterEB.general.xcl" --backend -f "E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\settings\SappWsn.RouterEB.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"D:\ZigBee\EW8051\Embedded Workbench 8.1\common\bin\cspybat" -f "E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\settings\SappWsn.RouterEB.general.xcl" "--debug_file=%~1" --backend -f "E:\gitRepository\OldPeopleHome\zigbee\ZStack-CC2530-r200\Projects\SappWsn\settings\SappWsn.RouterEB.driver.xcl" 
+"D:\ZigBee\EW8051\Embedded Workbench 8.1\common\bin\cspybat" -f "E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\settings\SappWsn.RouterEB.general.xcl" "--debug_file=%~1" --backend -f "E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\settings\SappWsn.RouterEB.driver.xcl" 
 
 @echo off 
 :end
