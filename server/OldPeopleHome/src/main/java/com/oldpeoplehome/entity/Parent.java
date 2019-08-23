@@ -20,24 +20,12 @@ public class Parent {
     private String parentPhone;
     private int parentRoomId;
     private Room parentRoom;
+    private Child child;
 
     public Parent() {
     }
 
-    public Parent(String parentLongId, String parentName, String parentSex, String parentAccount, String parentPassword, Double parentHeight, Double parentWeight, Date parentBirth, String parentPhone, Integer parentRoomId, Room parentRoom) {
-        this.parentLongId = parentLongId;
-        this.parentName = parentName;
-        this.parentSex = parentSex;
-        this.parentAccount = parentAccount;
-        this.parentPassword = parentPassword;
-        this.parentHeight = parentHeight;
-        this.parentWeight = parentWeight;
-        this.parentBirth = parentBirth;
-        this.parentPhone = parentPhone;
-        this.parentRoomId = parentRoomId;
-        this.parentRoom = parentRoom;
-    }
-    public Parent(Long parentId, String parentLongId, String parentName, String parentSex, String parentAccount, String parentPassword, Double parentHeight, Double parentWeight, Date parentBirth, String parentPhone, Integer parentRoomId, Room parentRoom) {
+    public Parent(long parentId, String parentLongId, String parentName, String parentSex, String parentAccount, String parentPassword, double parentHeight, double parentWeight, Date parentBirth, String parentPhone) {
         this.parentId = parentId;
         this.parentLongId = parentLongId;
         this.parentName = parentName;
@@ -48,8 +36,30 @@ public class Parent {
         this.parentWeight = parentWeight;
         this.parentBirth = parentBirth;
         this.parentPhone = parentPhone;
-        this.parentRoomId = parentRoomId;
-        this.parentRoom = parentRoom;
+    }
+
+    public Parent(String parentLongId, String parentName, String parentSex, String parentAccount, String parentPassword, Double parentHeight, Double parentWeight, Date parentBirth, String parentPhone) {
+        this.parentLongId = parentLongId;
+        this.parentName = parentName;
+        this.parentSex = parentSex;
+        this.parentAccount = parentAccount;
+        this.parentPassword = parentPassword;
+        this.parentHeight = parentHeight;
+        this.parentWeight = parentWeight;
+        this.parentBirth = parentBirth;
+        this.parentPhone = parentPhone;
+    }
+    public Parent(Long parentId, String parentLongId, String parentName, String parentSex, String parentAccount, String parentPassword, Double parentHeight, Double parentWeight, Date parentBirth, String parentPhone) {
+        this.parentId = parentId;
+        this.parentLongId = parentLongId;
+        this.parentName = parentName;
+        this.parentSex = parentSex;
+        this.parentAccount = parentAccount;
+        this.parentPassword = parentPassword;
+        this.parentHeight = parentHeight;
+        this.parentWeight = parentWeight;
+        this.parentBirth = parentBirth;
+        this.parentPhone = parentPhone;
     }
 
     public long getParentId() {
@@ -164,8 +174,6 @@ public class Parent {
                 ", parentWeight=" + parentWeight +
                 ", parentBirth=" + parentBirth +
                 ", parentPhone=" + parentPhone +
-                ", parentRoomId=" + parentRoomId +
-                ", parentRoom=" + parentRoom +
                 '}';
     }
 }

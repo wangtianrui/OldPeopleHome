@@ -1,0 +1,2581 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.30.1.6000 for 8051               23/Aug/2019  12:10:28
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\stack\zdo\ZDNwkMgr.c
+#    Command line       =  
+#        -f C:\Users\VULCAN\AppData\Local\Temp\EW6C4A.tmp
+#        (E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\stack\zdo\ZDNwkMgr.c
+#        -D ZIGBEEPRO -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
+#        SAPP_ZSTACK -lC
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\List
+#        -lA
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\List
+#        --diag_suppress Pe001,Pa010 -o
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\Obj
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 8 -f
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wCoord.cfg
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+#        -DZDO_COORDINATOR -DRTR_NWK) -f
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+#        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00800000 -DZDAPP_CONFIG_PAN_ID=0x0057
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+#        -I
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+#        -Ohz --require_prototypes --no_code_motion)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\List\ZDNwkMgr.lst
+#    Object file        =  
+#        E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\Obj\ZDNwkMgr.r51
+#
+###############################################################################
+
+E:\qqÏÂÔØÎÄ¼þ\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\stack\zdo\ZDNwkMgr.c
+      1          /**************************************************************************************************
+      2            Filename:       ZDNwkMgr.c
+      3            Revised:        $Date: 2007-10-17 15:38:45 -0700 (Wed, 17 Oct 2007) $
+      4            Revision:       $Revision: 15716 $
+      5          
+      6            Description:    The ZigBee Network Manager.
+      7          
+      8          
+      9            Copyright 2007 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          #ifdef __cplusplus
+     41          extern "C"
+     42          {
+     43          #endif
+     44          
+     45          /******************************************************************************
+     46           * INCLUDES
+     47           */
+     48          #include "ZComdef.h"
+     49          #include "nwk_util.h"
+     50          #include "ZDApp.h"
+     51          #include "ZDObject.h"
+     52          #include "ZGlobals.h"
+     53          #include "ZDNwkMgr.h"
+     54          
+     55          #if defined( MT_ZDO_FUNC )
+     56            #include "MT_ZDO.h"
+     57          #endif
+     58            
+     59          #if defined ( LCD_SUPPORTED )
+     60            #include "OnBoard.h"
+     61          #endif
+     62          
+     63          /* HAL */
+     64          #include "hal_lcd.h"
+     65            
+     66          /******************************************************************************
+     67           * CONSTANTS
+     68           */
+     69          
+     70          #define ONE_MINUTE             60000  // 1(m) * 60(s) * 1000(ms)
+     71          
+     72          #if defined ( LCD_SUPPORTED )
+     73            const char NwkMgrStr_1[]     = "NM-fail not hi";
+     74            const char NwkMgrStr_2[]     = "NM-cur<last fail";
+     75            const char NwkMgrStr_3[]     = "NM-energy too hi";
+     76            const char NwkMgrStr_4[]     = "NM-energy not up";
+     77          #endif
+     78            
+     79          /******************************************************************************
+     80           * TYPEDEFS
+     81           */
+     82          
+     83          /*********************************************************************
+     84           * GLOBAL VARIABLES
+     85           */
+     86            
+     87          // Task ID for internal task/event processing. This variable will be
+     88          // received when ZDNwkMgr_Init() is called.
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     89          uint8 ZDNwkMgr_TaskID = 0;
+   \                     ZDNwkMgr_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     90          
+     91          /******************************************************************************
+     92           * LOCAL VARIABLES
+     93           */
+     94          
+     95          // Frequency Agility variables
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     96          uint8 ZDNwkMgr_MgmtNwkUpdateNotifyTransSeq = 0;
+   \                     ZDNwkMgr_MgmtNwkUpdateNotifyTransSeq:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     97          zAddrType_t ZDNwkMgr_MgmtNwkUpdateNotifyAddr;
+   \                     ZDNwkMgr_MgmtNwkUpdateNotifyAddr:
+   \   000000                DS 9
+   \   000009                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     98          uint16 ZDNwkMgr_UpdateNotifyTimer = 0;
+   \                     ZDNwkMgr_UpdateNotifyTimer:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     99          uint8  ZDNwkMgr_NumUpdateNotifySent = 0;
+   \                     ZDNwkMgr_NumUpdateNotifySent:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    100          uint8  ZDNwkMgr_WaitingForNotifyConfirm = FALSE;
+   \                     ZDNwkMgr_WaitingForNotifyConfirm:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    101          uint16 ZDNwkMgr_TotalTransmissions;
+   \                     ZDNwkMgr_TotalTransmissions:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    102          uint16 ZDNwkMgr_TxFailures;
+   \                     ZDNwkMgr_TxFailures:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    103          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    104          ZDO_MgmtNwkUpdateReq_t ZDNwkMgr_MgmtNwkUpdateReq;
+   \                     ZDNwkMgr_MgmtNwkUpdateReq:
+   \   000000                DS 9
+   \   000009                REQUIRE __INIT_XDATA_Z
+    105            
+    106          #if defined ( NWK_MANAGER )
+    107          uint16 ZDNwkMgr_UpdateRequestTimer = 0;
+    108          uint8  ZDNwkMgr_LastChannelEnergy = 0;
+    109          uint16 ZDNwkMgr_LastChannelFailureRate = 0;
+    110          #endif // NWK_MANAGER
+    111          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    112          uint8 ZDNwkMgr_NewChannel;
+   \                     ZDNwkMgr_NewChannel:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    113          
+    114          // PAN ID Conflict variables
+    115          #if defined ( NWK_MANAGER )
+    116          uint8 ZDNwkMgr_PanIdUpdateInProgress = FALSE;
+    117          #endif // NWK_MANAGER
+    118          
+    119          /*********************************************************************
+    120           * GLOBAL FUNCTIONS
+    121           */
+    122          // Freguency Agility functions
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    123          void (*pZDNwkMgr_ReportChannelInterference)( NLME_ChanInterference_t *chanInterference ) = NULL;
+   \                     pZDNwkMgr_ReportChannelInterference:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    124          void (*pZDNwkMgr_ProcessDataConfirm)( afDataConfirm_t *afDataConfirm ) = NULL;
+   \                     pZDNwkMgr_ProcessDataConfirm:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    125          void (*pZDNwkMgr_EDScanConfirmCB)( NLME_EDScanConfirm_t *EDScanConfirm ) = NULL;
+   \                     pZDNwkMgr_EDScanConfirmCB:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    126          
+    127          // PAN ID Conflict functions
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    128          void (*pZDNwkMgr_NetworkReportCB)( ZDNwkMgr_NetworkReport_t *pReport ) = NULL;
+   \                     pZDNwkMgr_NetworkReportCB:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    129          void (*pZDNwkMgr_NetworkUpdateCB)( ZDNwkMgr_NetworkUpdate_t *pUpdate ) = NULL;
+   \                     pZDNwkMgr_NetworkUpdateCB:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    130          
+    131          /******************************************************************************
+    132           * LOCAL FUNCTIONS
+    133           */
+    134          
+    135          void ZDNwkMgr_ProcessServerDiscRsp( zdoIncomingMsg_t *inMsg );
+    136          void ZDNwkMgr_SetNwkManagerAddr( uint16 nwkManagerAddr );
+    137          
+    138          // Frequency Agility functions
+    139          static void ZDNwkMgr_ProcessMsgCBs( zdoIncomingMsg_t *inMsg );
+    140          
+    141          static void ZDNwkMgr_ProcessMgmtNwkUpdateReq( zdoIncomingMsg_t *inMsg );
+    142          static void ZDNwkMgr_ProcessChannelInterference( ZDNwkMgr_ChanInterference_t *pChanInterference );
+    143          static void ZDNwkMgr_ProcessEDScanConfirm( ZDNwkMgr_EDScanConfirm_t *pEDScanConfirm );
+    144          static void ZDNwkMgr_CheckForChannelInterference( ZDNwkMgr_EDScanConfirm_t *pEDScanConfirm );
+    145          static void ZDNwkMgr_BuildAndSendUpdateNotify( uint8 TransSeq, zAddrType_t *dstAddr,
+    146                                                         uint16 totalTransmissions, uint16 txFailures,
+    147                                                         ZDNwkMgr_EDScanConfirm_t *pEDScanConfirm, uint8 txOptions );
+    148          void ZDNwkMgr_EDScanConfirmCB( NLME_EDScanConfirm_t *EDScanConfirm );
+    149          void ZDNwkMgr_ProcessDataConfirm( afDataConfirm_t *afDataConfirm );
+    150          void ZDNwkMgr_ReportChannelInterference( NLME_ChanInterference_t *chanInterference );
+    151          
+    152          #if defined ( NWK_MANAGER )
+    153          static void ZDNwkMgr_ProcessMgmtNwkUpdateNotify( zdoIncomingMsg_t *inMsg );
+    154          static void ZDNwkMgr_CheckForChannelChange( ZDO_MgmtNwkUpdateNotify_t *pNotify );
+    155          #endif // NWK_MANAGER
+    156          
+    157          // PAN ID Conflict functions
+    158          #if defined ( NWK_MANAGER )
+    159          void ZDNwkMgr_NetworkReportCB( ZDNwkMgr_NetworkReport_t *pReport );
+    160          void ZDNwkMgr_NetworkUpdateCB( ZDNwkMgr_NetworkUpdate_t *pUpdate );
+    161          
+    162          void ZDNwkMgr_ProcessNetworkReport( ZDNwkMgr_NetworkReport_t *pNetworkReport );
+    163          void ZDNwkMgr_ProcessNetworkUpdate( ZDNwkMgr_NetworkUpdate_t *pNetworkUpdate );
+    164          #endif // NWK_MANAGER
+    165          
+    166          /*********************************************************************
+    167           * @fn      ZDNwkMgr_Init
+    168           *
+    169           * @brief   Initialization function for the Network Manager Task.
+    170           *          This is called during initialization and should contain
+    171           *          any application specific initialization (ie. hardware
+    172           *          initialization/setup, table initialization, power up
+    173           *          notificaiton ... ).
+    174           *
+    175           * @param   task_id - the ID assigned by OSAL.  This ID should be
+    176           *                    used to send messages and set timers.
+    177           *
+    178           * @return  none
+    179           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    180          void ZDNwkMgr_Init( byte task_id )
+   \                     ZDNwkMgr_Init:
+    181          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV       A,R1
+    182            // Save the task ID
+    183            ZDNwkMgr_TaskID = task_id;
+   \   000006   90....       MOV       DPTR,#ZDNwkMgr_TaskID
+   \   000009   F0           MOVX      @DPTR,A
+    184          
+    185            ZDO_RegisterForZDOMsg( ZDNwkMgr_TaskID, Server_Discovery_rsp );
+   \   00000A                ; Setup parameters for call to function ZDO_RegisterForZDOMsg
+   \   00000A   7A15         MOV       R2,#0x15
+   \   00000C   7B80         MOV       R3,#-0x80
+   \   00000E   12....       LCALL     `??ZDO_RegisterForZDOMsg::?relay`; Banked call to: ZDO_RegisterForZDOMsg
+    186          
+    187            // Frequecy Agility initialization
+    188            ZDO_RegisterForZDOMsg( ZDNwkMgr_TaskID, Mgmt_NWK_Update_req );
+   \   000011                ; Setup parameters for call to function ZDO_RegisterForZDOMsg
+   \   000011   7A38         MOV       R2,#0x38
+   \   000013   7B00         MOV       R3,#0x0
+   \   000015   90....       MOV       DPTR,#ZDNwkMgr_TaskID
+   \   000018   E0           MOVX      A,@DPTR
+   \   000019   F9           MOV       R1,A
+   \   00001A   12....       LCALL     `??ZDO_RegisterForZDOMsg::?relay`; Banked call to: ZDO_RegisterForZDOMsg
+    189          #if defined ( NWK_MANAGER )
+    190            ZDO_RegisterForZDOMsg( ZDNwkMgr_TaskID, Mgmt_NWK_Update_notify );
+    191          #endif // NWK_MANAGER
+    192          
+    193            pZDNwkMgr_EDScanConfirmCB = ZDNwkMgr_EDScanConfirmCB;
+   \   00001D   90....       MOV       DPTR,#pZDNwkMgr_EDScanConfirmCB
+   \   000020   74..         MOV       A,#`??ZDNwkMgr_EDScanConfirmCB::?relay` & 0xff
+   \   000022   F0           MOVX      @DPTR,A
+   \   000023   A3           INC       DPTR
+   \   000024   74..         MOV       A,#(`??ZDNwkMgr_EDScanConfirmCB::?relay` >> 8) & 0xff
+   \   000026   F0           MOVX      @DPTR,A
+    194            pZDNwkMgr_ProcessDataConfirm = ZDNwkMgr_ProcessDataConfirm;
+   \   000027   90....       MOV       DPTR,#pZDNwkMgr_ProcessDataConfirm
+   \   00002A   74..         MOV       A,#`??ZDNwkMgr_ProcessDataConfirm::?relay` & 0xff
+   \   00002C   F0           MOVX      @DPTR,A
+   \   00002D   A3           INC       DPTR
+   \   00002E   74..         MOV       A,#(`??ZDNwkMgr_ProcessDataConfirm::?relay` >> 8) & 0xff
+   \   000030   F0           MOVX      @DPTR,A
+    195            pZDNwkMgr_ReportChannelInterference = ZDNwkMgr_ReportChannelInterference;
+   \   000031   90....       MOV       DPTR,#pZDNwkMgr_ReportChannelInterference
+   \   000034   74..         MOV       A,#`??ZDNwkMgr_ReportChannelInterference::?relay` & 0xff
+   \   000036   F0           MOVX      @DPTR,A
+   \   000037   A3           INC       DPTR
+   \   000038   74..         MOV       A,#(`??ZDNwkMgr_ReportChannelInterference::?relay` >> 8) & 0xff
+   \   00003A   F0           MOVX      @DPTR,A
+    196            
+    197            // PAN ID Conflict initialization
+    198          #if defined ( NWK_MANAGER )
+    199            pZDNwkMgr_NetworkReportCB = ZDNwkMgr_NetworkReportCB;
+    200            pZDNwkMgr_NetworkUpdateCB = ZDNwkMgr_NetworkUpdateCB;
+    201          #endif // NWK_MANAGER
+    202            
+    203            ZDNwkMgr_MgmtNwkUpdateNotifyAddr.addrMode = Addr16Bit;
+   \   00003B   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateNotifyAddr + 8
+   \   00003E   7402         MOV       A,#0x2
+   \   000040   F0           MOVX      @DPTR,A
+    204            ZDNwkMgr_MgmtNwkUpdateNotifyAddr.addr.shortAddr = INVALID_NODE_ADDR;
+   \   000041   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateNotifyAddr
+   \   000044   74FE         MOV       A,#-0x2
+   \   000046   F0           MOVX      @DPTR,A
+   \   000047   A3           INC       DPTR
+   \   000048   04           INC       A
+   \   000049   F0           MOVX      @DPTR,A
+    205          }
+   \   00004A                REQUIRE ?Subroutine0
+   \   00004A                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F01         MOV       R7,#0x1
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+    206          
+    207          /*********************************************************************
+    208           * @fn      ZDNwkMgr_event_loop
+    209           *
+    210           * @brief   Main event loop for the Network Manager task. This function
+    211           *          is called to process all events for the task.  Events
+    212           *          include timers, messages and any other user defined events.
+    213           *
+    214           * @param   task_id  - The OSAL assigned task ID.
+    215           * @param   events - events to process.  This is a bit map and can
+    216           *                   contain more than one event.
+    217           *
+    218           * @return  none
+    219           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    220          UINT16 ZDNwkMgr_event_loop( byte task_id, UINT16 events )
+   \                     ZDNwkMgr_event_loop:
+    221          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV       A,#-0xe
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV       A,R2
+   \   000006   FE           MOV       R6,A
+   \   000007   EB           MOV       A,R3
+   \   000008   FF           MOV       R7,A
+    222            osal_event_hdr_t *msgPtr;
+    223            (void)task_id;  // Intentionally unreferenced parameter
+    224          
+    225            if ( events & SYS_EVENT_MSG )
+   \   000009   5480         ANL       A,#0x80
+   \   00000B   7003         JNZ       $+5
+   \   00000D   02....       LJMP      ??ZDNwkMgr_event_loop_0 & 0xFFFF
+    226            {
+    227              msgPtr = (osal_event_hdr_t *)osal_msg_receive( ZDNwkMgr_TaskID );
+   \   000010                ; Setup parameters for call to function osal_msg_receive
+   \   000010   8044         SJMP      ??ZDNwkMgr_event_loop_1
+   \                     ??ZDNwkMgr_event_loop_2:
+   \   000012                ; Setup parameters for call to function nwkTransmissionFailures
+    228              while ( msgPtr )
+    229              {
+    230                switch ( msgPtr->event )
+    231                {
+    232                  case ZDO_CB_MSG:
+    233                    // ZDO sends the message that we registered for
+    234                    ZDNwkMgr_ProcessMsgCBs( (zdoIncomingMsg_t *)msgPtr );
+    235                    break;
+    236                   
+    237                  case NM_CHANNEL_INTERFERE:
+    238                    // NWK layer sends the message when it detectes Channel Interference
+    239                    ZDNwkMgr_ProcessChannelInterference( (ZDNwkMgr_ChanInterference_t *)msgPtr );
+    240                    break;
+    241             
+    242                  case NM_ED_SCAN_CONFIRM:
+    243                    // NWK layer sends the message when it receives an ED scan confirmation
+    244                    ZDNwkMgr_ProcessEDScanConfirm( (ZDNwkMgr_EDScanConfirm_t *)msgPtr );
+   \   000012   7900         MOV       R1,#0x0
+   \   000014   12....       LCALL     `??nwkTransmissionFailures::?relay`; Banked call to: nwkTransmissionFailures
+   \   000017   8A..         MOV       ?V2,R2
+   \   000019   8B..         MOV       ?V3,R3
+   \   00001B                ; Setup parameters for call to function ZDNwkMgr_BuildAndSendUpdateNotify
+   \   00001B   75..00       MOV       ?V4,#0x0
+   \   00001E   78..         MOV       R0,#?V4
+   \   000020   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000023   78..         MOV       R0,#?V0
+   \   000025   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000028   78..         MOV       R0,#?V2
+   \   00002A   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00002D   90....       MOV       DPTR,#_NIB + 107
+   \   000030   12....       LCALL     ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000033   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateNotifyTransSeq
+   \   000036   E0           MOVX      A,@DPTR
+   \   000037   F9           MOV       R1,A
+   \   000038   12....       LCALL     `??ZDNwkMgr_BuildAndSendUpdateNotify::?relay`; Banked call to: ZDNwkMgr_BuildAndSendUpdateNotify
+   \   00003B   7405         MOV       A,#0x5
+   \   00003D   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000040   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateReq + 5
+   \   000043   E0           MOVX      A,@DPTR
+   \   000044   6009         JZ        ??CrossCallReturnLabel_25
+   \   000046                ; Setup parameters for call to function osal_start_timerEx
+   \   000046   7C32         MOV       R4,#0x32
+   \   000048   7D00         MOV       R5,#0x0
+   \   00004A   7A08         MOV       R2,#0x8
+   \   00004C   12....       LCALL     ?Subroutine7 & 0xFFFF
+    245                    break;
+    246          #if defined ( NWK_MANAGER )
+    247                  case ZDO_NETWORK_REPORT:
+    248                    // NWK layer sends this message when it receives a Network Report message
+    249                    ZDNwkMgr_ProcessNetworkReport( (ZDNwkMgr_NetworkReport_t *)msgPtr );
+    250                    break;
+    251                 
+    252                  case ZDO_NETWORK_UPDATE:
+    253                    // NKW layer sends this message when it receives a Network Update message
+    254                    ZDNwkMgr_ProcessNetworkUpdate( (ZDNwkMgr_NetworkUpdate_t *)msgPtr );
+    255                    break;
+    256          #endif // NWK_MANAGER         
+    257                  default:
+    258                    break;
+    259                }
+    260          
+    261                // Release the memory
+    262                osal_msg_deallocate( (uint8 *)msgPtr );
+   \                     ??CrossCallReturnLabel_25:
+   \   00004F                ; Setup parameters for call to function osal_msg_deallocate
+   \   00004F   AA..         MOV       R2,?V0
+   \   000051   AB..         MOV       R3,?V1
+   \   000053   12....       LCALL     `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+    263          
+    264                // Next
+    265                msgPtr = (osal_event_hdr_t *)osal_msg_receive( ZDNwkMgr_TaskID );
+   \   000056                ; Setup parameters for call to function osal_msg_receive
+   \                     ??ZDNwkMgr_event_loop_1:
+   \   000056   90....       MOV       DPTR,#ZDNwkMgr_TaskID
+   \   000059   E0           MOVX      A,@DPTR
+   \   00005A   F9           MOV       R1,A
+   \   00005B   12....       LCALL     `??osal_msg_receive::?relay`; Banked call to: osal_msg_receive
+   \   00005E   8A..         MOV       ?V0,R2
+   \   000060   8B..         MOV       ?V1,R3
+   \   000062   E5..         MOV       A,?V0
+   \   000064   45..         ORL       A,?V1
+   \   000066   7003         JNZ       $+5
+   \   000068   02....       LJMP      ??ZDNwkMgr_event_loop_3 & 0xFFFF
+   \   00006B   85..82       MOV       DPL,?V0
+   \   00006E   85..83       MOV       DPH,?V1
+   \   000071   E0           MOVX      A,@DPTR
+   \   000072   24CF         ADD       A,#-0x31
+   \   000074   603E         JZ        ??ZDNwkMgr_event_loop_4
+   \   000076   14           DEC       A
+   \   000077   607E         JZ        ??ZDNwkMgr_event_loop_5
+   \   000079   245F         ADD       A,#0x5f
+   \   00007B   70D2         JNZ       ??CrossCallReturnLabel_25
+   \   00007D   E5..         MOV       A,?V0
+   \   00007F   240C         ADD       A,#0xc
+   \   000081   F582         MOV       DPL,A
+   \   000083   E4           CLR       A
+   \   000084   35..         ADDC      A,?V1
+   \   000086   F583         MOV       DPH,A
+   \   000088   E0           MOVX      A,@DPTR
+   \   000089   F5..         MOV       ?V2,A
+   \   00008B   A3           INC       DPTR
+   \   00008C   E0           MOVX      A,@DPTR
+   \   00008D   F5..         MOV       ?V3,A
+   \   00008F   78..         MOV       R0,#?V2
+   \   000091   12....       LCALL     ?US_SWITCH_SPARSE
+   \                     `?<Jumptable for ZDNwkMgr_event_loop>_0`:
+   \   000094   0000         DW        0
+   \   000096   0200         DW        2
+   \   000098   3800         DW        56
+   \   00009A   ....         DW        ??ZDNwkMgr_event_loop_6
+   \   00009C   1580         DW        32789
+   \   00009E   ....         DW        ??ZDNwkMgr_event_loop_7
+   \   0000A0   ....         DW        ??CrossCallReturnLabel_25
+   \                     ??ZDNwkMgr_event_loop_7:
+   \   0000A2                ; Setup parameters for call to function ZDNwkMgr_ProcessServerDiscRsp
+   \   0000A2   AA..         MOV       R2,?V0
+   \   0000A4   AB..         MOV       R3,?V1
+   \   0000A6   12....       LCALL     `??ZDNwkMgr_ProcessServerDiscRsp::?relay`; Banked call to: ZDNwkMgr_ProcessServerDiscRsp
+   \   0000A9   80A4         SJMP      ??CrossCallReturnLabel_25
+   \                     ??ZDNwkMgr_event_loop_6:
+   \   0000AB                ; Setup parameters for call to function ZDNwkMgr_ProcessMgmtNwkUpdateReq
+   \   0000AB   AA..         MOV       R2,?V0
+   \   0000AD   AB..         MOV       R3,?V1
+   \   0000AF   12....       LCALL     `??ZDNwkMgr_ProcessMgmtNwkUpdateReq::?relay`; Banked call to: ZDNwkMgr_ProcessMgmtNwkUpdateReq
+   \   0000B2   809B         SJMP      ??CrossCallReturnLabel_25
+   \                     ??ZDNwkMgr_event_loop_4:
+   \   0000B4   90....       MOV       DPTR,#ZDNwkMgr_NumUpdateNotifySent
+   \   0000B7   E0           MOVX      A,@DPTR
+   \   0000B8   C3           CLR       C
+   \   0000B9   9404         SUBB      A,#0x4
+   \   0000BB   5092         JNC       ??CrossCallReturnLabel_25
+   \   0000BD                ; Setup parameters for call to function NLME_EDScanRequest
+   \   0000BD   90....       MOV       DPTR,#_NIB + 42
+   \   0000C0   E0           MOVX      A,@DPTR
+   \   0000C1   F9           MOV       R1,A
+   \   0000C2   90....       MOV       DPTR,#__Constant_7fff800
+   \   0000C5   12....       LCALL     ?XLOAD_R2345
+   \   0000C8   12....       LCALL     `??NLME_EDScanRequest::?relay`; Banked call to: NLME_EDScanRequest
+   \   0000CB   E9           MOV       A,R1
+   \   0000CC   7081         JNZ       ??CrossCallReturnLabel_25
+   \   0000CE   85..82       MOV       DPL,?V0
+   \   0000D1   85..83       MOV       DPH,?V1
+   \   0000D4   12....       LCALL     ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   0000D7   90....       MOV       DPTR,#ZDNwkMgr_TotalTransmissions
+   \   0000DA   12....       LCALL     ??Subroutine19_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   0000DD   85..82       MOV       DPL,?V0
+   \   0000E0   85..83       MOV       DPH,?V1
+   \   0000E3   A3           INC       DPTR
+   \   0000E4   A3           INC       DPTR
+   \   0000E5   12....       LCALL     ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   0000E8   90....       MOV       DPTR,#ZDNwkMgr_TxFailures
+   \   0000EB   12....       LCALL     ??Subroutine19_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_27:
+   \   0000EE   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateReq + 5
+   \   0000F1   74FF         MOV       A,#-0x1
+   \                     ??ZDNwkMgr_event_loop_8:
+   \   0000F3   F0           MOVX      @DPTR,A
+   \   0000F4   02....       LJMP      ??CrossCallReturnLabel_25 & 0xFFFF
+   \                     ??ZDNwkMgr_event_loop_5:
+   \   0000F7   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateReq + 5
+   \   0000FA   E0           MOVX      A,@DPTR
+   \   0000FB   F4           CPL       A
+   \   0000FC   6003         JZ        $+5
+   \   0000FE   02....       LJMP      ??ZDNwkMgr_event_loop_2 & 0xFFFF
+   \   000101                ; Setup parameters for call to function ZDNwkMgr_CheckForChannelInterference
+   \   000101   AA..         MOV       R2,?V0
+   \   000103   AB..         MOV       R3,?V1
+   \   000105   12....       LCALL     `??ZDNwkMgr_CheckForChannelInterference::?relay`; Banked call to: ZDNwkMgr_CheckForChannelInterference
+   \   000108   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateReq + 5
+   \   00010B   E4           CLR       A
+   \   00010C   80E5         SJMP      ??ZDNwkMgr_event_loop_8
+    266              }
+    267              
+    268              // Return unprocessed events
+    269              return (events ^ SYS_EVENT_MSG);
+   \                     ??ZDNwkMgr_event_loop_3:
+   \   00010E   EE           MOV       A,R6
+   \   00010F   FA           MOV       R2,A
+   \   000110   EF           MOV       A,R7
+   \   000111   6480         XRL       A,#0x80
+   \   000113   8077         SJMP      ??ZDNwkMgr_event_loop_9
+    270            }
+    271          
+    272            if ( events & ZDNWKMGR_CHANNEL_CHANGE_EVT )
+   \                     ??ZDNwkMgr_event_loop_0:
+   \   000115   EA           MOV       A,R2
+   \   000116   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000118   501C         JNC       ??ZDNwkMgr_event_loop_10
+    273            {       
+    274              // Switch channel
+    275              _NIB.nwkLogicalChannel = ZDNwkMgr_NewChannel;
+   \   00011A   90....       MOV       DPTR,#ZDNwkMgr_NewChannel
+   \   00011D   E0           MOVX      A,@DPTR
+   \   00011E   90....       MOV       DPTR,#_NIB + 22
+   \   000121   F0           MOVX      @DPTR,A
+    276              ZMacSetReq( ZMacChannel, &ZDNwkMgr_NewChannel );
+   \   000122                ; Setup parameters for call to function ZMacSetReq
+   \   000122   7A..         MOV       R2,#ZDNwkMgr_NewChannel & 0xff
+   \   000124   7B..         MOV       R3,#(ZDNwkMgr_NewChannel >> 8) & 0xff
+   \   000126   79E1         MOV       R1,#-0x1f
+   \   000128   12....       LCALL     `??ZMacSetReq::?relay`; Banked call to: ZMacSetReq
+    277           
+    278              // Our Channel has been changed -- notify to save info into NV
+    279              ZDApp_NwkStateUpdateCB();
+   \   00012B                ; Setup parameters for call to function ZDApp_NwkStateUpdateCB
+   \   00012B   12....       LCALL     `??ZDApp_NwkStateUpdateCB::?relay`; Banked call to: ZDApp_NwkStateUpdateCB
+    280              
+    281              // Reset the total transmit count and the transmit failure counters
+    282              _NIB.nwkTotalTransmissions = 0;
+   \   00012E   12....       LCALL     ?Subroutine4 & 0xFFFF
+    283              nwkTransmissionFailures( TRUE );
+    284              
+    285              return ( events ^ ZDNWKMGR_CHANNEL_CHANGE_EVT );
+   \                     ??CrossCallReturnLabel_2:
+   \   000131   EE           MOV       A,R6
+   \   000132   6401         XRL       A,#0x1
+   \   000134   8054         SJMP      ??ZDNwkMgr_event_loop_11
+    286            }
+    287          
+    288            if ( events & ZDNWKMGR_UPDATE_NOTIFY_EVT )
+   \                     ??ZDNwkMgr_event_loop_10:
+   \   000136   5402         ANL       A,#0x2
+   \   000138   602B         JZ        ??ZDNwkMgr_event_loop_12
+    289            {
+    290              // Update the Update Notify timer
+    291              if ( ZDNwkMgr_UpdateNotifyTimer > 0 )
+   \   00013A   90....       MOV       DPTR,#ZDNwkMgr_UpdateNotifyTimer
+   \   00013D   12....       LCALL     ??Subroutine20_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_32:
+   \   000140   E8           MOV       A,R0
+   \   000141   49           ORL       A,R1
+   \   000142   6017         JZ        ??ZDNwkMgr_event_loop_13
+    292              {
+    293                ZDNwkMgr_UpdateNotifyTimer--;
+   \   000144   90....       MOV       DPTR,#ZDNwkMgr_UpdateNotifyTimer
+   \   000147   E0           MOVX      A,@DPTR
+   \   000148   24FF         ADD       A,#-0x1
+   \   00014A   F0           MOVX      @DPTR,A
+   \   00014B   A3           INC       DPTR
+   \   00014C   E0           MOVX      A,@DPTR
+   \   00014D   34FF         ADDC      A,#-0x1
+   \   00014F   F0           MOVX      @DPTR,A
+    294                osal_start_timerEx( ZDNwkMgr_TaskID, ZDNWKMGR_UPDATE_NOTIFY_EVT, ONE_MINUTE );
+   \   000150                ; Setup parameters for call to function osal_start_timerEx
+   \   000150   7C60         MOV       R4,#0x60
+   \   000152   7DEA         MOV       R5,#-0x16
+   \   000154   7A02         MOV       R2,#0x2
+   \   000156   12....       LCALL     ?Subroutine7 & 0xFFFF
+    295              }
+   \                     ??CrossCallReturnLabel_22:
+   \   000159   8005         SJMP      ??ZDNwkMgr_event_loop_14
+    296              else
+    297              {
+    298                ZDNwkMgr_NumUpdateNotifySent = 0;
+   \                     ??ZDNwkMgr_event_loop_13:
+   \   00015B   90....       MOV       DPTR,#ZDNwkMgr_NumUpdateNotifySent
+   \   00015E   E4           CLR       A
+   \   00015F   F0           MOVX      @DPTR,A
+    299              }
+    300              
+    301              return ( events ^ ZDNWKMGR_UPDATE_NOTIFY_EVT );
+   \                     ??ZDNwkMgr_event_loop_14:
+   \   000160   EE           MOV       A,R6
+   \   000161   6402         XRL       A,#0x2
+   \   000163   8025         SJMP      ??ZDNwkMgr_event_loop_11
+    302            }
+    303            
+    304          #if defined ( NWK_MANAGER )
+    305            if ( events & ZDNWKMGR_UPDATE_REQUEST_EVT )
+    306            {
+    307              // Update the Update Request timer
+    308              if ( ZDNwkMgr_UpdateRequestTimer > 0 )
+    309              {
+    310                ZDNwkMgr_UpdateRequestTimer--;
+    311                osal_start_timerEx( ZDNwkMgr_TaskID, ZDNWKMGR_UPDATE_REQUEST_EVT, ONE_MINUTE );
+    312              }
+    313              
+    314              return ( events ^ ZDNWKMGR_UPDATE_REQUEST_EVT );
+    315            }
+    316          #endif // NWK_MANAGER
+    317            
+    318            if ( events & ZDNWKMGR_SCAN_REQUEST_EVT )
+   \                     ??ZDNwkMgr_event_loop_12:
+   \   000165   EA           MOV       A,R2
+   \   000166   5408         ANL       A,#0x8
+   \   000168   6025         JZ        ??ZDNwkMgr_event_loop_15
+    319            {  
+    320              if ( ZDNwkMgr_MgmtNwkUpdateReq.scanCount > 0 )
+   \   00016A   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateReq + 5
+   \   00016D   E0           MOVX      A,@DPTR
+   \   00016E   6017         JZ        ??ZDNwkMgr_event_loop_16
+    321              {
+    322                if (  NLME_EDScanRequest( ZDNwkMgr_MgmtNwkUpdateReq.channelMask, 
+    323                                          ZDNwkMgr_MgmtNwkUpdateReq.scanDuration ) == ZSuccess )
+   \   000170                ; Setup parameters for call to function NLME_EDScanRequest
+   \   000170   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateReq + 4
+   \   000173   E0           MOVX      A,@DPTR
+   \   000174   F9           MOV       R1,A
+   \   000175   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateReq
+   \   000178   12....       LCALL     ?XLOAD_R2345
+   \   00017B   12....       LCALL     `??NLME_EDScanRequest::?relay`; Banked call to: NLME_EDScanRequest
+   \   00017E   E9           MOV       A,R1
+   \   00017F   7006         JNZ       ??ZDNwkMgr_event_loop_16
+    324                {
+    325                  ZDNwkMgr_MgmtNwkUpdateReq.scanCount--;
+   \   000181   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateReq + 5
+   \   000184   E0           MOVX      A,@DPTR
+   \   000185   14           DEC       A
+   \   000186   F0           MOVX      @DPTR,A
+    326                }
+    327              }
+    328                
+    329              return ( events ^ ZDNWKMGR_SCAN_REQUEST_EVT );
+   \                     ??ZDNwkMgr_event_loop_16:
+   \   000187   EE           MOV       A,R6
+   \   000188   6408         XRL       A,#0x8
+   \                     ??ZDNwkMgr_event_loop_11:
+   \   00018A   FA           MOV       R2,A
+   \   00018B   EF           MOV       A,R7
+   \                     ??ZDNwkMgr_event_loop_9:
+   \   00018C   FB           MOV       R3,A
+   \   00018D   8004         SJMP      ??ZDNwkMgr_event_loop_17
+    330            }
+    331            
+    332            // Discard or make more handlers
+    333            return 0;
+   \                     ??ZDNwkMgr_event_loop_15:
+   \   00018F   7A00         MOV       R2,#0x0
+   \   000191   7B00         MOV       R3,#0x0
+   \                     ??ZDNwkMgr_event_loop_17:
+   \   000193   7F06         MOV       R7,#0x6
+   \   000195   02....       LJMP      ?BANKED_LEAVE_XDATA
+    334          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   7B00         MOV       R3,#0x0
+   \   000002                REQUIRE ??Subroutine17_0
+   \   000002                ; // Fall through to label ??Subroutine17_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine17_0:
+   \   000000   90....       MOV       DPTR,#ZDNwkMgr_TaskID
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F9           MOV       R1,A
+   \   000005   12....       LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine19_0:
+   \   000000   E8           MOV       A,R0
+   \   000001   F0           MOVX      @DPTR,A
+   \   000002   A3           INC       DPTR
+   \   000003   E9           MOV       A,R1
+   \   000004   F0           MOVX      @DPTR,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   FC           MOV       R4,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   FD           MOV       R5,A
+   \   000005   7A..         MOV       R2,#ZDNwkMgr_MgmtNwkUpdateNotifyAddr & 0xff
+   \   000007   7B..         MOV       R3,#(ZDNwkMgr_MgmtNwkUpdateNotifyAddr >> 8) & 0xff
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   A3           INC       DPTR
+   \   000001   A3           INC       DPTR
+   \   000002                REQUIRE ??Subroutine20_0
+   \   000002                ; // Fall through to label ??Subroutine20_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine20_0:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F9           MOV       R1,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   90....       MOV       DPTR,#_NIB + 107
+   \   000003   E4           CLR       A
+   \   000004   F0           MOVX      @DPTR,A
+   \   000005   A3           INC       DPTR
+   \   000006   F0           MOVX      @DPTR,A
+   \   000007                ; Setup parameters for call to function nwkTransmissionFailures
+   \   000007                ; Setup parameters for call to function nwkTransmissionFailures
+   \   000007   7901         MOV       R1,#0x1
+   \   000009   12....       LCALL     `??nwkTransmissionFailures::?relay`; Banked call to: nwkTransmissionFailures
+   \   00000C   22           RET
+    335          
+    336          /*********************************************************************
+    337           * @fn      ZDNwkMgr_ProcessMsgCBs
+    338           *
+    339           * @brief   Process the incoming messages.
+    340           *
+    341           * @param   msgPtr - message to process
+    342           *
+    343           * @return  TRUE if message to be freed. FALSE otherwise.
+    344           */
+    345          static void ZDNwkMgr_ProcessMsgCBs( zdoIncomingMsg_t *inMsg )
+    346          {
+    347            switch ( inMsg->clusterID )
+    348            {   
+    349              case Mgmt_NWK_Update_req:
+    350                ZDNwkMgr_ProcessMgmtNwkUpdateReq( inMsg );
+    351                break;    
+    352          #if defined ( NWK_MANAGER )  
+    353              case Mgmt_NWK_Update_notify:
+    354                ZDNwkMgr_ProcessMgmtNwkUpdateNotify( inMsg );
+    355                break;
+    356          #endif // NWK_MANAGER
+    357              case Server_Discovery_rsp:
+    358                ZDNwkMgr_ProcessServerDiscRsp( inMsg );
+    359                break;
+    360                
+    361              default:
+    362                // Unknown message
+    363                break;
+    364            }
+    365          }
+    366          
+    367          /*********************************************************************
+    368           * Frequency Agility Routines
+    369           */
+    370          #if defined ( NWK_MANAGER )
+    371          /*********************************************************************
+    372           * @fn          ZDNwkMgr_ProcessMgmtNwkUpdateNotify
+    373           *
+    374           * @brief       This function processes the incoming Management
+    375           *              Network Update notify.
+    376           *
+    377           * @param       pUpdateNotify - notify message
+    378           *
+    379           * @return      TRUE if message to be freed. FALSE otherwise.
+    380           */
+    381          static void ZDNwkMgr_ProcessMgmtNwkUpdateNotify( zdoIncomingMsg_t *inMsg )
+    382          {
+    383            if ( zgNwkMgrMode == ZDNWKMGR_ENABLE )
+    384            {
+    385              ZDO_MgmtNwkUpdateNotify_t *pNotify = ZDO_ParseMgmtNwkUpdateNotify( inMsg ); 
+    386              if ( pNotify )
+    387              {
+    388                ZDNwkMgr_CheckForChannelChange( pNotify );
+    389          
+    390                osal_mem_free( pNotify );
+    391              }
+    392            }
+    393          }
+    394          
+    395          /*********************************************************************
+    396           * @fn          ZDNwkMgr_CheckForChannelChange
+    397           *
+    398           * @brief       This function processes the incoming Management Network
+    399           *              Update notify and starts an Update Request if a channel
+    400           *              change is needed.
+    401           *
+    402           * @param       pUpdateNotify - notify message
+    403           *
+    404           * @return      none
+    405           */
+    406          static void ZDNwkMgr_CheckForChannelChange( ZDO_MgmtNwkUpdateNotify_t *pNotify )
+    407          {
+    408            uint8  i;
+    409            uint16 failureRate;
+    410            uint8  lowestEnergyIndex;
+    411            uint8  lowestEnergyValue = 0xFF;
+    412                
+    413            // If any device has more than 50% transmission failures, a channel
+    414            // change should be considered
+    415            failureRate = ( pNotify->transmissionFailures * 100 ) / pNotify->totalTransmissions;
+    416            if ( failureRate < ZDNWKMGR_CC_TX_FAILURE )
+    417            {
+    418          #if defined ( LCD_SUPPORTED )
+    419              HalLcdWriteString( (char*)NwkMgrStr_1, HAL_LCD_LINE_1 );
+    420              HalLcdWriteStringValueValue( ": ", failureRate, 10, ZDNWKMGR_CC_TX_FAILURE, 10, HAL_LCD_LINE_2 );
+    421          #endif
+    422              return;
+    423            }
+    424          
+    425            // If the current failure rate is higher than the last failure rate,
+    426            // a channel change should be considered
+    427            if ( failureRate < ZDNwkMgr_LastChannelFailureRate )
+    428            {
+    429          #if defined ( LCD_SUPPORTED )
+    430              HalLcdWriteString( (char*)NwkMgrStr_2, HAL_LCD_LINE_1 );
+    431              HalLcdWriteStringValueValue( ": ", failureRate, 10, 
+    432                                           ZDNwkMgr_LastChannelFailureRate, 10, HAL_LCD_LINE_2 );
+    433          #endif
+    434              return;
+    435            }
+    436            
+    437            // Select a single channel based on the Mgmt_NWK_Update_notify based on
+    438            // the lowest energy. This is the proposed new channel. 
+    439            for ( i = 0; i < pNotify->listCount; i++ )
+    440            {
+    441              if ( pNotify->energyValues[i] < lowestEnergyValue )
+    442              {
+    443                lowestEnergyIndex = i;
+    444                lowestEnergyValue = pNotify->energyValues[i];
+    445              }
+    446            }
+    447                
+    448            // If this new channel does not have an energy level below an acceptable
+    449            // threshold, a channel change should not be done.
+    450            if ( lowestEnergyValue > ZDNWKMGR_ACCEPTABLE_ENERGY_LEVEL )
+    451            {
+    452          #if defined ( LCD_SUPPORTED )
+    453              HalLcdWriteString( (char*)NwkMgrStr_3, HAL_LCD_LINE_1 );
+    454              HalLcdWriteStringValueValue( ": ", lowestEnergyValue, 10, 
+    455                                           ZDNWKMGR_ACCEPTABLE_ENERGY_LEVEL, 10, HAL_LCD_LINE_2 );
+    456          #endif
+    457              return;
+    458            }
+    459          
+    460            // Channel change should be done -- find out the new active channel
+    461            for ( i = 0; i < ED_SCAN_MAXCHANNELS; i++ )
+    462            {
+    463              if ( ( (uint32)1 << i ) & pNotify->scannedChannels )
+    464              {
+    465                if ( lowestEnergyIndex == 0 )
+    466                  break;
+    467                lowestEnergyIndex--;
+    468              }
+    469            }
+    470            
+    471            if ( ( _NIB.nwkLogicalChannel != i ) && ( ZDNwkMgr_UpdateRequestTimer == 0 ) )
+    472            {
+    473              uint32 channelMask;
+    474              zAddrType_t dstAddr;
+    475              
+    476              // The new channel
+    477              ZDNwkMgr_NewChannel = i;
+    478                  
+    479              // Prior to changing channels, the network manager should store the 
+    480              // energy scan value as the last energy scan value and the failure 
+    481              // rate from the existing channel as the last failure rate.  These 
+    482              // values are useful to allow comparison of the failure rate and energy
+    483              // level on the previous channel to evaluate if the network is causing
+    484              // its own interference.
+    485              ZDNwkMgr_LastChannelEnergy = lowestEnergyValue;
+    486              ZDNwkMgr_LastChannelFailureRate = failureRate;
+    487                 
+    488              // The network manager should broadcast a Mgmt_NWK_Update_req notifying
+    489              // devices of the new channel.  The broadcast shall be to all routers 
+    490              // and coordinator.
+    491              dstAddr.addrMode = AddrBroadcast;
+    492              dstAddr.addr.shortAddr = NWK_BROADCAST_SHORTADDR_DEVRXON;
+    493              channelMask = (uint32)1 << i;
+    494                  
+    495              // Increment the nwkUpdateId parameter and set the updateID in the beacon
+    496              NLME_SetUpdateID(_NIB.nwkUpdateId + 1); 
+    497              
+    498              ZDP_MgmtNwkUpdateReq( &dstAddr, channelMask, 0xfe, 0, _NIB.nwkUpdateId, 0 );
+    499                  
+    500              // The network manager shall set a timer based on the value of 
+    501              // apsChannelTimer upon issue of a Mgmt_NWK_Update_req that changes 
+    502              // channels and shall not issue another such command until this 
+    503              // timer expires.  
+    504              ZDNwkMgr_UpdateRequestTimer = ZDNWKMGR_UPDATE_REQUEST_TIMER;
+    505              osal_start_timerEx( ZDNwkMgr_TaskID, ZDNWKMGR_UPDATE_REQUEST_EVT, ONE_MINUTE );
+    506                            
+    507              // Upon receipt of a Mgmt_NWK_Update_req with a change of channels, 
+    508              // the local network manager shall set a timer equal to the 
+    509              // nwkNetworkBroadcastDeliveryTime and shall switch channels upon 
+    510              // expiration of this timer.  NOTE: since we won't recevied our own
+    511              // broadcasted Update Request, we start the channel change timer here.  
+    512              osal_start_timerEx( ZDNwkMgr_TaskID, ZDNWKMGR_CHANNEL_CHANGE_EVT, 
+    513                                  ZDNWKMGR_BCAST_DELIVERY_TIME );
+    514            }
+    515          }
+    516          #endif  // NWK_MANAGER
+    517          
+    518          /*********************************************************************
+    519           * @fn          ZDNwkMgr_ProcessMgmtNwkUpdateReq
+    520           *
+    521           * @brief       This function processes the incoming Management
+    522           *              Network Update request and starts the request (if needed).
+    523           *
+    524           * @param       Request message
+    525           *
+    526           * @return      none
+    527           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    528          static void ZDNwkMgr_ProcessMgmtNwkUpdateReq( zdoIncomingMsg_t *inMsg )
+   \                     ZDNwkMgr_ProcessMgmtNwkUpdateReq:
+    529          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 9
+   \   000005   74F7         MOV       A,#-0x9
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   EA           MOV       A,R2
+   \   00000B   FE           MOV       R6,A
+   \   00000C   EB           MOV       A,R3
+   \   00000D   FF           MOV       R7,A
+    530            ZDO_MgmtNwkUpdateReq_t Req;
+    531            
+    532            ZDO_ParseMgmtNwkUpdateReq( inMsg, &Req );
+   \   00000E                ; Setup parameters for call to function ZDO_ParseMgmtNwkUpdateReq
+   \   00000E   AC..         MOV       R4,?XSP + 0
+   \   000010   AD..         MOV       R5,?XSP + 1
+   \   000012   12....       LCALL     `??ZDO_ParseMgmtNwkUpdateReq::?relay`; Banked call to: ZDO_ParseMgmtNwkUpdateReq
+    533             
+    534            if ( Req.scanDuration <= 0x05 )
+   \   000015   7404         MOV       A,#0x4
+   \   000017   12....       LCALL     ?XSTACK_DISP0_8
+   \   00001A   E0           MOVX      A,@DPTR
+   \   00001B   C3           CLR       C
+   \   00001C   9406         SUBB      A,#0x6
+   \   00001E   505A         JNC       ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_0
+    535            {
+    536              // Request is to scan over channelMask. The result will be reported by Confirm   
+    537              if ( ( !inMsg->wasBroadcast )                     && 
+    538                   ( Req.scanCount >  ZDNWKMGR_MIN_SCAN_COUNT ) && 
+    539                   ( Req.scanCount <= ZDNWKMGR_MAX_SCAN_COUNT ) )
+   \   000020   12....       LCALL     ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   000023   6003         JZ        $+5
+   \   000025   02....       LJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1 & 0xFFFF
+   \   000028   7405         MOV       A,#0x5
+   \   00002A   12....       LCALL     ?XSTACK_DISP0_8
+   \   00002D   E0           MOVX      A,@DPTR
+   \   00002E   7003         JNZ       $+5
+   \   000030   02....       LJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1 & 0xFFFF
+   \   000033   C3           CLR       C
+   \   000034   9406         SUBB      A,#0x6
+   \   000036   4003         JC        $+5
+   \   000038   02....       LJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1 & 0xFFFF
+    540              {
+    541                if ( NLME_EDScanRequest( Req.channelMask, Req.scanDuration ) == ZSuccess )
+   \   00003B                ; Setup parameters for call to function NLME_EDScanRequest
+   \   00003B   7404         MOV       A,#0x4
+   \   00003D   12....       LCALL     ?XSTACK_DISP0_8
+   \   000040   E0           MOVX      A,@DPTR
+   \   000041   F9           MOV       R1,A
+   \   000042   85..82       MOV       DPL,?XSP + 0
+   \   000045   85..83       MOV       DPH,?XSP + 1
+   \   000048   12....       LCALL     ?XLOAD_R2345
+   \   00004B   12....       LCALL     `??NLME_EDScanRequest::?relay`; Banked call to: NLME_EDScanRequest
+   \   00004E   E9           MOV       A,R1
+   \   00004F   6003         JZ        $+5
+   \   000051   02....       LJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1 & 0xFFFF
+    542                {
+    543                  // Save off the information to be used for the notify
+    544                  ZDNwkMgr_MgmtNwkUpdateNotifyTransSeq            = inMsg->TransSeq;
+   \   000054   12....       LCALL     ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   000057   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateNotifyTransSeq
+   \   00005A   12....       LCALL     ?Subroutine3 & 0xFFFF
+    545                  ZDNwkMgr_MgmtNwkUpdateNotifyAddr.addr.shortAddr = inMsg->srcAddr.addr.shortAddr;
+   \                     ??CrossCallReturnLabel_0:
+   \   00005D   12....       LCALL     ??Subroutine18_0 & 0xFFFF
+    546                  
+    547                  Req.scanCount--;
+   \                     ??CrossCallReturnLabel_29:
+   \   000060   7405         MOV       A,#0x5
+   \   000062   12....       LCALL     ?XSTACK_DISP0_8
+   \   000065   E0           MOVX      A,@DPTR
+   \   000066   14           DEC       A
+   \   000067   F0           MOVX      @DPTR,A
+    548                  
+    549                  // Save off scan info for the subsequent scans
+    550                  ZDNwkMgr_MgmtNwkUpdateReq = Req;
+   \   000068   85..82       MOV       DPL,?XSP + 0
+   \   00006B   85..83       MOV       DPH,?XSP + 1
+   \   00006E   7C..         MOV       R4,#ZDNwkMgr_MgmtNwkUpdateReq & 0xff
+   \   000070   7D..         MOV       R5,#(ZDNwkMgr_MgmtNwkUpdateReq >> 8) & 0xff
+   \   000072   7409         MOV       A,#0x9
+   \   000074   12....       LCALL     ?MOVE_LONG8_XDATA_XDATA
+   \   000077   02....       LJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1 & 0xFFFF
+    551                }
+    552              }
+    553            }
+    554            else if ( Req.scanDuration == 0xFE )
+   \                     ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_0:
+   \   00007A   E0           MOVX      A,@DPTR
+   \   00007B   64FE         XRL       A,#0xfe
+   \   00007D   7059         JNZ       ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_2
+    555            {
+    556              // Request is to change Channel. The command provide a new active
+    557              // channel as a single channel in the channelMask.
+    558              if ( Req.nwkUpdateId > _NIB.nwkUpdateId )
+   \   00007F   7406         MOV       A,#0x6
+   \   000081   12....       LCALL     ?XSTACK_DISP0_8
+   \   000084   12....       LCALL     ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   000087   4003         JC        $+5
+   \   000089   02....       LJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1 & 0xFFFF
+    559              {
+    560                uint8 i;
+    561                
+    562                // Set update ID in the Beacon
+    563                NLME_SetUpdateID(Req.nwkUpdateId); 
+   \   00008C                ; Setup parameters for call to function NLME_SetUpdateID
+   \   00008C   7406         MOV       A,#0x6
+   \   00008E   12....       LCALL     ?XSTACK_DISP0_8
+   \   000091   E0           MOVX      A,@DPTR
+   \   000092   F9           MOV       R1,A
+   \   000093   12....       LCALL     `??NLME_SetUpdateID::?relay`; Banked call to: NLME_SetUpdateID
+    564                
+    565                // Find out the new active channel
+    566                for ( i = 0; i < ED_SCAN_MAXCHANNELS; i++ )
+   \   000096   7900         MOV       R1,#0x0
+    567                {
+    568                  if ( ( (uint32)1 << i ) & Req.channelMask )
+   \                     ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_3:
+   \   000098   85..82       MOV       DPL,?XSP + 0
+   \   00009B   85..83       MOV       DPH,?XSP + 1
+   \   00009E   78..         MOV       R0,#?V0
+   \   0000A0   12....       LCALL     ?L_MOV_X
+   \   0000A3   E9           MOV       A,R1
+   \   0000A4   78..         MOV       R0,#?V0
+   \   0000A6   12....       LCALL     ?UL_SHR
+   \   0000A9   E5..         MOV       A,?V0
+   \   0000AB   A2E0         MOV       C,0xE0 /* A   */.0
+   \   0000AD   4007         JC        ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_4
+    569                  {
+    570                    break;
+    571                  }
+    572                }
+   \   0000AF   09           INC       R1
+   \   0000B0   E9           MOV       A,R1
+   \   0000B1   C3           CLR       C
+   \   0000B2   941B         SUBB      A,#0x1b
+   \   0000B4   40E2         JC        ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_3
+    573          
+    574                if ( _NIB.nwkLogicalChannel != i )
+   \                     ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_4:
+   \   0000B6   90....       MOV       DPTR,#_NIB + 22
+   \   0000B9   E0           MOVX      A,@DPTR
+   \   0000BA   69           XRL       A,R1
+   \   0000BB   7003         JNZ       $+5
+   \   0000BD   02....       LJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1 & 0xFFFF
+    575                {
+    576                  ZDNwkMgr_NewChannel = i;
+   \   0000C0   E9           MOV       A,R1
+   \   0000C1   90....       MOV       DPTR,#ZDNwkMgr_NewChannel
+   \   0000C4   F0           MOVX      @DPTR,A
+    577                    
+    578                  // Upon receipt of a Mgmt_NWK_Update_req with a change of channels, 
+    579                  // the local network manager shall set a timer equal to the 
+    580                  // nwkNetworkBroadcastDeliveryTime and shall switch channels upon 
+    581                  // expiration of this timer.  Each node shall also increment the 
+    582                  // nwkUpdateId parameter and also reset the total transmit count 
+    583                  // and the transmit failure counters.  
+    584                  osal_start_timerEx( ZDNwkMgr_TaskID, ZDNWKMGR_CHANNEL_CHANGE_EVT, 
+    585                                      ZDNWKMGR_BCAST_DELIVERY_TIME );
+   \   0000C5                ; Setup parameters for call to function osal_start_timerEx
+   \   0000C5   90....       MOV       DPTR,#_NIB + 7
+   \   0000C8   E0           MOVX      A,@DPTR
+   \   0000C9   75F064       MOV       B,#0x64
+   \   0000CC   A4           MUL       AB
+   \   0000CD   FC           MOV       R4,A
+   \   0000CE   ADF0         MOV       R5,B
+   \   0000D0   7A01         MOV       R2,#0x1
+   \   0000D2   12....       LCALL     ?Subroutine7 & 0xFFFF
+    586                }
+    587              }
+    588            }
+   \                     ??CrossCallReturnLabel_23:
+   \   0000D5   02....       LJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1 & 0xFFFF
+    589            else if ( Req.scanDuration == 0xFF )
+   \                     ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_2:
+   \   0000D8   E0           MOVX      A,@DPTR
+   \   0000D9   F4           CPL       A
+   \   0000DA   7057         JNZ       ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_5
+    590            {
+    591              // Request is to change apsChannelMask and nwkManagerAddr
+    592              if ( Req.nwkUpdateId > _NIB.nwkUpdateId )
+   \   0000DC   7406         MOV       A,#0x6
+   \   0000DE   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000E1   12....       LCALL     ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   0000E4   4003         JC        $+5
+   \   0000E6   02....       LJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1 & 0xFFFF
+    593              {
+    594                NLME_SetUpdateID(Req.nwkUpdateId); // Set the updateID in the beacon
+   \   0000E9                ; Setup parameters for call to function NLME_SetUpdateID
+   \   0000E9   7406         MOV       A,#0x6
+   \   0000EB   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000EE   E0           MOVX      A,@DPTR
+   \   0000EF   F9           MOV       R1,A
+   \   0000F0   12....       LCALL     `??NLME_SetUpdateID::?relay`; Banked call to: NLME_SetUpdateID
+    595                 
+    596                if ( ( Req.channelMask != 0 ) && ( _NIB.channelList != Req.channelMask ) )
+   \   0000F3   85..82       MOV       DPL,?XSP + 0
+   \   0000F6   85..83       MOV       DPH,?XSP + 1
+   \   0000F9   12....       LCALL     ?XLOAD_R0123
+   \   0000FC   E8           MOV       A,R0
+   \   0000FD   49           ORL       A,R1
+   \   0000FE   4A           ORL       A,R2
+   \   0000FF   4B           ORL       A,R3
+   \   000100   6027         JZ        ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_6
+   \   000102   85..82       MOV       DPL,?XSP + 0
+   \   000105   85..83       MOV       DPH,?XSP + 1
+   \   000108   78..         MOV       R0,#?V0
+   \   00010A   12....       LCALL     ?L_MOV_X
+   \   00010D   90....       MOV       DPTR,#_NIB + 36
+   \   000110   78..         MOV       R0,#?V0
+   \   000112   12....       LCALL     ?L_EQ_X
+   \   000115   6012         JZ        ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_6
+    597                {
+    598                  _NIB.channelList = Req.channelMask;
+   \   000117   85..82       MOV       DPL,?XSP + 0
+   \   00011A   85..83       MOV       DPH,?XSP + 1
+   \   00011D   12....       LCALL     ?XLOAD_R0123
+   \   000120   90....       MOV       DPTR,#_NIB + 36
+   \   000123   12....       LCALL     ?XSTORE_R0123
+    599                
+    600                  // Our Channel List has been changed -- notify to save info into NV
+    601                  ZDApp_NwkStateUpdateCB();
+   \   000126                ; Setup parameters for call to function ZDApp_NwkStateUpdateCB
+   \   000126   12....       LCALL     `??ZDApp_NwkStateUpdateCB::?relay`; Banked call to: ZDApp_NwkStateUpdateCB
+    602                }
+    603              
+    604                ZDNwkMgr_SetNwkManagerAddr( Req.nwkManagerAddr );
+   \                     ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_6:
+   \   000129                ; Setup parameters for call to function ZDNwkMgr_SetNwkManagerAddr
+   \   000129   7407         MOV       A,#0x7
+   \   00012B   12....       LCALL     ?XSTACK_DISP0_8
+   \   00012E   12....       LCALL     ?Subroutine11 & 0xFFFF
+    605              }
+    606            }
+   \                     ??CrossCallReturnLabel_10:
+   \   000131   8047         SJMP      ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1
+    607            else // 0x06-0xFD
+    608            {
+    609              // Request is invalid
+    610              if ( !inMsg->wasBroadcast )
+   \                     ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_5:
+   \   000133   12....       LCALL     ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   000136   7042         JNZ       ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1
+    611              {
+    612                ZDNwkMgr_MgmtNwkUpdateNotifyAddr.addr.shortAddr = inMsg->srcAddr.addr.shortAddr;
+   \   000138   8E82         MOV       DPL,R6
+   \   00013A   8F83         MOV       DPH,R7
+   \   00013C   A3           INC       DPTR
+   \   00013D   A3           INC       DPTR
+   \   00013E   12....       LCALL     ?Subroutine5 & 0xFFFF
+    613                ZDP_MgmtNwkUpdateNotify( inMsg->TransSeq, &ZDNwkMgr_MgmtNwkUpdateNotifyAddr,
+    614                                         ZDP_INVALID_REQTYPE, 0, 0, 0, 0, NULL, AF_TX_OPTIONS_NONE, false );
+   \                     ??CrossCallReturnLabel_30:
+   \   000141                ; Setup parameters for call to function ZDP_MgmtNwkUpdateNotify
+   \   000141   75..00       MOV       ?V0,#0x0
+   \   000144   78..         MOV       R0,#?V0
+   \   000146   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000149   78..         MOV       R0,#?V0
+   \   00014B   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00014E   E4           CLR       A
+   \   00014F   F5..         MOV       ?V1,A
+   \   000151   78..         MOV       R0,#?V0
+   \   000153   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000156   78..         MOV       R0,#?V0
+   \   000158   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00015B   78..         MOV       R0,#?V0
+   \   00015D   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000160   90....       MOV       DPTR,#__Constant_0
+   \   000163   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   000166   7D00         MOV       R5,#0x0
+   \   000168   7C80         MOV       R4,#-0x80
+   \   00016A   7A..         MOV       R2,#ZDNwkMgr_MgmtNwkUpdateNotifyAddr & 0xff
+   \   00016C   7B..         MOV       R3,#(ZDNwkMgr_MgmtNwkUpdateNotifyAddr >> 8) & 0xff
+   \   00016E   12....       LCALL     ?Subroutine15 & 0xFFFF
+    615              }
+    616            }
+   \                     ??CrossCallReturnLabel_19:
+   \   000171   F9           MOV       R1,A
+   \   000172   12....       LCALL     `??ZDP_MgmtNwkUpdateNotify::?relay`; Banked call to: ZDP_MgmtNwkUpdateNotify
+   \   000175   740C         MOV       A,#0xc
+   \   000177   12....       LCALL     ?DEALLOC_XSTACK8
+    617          }
+   \                     ??ZDNwkMgr_ProcessMgmtNwkUpdateReq_1:
+   \   00017A   7409         MOV       A,#0x9
+   \   00017C   12....       LCALL     ?DEALLOC_XSTACK8
+   \   00017F   02....       LJMP      ?Subroutine1 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   EE           MOV       A,R6
+   \   000001   240F         ADD       A,#0xf
+   \   000003   F582         MOV       DPL,A
+   \   000005   E4           CLR       A
+   \   000006   3F           ADDC      A,R7
+   \   000007   F583         MOV       DPH,A
+   \   000009   E0           MOVX      A,@DPTR
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   EE           MOV       A,R6
+   \   000001   240B         ADD       A,#0xb
+   \   000003   F582         MOV       DPL,A
+   \   000005   E4           CLR       A
+   \   000006   3F           ADDC      A,R7
+   \   000007   F583         MOV       DPH,A
+   \   000009   E0           MOVX      A,@DPTR
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   90....       MOV       DPTR,#_NIB + 109
+   \   000005   E0           MOVX      A,@DPTR
+   \   000006   C3           CLR       C
+   \   000007   98           SUBB      A,R0
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F9           MOV       R1,A
+   \   000005                REQUIRE ??Subroutine18_0
+   \   000005                ; // Fall through to label ??Subroutine18_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine18_0:
+   \   000000   90....       MOV       DPTR,#ZDNwkMgr_MgmtNwkUpdateNotifyAddr
+   \   000003                REQUIRE ??Subroutine19_0
+   \   000003                ; // Fall through to label ??Subroutine19_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   FA           MOV       R2,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   FB           MOV       R3,A
+   \   000005   12....       LCALL     `??ZDNwkMgr_SetNwkManagerAddr::?relay`; Banked call to: ZDNwkMgr_SetNwkManagerAddr
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001   8E82         MOV       DPL,R6
+   \   000003   8F83         MOV       DPH,R7
+   \   000005   A3           INC       DPTR
+   \   000006   A3           INC       DPTR
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   F8           MOV       R0,A
+   \   000009   A3           INC       DPTR
+   \   00000A   E0           MOVX      A,@DPTR
+   \   00000B   F9           MOV       R1,A
+   \   00000C   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F04         MOV       R7,#0x4
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+    618          
+    619          /*********************************************************************
+    620           * @fn      ZDNwkMgr_ProcessServerDiscRsp
+    621           *
+    622           * @brief   Process the incoming System Server Discovery Response
+    623           *
+    624           * @param   pRsp - Structure containing Server Discovery response
+    625           *
+    626           * @return  none
+    627           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    628          void ZDNwkMgr_ProcessServerDiscRsp( zdoIncomingMsg_t *inMsg )
+   \                     ZDNwkMgr_ProcessServerDiscRsp:
+    629          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 3
+   \   000005   74FD         MOV       A,#-0x3
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   EA           MOV       A,R2
+   \   00000B   FE           MOV       R6,A
+   \   00000C   EB           MOV       A,R3
+   \   00000D   FF           MOV       R7,A
+    630            ZDO_ServerDiscRsp_t Rsp;
+    631            
+    632            ZDO_ParseServerDiscRsp( inMsg, &Rsp );
+   \   00000E                ; Setup parameters for call to function ZDO_ParseServerDiscRsp
+   \   00000E   AC..         MOV       R4,?XSP + 0
+   \   000010   AD..         MOV       R5,?XSP + 1
+   \   000012   12....       LCALL     `??ZDO_ParseServerDiscRsp::?relay`; Banked call to: ZDO_ParseServerDiscRsp
+    633            
+    634            if ( Rsp.status == ZSuccess )
+   \   000015   85..82       MOV       DPL,?XSP + 0
+   \   000018   85..83       MOV       DPH,?XSP + 1
+   \   00001B   E0           MOVX      A,@DPTR
+   \   00001C   7013         JNZ       ??CrossCallReturnLabel_11
+    635            {
+    636              // Is the Network Manager bit set in the response?
+    637              if ( Rsp.serverMask & NETWORK_MANAGER )
+   \   00001E   7401         MOV       A,#0x1
+   \   000020   12....       LCALL     ?XSTACK_DISP0_8
+   \   000023   E0           MOVX      A,@DPTR
+   \   000024   5440         ANL       A,#0x40
+   \   000026   6009         JZ        ??CrossCallReturnLabel_11
+    638              {
+    639                // Set the Remote Device's NWK Address as the Network Manager Address
+    640                ZDNwkMgr_SetNwkManagerAddr( inMsg->srcAddr.addr.shortAddr );
+   \   000028                ; Setup parameters for call to function ZDNwkMgr_SetNwkManagerAddr
+   \   000028   8E82         MOV       DPL,R6
+   \   00002A   8F83         MOV       DPH,R7
+   \   00002C   A3           INC       DPTR
+   \   00002D   A3           INC       DPTR
+   \   00002E   12....       LCALL     ?Subroutine11 & 0xFFFF
+    641              }
+    642            }
+    643          }
+   \                     ??CrossCallReturnLabel_11:
+   \   000031   7403         MOV       A,#0x3
+   \   000033   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000036   02....       LJMP      ?Subroutine0 & 0xFFFF
+    644          
+    645          /*********************************************************************
+    646           * @fn          ZDNwkMgr_ProcessChannelInterference
+    647           *
+    648           * @brief       This function processes the incoming Channel Interference
+    649           *              detection message and sends out a notify (if needed).
+    650           *
+    651           * @param       pChannelInterference - interference message
+    652           *
+    653           * @return      none
+    654           */
+    655          static void ZDNwkMgr_ProcessChannelInterference( ZDNwkMgr_ChanInterference_t *pChanInterference )
+    656          {
+    657            // To avoid a device with communication problems from constantly 
+    658            // sending reports to the network manager, the device should not 
+    659            // send a Mgmt_NWK_Update_notify more than 4 times per hour.
+    660            if ( ZDNwkMgr_NumUpdateNotifySent < 4 )
+    661            {
+    662              // Conduct an energy scan on all channels.
+    663              if ( NLME_EDScanRequest( MAX_CHANNELS_24GHZ, _NIB.scanDuration ) == ZSuccess )
+    664              {
+    665                // Save the counters for the Update Notify message to be sent
+    666                ZDNwkMgr_TotalTransmissions = pChanInterference->totalTransmissions;
+    667                ZDNwkMgr_TxFailures = pChanInterference->txFailures;
+    668          
+    669                // Mark scan as channel inetrference check
+    670                ZDNwkMgr_MgmtNwkUpdateReq.scanCount = 0xFF;
+    671              }
+    672            }
+    673          }
+    674          
+    675          /*********************************************************************
+    676           * @fn          ZDNwkMgr_ProcessEDScanConfirm
+    677           *
+    678           * @brief       This function processes the incoming ED Scan Confirm
+    679           *              message and sends out a notify (if needed).
+    680           *
+    681           * @param       pEDScanConfirm - SD Scan Confirmation message
+    682           *
+    683           * @return      none
+    684           */
+    685          static void ZDNwkMgr_ProcessEDScanConfirm( ZDNwkMgr_EDScanConfirm_t *pEDScanConfirm )
+    686          { 
+    687            if ( ZDNwkMgr_MgmtNwkUpdateReq.scanCount == 0xFF )
+    688            {
+    689              // Confirm to scan all channels for channel interference check
+    690              ZDNwkMgr_CheckForChannelInterference( pEDScanConfirm ); 
+    691              
+    692              ZDNwkMgr_MgmtNwkUpdateReq.scanCount = 0;
+    693            }
+    694            else
+    695            {
+    696              // Confirm to the requested scan
+    697              uint16 txFailures = nwkTransmissionFailures( FALSE );
+    698              
+    699              ZDNwkMgr_BuildAndSendUpdateNotify( ZDNwkMgr_MgmtNwkUpdateNotifyTransSeq,
+    700                                                 &ZDNwkMgr_MgmtNwkUpdateNotifyAddr, 
+    701                                                 _NIB.nwkTotalTransmissions, txFailures, 
+    702                                                 pEDScanConfirm, AF_TX_OPTIONS_NONE );
+    703              // More scans needed?
+    704              if ( ZDNwkMgr_MgmtNwkUpdateReq.scanCount > 0 )
+    705              {
+    706                osal_start_timerEx( ZDNwkMgr_TaskID, ZDNWKMGR_SCAN_REQUEST_EVT, 50 );
+    707              }
+    708            }
+    709          }
+    710          
+    711          /*********************************************************************
+    712           * @fn          ZDNwkMgr_CheckForChannelInterference
+    713           *
+    714           * @brief       This function processes the incoming ED Scan Confirm
+    715           *              message and sends out an Update Notify (if needed).
+    716           *
+    717           * @param       pEDScanConfirm - SD Scan Confirmation message
+    718           *
+    719           * @return      none
+    720           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    721          static void ZDNwkMgr_CheckForChannelInterference( ZDNwkMgr_EDScanConfirm_t *pEDScanConfirm )
+   \                     ZDNwkMgr_CheckForChannelInterference:
+    722          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+    723            uint8 i;
+    724            uint8 channelEnergy = 0;
+   \   000005   7900         MOV       R1,#0x0
+    725            uint8 energyIncreased = FALSE;
+    726              
+    727            // Get the current channel energy
+    728            if ( ( (uint32)1 << _NIB.nwkLogicalChannel ) & pEDScanConfirm->scannedChannels )
+   \   000007   8A82         MOV       DPL,R2
+   \   000009   8B83         MOV       DPH,R3
+   \   00000B   A3           INC       DPTR
+   \   00000C   A3           INC       DPTR
+   \   00000D   A3           INC       DPTR
+   \   00000E   78..         MOV       R0,#?V0
+   \   000010   12....       LCALL     ?L_MOV_X
+   \   000013   90....       MOV       DPTR,#_NIB + 22
+   \   000016   E0           MOVX      A,@DPTR
+   \   000017   78..         MOV       R0,#?V0
+   \   000019   12....       LCALL     ?UL_SHR
+   \   00001C   E5..         MOV       A,?V0
+   \   00001E   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000020   5008         JNC       ??ZDNwkMgr_CheckForChannelInterference_0
+    729            {
+    730              channelEnergy = pEDScanConfirm->energyDetectList[_NIB.nwkLogicalChannel];
+   \   000022   E0           MOVX      A,@DPTR
+   \   000023   F8           MOV       R0,A
+   \   000024   EA           MOV       A,R2
+   \   000025   28           ADD       A,R0
+   \   000026   12....       LCALL     ?Subroutine13 & 0xFFFF
+    731            }
+   \                     ??CrossCallReturnLabel_14:
+   \   000029   F9           MOV       R1,A
+    732              
+    733            // If this energy scan does not indicate higher energy on the current 
+    734            // channel then other channels, no action is taken. The device should 
+    735            // continue to operate as normal and the message counters are not reset.
+    736            for ( i = 0; i < ED_SCAN_MAXCHANNELS; i++ )
+   \                     ??ZDNwkMgr_CheckForChannelInterference_0:
+   \   00002A   7C00         MOV       R4,#0x0
+    737            {
+    738              if ( ( ( (uint32)1 << i ) & pEDScanConfirm->scannedChannels ) && 
+    739                   ( channelEnergy > pEDScanConfirm->energyDetectList[i] ) )
+   \                     ??ZDNwkMgr_CheckForChannelInterference_1:
+   \   00002C   8A82         MOV       DPL,R2
+   \   00002E   8B83         MOV       DPH,R3
+   \   000030   A3           INC       DPTR
+   \   000031   A3           INC       DPTR
+   \   000032   A3           INC       DPTR
+   \   000033   78..         MOV       R0,#?V0
+   \   000035   12....       LCALL     ?L_MOV_X
+   \   000038   EC           MOV       A,R4
+   \   000039   78..         MOV       R0,#?V0
+   \   00003B   12....       LCALL     ?UL_SHR
+   \   00003E   E5..         MOV       A,?V0
+   \   000040   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000042   5060         JNC       ??ZDNwkMgr_CheckForChannelInterference_2
+   \   000044   EC           MOV       A,R4
+   \   000045   FE           MOV       R6,A
+   \   000046   EA           MOV       A,R2
+   \   000047   2E           ADD       A,R6
+   \   000048   12....       LCALL     ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   00004B   C3           CLR       C
+   \   00004C   99           SUBB      A,R1
+   \   00004D   5055         JNC       ??ZDNwkMgr_CheckForChannelInterference_2
+    740              {
+    741                energyIncreased = TRUE;
+    742                break;
+    743              }
+    744            }
+    745              
+    746            // If the energy scan does indicate increased energy on the channel
+    747            // in use, a Mgmt_NWK_Update_notify should be sent to the Network 
+    748            // Manager to indicate interference is present.
+    749            if ( energyIncreased )
+    750            {
+    751              // Send a Management Network Update notify to the Network Manager
+    752              ZDNwkMgr_MgmtNwkUpdateNotifyAddr.addr.shortAddr = _NIB.nwkManagerAddr;
+   \   00004F   90....       MOV       DPTR,#_NIB + 105
+   \   000052   12....       LCALL     ?Subroutine5 & 0xFFFF
+    753              ZDNwkMgr_BuildAndSendUpdateNotify( 0, &ZDNwkMgr_MgmtNwkUpdateNotifyAddr, 
+    754                                                 ZDNwkMgr_TotalTransmissions, ZDNwkMgr_TxFailures,
+    755                                                 pEDScanConfirm, AF_MSG_ACK_REQUEST );
+   \                     ??CrossCallReturnLabel_31:
+   \   000055                ; Setup parameters for call to function ZDNwkMgr_BuildAndSendUpdateNotify
+   \   000055   75..10       MOV       ?V0,#0x10
+   \   000058   78..         MOV       R0,#?V0
+   \   00005A   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00005D   8A..         MOV       ?V0,R2
+   \   00005F   8B..         MOV       ?V1,R3
+   \   000061   78..         MOV       R0,#?V0
+   \   000063   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000066   90....       MOV       DPTR,#ZDNwkMgr_TxFailures
+   \   000069   12....       LCALL     ?PUSH_XSTACK8_X_TWO
+   \   00006C   90....       MOV       DPTR,#ZDNwkMgr_TotalTransmissions
+   \   00006F   12....       LCALL     ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   000072   7900         MOV       R1,#0x0
+   \   000074   12....       LCALL     `??ZDNwkMgr_BuildAndSendUpdateNotify::?relay`; Banked call to: ZDNwkMgr_BuildAndSendUpdateNotify
+   \   000077   7405         MOV       A,#0x5
+   \   000079   12....       LCALL     ?DEALLOC_XSTACK8
+    756              ZDNwkMgr_WaitingForNotifyConfirm = TRUE; // Confirm will clear the counters
+   \   00007C   90....       MOV       DPTR,#ZDNwkMgr_WaitingForNotifyConfirm
+   \   00007F   7401         MOV       A,#0x1
+   \   000081   F0           MOVX      @DPTR,A
+    757                
+    758              if ( ZDNwkMgr_NumUpdateNotifySent == 0 )
+   \   000082   90....       MOV       DPTR,#ZDNwkMgr_NumUpdateNotifySent
+   \   000085   E0           MOVX      A,@DPTR
+   \   000086   7013         JNZ       ??CrossCallReturnLabel_24
+    759              {
+    760                // First notify message sent within this hour. Start the Update Notify timer.
+    761                ZDNwkMgr_UpdateNotifyTimer = ZDNWKMGR_UPDATE_NOTIFY_TIMER;
+   \   000088   90....       MOV       DPTR,#ZDNwkMgr_UpdateNotifyTimer
+   \   00008B   743C         MOV       A,#0x3c
+   \   00008D   F0           MOVX      @DPTR,A
+   \   00008E   A3           INC       DPTR
+   \   00008F   E4           CLR       A
+   \   000090   F0           MOVX      @DPTR,A
+    762                osal_start_timerEx( ZDNwkMgr_TaskID, ZDNWKMGR_UPDATE_NOTIFY_EVT, ONE_MINUTE );
+   \   000091                ; Setup parameters for call to function osal_start_timerEx
+   \   000091   7C60         MOV       R4,#0x60
+   \   000093   7DEA         MOV       R5,#-0x16
+   \   000095   7A02         MOV       R2,#0x2
+   \   000097   FB           MOV       R3,A
+   \   000098   12....       LCALL     ??Subroutine17_0 & 0xFFFF
+    763              }
+    764              
+    765              ZDNwkMgr_NumUpdateNotifySent++;
+   \                     ??CrossCallReturnLabel_24:
+   \   00009B   90....       MOV       DPTR,#ZDNwkMgr_NumUpdateNotifySent
+   \   00009E   E0           MOVX      A,@DPTR
+   \   00009F   04           INC       A
+   \   0000A0   F0           MOVX      @DPTR,A
+    766            }
+    767          #if defined ( LCD_SUPPORTED )
+    768            else
+    769            {
+    770              HalLcdWriteString( (char*)NwkMgrStr_4, HAL_LCD_LINE_1 );
+    771              HalLcdWriteStringValueValue( ": ", _NIB.nwkLogicalChannel, 10, channelEnergy, 10, HAL_LCD_LINE_2 );
+    772            }
+    773          #endif
+    774          }
+   \                     ??ZDNwkMgr_CheckForChannelInterference_3:
+   \   0000A1   02....       LJMP      ?Subroutine1 & 0xFFFF
+   \                     ??ZDNwkMgr_CheckForChannelInterference_2:
+   \   0000A4   0C           INC       R4
+   \   0000A5   EC           MOV       A,R4
+   \   0000A6   C3           CLR       C
+   \   0000A7   941B         SUBB      A,#0x1b
+   \   0000A9   50F6         JNC       ??ZDNwkMgr_CheckForChannelInterference_3
+   \   0000AB   02....       LJMP      ??ZDNwkMgr_CheckForChannelInterference_1 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   F582         MOV       DPL,A
+   \   000002   E4           CLR       A
+   \   000003   3B           ADDC      A,R3
+   \   000004   F583         MOV       DPH,A
+   \   000006   A3           INC       DPTR
+   \   000007   A3           INC       DPTR
+   \   000008   A3           INC       DPTR
+   \   000009   A3           INC       DPTR
+   \   00000A   A3           INC       DPTR
+   \   00000B   A3           INC       DPTR
+   \   00000C   A3           INC       DPTR
+   \   00000D   E0           MOVX      A,@DPTR
+   \   00000E   22           RET
+    775          
+    776          /*********************************************************************
+    777           * @fn          ZDNwkMgr_BuildAndSendUpdateNotify
+    778           *
+    779           * @brief       This builds and send a Mgmt_NWK_Update_notify message. This
+    780           *              function sends a unicast message.
+    781           *
+    782           * @param       TransSeq - transaction sequence number
+    783           * @param       dstAddr - destination address of the message
+    784           * @param       pEDScanConfirm - update notify info
+    785           *
+    786           * @return      afStatus_t
+    787           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    788          static void ZDNwkMgr_BuildAndSendUpdateNotify( uint8 TransSeq, zAddrType_t *dstAddr,
+   \                     ZDNwkMgr_BuildAndSendUpdateNotify:
+    789                                                         uint16 totalTransmissions, uint16 txFailures,
+    790                                                         ZDNwkMgr_EDScanConfirm_t *pEDScanConfirm,
+    791                                                         uint8 txOptions )
+    792          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV       A,#-0x2
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   85..82       MOV       DPL,?XSP + 0
+   \   00000D   85..83       MOV       DPH,?XSP + 1
+   \   000010   EA           MOV       A,R2
+   \   000011   F0           MOVX      @DPTR,A
+   \   000012   A3           INC       DPTR
+   \   000013   EB           MOV       A,R3
+   \   000014   F0           MOVX      @DPTR,A
+   \   000015   89..         MOV       ?V5,R1
+   \   000017   EC           MOV       A,R4
+   \   000018   FE           MOV       R6,A
+   \   000019   ED           MOV       A,R5
+   \   00001A   FF           MOV       R7,A
+    793            uint8 i;
+    794            uint8 listCount = 0;
+   \   00001B   75..00       MOV       ?V4,#0x0
+    795            uint8 *energyValues = NULL;
+   \   00001E   75..00       MOV       ?V6,#0x0
+   \   000021   75..00       MOV       ?V7,#0x0
+    796            
+    797            // Count number of energy detects
+    798            for ( i = 0; i < ED_SCAN_MAXCHANNELS; i++ )
+   \   000024   7900         MOV       R1,#0x0
+    799            {
+    800              if ( ( (uint32)1 << i ) & pEDScanConfirm->scannedChannels )
+   \                     ??ZDNwkMgr_BuildAndSendUpdateNotify_0:
+   \   000026   7414         MOV       A,#0x14
+   \   000028   12....       LCALL     ?XSTACK_DISP0_8
+   \   00002B   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   00002E   12....       LCALL     ?L_MOV_X
+   \   000031   E9           MOV       A,R1
+   \   000032   78..         MOV       R0,#?V0
+   \   000034   12....       LCALL     ?UL_SHR
+   \   000037   E5..         MOV       A,?V0
+   \   000039   A2E0         MOV       C,0xE0 /* A   */.0
+   \   00003B   5002         JNC       ??ZDNwkMgr_BuildAndSendUpdateNotify_1
+    801                listCount++;
+   \   00003D   05..         INC       ?V4
+    802            }
+   \                     ??ZDNwkMgr_BuildAndSendUpdateNotify_1:
+   \   00003F   09           INC       R1
+   \   000040   E9           MOV       A,R1
+   \   000041   C3           CLR       C
+   \   000042   941B         SUBB      A,#0x1b
+   \   000044   40E0         JC        ??ZDNwkMgr_BuildAndSendUpdateNotify_0
+    803            
+    804            if ( listCount > 0 )
+   \   000046   E5..         MOV       A,?V4
+   \   000048   605B         JZ        ??ZDNwkMgr_BuildAndSendUpdateNotify_2
+    805            {
+    806              energyValues = (uint8 *)osal_mem_alloc( listCount );
+   \   00004A                ; Setup parameters for call to function osal_mem_alloc
+   \   00004A   FA           MOV       R2,A
+   \   00004B   7B00         MOV       R3,#0x0
+   \   00004D   12....       LCALL     `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+   \   000050   8A..         MOV       ?V6,R2
+   \   000052   8B..         MOV       ?V7,R3
+    807              if ( energyValues )
+   \   000054   EA           MOV       A,R2
+   \   000055   4B           ORL       A,R3
+   \   000056   604D         JZ        ??ZDNwkMgr_BuildAndSendUpdateNotify_2
+    808              {
+    809                uint8 j = 0;
+   \   000058   7A00         MOV       R2,#0x0
+    810          
+    811                for ( i = 0; i < ED_SCAN_MAXCHANNELS; i++ )
+   \   00005A   7900         MOV       R1,#0x0
+    812                {
+    813                  if ( ( (uint32)1 << i ) & pEDScanConfirm->scannedChannels )
+   \                     ??ZDNwkMgr_BuildAndSendUpdateNotify_3:
+   \   00005C   7414         MOV       A,#0x14
+   \   00005E   12....       LCALL     ?XSTACK_DISP0_8
+   \   000061   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000064   12....       LCALL     ?L_MOV_X
+   \   000067   E9           MOV       A,R1
+   \   000068   78..         MOV       R0,#?V0
+   \   00006A   12....       LCALL     ?UL_SHR
+   \   00006D   E5..         MOV       A,?V0
+   \   00006F   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000071   502B         JNC       ??ZDNwkMgr_BuildAndSendUpdateNotify_4
+    814                    energyValues[j++] = pEDScanConfirm->energyDetectList[i];
+   \   000073   E9           MOV       A,R1
+   \   000074   FC           MOV       R4,A
+   \   000075   7414         MOV       A,#0x14
+   \   000077   12....       LCALL     ?XSTACK_DISP0_8
+   \   00007A   E0           MOVX      A,@DPTR
+   \   00007B   2C           ADD       A,R4
+   \   00007C   F8           MOV       R0,A
+   \   00007D   A3           INC       DPTR
+   \   00007E   E0           MOVX      A,@DPTR
+   \   00007F   3400         ADDC      A,#0x0
+   \   000081   8882         MOV       DPL,R0
+   \   000083   F583         MOV       DPH,A
+   \   000085   A3           INC       DPTR
+   \   000086   A3           INC       DPTR
+   \   000087   A3           INC       DPTR
+   \   000088   A3           INC       DPTR
+   \   000089   A3           INC       DPTR
+   \   00008A   A3           INC       DPTR
+   \   00008B   A3           INC       DPTR
+   \   00008C   E0           MOVX      A,@DPTR
+   \   00008D   C0E0         PUSH      A
+   \   00008F   EA           MOV       A,R2
+   \   000090   FC           MOV       R4,A
+   \   000091   E5..         MOV       A,?V6
+   \   000093   2C           ADD       A,R4
+   \   000094   F582         MOV       DPL,A
+   \   000096   E4           CLR       A
+   \   000097   3B           ADDC      A,R3
+   \   000098   F583         MOV       DPH,A
+   \   00009A   D0E0         POP       A
+   \   00009C   F0           MOVX      @DPTR,A
+   \   00009D   0A           INC       R2
+    815                }
+   \                     ??ZDNwkMgr_BuildAndSendUpdateNotify_4:
+   \   00009E   09           INC       R1
+   \   00009F   E9           MOV       A,R1
+   \   0000A0   C3           CLR       C
+   \   0000A1   941B         SUBB      A,#0x1b
+   \   0000A3   40B7         JC        ??ZDNwkMgr_BuildAndSendUpdateNotify_3
+    816              }
+    817            }
+    818              
+    819            // Send a Management Network Update notify back
+    820            ZDP_MgmtNwkUpdateNotify( TransSeq, dstAddr, pEDScanConfirm->status, 
+    821                                     pEDScanConfirm->scannedChannels,
+    822                                     totalTransmissions, txFailures,
+    823                                     listCount, energyValues, txOptions, false );
+   \                     ??ZDNwkMgr_BuildAndSendUpdateNotify_2:
+   \   0000A5                ; Setup parameters for call to function ZDP_MgmtNwkUpdateNotify
+   \   0000A5   75..00       MOV       ?V0,#0x0
+   \   0000A8   78..         MOV       R0,#?V0
+   \   0000AA   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   0000AD   7417         MOV       A,#0x17
+   \   0000AF   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000B2   E0           MOVX      A,@DPTR
+   \   0000B3   F5..         MOV       ?V0,A
+   \   0000B5   78..         MOV       R0,#?V0
+   \   0000B7   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   0000BA   78..         MOV       R0,#?V6
+   \   0000BC   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000BF   7416         MOV       A,#0x16
+   \   0000C1   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000C4   12....       LCALL     ?PUSH_XSTACK8_X_TWO
+   \   0000C7   8E..         MOV       ?V0,R6
+   \   0000C9   8F..         MOV       ?V1,R7
+   \   0000CB   78..         MOV       R0,#?V0
+   \   0000CD   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000D0   741C         MOV       A,#0x1c
+   \   0000D2   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000D5   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   0000D8   A3           INC       DPTR
+   \   0000D9   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   0000DC   AD..         MOV       R5,?V4
+   \   0000DE   7420         MOV       A,#0x20
+   \   0000E0   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000E3   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   0000E6   E0           MOVX      A,@DPTR
+   \   0000E7   FC           MOV       R4,A
+   \   0000E8   740C         MOV       A,#0xc
+   \   0000EA   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000ED   E0           MOVX      A,@DPTR
+   \   0000EE   FA           MOV       R2,A
+   \   0000EF   A3           INC       DPTR
+   \   0000F0   E0           MOVX      A,@DPTR
+   \   0000F1   FB           MOV       R3,A
+   \   0000F2   A9..         MOV       R1,?V5
+   \   0000F4   12....       LCALL     `??ZDP_MgmtNwkUpdateNotify::?relay`; Banked call to: ZDP_MgmtNwkUpdateNotify
+   \   0000F7   740C         MOV       A,#0xc
+   \   0000F9   12....       LCALL     ?DEALLOC_XSTACK8
+    824            if ( energyValues )
+   \   0000FC   E5..         MOV       A,?V6
+   \   0000FE   45..         ORL       A,?V7
+   \   000100   6007         JZ        ??ZDNwkMgr_BuildAndSendUpdateNotify_5
+    825              osal_mem_free( energyValues );
+   \   000102                ; Setup parameters for call to function osal_mem_free
+   \   000102   AA..         MOV       R2,?V6
+   \   000104   AB..         MOV       R3,?V7
+   \   000106   12....       LCALL     `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+    826          }
+   \                     ??ZDNwkMgr_BuildAndSendUpdateNotify_5:
+   \   000109   7402         MOV       A,#0x2
+   \   00010B   12....       LCALL     ?DEALLOC_XSTACK8
+   \   00010E   7F08         MOV       R7,#0x8
+   \   000110   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   12....       LCALL     ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine16:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F583         MOV       DPH,A
+   \   000006   8882         MOV       DPL,R0
+   \   000008   A3           INC       DPTR
+   \   000009   A3           INC       DPTR
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL     ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000003   A3           INC       DPTR
+   \   000004   78..         MOV       R0,#?V0
+   \   000006   22           RET
+    827          
+    828          #if defined ( NWK_MANAGER )
+    829          /*********************************************************************
+    830           * @fn      NwkMgr_SetNwkManager
+    831           *
+    832           * @brief   Set the local device as the Network Manager
+    833           *
+    834           * @param   none
+    835           *
+    836           * @return  none
+    837           */
+    838          void NwkMgr_SetNwkManager( void )
+    839          {
+    840            if ( zgNwkMgrMode == ZDNWKMGR_ENABLE )
+    841            {
+    842              // We're the Network Manager. Set our address as the Network Manager Address
+    843              ZDNwkMgr_SetNwkManagerAddr( _NIB.nwkDevAddress );
+    844              
+    845              // Set the Network Manager bit of the Server Mask
+    846              ZDO_Config_Node_Descriptor.ServerMask |= NETWORK_MANAGER;
+    847            }
+    848          }
+    849          #endif // NWK_MANAGER
+    850          
+    851          /*********************************************************************
+    852           * @fn      ZDApp_SetNwkManagerAddr()
+    853           *
+    854           * @brief   Sets the nwkManagerAddr in NIB.
+    855           *
+    856           * @param   nwkManagerAddr
+    857           *
+    858           * @return  none
+    859           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    860          void ZDNwkMgr_SetNwkManagerAddr( uint16 nwkManagerAddr )
+   \                     ZDNwkMgr_SetNwkManagerAddr:
+    861          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    862            if ( _NIB.nwkManagerAddr != nwkManagerAddr )
+   \   000004   90....       MOV       DPTR,#_NIB + 105
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   6A           XRL       A,R2
+   \   000009   7003         JNZ       ??ZDNwkMgr_SetNwkManagerAddr_0
+   \   00000B   A3           INC       DPTR
+   \   00000C   E0           MOVX      A,@DPTR
+   \   00000D   6B           XRL       A,R3
+   \                     ??ZDNwkMgr_SetNwkManagerAddr_0:
+   \   00000E   600B         JZ        ??ZDNwkMgr_SetNwkManagerAddr_1
+    863            {
+    864              // Update the Network Manager Address
+    865              _NIB.nwkManagerAddr = nwkManagerAddr;
+   \   000010   90....       MOV       DPTR,#_NIB + 105
+   \   000013   EA           MOV       A,R2
+   \   000014   F0           MOVX      @DPTR,A
+   \   000015   A3           INC       DPTR
+   \   000016   EB           MOV       A,R3
+   \   000017   F0           MOVX      @DPTR,A
+    866            
+    867              // Our Network Manger Address has been changed -- notify to save info into NV
+    868              ZDApp_NwkStateUpdateCB();
+   \   000018                ; Setup parameters for call to function ZDApp_NwkStateUpdateCB
+   \   000018   12....       LCALL     `??ZDApp_NwkStateUpdateCB::?relay`; Banked call to: ZDApp_NwkStateUpdateCB
+    869            }
+    870          }
+   \                     ??ZDNwkMgr_SetNwkManagerAddr_1:
+   \   00001B                REQUIRE ?Subroutine2
+   \   00001B                ; // Fall through to label ?Subroutine2
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   D083         POP       DPH
+   \   000002   D082         POP       DPL
+   \   000004   02....       LJMP      ?BRET
+    871          
+    872          /*********************************************************************
+    873           * @fn          ZDNwkMgr_ReportChannelInterference
+    874           *
+    875           * @brief       This function builds a Channel Interference detection
+    876           *              message and then forwards it to the Network Manager.
+    877           *
+    878           * @param       chanInterference
+    879           *
+    880           * @return      none
+    881           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    882          void ZDNwkMgr_ReportChannelInterference(  NLME_ChanInterference_t *chanInterference  )
+   \                     ZDNwkMgr_ReportChannelInterference:
+    883          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV       A,#-0xa
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV       A,R2
+   \   000006   FE           MOV       R6,A
+   \   000007   EB           MOV       A,R3
+   \   000008   FF           MOV       R7,A
+    884            ZDNwkMgr_ChanInterference_t *pChanInterference;
+    885          
+    886            // Send Channel Interference message to the Network Manager task
+    887            pChanInterference = (ZDNwkMgr_ChanInterference_t *)osal_msg_allocate( sizeof( ZDNwkMgr_ChanInterference_t ) );
+   \   000009                ; Setup parameters for call to function osal_msg_allocate
+   \   000009   7A06         MOV       R2,#0x6
+   \   00000B   7B00         MOV       R3,#0x0
+   \   00000D   12....       LCALL     `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
+    888            if ( pChanInterference )
+   \   000010   EA           MOV       A,R2
+   \   000011   4B           ORL       A,R3
+   \   000012   602E         JZ        ??ZDNwkMgr_ReportChannelInterference_0
+    889            {
+    890              pChanInterference->hdr.event = NM_CHANNEL_INTERFERE;
+   \   000014   8A82         MOV       DPL,R2
+   \   000016   8B83         MOV       DPH,R3
+   \   000018   7431         MOV       A,#0x31
+   \   00001A   F0           MOVX      @DPTR,A
+    891                
+    892              // Build the structure
+    893              pChanInterference->totalTransmissions = chanInterference->totalTransmissions;
+   \   00001B   8E82         MOV       DPL,R6
+   \   00001D   8F83         MOV       DPH,R7
+   \   00001F   12....       LCALL     ??Subroutine20_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_33:
+   \   000022   8A82         MOV       DPL,R2
+   \   000024   8B83         MOV       DPH,R3
+   \   000026   A3           INC       DPTR
+   \   000027   A3           INC       DPTR
+   \   000028   E8           MOV       A,R0
+   \   000029   F0           MOVX      @DPTR,A
+   \   00002A   A3           INC       DPTR
+   \   00002B   E9           MOV       A,R1
+   \   00002C   12....       LCALL     ?Subroutine3 & 0xFFFF
+    894              pChanInterference->txFailures = chanInterference->txFailures;
+   \                     ??CrossCallReturnLabel_1:
+   \   00002F   8A82         MOV       DPL,R2
+   \   000031   8B83         MOV       DPH,R3
+   \   000033   A3           INC       DPTR
+   \   000034   A3           INC       DPTR
+   \   000035   A3           INC       DPTR
+   \   000036   A3           INC       DPTR
+   \   000037   12....       LCALL     ??Subroutine19_0 & 0xFFFF
+    895                        
+    896              osal_msg_send( ZDNwkMgr_TaskID, (uint8 *)pChanInterference );
+   \                     ??CrossCallReturnLabel_28:
+   \   00003A                ; Setup parameters for call to function osal_msg_send
+   \   00003A   90....       MOV       DPTR,#ZDNwkMgr_TaskID
+   \   00003D   E0           MOVX      A,@DPTR
+   \   00003E   F9           MOV       R1,A
+   \   00003F   12....       LCALL     `??osal_msg_send::?relay`; Banked call to: osal_msg_send
+    897            }
+    898          }
+   \                     ??ZDNwkMgr_ReportChannelInterference_0:
+   \   000042   7F02         MOV       R7,#0x2
+   \   000044   02....       LJMP      ?BANKED_LEAVE_XDATA
+    899          
+    900          /*********************************************************************
+    901           * @fn          ZDNwkMgr_EDScanConfirmCB
+    902           *
+    903           * @brief       Handle Energy Scan confirm callback
+    904           *
+    905           * @param       scannedChannels  - scanned channels
+    906           * @param       energyDetectList - measured energy for channels
+    907           *
+    908           * @return      none
+    909           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    910          void ZDNwkMgr_EDScanConfirmCB( NLME_EDScanConfirm_t *EDScanConfirm )
+   \                     ZDNwkMgr_EDScanConfirmCB:
+    911          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV       ?V0,R2
+   \   000007   8B..         MOV       ?V1,R3
+    912            ZDNwkMgr_EDScanConfirm_t *pEDScanConfirm;
+    913          
+    914            // Send ED Confirm to the Network Manager task
+    915            pEDScanConfirm = (ZDNwkMgr_EDScanConfirm_t *)osal_msg_allocate( sizeof( ZDNwkMgr_EDScanConfirm_t ) );
+   \   000009                ; Setup parameters for call to function osal_msg_allocate
+   \   000009   7A22         MOV       R2,#0x22
+   \   00000B   7B00         MOV       R3,#0x0
+   \   00000D   12....       LCALL     `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
+   \   000010   8A..         MOV       ?V2,R2
+   \   000012   8B..         MOV       ?V3,R3
+   \   000014   AE..         MOV       R6,?V2
+   \   000016   AF..         MOV       R7,?V3
+    916            if ( pEDScanConfirm )
+   \   000018   EA           MOV       A,R2
+   \   000019   4F           ORL       A,R7
+   \   00001A   6062         JZ        ??ZDNwkMgr_EDScanConfirmCB_0
+    917            {
+    918              pEDScanConfirm->hdr.event = NM_ED_SCAN_CONFIRM;
+   \   00001C   8A82         MOV       DPL,R2
+   \   00001E   8B83         MOV       DPH,R3
+   \   000020   7432         MOV       A,#0x32
+   \   000022   F0           MOVX      @DPTR,A
+    919                
+    920              // Build the structure
+    921              pEDScanConfirm->status = EDScanConfirm->status;
+   \   000023   85..82       MOV       DPL,?V0
+   \   000026   85..83       MOV       DPH,?V1
+   \   000029   E0           MOVX      A,@DPTR
+   \   00002A   8A82         MOV       DPL,R2
+   \   00002C   8B83         MOV       DPH,R3
+   \   00002E   A3           INC       DPTR
+   \   00002F   A3           INC       DPTR
+   \   000030   F0           MOVX      @DPTR,A
+    922              pEDScanConfirm->scannedChannels = EDScanConfirm->scannedChannels;
+   \   000031   85..82       MOV       DPL,?V0
+   \   000034   85..83       MOV       DPH,?V1
+   \   000037   A3           INC       DPTR
+   \   000038   12....       LCALL     ?XLOAD_R0123
+   \   00003B   8E82         MOV       DPL,R6
+   \   00003D   8F83         MOV       DPH,R7
+   \   00003F   A3           INC       DPTR
+   \   000040   A3           INC       DPTR
+   \   000041   A3           INC       DPTR
+   \   000042   12....       LCALL     ?XSTORE_R0123
+    923              osal_memcpy( pEDScanConfirm->energyDetectList, EDScanConfirm->energyDetectList, ED_SCAN_MAXCHANNELS );
+   \   000045                ; Setup parameters for call to function osal_memcpy
+   \   000045   85..82       MOV       DPL,?V0
+   \   000048   85..83       MOV       DPH,?V1
+   \   00004B   A3           INC       DPTR
+   \   00004C   A3           INC       DPTR
+   \   00004D   A3           INC       DPTR
+   \   00004E   A3           INC       DPTR
+   \   00004F   A3           INC       DPTR
+   \   000050   E0           MOVX      A,@DPTR
+   \   000051   F5..         MOV       ?V0,A
+   \   000053   A3           INC       DPTR
+   \   000054   E0           MOVX      A,@DPTR
+   \   000055   F5..         MOV       ?V1,A
+   \   000057   75..00       MOV       ?V2,#0x0
+   \   00005A   78..         MOV       R0,#?V0
+   \   00005C   12....       LCALL     ?PUSH_XSTACK_I_THREE
+   \   00005F   7C1B         MOV       R4,#0x1b
+   \   000061   7D00         MOV       R5,#0x0
+   \   000063   EE           MOV       A,R6
+   \   000064   2407         ADD       A,#0x7
+   \   000066   FA           MOV       R2,A
+   \   000067   E4           CLR       A
+   \   000068   3F           ADDC      A,R7
+   \   000069   FB           MOV       R3,A
+   \   00006A   12....       LCALL     `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   00006D   7403         MOV       A,#0x3
+   \   00006F   12....       LCALL     ?DEALLOC_XSTACK8
+    924                
+    925              osal_msg_send( ZDNwkMgr_TaskID, (uint8 *)pEDScanConfirm );
+   \   000072                ; Setup parameters for call to function osal_msg_send
+   \   000072   EE           MOV       A,R6
+   \   000073   FA           MOV       R2,A
+   \   000074   EF           MOV       A,R7
+   \   000075   FB           MOV       R3,A
+   \   000076   90....       MOV       DPTR,#ZDNwkMgr_TaskID
+   \   000079   E0           MOVX      A,@DPTR
+   \   00007A   F9           MOV       R1,A
+   \   00007B   12....       LCALL     `??osal_msg_send::?relay`; Banked call to: osal_msg_send
+    926            }
+    927          }
+   \                     ??ZDNwkMgr_EDScanConfirmCB_0:
+   \   00007E                REQUIRE ?Subroutine1
+   \   00007E                ; // Fall through to label ?Subroutine1
+    928          
+    929          /*********************************************************************
+    930           * @fn      ZDNwkMgr_ProcessDataConfirm
+    931           *
+    932           * @brief   Process received Confirmation for Mgmt NWK Update Notify message
+    933           *
+    934           * @param   none
+    935           *
+    936           * @return  none
+    937           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    938          void ZDNwkMgr_ProcessDataConfirm( afDataConfirm_t *afDataConfirm )
+   \                     ZDNwkMgr_ProcessDataConfirm:
+    939          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    940            if (   ZDNwkMgr_WaitingForNotifyConfirm  && 
+    941                 ( afDataConfirm->transID == 0 )     && 
+    942                 ( afDataConfirm->hdr.status == ZSuccess ) )
+   \   000004   90....       MOV       DPTR,#ZDNwkMgr_WaitingForNotifyConfirm
+   \   000007   E0           MOVX      A,@DPTR
+   \   000008   601A         JZ        ??ZDNwkMgr_ProcessDataConfirm_0
+   \   00000A   8A82         MOV       DPL,R2
+   \   00000C   8B83         MOV       DPH,R3
+   \   00000E   A3           INC       DPTR
+   \   00000F   A3           INC       DPTR
+   \   000010   A3           INC       DPTR
+   \   000011   E0           MOVX      A,@DPTR
+   \   000012   7010         JNZ       ??ZDNwkMgr_ProcessDataConfirm_0
+   \   000014   8A82         MOV       DPL,R2
+   \   000016   8B83         MOV       DPH,R3
+   \   000018   A3           INC       DPTR
+   \   000019   E0           MOVX      A,@DPTR
+   \   00001A   7008         JNZ       ??ZDNwkMgr_ProcessDataConfirm_0
+    943            {
+    944              // The Mgmt NWK Update Notify was sent as an APS Unicast with  
+    945              // acknowledgement and once the acknowledgment is received the 
+    946              // total transmit and transmit failure counters are reset to zero.  
+    947              _NIB.nwkTotalTransmissions = 0;
+   \   00001C   12....       LCALL     ?Subroutine4 & 0xFFFF
+    948              nwkTransmissionFailures( TRUE );
+    949              
+    950              ZDNwkMgr_WaitingForNotifyConfirm = FALSE;
+   \                     ??CrossCallReturnLabel_3:
+   \   00001F   90....       MOV       DPTR,#ZDNwkMgr_WaitingForNotifyConfirm
+   \   000022   E4           CLR       A
+   \   000023   F0           MOVX      @DPTR,A
+    951            }
+    952          }
+   \                     ??ZDNwkMgr_ProcessDataConfirm_0:
+   \   000024   02....       LJMP      ?Subroutine2 & 0xFFFF
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_7fff800:
+   \   000000   00F8FF07     DD 134215680
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_0:
+   \   000000   00000000     DD 0
+    953          
+    954          /*********************************************************************
+    955           * PAN ID Conflict Routines
+    956           */
+    957          #if defined ( NWK_MANAGER )
+    958          /*********************************************************************
+    959           * @fn          ZDNwkMgr_NetworkReportCB
+    960           *
+    961           * @brief       Handle the Network Report Command
+    962           *
+    963           * @param       srcAddr     - Source Address of the message.
+    964           * @param       status      - ZSuccess.
+    965           * @param       serverMask  - Bit mask of services matching the req serverMask.
+    966           * @param       securityUse -
+    967           *
+    968           * @return      none
+    969           */
+    970          void ZDNwkMgr_NetworkReportCB( ZDNwkMgr_NetworkReport_t *pReport )
+    971          { 
+    972            // Send Network Report message to the Network Manager task
+    973            osal_msg_send( ZDNwkMgr_TaskID, (uint8 *)pReport );
+    974          }
+    975          
+    976          /*********************************************************************
+    977           * @fn          ZDNwkMgr_NetworkUpdateCB
+    978           *
+    979           * @brief       Handle the Network Update Command
+    980           *
+    981           * @param       srcAddr     - Source Address of the message.
+    982           * @param       status      - ZSuccess.
+    983           * @param       serverMask  - Bit mask of services matching the req serverMask.
+    984           * @param       securityUse -
+    985           *
+    986           * @return      none
+    987           */
+    988          void ZDNwkMgr_NetworkUpdateCB( ZDNwkMgr_NetworkUpdate_t *pUpdate )
+    989          {
+    990            // Send Network Update message to the Network Manager task
+    991            osal_msg_send( ZDNwkMgr_TaskID, (uint8 *)pUpdate );
+    992          }
+    993          
+    994          /*********************************************************************
+    995           * @fn      ZDNwkMgr_ProcessNetworkReport
+    996           *
+    997           * @brief   Process the incoming Network Report message
+    998           *
+    999           * @param   pNetworkReport - Structure containing Network Report message
+   1000           *
+   1001           * @return  none
+   1002           */
+   1003          void ZDNwkMgr_ProcessNetworkReport( ZDNwkMgr_NetworkReport_t *pNetworkReport )
+   1004          {
+   1005            uint8 i;
+   1006            uint16 newPID;
+   1007            uint8 unique = TRUE;
+   1008          
+   1009            if ( pNetworkReport->reportType == NWKREPORT_PANID_CONFLICT )
+   1010            {
+   1011              if ( ZDNwkMgr_PanIdUpdateInProgress == FALSE )
+   1012              {
+   1013                do
+   1014                {
+   1015                  // select a new PAN ID
+   1016                  newPID = (uint16)osal_rand();
+   1017                
+   1018                  // Make sure that the chosen PAN ID is not already in use in the
+   1019                  // local neighborhood and also not contained within the Report 
+   1020                  // Information field of the Network Report Command frame
+   1021                  for ( i = 0; i < pNetworkReport->reportInfoCnt; i++ )
+   1022                  {
+   1023                    if ( pNetworkReport->panIDs[i] == newPID )
+   1024                    {
+   1025                      unique = FALSE;
+   1026                      break;
+   1027                    }
+   1028                  }
+   1029                } while ( !unique );
+   1030                   
+   1031                // Send out a Network Update command.
+   1032                NLME_SendNetworkUpdate( NWK_BROADCAST_SHORTADDR, NWKUPDATE_PANID_UPDATE,
+   1033                                        _NIB.extendedPANID, _NIB.nwkUpdateId+1, newPID );
+   1034              
+   1035                ZDNwkMgr_PanIdUpdateInProgress = TRUE;
+   1036              }
+   1037            }
+   1038          }
+   1039          
+   1040          /*********************************************************************
+   1041           * @fn      ZDNwkMgr_ProcessNetworkUpdate
+   1042           *
+   1043           * @brief   Process the incoming Network Update message
+   1044           *
+   1045           * @param   pNetworkReport - Structure containing Network Update message
+   1046           *
+   1047           * @return  none
+   1048           */
+   1049          void ZDNwkMgr_ProcessNetworkUpdate( ZDNwkMgr_NetworkUpdate_t *pNetworkUpdate )
+   1050          {
+   1051            if ( pNetworkUpdate->updateType == NWKUPDATE_PANID_UPDATE )
+   1052            { 
+   1053              // Our PAN ID has been changed -- notify to save info into NV
+   1054              ZDApp_NwkStateUpdateCB();
+   1055              
+   1056              ZDNwkMgr_PanIdUpdateInProgress = FALSE;
+   1057            }
+   1058          }
+   1059          #endif // NWK_MANAGER
+   1060          
+   1061          
+   1062          /*********************************************************************
+   1063          *********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      1     49   ZDNwkMgr_BuildAndSendUpdateNotify
+        0     30   -> ZDP_MgmtNwkUpdateNotify
+        0     18   -> osal_mem_alloc
+        0     18   -> osal_mem_free
+      0     31   ZDNwkMgr_CheckForChannelInterference
+        0     17   -> ZDNwkMgr_BuildAndSendUpdateNotify
+        0     12   -> osal_start_timerEx
+      1     15   ZDNwkMgr_EDScanConfirmCB
+        0     15   -> osal_memcpy
+        0     12   -> osal_msg_allocate
+        0     12   -> osal_msg_send
+      0      9   ZDNwkMgr_Init
+        0      9   -> ZDO_RegisterForZDOMsg
+      2      0   ZDNwkMgr_ProcessDataConfirm
+        2      0   -> nwkTransmissionFailures
+      0     47   ZDNwkMgr_ProcessMgmtNwkUpdateReq
+        0     21   -> NLME_EDScanRequest
+        0     21   -> NLME_SetUpdateID
+        0     21   -> ZDApp_NwkStateUpdateCB
+        0     21   -> ZDNwkMgr_SetNwkManagerAddr
+        0     21   -> ZDO_ParseMgmtNwkUpdateReq
+        0     33   -> ZDP_MgmtNwkUpdateNotify
+        0     21   -> osal_start_timerEx
+      0     26   ZDNwkMgr_ProcessServerDiscRsp
+        0     12   -> ZDNwkMgr_SetNwkManagerAddr
+        0     12   -> ZDO_ParseServerDiscRsp
+      0     10   ZDNwkMgr_ReportChannelInterference
+        0     10   -> osal_msg_allocate
+        0     10   -> osal_msg_send
+      2     21   ZDNwkMgr_SetNwkManagerAddr
+        2      0   -> ZDApp_NwkStateUpdateCB
+      0     19   ZDNwkMgr_event_loop
+        0     14   -> NLME_EDScanRequest
+        0     14   -> ZDApp_NwkStateUpdateCB
+        0     19   -> ZDNwkMgr_BuildAndSendUpdateNotify
+        0     14   -> ZDNwkMgr_CheckForChannelInterference
+        0     14   -> ZDNwkMgr_ProcessMgmtNwkUpdateReq
+        0     14   -> ZDNwkMgr_ProcessServerDiscRsp
+        0     14   -> ZMacSetReq
+        0     14   -> nwkTransmissionFailures
+        0     14   -> osal_msg_deallocate
+        0     14   -> osal_msg_receive
+        0     14   -> osal_start_timerEx
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       9  ??Subroutine17_0
+       3  ??Subroutine18_0
+       6  ??Subroutine19_0
+       6  ??Subroutine20_0
+       5  ?Subroutine0
+       5  ?Subroutine1
+       2  ?Subroutine10
+       9  ?Subroutine11
+       9  ?Subroutine12
+      15  ?Subroutine13
+      11  ?Subroutine14
+      11  ?Subroutine15
+      11  ?Subroutine16
+       7  ?Subroutine2
+      13  ?Subroutine3
+      13  ?Subroutine4
+       5  ?Subroutine5
+       7  ?Subroutine6
+       2  ?Subroutine7
+       4  ?Subroutine8
+      10  ?Subroutine9
+     275  ZDNwkMgr_BuildAndSendUpdateNotify
+     174  ZDNwkMgr_CheckForChannelInterference
+     126  ZDNwkMgr_EDScanConfirmCB
+      74  ZDNwkMgr_Init
+       9  ZDNwkMgr_MgmtNwkUpdateNotifyAddr
+       1  ZDNwkMgr_MgmtNwkUpdateNotifyTransSeq
+       9  ZDNwkMgr_MgmtNwkUpdateReq
+       1  ZDNwkMgr_NewChannel
+       1  ZDNwkMgr_NumUpdateNotifySent
+      39  ZDNwkMgr_ProcessDataConfirm
+     386  ZDNwkMgr_ProcessMgmtNwkUpdateReq
+      57  ZDNwkMgr_ProcessServerDiscRsp
+      71  ZDNwkMgr_ReportChannelInterference
+      27  ZDNwkMgr_SetNwkManagerAddr
+       1  ZDNwkMgr_TaskID
+       2  ZDNwkMgr_TotalTransmissions
+       2  ZDNwkMgr_TxFailures
+       2  ZDNwkMgr_UpdateNotifyTimer
+       1  ZDNwkMgr_WaitingForNotifyConfirm
+     408  ZDNwkMgr_event_loop
+       4  __Constant_0
+       4  __Constant_7fff800
+       2  pZDNwkMgr_EDScanConfirmCB
+       2  pZDNwkMgr_NetworkReportCB
+       2  pZDNwkMgr_NetworkUpdateCB
+       2  pZDNwkMgr_ProcessDataConfirm
+       2  pZDNwkMgr_ReportChannelInterference
+      60  -- Other
+
+ 
+ 1 800 bytes in segment BANKED_CODE
+    60 bytes in segment BANK_RELAYS
+     8 bytes in segment XDATA_ROM_C
+    39 bytes in segment XDATA_Z
+ 
+    60 bytes of CODE     memory
+     0 bytes of CONST    memory (+ 8 bytes shared)
+ 1 800 bytes of HUGECODE memory
+    39 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

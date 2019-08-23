@@ -11,6 +11,7 @@ import java.util.List;
 public interface RoomDao {
     //通过id查房间
     Room findById(int roomId);
+    List<Room> findEmptyRoom();
     //查所有房间
     List<Room> findAll();
     //添加房间

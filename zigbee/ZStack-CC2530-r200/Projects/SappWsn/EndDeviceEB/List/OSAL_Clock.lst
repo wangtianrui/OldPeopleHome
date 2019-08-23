@@ -1,0 +1,1383 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.30.1.6000 for 8051               23/Aug/2019  12:13:59
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\osal\common\OSAL_Clock.c
+#    Command line       =  
+#        -f C:\Users\VULCAN\AppData\Local\Temp\EWA5E4.tmp
+#        (E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\osal\common\OSAL_Clock.c
+#        -D ZIGBEEPRO -D NWK_AUTO_POLL -D ZTOOL_P1 -D xMT_TASK -D xMT_SYS_FUNC
+#        -D MT_ZDO_FUNC -D SAPP_ZSTACK -lC
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+#        -lA
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List
+#        --diag_suppress Pe001,Pa010 -o
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\Obj
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 8 -f
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wEndev.cfg
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+#        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00800000 -DZDAPP_CONFIG_PAN_ID=0x0057
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+#        -I
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+#        -Ohz --require_prototypes --no_code_motion)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\List\OSAL_Clock.lst
+#    Object file        =  
+#        E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\EndDeviceEB\Obj\OSAL_Clock.r51
+#
+###############################################################################
+
+E:\qqобтьнд╪Ч\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\osal\common\OSAL_Clock.c
+      1          /******************************************************************************
+      2            Filename:       OSAL_Clock.c
+      3            Revised:        $Date: 2011-05-18 13:44:28 -0700 (Wed, 18 May 2011) $
+      4            Revision:       $Revision: 26016 $
+      5          
+      6            Description:    OSAL Clock definition and manipulation functions.
+      7          
+      8            Copyright 2008-2011 Texas Instruments Incorporated. All rights reserved.
+      9          
+     10            IMPORTANT: Your use of this Software is limited to those specific rights
+     11            granted under the terms of a software license agreement between the user
+     12            who downloaded the software, his/her employer (which must be your employer)
+     13            and Texas Instruments Incorporated (the "License"). You may not use this
+     14            Software unless you agree to abide by the terms of the License. The License
+     15            limits your use, and you acknowledge, that the Software may not be modified,
+     16            copied or distributed unless embedded on a Texas Instruments microcontroller
+     17            or used solely and exclusively in conjunction with a Texas Instruments radio
+     18            frequency transceiver, which is integrated into your product. Other than for
+     19            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     20            works of, modify, distribute, perform, display or sell this Software and/or
+     21            its documentation for any purpose.
+     22          
+     23            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     24            PROVIDED ⌠AS IS■ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     25            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     26            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     27            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     28            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     29            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     30            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     31            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     32            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     33            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     34          
+     35            Should you have any questions regarding your right to use this Software,
+     36            contact Texas Instruments Incorporated at www.TI.com.
+     37          ******************************************************************************/
+     38          
+     39          /*********************************************************************
+     40           * INCLUDES
+     41           */
+     42          
+     43          #include "comdef.h"
+     44          #include "OnBoard.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     45          #include "OSAL.h"
+     46          #include "OSAL_Clock.h"
+     47          
+     48          /*********************************************************************
+     49           * MACROS
+     50           */
+     51          
+     52          #define	YearLength(yr)	(IsLeapYear(yr) ? 366 : 365)
+     53          
+     54          /*********************************************************************
+     55           * CONSTANTS
+     56           */
+     57          
+     58          #define	BEGYEAR  2000     //  UTC started at 00:00:00 January 1, 2000
+     59          
+     60          #define	DAY      86400UL  // 24 hours * 60 minutes * 60 seconds
+     61          
+     62          /*********************************************************************
+     63           * TYPEDEFS
+     64           */
+     65          
+     66          /*********************************************************************
+     67           * GLOBAL VARIABLES
+     68           */
+     69          
+     70          /*********************************************************************
+     71           * EXTERNAL VARIABLES
+     72           */
+     73          
+     74          /*********************************************************************
+     75           * EXTERNAL FUNCTIONS
+     76           */
+     77          extern uint32 macMcuPrecisionCount(void);
+     78          
+     79          #if (defined HAL_MCU_CC2430) || (defined HAL_MCU_CC2530) || (defined HAL_MCU_CC2533)
+     80          
+     81            /*  This function is used to divide a 31 bit dividend by a 16 bit
+     82             *  divisor and return a packed 16 bit quotient and 16 bit
+     83             *  remainder.
+     84             *
+     85             *  Note: This routine takes ~25.6us @32MHz. With C overhead, the
+     86             *        time is ~32us.
+     87             *
+     88             *  dividend - 31 bit dividend.
+     89             *  divisor - 16 bit divisor.
+     90             *
+     91             *  return - MSW divisor; LSW quotient
+     92             */
+     93            extern __near_func uint32 osalMcuDivide31By16To16( uint32 dividend, uint16 divisor );
+     94          
+     95            #define CONVERT_320US_TO_MS_ELAPSED_REMAINDER( x, y, z ) st( \
+     96                                                                         \
+     97              /* The 16 bit quotient is in MSW and */                    \
+     98              /* the 16 bit remainder is in LSW. */                      \
+     99              x = osalMcuDivide31By16To16( x, 25 );                      \
+    100                                                                         \
+    101              /* Add quotient to y */                                    \
+    102              y += (x >> 16);                                            \
+    103                                                                         \
+    104              /* Copy remainder to z */                                  \
+    105              z = (uint16)(x & 0x0FFFF);                                 \
+    106            )
+    107          
+    108          #else /* (defined HAL_MCU_CC2430) || (defined HAL_MCU_CC2530) || (defined HAL_MCU_CC2533) */
+    109          
+    110            #define CONVERT_320US_TO_MS_ELAPSED_REMAINDER( x, y, z ) st( \
+    111              y += x / 25;                                               \
+    112              z = x % 25;                                                \
+    113            )
+    114          
+    115          #endif /* (defined HAL_MCU_CC2430) || (defined HAL_MCU_CC2530) || (defined HAL_MCU_CC2533) */
+    116          
+    117          /*********************************************************************
+    118           * LOCAL VARIABLES
+    119           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    120          static uint32 previousMacTimerTick = 0;
+   \                     previousMacTimerTick:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    121          static uint16 remUsTicks = 0;
+   \                     remUsTicks:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    122          static uint16 timeMSec = 0;
+   \                     timeMSec:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    123          
+    124          // number of seconds since 0 hrs, 0 minutes, 0 seconds, on the
+    125          // 1st of January 2000 UTC
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    126          UTCTime OSAL_timeSeconds = 0;
+   \                     OSAL_timeSeconds:
+   \   000000                DS 4
+   \   000004                REQUIRE __INIT_XDATA_Z
+    127          
+    128          /*********************************************************************
+    129           * LOCAL FUNCTION PROTOTYPES
+    130           */
+    131          static uint8 monthLength( uint8 lpyr, uint8 mon );
+    132          
+    133          static void osalClockUpdate( uint16 elapsedMSec );
+    134          
+    135          /*********************************************************************
+    136           * FUNCTIONS
+    137           *********************************************************************/
+    138          
+    139          /*********************************************************************
+    140           * @fn      osalTimeUpdate
+    141           *
+    142           * @brief   Uses the free running rollover count of the MAC backoff timer;
+    143           *          this timer runs freely with a constant 320 usec interval.  The
+    144           *          count of 320-usec ticks is converted to msecs and used to update
+    145           *          the OSAL clock and Timers by invoking osalClockUpdate() and
+    146           *          osalTimerUpdate().  This function is intended to be invoked
+    147           *          from the background, not interrupt level.
+    148           *
+    149           * @param   None.
+    150           *
+    151           * @return  None.
+    152           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    153          void osalTimeUpdate( void )
+   \                     osalTimeUpdate:
+    154          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+    155            halIntState_t intState;
+    156            uint32 tmp;
+    157            uint32 ticks320us;
+    158            uint16 elapsedMSec = 0;
+    159          
+    160            HAL_ENTER_CRITICAL_SECTION(intState);
+   \   000005   AEA8         MOV       R6,0xa8+0x0
+   \   000007   C2AF         CLR       0xa8.7
+    161            // Get the free-running count of 320us timer ticks
+    162            tmp = macMcuPrecisionCount();
+   \   000009                ; Setup parameters for call to function macMcuPrecisionCount
+   \   000009   12....       LCALL     `??macMcuPrecisionCount::?relay`; Banked call to: macMcuPrecisionCount
+   \   00000C   8A..         MOV       ?V0,R2
+   \   00000E   8B..         MOV       ?V1,R3
+   \   000010   8C..         MOV       ?V2,R4
+   \   000012   8D..         MOV       ?V3,R5
+    163            HAL_EXIT_CRITICAL_SECTION(intState);
+   \   000014   EE           MOV       A,R6
+   \   000015   A2E7         MOV       C,0xE0 /* A   */.7
+   \   000017   92AF         MOV       0xa8.7,C
+    164            
+    165            if ( tmp != previousMacTimerTick )
+   \   000019   90....       MOV       DPTR,#previousMacTimerTick
+   \   00001C   78..         MOV       R0,#?V0
+   \   00001E   12....       LCALL     ?L_EQ_X
+   \   000021   7003         JNZ       $+5
+   \   000023   02....       LJMP      ??osalTimeUpdate_0 & 0xFFFF
+    166            {
+    167              // Calculate the elapsed ticks of the free-running timer.
+    168              ticks320us = tmp - previousMacTimerTick;
+   \   000026   8A..         MOV       ?V4,R2
+   \   000028   8B..         MOV       ?V5,R3
+   \   00002A   8C..         MOV       ?V6,R4
+   \   00002C   8D..         MOV       ?V7,R5
+   \   00002E   90....       MOV       DPTR,#previousMacTimerTick
+   \   000031   78..         MOV       R0,#?V4
+   \   000033   12....       LCALL     ?L_SUB_X
+    169          
+    170              // Store the MAC Timer tick count for the next time through this function.
+    171              previousMacTimerTick = tmp;
+   \   000036   90....       MOV       DPTR,#previousMacTimerTick
+   \   000039   78..         MOV       R0,#?V0
+   \   00003B   12....       LCALL     ?L_MOV_TO_X
+    172              
+    173              // update converted number with remaining ticks from loop and the
+    174              // accumulated remainder from loop
+    175              tmp = (ticks320us * 8) + remUsTicks;
+    176          
+    177              // Convert the 320 us ticks into milliseconds and a remainder
+    178              CONVERT_320US_TO_MS_ELAPSED_REMAINDER( tmp, elapsedMSec, remUsTicks );
+   \   00003E                ; Setup parameters for call to function osalMcuDivide31By16To16
+   \   00003E   75..19       MOV       ?V0,#0x19
+   \   000041   75..00       MOV       ?V1,#0x0
+   \   000044   78..         MOV       R0,#?V0
+   \   000046   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000049   7403         MOV       A,#0x3
+   \   00004B   78..         MOV       R0,#?V4
+   \   00004D   12....       LCALL     ?L_SHL
+   \   000050   90....       MOV       DPTR,#remUsTicks
+   \   000053   E0           MOVX      A,@DPTR
+   \   000054   F5..         MOV       ?V0,A
+   \   000056   A3           INC       DPTR
+   \   000057   E0           MOVX      A,@DPTR
+   \   000058   F5..         MOV       ?V1,A
+   \   00005A   E4           CLR       A
+   \   00005B   F5..         MOV       ?V2,A
+   \   00005D   F5..         MOV       ?V3,A
+   \   00005F   78..         MOV       R0,#?V4
+   \   000061   79..         MOV       R1,#?V0
+   \   000063   12....       LCALL     ?L_ADD
+   \   000066   AA..         MOV       R2,?V4
+   \   000068   AB..         MOV       R3,?V5
+   \   00006A   AC..         MOV       R4,?V6
+   \   00006C   AD..         MOV       R5,?V7
+   \   00006E   12....       LCALL     osalMcuDivide31By16To16 & 0xFFFF
+   \   000071   7402         MOV       A,#0x2
+   \   000073   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000076   90....       MOV       DPTR,#remUsTicks
+   \   000079   EA           MOV       A,R2
+   \   00007A   F0           MOVX      @DPTR,A
+   \   00007B   A3           INC       DPTR
+   \   00007C   EB           MOV       A,R3
+   \   00007D   F0           MOVX      @DPTR,A
+    179          
+    180              // Update OSAL Clock and Timers
+    181              if ( elapsedMSec )
+   \   00007E   EC           MOV       A,R4
+   \   00007F   4D           ORL       A,R5
+   \   000080   603E         JZ        ??osalTimeUpdate_0
+    182              {
+    183                osalClockUpdate( elapsedMSec );
+   \   000082   90....       MOV       DPTR,#timeMSec
+   \   000085   E0           MOVX      A,@DPTR
+   \   000086   2C           ADD       A,R4
+   \   000087   F0           MOVX      @DPTR,A
+   \   000088   A3           INC       DPTR
+   \   000089   E0           MOVX      A,@DPTR
+   \   00008A   3D           ADDC      A,R5
+   \   00008B   F0           MOVX      @DPTR,A
+   \   00008C   90....       MOV       DPTR,#timeMSec
+   \   00008F   C3           CLR       C
+   \   000090   E0           MOVX      A,@DPTR
+   \   000091   94E8         SUBB      A,#-0x18
+   \   000093   A3           INC       DPTR
+   \   000094   E0           MOVX      A,@DPTR
+   \   000095   9403         SUBB      A,#0x3
+   \   000097   4020         JC        ??osalTimeUpdate_1
+   \   000099   12....       LCALL     ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   00009C   12....       LCALL     ?US_DIV_MOD
+   \   00009F   88..         MOV       ?V0,R0
+   \   0000A1   89..         MOV       ?V1,R1
+   \   0000A3   90....       MOV       DPTR,#OSAL_timeSeconds
+   \   0000A6   78..         MOV       R0,#?V0
+   \   0000A8   12....       LCALL     ?L_ADD_TO_X
+   \   0000AB   12....       LCALL     ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   0000AE   12....       LCALL     ?US_DIV_MOD
+   \   0000B1   90....       MOV       DPTR,#timeMSec
+   \   0000B4   EA           MOV       A,R2
+   \   0000B5   F0           MOVX      @DPTR,A
+   \   0000B6   A3           INC       DPTR
+   \   0000B7   EB           MOV       A,R3
+   \   0000B8   F0           MOVX      @DPTR,A
+    184                osalTimerUpdate( elapsedMSec );
+   \                     ??osalTimeUpdate_1:
+   \   0000B9                ; Setup parameters for call to function osalTimerUpdate
+   \   0000B9   EC           MOV       A,R4
+   \   0000BA   FA           MOV       R2,A
+   \   0000BB   ED           MOV       A,R5
+   \   0000BC   FB           MOV       R3,A
+   \   0000BD   12....       LCALL     `??osalTimerUpdate::?relay`; Banked call to: osalTimerUpdate
+    185              }
+    186            }
+    187          }
+   \                     ??osalTimeUpdate_0:
+   \   0000C0   02....       LJMP      ??Subroutine19_0 & 0xFFFF
+   \   0000C3                REQUIRE _A_IEN0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine19_0:
+   \   000000   7F08         MOV       R7,#0x8
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+    188          
+    189          /*********************************************************************
+    190           * @fn      osalClockUpdate
+    191           *
+    192           * @brief   Updates the OSAL Clock time with elapsed milliseconds.
+    193           *
+    194           * @param   elapsedMSec - elapsed milliseconds
+    195           *
+    196           * @return  none
+    197           */
+    198          static void osalClockUpdate( uint16 elapsedMSec )
+    199          {
+    200            // Add elapsed milliseconds to the saved millisecond portion of time
+    201            timeMSec += elapsedMSec;
+    202          
+    203            // Roll up milliseconds to the number of seconds
+    204            if ( timeMSec >= 1000 )
+    205            {
+    206              OSAL_timeSeconds += timeMSec / 1000;
+    207              timeMSec = timeMSec % 1000;
+    208            }
+    209          }
+    210          
+    211          /*********************************************************************
+    212           * @fn      osal_setClock
+    213           *
+    214           * @brief   Set the new time.  This will only set the seconds portion
+    215           *          of time and doesn't change the factional second counter.
+    216           *
+    217           * @param   newTime - number of seconds since 0 hrs, 0 minutes,
+    218           *                    0 seconds, on the 1st of January 2000 UTC
+    219           *
+    220           * @return  none
+    221           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    222          void osal_setClock( UTCTime newTime )
+   \                     osal_setClock:
+    223          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV       ?V0,R2
+   \   000007   8B..         MOV       ?V1,R3
+   \   000009   8C..         MOV       ?V2,R4
+   \   00000B   8D..         MOV       ?V3,R5
+    224            OSAL_timeSeconds = newTime;
+   \   00000D   90....       MOV       DPTR,#OSAL_timeSeconds
+   \   000010   78..         MOV       R0,#?V0
+   \   000012   12....       LCALL     ?L_MOV_TO_X
+    225          }
+   \   000015   7F04         MOV       R7,#0x4
+   \   000017   02....       LJMP      ?BANKED_LEAVE_XDATA
+    226          
+    227          /*********************************************************************
+    228           * @fn      osal_getClock
+    229           *
+    230           * @brief   Gets the current time.  This will only return the seconds
+    231           *          portion of time and doesn't include the factional second
+    232           *          counter.
+    233           *
+    234           * @param   none
+    235           *
+    236           * @return  number of seconds since 0 hrs, 0 minutes, 0 seconds,
+    237           *          on the 1st of January 2000 UTC
+    238           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    239          UTCTime osal_getClock( void )
+   \                     osal_getClock:
+    240          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    241            return ( OSAL_timeSeconds );
+   \   000004   90....       MOV       DPTR,#OSAL_timeSeconds
+   \   000007   12....       LCALL     ?XLOAD_R2345
+   \   00000A   D083         POP       DPH
+   \   00000C   D082         POP       DPL
+   \   00000E   02....       LJMP      ?BRET
+    242          }
+    243          
+    244          /*********************************************************************
+    245           * @fn      osal_ConvertUTCTime
+    246           *
+    247           * @brief   Converts UTCTime to UTCTimeStruct
+    248           *
+    249           * @param   tm - pointer to breakdown struct
+    250           *
+    251           * @param   secTime - number of seconds since 0 hrs, 0 minutes,
+    252           *          0 seconds, on the 1st of January 2000 UTC
+    253           *
+    254           * @return  none
+    255           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    256          void osal_ConvertUTCTime( UTCTimeStruct *tm, UTCTime secTime )
+   \                     osal_ConvertUTCTime:
+    257          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 6
+   \   000005   74FA         MOV       A,#-0x6
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   85..82       MOV       DPL,?XSP + 0
+   \   00000D   85..83       MOV       DPH,?XSP + 1
+   \   000010   EA           MOV       A,R2
+   \   000011   F0           MOVX      @DPTR,A
+   \   000012   A3           INC       DPTR
+   \   000013   EB           MOV       A,R3
+   \   000014   F0           MOVX      @DPTR,A
+    258            // calculate the time less than a day - hours, minutes, seconds
+    259            {
+    260              uint32 day = secTime % DAY;
+   \   000015   7416         MOV       A,#0x16
+   \   000017   12....       LCALL     ?XSTACK_DISP0_8
+   \   00001A   78..         MOV       R0,#?V0
+   \   00001C   12....       LCALL     ?L_MOV_X
+   \   00001F   90....       MOV       DPTR,#__Constant_15180
+   \   000022   78..         MOV       R0,#?V4
+   \   000024   12....       LCALL     ?L_MOV_X
+   \   000027   78..         MOV       R0,#?V0
+   \   000029   79..         MOV       R1,#?V4
+   \   00002B   12....       LCALL     ?UL_DIV_MOD
+   \   00002E   7402         MOV       A,#0x2
+   \   000030   12....       LCALL     ?XSTACK_DISP0_8
+   \   000033   78..         MOV       R0,#?V4
+   \   000035   12....       LCALL     ?L_MOV_TO_X
+    261              tm->seconds = day % 60UL;
+   \   000038   7402         MOV       A,#0x2
+   \   00003A   12....       LCALL     ?XSTACK_DISP0_8
+   \   00003D   78..         MOV       R0,#?V4
+   \   00003F   12....       LCALL     ?L_MOV_X
+   \   000042   90....       MOV       DPTR,#__Constant_3c
+   \   000045   78..         MOV       R0,#?V0
+   \   000047   12....       LCALL     ?L_MOV_X
+   \   00004A   78..         MOV       R0,#?V4
+   \   00004C   79..         MOV       R1,#?V0
+   \   00004E   12....       LCALL     ?UL_DIV_MOD
+   \   000051   12....       LCALL     ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_29:
+   \   000054   E5..         MOV       A,?V0
+   \   000056   F0           MOVX      @DPTR,A
+    262              tm->minutes = (day % 3600UL) / 60UL;
+   \   000057   7402         MOV       A,#0x2
+   \   000059   12....       LCALL     ?XSTACK_DISP0_8
+   \   00005C   78..         MOV       R0,#?V4
+   \   00005E   12....       LCALL     ?L_MOV_X
+   \   000061   90....       MOV       DPTR,#__Constant_e10
+   \   000064   78..         MOV       R0,#?V0
+   \   000066   12....       LCALL     ?L_MOV_X
+   \   000069   78..         MOV       R0,#?V4
+   \   00006B   79..         MOV       R1,#?V0
+   \   00006D   12....       LCALL     ?UL_DIV_MOD
+   \   000070   90....       MOV       DPTR,#__Constant_3c
+   \   000073   78..         MOV       R0,#?V4
+   \   000075   12....       LCALL     ?L_MOV_X
+   \   000078   78..         MOV       R0,#?V0
+   \   00007A   79..         MOV       R1,#?V4
+   \   00007C   12....       LCALL     ?UL_DIV_MOD
+   \   00007F   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   000082   E5..         MOV       A,?V0
+   \   000084   F0           MOVX      @DPTR,A
+    263              tm->hour = day / 3600UL;
+   \   000085   7402         MOV       A,#0x2
+   \   000087   12....       LCALL     ?XSTACK_DISP0_8
+   \   00008A   78..         MOV       R0,#?V0
+   \   00008C   12....       LCALL     ?L_MOV_X
+   \   00008F   90....       MOV       DPTR,#__Constant_e10
+   \   000092   78..         MOV       R0,#?V4
+   \   000094   12....       LCALL     ?L_MOV_X
+   \   000097   78..         MOV       R0,#?V0
+   \   000099   79..         MOV       R1,#?V4
+   \   00009B   12....       LCALL     ?UL_DIV_MOD
+   \   00009E   12....       LCALL     ?Subroutine8 & 0xFFFF
+    264            }
+   \                     ??CrossCallReturnLabel_20:
+   \   0000A1   A3           INC       DPTR
+   \   0000A2   E5..         MOV       A,?V0
+   \   0000A4   F0           MOVX      @DPTR,A
+    265          
+    266            // Fill in the calendar - day, month, year
+    267            {
+    268              uint16 numDays = secTime / DAY;
+   \   0000A5   7416         MOV       A,#0x16
+   \   0000A7   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000AA   78..         MOV       R0,#?V0
+   \   0000AC   12....       LCALL     ?L_MOV_X
+   \   0000AF   90....       MOV       DPTR,#__Constant_15180
+   \   0000B2   78..         MOV       R0,#?V4
+   \   0000B4   12....       LCALL     ?L_MOV_X
+   \   0000B7   78..         MOV       R0,#?V0
+   \   0000B9   79..         MOV       R1,#?V4
+   \   0000BB   12....       LCALL     ?UL_DIV_MOD
+   \   0000BE   AE..         MOV       R6,?V0
+   \   0000C0   AF..         MOV       R7,?V1
+    269              tm->year = BEGYEAR;
+   \   0000C2   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   0000C5   A3           INC       DPTR
+   \   0000C6   74D0         MOV       A,#-0x30
+   \   0000C8   F0           MOVX      @DPTR,A
+   \   0000C9   A3           INC       DPTR
+   \   0000CA   7407         MOV       A,#0x7
+   \   0000CC   8013         SJMP      ??osal_ConvertUTCTime_0
+    270              while ( numDays >= YearLength( tm->year ) )
+    271              {
+    272                numDays -= YearLength( tm->year );
+   \                     ??osal_ConvertUTCTime_1:
+   \   0000CE   786D         MOV       R0,#0x6d
+   \                     ??osal_ConvertUTCTime_2:
+   \   0000D0   EE           MOV       A,R6
+   \   0000D1   98           SUBB      A,R0
+   \   0000D2   FE           MOV       R6,A
+   \   0000D3   EF           MOV       A,R7
+   \   0000D4   9401         SUBB      A,#0x1
+   \   0000D6   FF           MOV       R7,A
+    273                tm->year++;
+   \   0000D7   12....       LCALL     ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   0000DA   2401         ADD       A,#0x1
+   \   0000DC   F0           MOVX      @DPTR,A
+   \   0000DD   A3           INC       DPTR
+   \   0000DE   E0           MOVX      A,@DPTR
+   \   0000DF   3400         ADDC      A,#0x0
+   \                     ??osal_ConvertUTCTime_0:
+   \   0000E1   12....       LCALL     ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   0000E4   12....       LCALL     ?US_DIV_MOD
+   \   0000E7   EA           MOV       A,R2
+   \   0000E8   4B           ORL       A,R3
+   \   0000E9   600F         JZ        ??osal_ConvertUTCTime_3
+   \   0000EB   12....       LCALL     ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   0000EE   12....       LCALL     ?US_DIV_MOD
+   \   0000F1   EA           MOV       A,R2
+   \   0000F2   4B           ORL       A,R3
+   \   0000F3   6009         JZ        ??osal_ConvertUTCTime_4
+   \   0000F5   12....       LCALL     ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   0000F8   7004         JNZ       ??osal_ConvertUTCTime_4
+   \                     ??osal_ConvertUTCTime_3:
+   \   0000FA   786E         MOV       R0,#0x6e
+   \   0000FC   8002         SJMP      ??osal_ConvertUTCTime_5
+   \                     ??osal_ConvertUTCTime_4:
+   \   0000FE   786D         MOV       R0,#0x6d
+   \                     ??osal_ConvertUTCTime_5:
+   \   000100   EE           MOV       A,R6
+   \   000101   98           SUBB      A,R0
+   \   000102   EF           MOV       A,R7
+   \   000103   9401         SUBB      A,#0x1
+   \   000105   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   000108   401D         JC        ??osal_ConvertUTCTime_6
+   \   00010A   12....       LCALL     ?Subroutine11 & 0xFFFF
+    274              }
+   \                     ??CrossCallReturnLabel_27:
+   \   00010D   12....       LCALL     ?US_DIV_MOD
+   \   000110   EA           MOV       A,R2
+   \   000111   4B           ORL       A,R3
+   \   000112   600F         JZ        ??osal_ConvertUTCTime_7
+   \   000114   12....       LCALL     ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000117   12....       LCALL     ?US_DIV_MOD
+   \   00011A   EA           MOV       A,R2
+   \   00011B   4B           ORL       A,R3
+   \   00011C   60B0         JZ        ??osal_ConvertUTCTime_1
+   \   00011E   12....       LCALL     ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   000121   70AB         JNZ       ??osal_ConvertUTCTime_1
+   \                     ??osal_ConvertUTCTime_7:
+   \   000123   786E         MOV       R0,#0x6e
+   \   000125   80A9         SJMP      ??osal_ConvertUTCTime_2
+    275          
+    276              tm->month = 0;
+   \                     ??osal_ConvertUTCTime_6:
+   \   000127   E4           CLR       A
+   \   000128   8028         SJMP      ??osal_ConvertUTCTime_8
+    277              while ( numDays >= monthLength( IsLeapYear( tm->year ), tm->month ) )
+    278              {
+    279                numDays -= monthLength( IsLeapYear( tm->year ), tm->month );
+   \                     ??osal_ConvertUTCTime_9:
+   \   00012A   7900         MOV       R1,#0x0
+   \                     ??osal_ConvertUTCTime_10:
+   \   00012C   85..82       MOV       DPL,?XSP + 0
+   \   00012F   85..83       MOV       DPH,?XSP + 1
+   \   000132   E0           MOVX      A,@DPTR
+   \   000133   2404         ADD       A,#0x4
+   \   000135   F5..         MOV       ?V0,A
+   \   000137   A3           INC       DPTR
+   \   000138   E0           MOVX      A,@DPTR
+   \   000139   3400         ADDC      A,#0x0
+   \   00013B   F5..         MOV       ?V1,A
+   \   00013D                ; Setup parameters for call to function monthLength
+   \   00013D   85..82       MOV       DPL,?V0
+   \   000140   F583         MOV       DPH,A
+   \   000142   12....       LCALL     ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   000145   FE           MOV       R6,A
+   \   000146   EF           MOV       A,R7
+   \   000147   9400         SUBB      A,#0x0
+   \   000149   FF           MOV       R7,A
+    280                tm->month++;
+   \   00014A   85..82       MOV       DPL,?V0
+   \   00014D   85..83       MOV       DPH,?V1
+   \   000150   E0           MOVX      A,@DPTR
+   \   000151   04           INC       A
+   \                     ??osal_ConvertUTCTime_8:
+   \   000152   12....       LCALL     ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   000155   12....       LCALL     ?US_DIV_MOD
+   \   000158   EA           MOV       A,R2
+   \   000159   4B           ORL       A,R3
+   \   00015A   600F         JZ        ??osal_ConvertUTCTime_11
+   \   00015C   12....       LCALL     ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00015F   12....       LCALL     ?US_DIV_MOD
+   \   000162   EA           MOV       A,R2
+   \   000163   4B           ORL       A,R3
+   \   000164   6009         JZ        ??osal_ConvertUTCTime_12
+   \   000166   12....       LCALL     ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   000169   7004         JNZ       ??osal_ConvertUTCTime_12
+   \                     ??osal_ConvertUTCTime_11:
+   \   00016B   7901         MOV       R1,#0x1
+   \   00016D   8002         SJMP      ??osal_ConvertUTCTime_13
+   \                     ??osal_ConvertUTCTime_12:
+   \   00016F   7900         MOV       R1,#0x0
+   \                     ??osal_ConvertUTCTime_13:
+   \   000171                ; Setup parameters for call to function monthLength
+   \   000171   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   000174   12....       LCALL     ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   000177   EF           MOV       A,R7
+   \   000178   9400         SUBB      A,#0x0
+   \   00017A   12....       LCALL     ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_44:
+   \   00017D   401E         JC        ??osal_ConvertUTCTime_14
+   \   00017F   A3           INC       DPTR
+   \   000180   12....       LCALL     ?Subroutine11 & 0xFFFF
+    281              }
+   \                     ??CrossCallReturnLabel_28:
+   \   000183   12....       LCALL     ?US_DIV_MOD
+   \   000186   EA           MOV       A,R2
+   \   000187   4B           ORL       A,R3
+   \   000188   600F         JZ        ??osal_ConvertUTCTime_15
+   \   00018A   12....       LCALL     ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   00018D   12....       LCALL     ?US_DIV_MOD
+   \   000190   EA           MOV       A,R2
+   \   000191   4B           ORL       A,R3
+   \   000192   6096         JZ        ??osal_ConvertUTCTime_9
+   \   000194   12....       LCALL     ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000197   7091         JNZ       ??osal_ConvertUTCTime_9
+   \                     ??osal_ConvertUTCTime_15:
+   \   000199   7901         MOV       R1,#0x1
+   \   00019B   808F         SJMP      ??osal_ConvertUTCTime_10
+    282          
+    283              tm->day = numDays;
+   \                     ??osal_ConvertUTCTime_14:
+   \   00019D   EE           MOV       A,R6
+   \   00019E   F0           MOVX      @DPTR,A
+    284            }
+    285          }
+   \   00019F   7406         MOV       A,#0x6
+   \   0001A1                REQUIRE ?Subroutine0
+   \   0001A1                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000003                REQUIRE ??Subroutine19_0
+   \   000003                ; // Fall through to label ??Subroutine19_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   A3           INC       DPTR
+   \   000001   E0           MOVX      A,@DPTR
+   \   000002   F8           MOV       R0,A
+   \   000003   A3           INC       DPTR
+   \   000004   E0           MOVX      A,@DPTR
+   \   000005   F9           MOV       R1,A
+   \   000006   7A90         MOV       R2,#-0x70
+   \   000008   7B01         MOV       R3,#0x1
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   FA           MOV       R2,A
+   \   000002   12....       LCALL     `??monthLength::?relay`; Banked call to: monthLength
+   \   000005   E9           MOV       A,R1
+   \   000006   F8           MOV       R0,A
+   \   000007   C3           CLR       C
+   \   000008   EE           MOV       A,R6
+   \   000009   98           SUBB      A,R0
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   85..82       MOV       DPL,?XSP + 0
+   \   000003   85..83       MOV       DPH,?XSP + 1
+   \   000006   E0           MOVX      A,@DPTR
+   \   000007   F8           MOV       R0,A
+   \   000008                REQUIRE ??Subroutine20_0
+   \   000008                ; // Fall through to label ??Subroutine20_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine20_0:
+   \   000000   A3           INC       DPTR
+   \   000001   E0           MOVX      A,@DPTR
+   \   000002   F583         MOV       DPH,A
+   \   000004   8882         MOV       DPL,R0
+   \   000006   A3           INC       DPTR
+   \   000007   A3           INC       DPTR
+   \   000008   A3           INC       DPTR
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL     ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   000003   A3           INC       DPTR
+   \   000004   A3           INC       DPTR
+   \   000005   A3           INC       DPTR
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   F0           MOVX      @DPTR,A
+   \   000001   12....       LCALL     ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_32:
+   \   000004   7A90         MOV       R2,#-0x70
+   \   000006   7B01         MOV       R3,#0x1
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   12....       LCALL     ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine17:
+   \   000000   12....       LCALL     ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_42:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine18:
+   \   000000   85..82       MOV       DPL,?XSP + 0
+   \   000003   85..83       MOV       DPH,?XSP + 1
+   \   000006   E0           MOVX      A,@DPTR
+   \   000007   F8           MOV       R0,A
+   \   000008   A3           INC       DPTR
+   \   000009   E0           MOVX      A,@DPTR
+   \   00000A   F583         MOV       DPH,A
+   \   00000C   8882         MOV       DPL,R0
+   \   00000E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   12....       LCALL     ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_36:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   12....       LCALL     ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_40:
+   \   000003   A3           INC       DPTR
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   12....       LCALL     ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   12....       LCALL     ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine16:
+   \   000000   12....       LCALL     ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_41:
+   \   000003   A3           INC       DPTR
+   \   000004   A3           INC       DPTR
+   \   000005   A3           INC       DPTR
+   \   000006   A3           INC       DPTR
+   \   000007   A3           INC       DPTR
+   \   000008   E0           MOVX      A,@DPTR
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   12....       LCALL     ?Subroutine14 & 0xFFFF
+   \                     ??CrossCallReturnLabel_33:
+   \   000003   5403         ANL       A,#0x3
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   12....       LCALL     ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_31:
+   \   000003   7A64         MOV       R2,#0x64
+   \   000005   7B00         MOV       R3,#0x0
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   12....       LCALL     ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_37:
+   \   000003   F8           MOV       R0,A
+   \   000004   A3           INC       DPTR
+   \   000005   E0           MOVX      A,@DPTR
+   \   000006   F9           MOV       R1,A
+   \   000007   22           RET
+    286          
+    287          /*********************************************************************
+    288           * @fn      monthLength
+    289           *
+    290           * @param   lpyr - 1 for leap year, 0 if not
+    291           *
+    292           * @param   mon - 0 - 11 (jan - dec)
+    293           *
+    294           * @return  number of days in specified month
+    295           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    296          static uint8 monthLength( uint8 lpyr, uint8 mon )
+   \                     monthLength:
+    297          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+   \   000000   E9           MOV       A,R1
+   \   000001   F8           MOV       R0,A
+    298            uint8 days = 31;
+   \   000002   791F         MOV       R1,#0x1f
+    299          
+    300          	if ( mon == 1 ) // feb
+   \   000004   7401         MOV       A,#0x1
+   \   000006   6A           XRL       A,R2
+   \   000007   7006         JNZ       ??monthLength_0
+    301            {
+    302          		days = ( 28 + lpyr );
+   \   000009   741C         MOV       A,#0x1c
+   \   00000B   28           ADD       A,R0
+   \   00000C   F9           MOV       R1,A
+   \   00000D   800E         SJMP      ??monthLength_1
+    303            }
+    304            else
+    305            {
+    306              if ( mon > 6 ) // aug-dec
+   \                     ??monthLength_0:
+   \   00000F   EA           MOV       A,R2
+   \   000010   C3           CLR       C
+   \   000011   9407         SUBB      A,#0x7
+   \   000013   4001         JC        ??monthLength_2
+    307              {
+    308                mon--;
+   \   000015   1A           DEC       R2
+    309              }
+    310          
+    311              if ( mon & 1 )
+   \                     ??monthLength_2:
+   \   000016   EA           MOV       A,R2
+   \   000017   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000019   5002         JNC       ??monthLength_1
+    312              {
+    313                days = 30;
+   \   00001B   791E         MOV       R1,#0x1e
+    314              }
+    315            }
+    316          
+    317          	return ( days );
+   \                     ??monthLength_1:
+   \   00001D   02....       LJMP      ?BRET
+    318          }
+    319          
+    320          /*********************************************************************
+    321           * @fn      osal_ConvertUTCSecs
+    322           *
+    323           * @brief   Converts a UTCTimeStruct to UTCTime
+    324           *
+    325           * @param   tm - pointer to provided struct
+    326           *
+    327           * @return  number of seconds since 00:00:00 on 01/01/2000 (UTC)
+    328           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    329          UTCTime osal_ConvertUTCSecs( UTCTimeStruct *tm )
+   \                     osal_ConvertUTCSecs:
+    330          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000   74F0         MOV       A,#-0x10
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV       A,#-0x2
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   85..82       MOV       DPL,?XSP + 0
+   \   00000D   85..83       MOV       DPH,?XSP + 1
+   \   000010   EA           MOV       A,R2
+   \   000011   F0           MOVX      @DPTR,A
+   \   000012   A3           INC       DPTR
+   \   000013   EB           MOV       A,R3
+   \   000014   F0           MOVX      @DPTR,A
+    331            uint32 seconds;
+    332          
+    333            /* Seconds for the partial day */
+    334            seconds = (((tm->hour * 60UL) + tm->minutes) * 60UL) + tm->seconds;
+   \   000015   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   000018   A3           INC       DPTR
+   \   000019   E0           MOVX      A,@DPTR
+   \   00001A   F5..         MOV       ?V4,A
+   \   00001C   E4           CLR       A
+   \   00001D   F5..         MOV       ?V5,A
+   \   00001F   F5..         MOV       ?V6,A
+   \   000021   F5..         MOV       ?V7,A
+   \   000023   90....       MOV       DPTR,#__Constant_3c
+   \   000026   78..         MOV       R0,#?V0
+   \   000028   12....       LCALL     ?L_MOV_X
+   \   00002B   78..         MOV       R0,#?V4
+   \   00002D   79..         MOV       R1,#?V0
+   \   00002F   12....       LCALL     ?L_MUL
+   \   000032   12....       LCALL     ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   000035   12....       LCALL     ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   000038   12....       LCALL     ?L_ADD
+   \   00003B   90....       MOV       DPTR,#__Constant_3c
+   \   00003E   78..         MOV       R0,#?V0
+   \   000040   12....       LCALL     ?L_MOV_X
+   \   000043   78..         MOV       R0,#?V4
+   \   000045   79..         MOV       R1,#?V0
+   \   000047   12....       LCALL     ?L_MUL
+   \   00004A   12....       LCALL     ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_30:
+   \   00004D   12....       LCALL     ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   000050   12....       LCALL     ?L_ADD
+    335          
+    336            /* Account for previous complete days */
+    337            {
+    338              /* Start with complete days in current month */
+    339              uint16 days = tm->day;
+   \   000053   12....       LCALL     ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_45:
+   \   000056   E0           MOVX      A,@DPTR
+   \   000057   F5..         MOV       ?V0,A
+    340          
+    341              /* Next, complete months in current year */
+    342              {
+    343                int8 month = tm->month;
+   \   000059   85..82       MOV       DPL,?XSP + 0
+   \   00005C   85..83       MOV       DPH,?XSP + 1
+   \   00005F   12....       LCALL     ??Subroutine20_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_43:
+   \   000062   A3           INC       DPTR
+   \   000063   E0           MOVX      A,@DPTR
+   \   000064   FE           MOV       R6,A
+   \   000065   8011         SJMP      ??osal_ConvertUTCSecs_0
+    344                while ( --month >= 0 )
+    345                {
+    346                  days += monthLength( IsLeapYear( tm->year ), month );
+   \                     ??osal_ConvertUTCSecs_1:
+   \   000067   7900         MOV       R1,#0x0
+   \                     ??osal_ConvertUTCSecs_2:
+   \   000069                ; Setup parameters for call to function monthLength
+   \   000069   EE           MOV       A,R6
+   \   00006A   FA           MOV       R2,A
+   \   00006B   12....       LCALL     `??monthLength::?relay`; Banked call to: monthLength
+   \   00006E   E5..         MOV       A,?V0
+   \   000070   29           ADD       A,R1
+   \   000071   F5..         MOV       ?V0,A
+   \   000073   E4           CLR       A
+   \   000074   35..         ADDC      A,?V1
+   \   000076   F5..         MOV       ?V1,A
+   \                     ??osal_ConvertUTCSecs_0:
+   \   000078   74FF         MOV       A,#-0x1
+   \   00007A   2E           ADD       A,R6
+   \   00007B   1E           DEC       R6
+   \   00007C   C3           CLR       C
+   \   00007D   9400         SUBB      A,#0x0
+   \   00007F   A2D2         MOV       C,0xD0 /* PSW */.2
+   \   000081   65D0         XRL       A,PSW
+   \   000083   33           RLC       A
+   \   000084   12....       LCALL     ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   000087   4022         JC        ??osal_ConvertUTCSecs_3
+   \   000089   F8           MOV       R0,A
+   \   00008A   A3           INC       DPTR
+   \   00008B   E0           MOVX      A,@DPTR
+   \   00008C   F9           MOV       R1,A
+   \   00008D   7A90         MOV       R2,#-0x70
+   \   00008F   7B01         MOV       R3,#0x1
+   \   000091   12....       LCALL     ?US_DIV_MOD
+   \   000094   EA           MOV       A,R2
+   \   000095   4B           ORL       A,R3
+   \   000096   600F         JZ        ??osal_ConvertUTCSecs_4
+   \   000098   12....       LCALL     ?Subroutine1 & 0xFFFF
+    347                }
+    348              }
+   \                     ??CrossCallReturnLabel_4:
+   \   00009B   12....       LCALL     ?US_DIV_MOD
+   \   00009E   EA           MOV       A,R2
+   \   00009F   4B           ORL       A,R3
+   \   0000A0   60C5         JZ        ??osal_ConvertUTCSecs_1
+   \   0000A2   12....       LCALL     ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   0000A5   70C0         JNZ       ??osal_ConvertUTCSecs_1
+   \                     ??osal_ConvertUTCSecs_4:
+   \   0000A7   7901         MOV       R1,#0x1
+   \   0000A9   80BE         SJMP      ??osal_ConvertUTCSecs_2
+    349          
+    350              /* Next, complete years before current year */
+    351              {
+    352                uint16 year = tm->year;
+   \                     ??osal_ConvertUTCSecs_3:
+   \   0000AB   FC           MOV       R4,A
+   \   0000AC   A3           INC       DPTR
+   \   0000AD   E0           MOVX      A,@DPTR
+   \   0000AE   FD           MOV       R5,A
+   \   0000AF   800D         SJMP      ??osal_ConvertUTCSecs_5
+    353                while ( --year >= BEGYEAR )
+    354                {
+    355                  days += YearLength( year );
+   \                     ??osal_ConvertUTCSecs_6:
+   \   0000B1   786D         MOV       R0,#0x6d
+   \                     ??osal_ConvertUTCSecs_7:
+   \   0000B3   E5..         MOV       A,?V0
+   \   0000B5   28           ADD       A,R0
+   \   0000B6   F5..         MOV       ?V0,A
+   \   0000B8   E5..         MOV       A,?V1
+   \   0000BA   3401         ADDC      A,#0x1
+   \   0000BC   F5..         MOV       ?V1,A
+   \                     ??osal_ConvertUTCSecs_5:
+   \   0000BE   EC           MOV       A,R4
+   \   0000BF   24FF         ADD       A,#-0x1
+   \   0000C1   1C           DEC       R4
+   \   0000C2   ED           MOV       A,R5
+   \   0000C3   34FF         ADDC      A,#-0x1
+   \   0000C5   FD           MOV       R5,A
+   \   0000C6   C3           CLR       C
+   \   0000C7   EC           MOV       A,R4
+   \   0000C8   94D0         SUBB      A,#-0x30
+   \   0000CA   ED           MOV       A,R5
+   \   0000CB   9407         SUBB      A,#0x7
+   \   0000CD   4027         JC        ??osal_ConvertUTCSecs_8
+   \   0000CF   EC           MOV       A,R4
+   \   0000D0   F8           MOV       R0,A
+   \   0000D1   ED           MOV       A,R5
+   \   0000D2   F9           MOV       R1,A
+   \   0000D3   7A90         MOV       R2,#-0x70
+   \   0000D5   7B01         MOV       R3,#0x1
+   \   0000D7   12....       LCALL     ?US_DIV_MOD
+   \   0000DA   EA           MOV       A,R2
+   \   0000DB   4B           ORL       A,R3
+   \   0000DC   6014         JZ        ??osal_ConvertUTCSecs_9
+   \   0000DE   EC           MOV       A,R4
+   \   0000DF   F8           MOV       R0,A
+   \   0000E0   ED           MOV       A,R5
+   \   0000E1   F9           MOV       R1,A
+   \   0000E2   7A64         MOV       R2,#0x64
+   \   0000E4   7B00         MOV       R3,#0x0
+   \   0000E6   12....       LCALL     ?US_DIV_MOD
+   \   0000E9   EA           MOV       A,R2
+   \   0000EA   4B           ORL       A,R3
+   \   0000EB   60C4         JZ        ??osal_ConvertUTCSecs_6
+   \   0000ED   EC           MOV       A,R4
+   \   0000EE   5403         ANL       A,#0x3
+   \   0000F0   70BF         JNZ       ??osal_ConvertUTCSecs_6
+   \                     ??osal_ConvertUTCSecs_9:
+   \   0000F2   786E         MOV       R0,#0x6e
+   \   0000F4   80BD         SJMP      ??osal_ConvertUTCSecs_7
+    356                }
+    357              }
+    358          
+    359              /* Add total seconds before partial day */
+    360              seconds += (days * DAY);
+    361            }
+    362          
+    363            return ( seconds );
+   \                     ??osal_ConvertUTCSecs_8:
+   \   0000F6   C0..         PUSH      ?V4
+   \   0000F8   C0..         PUSH      ?V5
+   \   0000FA   C0..         PUSH      ?V6
+   \   0000FC   C0..         PUSH      ?V7
+   \   0000FE   90....       MOV       DPTR,#__Constant_15180
+   \   000101   78..         MOV       R0,#?V4
+   \   000103   12....       LCALL     ?L_MOV_X
+   \   000106   78..         MOV       R0,#?V0
+   \   000108   79..         MOV       R1,#?V4
+   \   00010A   12....       LCALL     ?L_MUL
+   \   00010D   D0..         POP       ?V7
+   \   00010F   D0..         POP       ?V6
+   \   000111   D0..         POP       ?V5
+   \   000113   D0..         POP       ?V4
+   \   000115   78..         MOV       R0,#?V4
+   \   000117   79..         MOV       R1,#?V0
+   \   000119   12....       LCALL     ?L_ADD
+   \   00011C   AA..         MOV       R2,?V4
+   \   00011E   AB..         MOV       R3,?V5
+   \   000120   AC..         MOV       R4,?V6
+   \   000122   AD..         MOV       R5,?V7
+   \   000124   7402         MOV       A,#0x2
+   \   000126   02....       LJMP      ?Subroutine0 & 0xFFFF
+    364          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F5..         MOV       ?V0,A
+   \   000003   E4           CLR       A
+   \   000004   F5..         MOV       ?V1,A
+   \   000006   F5..         MOV       ?V2,A
+   \   000008   F5..         MOV       ?V3,A
+   \   00000A   78..         MOV       R0,#?V4
+   \   00000C   79..         MOV       R1,#?V0
+   \   00000E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   90....       MOV       DPTR,#timeMSec
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F8           MOV       R0,A
+   \   000005   A3           INC       DPTR
+   \   000006   E0           MOVX      A,@DPTR
+   \   000007   F9           MOV       R1,A
+   \   000008   7AE8         MOV       R2,#-0x18
+   \   00000A   7B03         MOV       R3,#0x3
+   \   00000C   22           RET
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_15180:
+   \   000000   80510100     DD 86400
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3c:
+   \   000000   3C000000     DD 60
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_e10:
+   \   000000   100E0000     DD 3600
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     22   monthLength
+      0     18   osalTimeUpdate
+        0     16   -> macMcuPrecisionCount
+        0     18   -> osalMcuDivide31By16To16
+        0     16   -> osalTimerUpdate
+      4     18   osal_ConvertUTCSecs
+        0     18   -> monthLength
+      1     26   osal_ConvertUTCTime
+        0     22   -> monthLength
+      2      0   osal_getClock
+      0     12   osal_setClock
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       5  ??Subroutine19_0
+      10  ??Subroutine20_0
+       3  ?Subroutine0
+       8  ?Subroutine1
+      13  ?Subroutine10
+      11  ?Subroutine11
+       4  ?Subroutine12
+       8  ?Subroutine13
+       4  ?Subroutine14
+       5  ?Subroutine15
+      10  ?Subroutine16
+       4  ?Subroutine17
+      15  ?Subroutine18
+       6  ?Subroutine2
+       9  ?Subroutine3
+      15  ?Subroutine4
+       4  ?Subroutine5
+       7  ?Subroutine6
+       8  ?Subroutine7
+       4  ?Subroutine8
+      11  ?Subroutine9
+       4  OSAL_timeSeconds
+       1  _A_IEN0
+       4  __Constant_15180
+       4  __Constant_3c
+       4  __Constant_e10
+      32  monthLength
+     195  osalTimeUpdate
+     297  osal_ConvertUTCSecs
+     417  osal_ConvertUTCTime
+      17  osal_getClock
+      26  osal_setClock
+       4  previousMacTimerTick
+       2  remUsTicks
+       2  timeMSec
+      36  -- Other
+
+ 
+ 1 148 bytes in segment BANKED_CODE
+    36 bytes in segment BANK_RELAYS
+     1 byte  in segment SFR_AN
+    12 bytes in segment XDATA_ROM_C
+    12 bytes in segment XDATA_Z
+ 
+    36 bytes of CODE     memory
+     0 bytes of CONST    memory (+ 12 bytes shared)
+     0 bytes of DATA     memory (+  1 byte  shared)
+ 1 148 bytes of HUGECODE memory
+    12 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

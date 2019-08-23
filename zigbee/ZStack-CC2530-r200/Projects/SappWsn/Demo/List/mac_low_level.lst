@@ -1,0 +1,352 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.30.1.6000 for 8051               21/May/2019  08:36:41
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\mac\low_level\srf04\mac_low_level.c
+#    Command line       =  
+#        -f C:\Users\97110\AppData\Local\Temp\EW784C.tmp
+#        (C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\mac\low_level\srf04\mac_low_level.c
+#        -D NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D xMT_SYS_FUNC -D MT_ZDO_FUNC
+#        -D SAPP_ZSTACK_DEMO -lC
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List
+#        -lA
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List
+#        --diag_suppress Pe001,Pa010 -o
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\Obj
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 8 -f
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wEndev.cfg
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+#        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0031
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+#        -Ohz --require_prototypes --no_code_motion)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List\mac_low_level.lst
+#    Object file        =  
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\Obj\mac_low_level.r51
+#
+###############################################################################
+
+C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Components\mac\low_level\srf04\mac_low_level.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_low_level.c
+      3            Revised:        $Date: 2007-09-11 10:58:41 -0700 (Tue, 11 Sep 2007) $
+      4            Revision:       $Revision: 15371 $
+      5          
+      6            Description:    Describe the purpose and contents of the file.
+      7          
+      8          
+      9            Copyright 2006-2009 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          /* hal */
+     46          #include "hal_types.h"
+     47          #include "hal_mcu.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     48          
+     49          /* exported low-level */
+     50          #include "mac_low_level.h"
+     51          
+     52          /* low-level specific */
+     53          #include "mac_radio.h"
+     54          #include "mac_rx.h"
+     55          #include "mac_tx.h"
+     56          #include "mac_rx_onoff.h"
+     57          #include "mac_backoff_timer.h"
+     58          #include "mac_sleep.h"
+     59          
+     60          /* target specific */
+     61          #include "mac_radio_defs.h"
+     62          
+     63          /* debug */
+     64          #include "mac_assert.h"
+     65          
+     66          #if !defined ( HAL_CLOCK_CRYSTAL )
+     67          /* DCO has a frequency error of 2% */
+     68          const uint16 CODE macBeaconMarginDCO[] =
+     69          {
+     70            3,
+     71            3,
+     72            4,
+     73            8,
+     74            16,
+     75            31,
+     76            62,
+     77            123,
+     78            246,
+     79            492,
+     80            983,
+     81            1967,
+     82            3933,
+     83            7865,
+     84            15729,
+     85            0
+     86          };
+     87          #endif
+     88          
+     89          /**************************************************************************************************
+     90           * @fn          macLowLevelInit
+     91           *
+     92           * @brief       Initialize low-level MAC.  Called only once on system power-up.
+     93           *
+     94           * @param       none
+     95           *
+     96           * @return      none
+     97           **************************************************************************************************
+     98           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     99          MAC_INTERNAL_API void macLowLevelInit(void)
+   \                     macLowLevelInit:
+    100          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    101            /* initialize mcu before anything else */
+    102            MAC_RADIO_MCU_INIT();
+   \   000004                ; Setup parameters for call to function macMcuInit
+   \   000004   12....       LCALL     `??macMcuInit::?relay`; Banked call to: macMcuInit
+    103          
+    104            /* initialize (override) beacon margin timing table */
+    105          #if !defined ( HAL_CLOCK_CRYSTAL )
+    106            {
+    107              uint8 i;
+    108          
+    109              for (i = 0; i < sizeof(macBeaconMarginDCO)/sizeof(macBeaconMarginDCO[0]); i++)
+    110              {
+    111                macBeaconMargin[i] = macBeaconMarginDCO[i];
+    112              }
+    113            }
+    114          #endif
+    115          
+    116            /* software initialziation */
+    117            macRadioInit();
+   \   000007                ; Setup parameters for call to function macRadioInit
+   \   000007   12....       LCALL     `??macRadioInit::?relay`; Banked call to: macRadioInit
+    118            macRxOnOffInit();
+   \   00000A                ; Setup parameters for call to function macRxOnOffInit
+   \   00000A   12....       LCALL     `??macRxOnOffInit::?relay`; Banked call to: macRxOnOffInit
+    119            macRxInit();
+   \   00000D                ; Setup parameters for call to function macRxInit
+   \   00000D   12....       LCALL     `??macRxInit::?relay`; Banked call to: macRxInit
+    120            macTxInit();
+   \   000010                ; Setup parameters for call to function macTxInit
+   \   000010   12....       LCALL     `??macTxInit::?relay`; Banked call to: macTxInit
+    121            macBackoffTimerInit();
+   \   000013                ; Setup parameters for call to function macBackoffTimerInit
+   \   000013   12....       LCALL     `??macBackoffTimerInit::?relay`; Banked call to: macBackoffTimerInit
+    122          }
+   \   000016                REQUIRE ?Subroutine0
+   \   000016                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   D083         POP       DPH
+   \   000002   D082         POP       DPL
+   \   000004   02....       LJMP      ?BRET
+    123          
+    124          
+    125          /**************************************************************************************************
+    126           * @fn          macLowLevelReset
+    127           *
+    128           * @brief       Reset low-level MAC.
+    129           *
+    130           * @param       none
+    131           *
+    132           * @return      none
+    133           **************************************************************************************************
+    134           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    135          MAC_INTERNAL_API void macLowLevelReset(void)
+   \                     macLowLevelReset:
+    136          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    137            MAC_ASSERT(!HAL_INTERRUPTS_ARE_ENABLED());   /* interrupts must be disabled */
+   \   000004   A2AF         MOV       C,0xa8.7
+   \   000006   5003         JNC       ??macLowLevelReset_0
+   \   000008                ; Setup parameters for call to function halAssertHandler
+   \   000008   12....       LCALL     `??halAssertHandler::?relay`; Banked call to: halAssertHandler
+    138          
+    139            /* reset radio modules;  if not awake, skip this */
+    140            if (macSleepState == MAC_SLEEP_STATE_AWAKE)
+   \                     ??macLowLevelReset_0:
+   \   00000B   90....       MOV       DPTR,#macSleepState
+   \   00000E   E0           MOVX      A,@DPTR
+   \   00000F   7006         JNZ       ??macLowLevelReset_1
+    141            {
+    142              macRxTxReset();
+   \   000011                ; Setup parameters for call to function macRxTxReset
+   \   000011   12....       LCALL     `??macRxTxReset::?relay`; Banked call to: macRxTxReset
+    143              macRadioReset();
+   \   000014                ; Setup parameters for call to function macRadioReset
+   \   000014   12....       LCALL     `??macRadioReset::?relay`; Banked call to: macRadioReset
+    144            }
+    145          
+    146            /* reset timer */
+    147            macBackoffTimerReset();
+   \                     ??macLowLevelReset_1:
+   \   000017                ; Setup parameters for call to function macBackoffTimerReset
+   \   000017   12....       LCALL     `??macBackoffTimerReset::?relay`; Banked call to: macBackoffTimerReset
+    148          
+    149            /* power up the radio */
+    150            macSleepWakeUp();
+   \   00001A                ; Setup parameters for call to function macSleepWakeUp
+   \   00001A   12....       LCALL     `??macSleepWakeUp::?relay`; Banked call to: macSleepWakeUp
+    151          }
+   \   00001D   80..         SJMP      ?Subroutine0
+   \   00001F                REQUIRE _A_IEN0
+    152          
+    153          
+    154          /**************************************************************************************************
+    155          */
+
+   Maximum stack usage in bytes:
+
+   ISTACK Function
+   ------ --------
+      2   macLowLevelInit
+        2   -> macBackoffTimerInit
+        2   -> macMcuInit
+        2   -> macRadioInit
+        2   -> macRxInit
+        2   -> macRxOnOffInit
+        2   -> macTxInit
+      2   macLowLevelReset
+        2   -> halAssertHandler
+        2   -> macBackoffTimerReset
+        2   -> macRadioReset
+        2   -> macRxTxReset
+        2   -> macSleepWakeUp
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       7  ?Subroutine0
+       1  _A_IEN0
+      22  macLowLevelInit
+      31  macLowLevelReset
+      12  -- Other
+
+ 
+ 60 bytes in segment BANKED_CODE
+ 12 bytes in segment BANK_RELAYS
+  1 byte  in segment SFR_AN
+ 
+ 12 bytes of CODE     memory
+  0 bytes of DATA     memory (+ 1 byte shared)
+ 60 bytes of HUGECODE memory
+
+Errors: none
+Warnings: none

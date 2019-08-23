@@ -40,6 +40,11 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    public List<Room> findEmpty() {
+        return roomDao.findEmptyRoom();
+    }
+
+    @Override
     public int delete(int roomId) {
         return roomDao.deleteRoom(roomId);
     }

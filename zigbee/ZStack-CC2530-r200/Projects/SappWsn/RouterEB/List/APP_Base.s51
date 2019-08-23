@@ -1,0 +1,615 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.30.1.6000 for 8051              23/Aug/2019  12:13:00
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\APP_Base.c
+//    Command line       =  
+//        -f C:\Users\VULCAN\AppData\Local\Temp\EWBF60.tmp
+//        (E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\APP_Base.c
+//        -D ZIGBEEPRO -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
+//        LCD_SUPPORTED=DEBUG -D SAPP_ZSTACK -lC
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List
+//        -lA
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List
+//        --diag_suppress Pe001,Pa010 -o
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\Obj
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 8 -f
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wRouter.cfg
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+//        -DRTR_NWK) -f
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+//        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00800000 -DZDAPP_CONFIG_PAN_ID=0x0057
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+//        -I
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+//        -Ohz --require_prototypes --no_code_motion)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List\APP_Base.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME APP_Base
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+
+        PUBLIC `??osalInitTasks::?relay`
+        FUNCTION `??osalInitTasks::?relay`,0203H
+        PUBLIC osalInitTasks
+        FUNCTION osalInitTasks,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC tasksArr
+        PUBLIC tasksCnt
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+APSF_Init           SYMBOL "APSF_Init"
+`??APSF_Init::?relay` SYMBOL "?relay", APSF_Init
+`?<Name APSF_ProcessEvent 2>` SYMBOL "APSF_ProcessEvent"
+`??APSF_ProcessEvent::?relay` SYMBOL "?relay", `?<Name APSF_ProcessEvent 2>`
+APS_Init            SYMBOL "APS_Init"
+`??APS_Init::?relay` SYMBOL "?relay", APS_Init
+`?<Name APS_event_loop 6>` SYMBOL "APS_event_loop"
+`??APS_event_loop::?relay` SYMBOL "?relay", `?<Name APS_event_loop 6>`
+Hal_Init            SYMBOL "Hal_Init"
+`??Hal_Init::?relay` SYMBOL "?relay", Hal_Init
+`?<Name Hal_ProcessEvent 10>` SYMBOL "Hal_ProcessEvent"
+`??Hal_ProcessEvent::?relay` SYMBOL "?relay", `?<Name Hal_ProcessEvent 10>`
+`?<Name MT_ProcessEvent 12>` SYMBOL "MT_ProcessEvent"
+`??MT_ProcessEvent::?relay` SYMBOL "?relay", `?<Name MT_ProcessEvent 12>`
+MT_TaskInit         SYMBOL "MT_TaskInit"
+`??MT_TaskInit::?relay` SYMBOL "?relay", MT_TaskInit
+ZDApp_Init          SYMBOL "ZDApp_Init"
+`??ZDApp_Init::?relay` SYMBOL "?relay", ZDApp_Init
+`?<Name ZDApp_event_loop 18>` SYMBOL "ZDApp_event_loop"
+`??ZDApp_event_loop::?relay` SYMBOL "?relay", `?<Name ZDApp_event_loop 18>`
+ZDNwkMgr_Init       SYMBOL "ZDNwkMgr_Init"
+`??ZDNwkMgr_Init::?relay` SYMBOL "?relay", ZDNwkMgr_Init
+`?<Name ZDNwkMgr_event_loop 22>` SYMBOL "ZDNwkMgr_event_loop"
+`??ZDNwkMgr_event_loop::?relay` SYMBOL "?relay", `?<Name ZDNwkMgr_event_loop 22>`
+`?<Name macEventLoop 24>` SYMBOL "macEventLoop"
+`??macEventLoop::?relay` SYMBOL "?relay", `?<Name macEventLoop 24>`
+macTaskInit         SYMBOL "macTaskInit"
+`??macTaskInit::?relay` SYMBOL "?relay", macTaskInit
+`?<Name nwk_event_loop 28>` SYMBOL "nwk_event_loop"
+`??nwk_event_loop::?relay` SYMBOL "?relay", `?<Name nwk_event_loop 28>`
+nwk_init            SYMBOL "nwk_init"
+`??nwk_init::?relay` SYMBOL "?relay", nwk_init
+`?<Name sapp_controlEpProces 32>` SYMBOL "sapp_controlEpProcess"
+`??sapp_controlEpProcess::?relay` SYMBOL "?relay", `?<Name sapp_controlEpProces 32>`
+`?<Name sapp_functionEpProce 34>` SYMBOL "sapp_functionEpProcess"
+`??sapp_functionEpProcess::?relay` SYMBOL "?relay", `?<Name sapp_functionEpProce 34>`
+sapp_taskInitProcess SYMBOL "sapp_taskInitProcess"
+`??sapp_taskInitProcess::?relay` SYMBOL "?relay", sapp_taskInitProcess
+osalInitTasks       SYMBOL "osalInitTasks"
+`??osalInitTasks::?relay` SYMBOL "?relay", osalInitTasks
+
+        EXTERN `??APSF_Init::?relay`
+        FUNCTION `??APSF_Init::?relay`,00H
+        EXTERN `??APSF_ProcessEvent::?relay`
+        FUNCTION `??APSF_ProcessEvent::?relay`,00H
+        EXTERN `??APS_Init::?relay`
+        FUNCTION `??APS_Init::?relay`,00H
+        EXTERN `??APS_event_loop::?relay`
+        FUNCTION `??APS_event_loop::?relay`,00H
+        EXTERN `??Hal_Init::?relay`
+        FUNCTION `??Hal_Init::?relay`,00H
+        EXTERN `??Hal_ProcessEvent::?relay`
+        FUNCTION `??Hal_ProcessEvent::?relay`,00H
+        EXTERN `??MT_ProcessEvent::?relay`
+        FUNCTION `??MT_ProcessEvent::?relay`,00H
+        EXTERN `??MT_TaskInit::?relay`
+        FUNCTION `??MT_TaskInit::?relay`,00H
+        EXTERN `??ZDApp_Init::?relay`
+        FUNCTION `??ZDApp_Init::?relay`,00H
+        EXTERN `??ZDApp_event_loop::?relay`
+        FUNCTION `??ZDApp_event_loop::?relay`,00H
+        EXTERN `??ZDNwkMgr_Init::?relay`
+        FUNCTION `??ZDNwkMgr_Init::?relay`,00H
+        EXTERN `??ZDNwkMgr_event_loop::?relay`
+        FUNCTION `??ZDNwkMgr_event_loop::?relay`,00H
+        EXTERN `??macEventLoop::?relay`
+        FUNCTION `??macEventLoop::?relay`,00H
+        EXTERN `??macTaskInit::?relay`
+        FUNCTION `??macTaskInit::?relay`,00H
+        EXTERN `??nwk_event_loop::?relay`
+        FUNCTION `??nwk_event_loop::?relay`,00H
+        EXTERN `??nwk_init::?relay`
+        FUNCTION `??nwk_init::?relay`,00H
+        EXTERN `??sapp_controlEpProcess::?relay`
+        FUNCTION `??sapp_controlEpProcess::?relay`,00H
+        EXTERN `??sapp_functionEpProcess::?relay`
+        FUNCTION `??sapp_functionEpProcess::?relay`,00H
+        EXTERN `??sapp_taskInitProcess::?relay`
+        FUNCTION `??sapp_taskInitProcess::?relay`,00H
+        EXTERN APSF_Init
+        FUNCTION APSF_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN APS_Init
+        FUNCTION APS_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN Hal_Init
+        FUNCTION Hal_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN MT_TaskInit
+        FUNCTION MT_TaskInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDApp_Init
+        FUNCTION ZDApp_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDNwkMgr_Init
+        FUNCTION ZDNwkMgr_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macTaskInit
+        FUNCTION macTaskInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN nwk_init
+        FUNCTION nwk_init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN sapp_taskInitProcess
+        FUNCTION sapp_taskInitProcess,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// E:\qq下载文件\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\APP_Base.c
+//    1 #include "APP_Base.h"
+//    2 
+//    3 #if defined(SAPP_ZSTACK_DEMO)
+//    4 #include "hal_led.h"
+//    5 // 任务建立实验范例代码
+//    6 // 任务处理函数
+//    7 uint16 Hello_ProcessEvent(uint8 task_id, uint16 events);
+//    8 uint16 Hello_ProcessEvent(uint8 task_id, uint16 events)
+//    9 {
+//   10     if(events & 0x0001)
+//   11     {
+//   12         // 控制LED闪烁
+//   13         HalLedBlink(HAL_LED_1, 1, 50, 250);
+//   14         // 启动定时器, 设置1秒钟后再次触发该任务
+//   15         osal_start_timerEx(task_id, 0x0001, 1000);
+//   16     }
+//   17     // 清除定时器事件标志
+//   18     return (events ^ 0x0001);
+//   19 }
+//   20 #endif
+//   21 
+//   22 // 任务列表
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   23 const pTaskEventHandlerFn tasksArr[] = {
+tasksArr:
+        DATA16
+        DW `??macEventLoop::?relay`
+        DW `??nwk_event_loop::?relay`
+        DW `??Hal_ProcessEvent::?relay`
+        DW `??MT_ProcessEvent::?relay`
+        DW `??APS_event_loop::?relay`
+        DW `??APSF_ProcessEvent::?relay`
+        DW `??ZDApp_event_loop::?relay`
+        DW `??ZDNwkMgr_event_loop::?relay`
+        DW `??sapp_controlEpProcess::?relay`
+        DW `??sapp_functionEpProcess::?relay`
+//   24     macEventLoop,
+//   25     nwk_event_loop,
+//   26     Hal_ProcessEvent,
+//   27 #if defined( MT_TASK )
+//   28     MT_ProcessEvent,
+//   29 #endif
+//   30     APS_event_loop,
+//   31 #if defined ( ZIGBEE_FRAGMENTATION )
+//   32     APSF_ProcessEvent,
+//   33 #endif
+//   34     ZDApp_event_loop,
+//   35 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//   36     ZDNwkMgr_event_loop,
+//   37 #endif
+//   38 #if defined(SAPP_ZSTACK)
+//   39     sapp_controlEpProcess,
+//   40     sapp_functionEpProcess,
+//   41 #endif
+//   42 #if defined(SAPP_ZSTACK_DEMO)
+//   43     // 任务建立实验范例代码
+//   44     // 任务列表
+//   45     Hello_ProcessEvent,
+//   46 #endif
+//   47 };
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   48 const uint8 tasksCnt = sizeof(tasksArr)/sizeof(tasksArr[0]);
+tasksCnt:
+        DB 10
+//   49 
+//   50 // 初始化任务
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   51 void osalInitTasks( void )
+osalInitTasks:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function osalInitTasks
+        CODE
+//   52 {
+        FUNCALL osalInitTasks, macTaskInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, nwk_init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, Hal_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, MT_TaskInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, APS_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, APSF_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, ZDApp_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, ZDNwkMgr_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, sapp_taskInitProcess
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH      DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH      DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   53     uint8 taskID = 0;
+//   54 
+//   55     macTaskInit( taskID++ );
+        ; Setup parameters for call to function macTaskInit
+        MOV       R1,#0x0
+        LCALL     `??macTaskInit::?relay`; Banked call to: macTaskInit
+//   56     nwk_init( taskID++ );
+        ; Setup parameters for call to function nwk_init
+        MOV       R1,#0x1
+        LCALL     `??nwk_init::?relay`; Banked call to: nwk_init
+//   57     Hal_Init( taskID++ );
+        ; Setup parameters for call to function Hal_Init
+        MOV       R1,#0x2
+        LCALL     `??Hal_Init::?relay`; Banked call to: Hal_Init
+//   58 #if defined( MT_TASK )
+//   59     MT_TaskInit( taskID++ );
+        ; Setup parameters for call to function MT_TaskInit
+        MOV       R1,#0x3
+        LCALL     `??MT_TaskInit::?relay`; Banked call to: MT_TaskInit
+//   60 #endif
+//   61     APS_Init( taskID++ );
+        ; Setup parameters for call to function APS_Init
+        MOV       R1,#0x4
+        LCALL     `??APS_Init::?relay`; Banked call to: APS_Init
+//   62 #if defined ( ZIGBEE_FRAGMENTATION )
+//   63     APSF_Init( taskID++ );
+        ; Setup parameters for call to function APSF_Init
+        MOV       R1,#0x5
+        LCALL     `??APSF_Init::?relay`; Banked call to: APSF_Init
+//   64 #endif
+//   65     ZDApp_Init( taskID++ );
+        ; Setup parameters for call to function ZDApp_Init
+        MOV       R1,#0x6
+        LCALL     `??ZDApp_Init::?relay`; Banked call to: ZDApp_Init
+//   66 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//   67     ZDNwkMgr_Init( taskID++ );
+        ; Setup parameters for call to function ZDNwkMgr_Init
+        MOV       R1,#0x7
+        LCALL     `??ZDNwkMgr_Init::?relay`; Banked call to: ZDNwkMgr_Init
+//   68 #endif
+//   69 #if defined(SAPP_ZSTACK)
+//   70     sapp_taskInitProcess();
+        ; Setup parameters for call to function sapp_taskInitProcess
+        LCALL     `??sapp_taskInitProcess::?relay`; Banked call to: sapp_taskInitProcess
+//   71 #endif
+//   72 #if defined(SAPP_ZSTACK_DEMO)
+//   73     // 任务建立实验范例代码
+//   74     // 启动定时器
+//   75     osal_start_timerEx(taskID, 0x0001, 1000);
+//   76 #endif
+//   77 }
+        POP       DPH
+          CFI DPH0 SameValue
+          CFI CFA_SP SP+-4
+        POP       DPL
+          CFI DPL0 SameValue
+          CFI CFA_SP SP+-3
+        LJMP      ?BRET
+          CFI EndBlock cfiBlock0
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??osalInitTasks::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    osalInitTasks
+
+        END
+// 
+// 54 bytes in segment BANKED_CODE
+//  6 bytes in segment BANK_RELAYS
+// 21 bytes in segment XDATA_ROM_C
+// 
+//  6 bytes of CODE     memory
+// 21 bytes of CONST    memory
+// 54 bytes of HUGECODE memory
+//
+//Errors: none
+//Warnings: none

@@ -1,0 +1,306 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.30.1.6000 for 8051               21/May/2019  08:36:38
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\APP_Base.c
+#    Command line       =  
+#        -f C:\Users\97110\AppData\Local\Temp\EW69ED.tmp
+#        (C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\APP_Base.c
+#        -D NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D xMT_SYS_FUNC -D MT_ZDO_FUNC
+#        -D SAPP_ZSTACK_DEMO -lC
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List
+#        -lA
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List
+#        --diag_suppress Pe001,Pa010 -o
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\Obj
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 8 -f
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wEndev.cfg
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+#        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0031
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+#        -I
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+#        -Ohz --require_prototypes --no_code_motion)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\List\APP_Base.lst
+#    Object file        =  
+#        C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Demo\Obj\APP_Base.r51
+#
+###############################################################################
+
+C:\Users\97110\Desktop\ZStack-CC2530-r200\ZStack-CC2530-r200\Projects\SappWsn\Source\APP_Base.c
+      1          #include "APP_Base.h"
+      2          
+      3          #if defined(SAPP_ZSTACK_DEMO)
+      4          #include "hal_led.h"
+      5          // 任务建立实验范例代码
+      6          // 任务处理函数
+      7          uint16 Hello_ProcessEvent(uint8 task_id, uint16 events);
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      8          uint16 Hello_ProcessEvent(uint8 task_id, uint16 events)
+   \                     Hello_ProcessEvent:
+      9          {
+   \   000000                REQUIRE ?V0
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV       ?V0,R1
+   \   000007   EA           MOV       A,R2
+   \   000008   FE           MOV       R6,A
+   \   000009   EB           MOV       A,R3
+   \   00000A   FF           MOV       R7,A
+     10              if(events & 0x0001)
+   \   00000B   EA           MOV       A,R2
+   \   00000C   A2E0         MOV       C,0xE0 /* A   */.0
+   \   00000E   501A         JNC       ??Hello_ProcessEvent_0
+     11              {
+     12                  // 控制LED闪烁
+     13                  HalLedBlink(HAL_LED_1, 1, 50, 250);
+   \   000010                ; Setup parameters for call to function HalLedBlink
+   \   000010   7CFA         MOV       R4,#-0x6
+   \   000012   7D00         MOV       R5,#0x0
+   \   000014   7B32         MOV       R3,#0x32
+   \   000016   7A01         MOV       R2,#0x1
+   \   000018   7901         MOV       R1,#0x1
+   \   00001A   12....       LCALL     `??HalLedBlink::?relay`; Banked call to: HalLedBlink
+     14                  // 启动定时器, 设置1秒钟后再次触发该任务
+     15                  osal_start_timerEx(task_id, 0x0001, 1000);
+   \   00001D                ; Setup parameters for call to function osal_start_timerEx
+   \   00001D   7CE8         MOV       R4,#-0x18
+   \   00001F   7D03         MOV       R5,#0x3
+   \   000021   7A01         MOV       R2,#0x1
+   \   000023   7B00         MOV       R3,#0x0
+   \   000025   A9..         MOV       R1,?V0
+   \   000027   12....       LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+     16              }
+     17              // 清除定时器事件标志
+     18              return (events ^ 0x0001);
+   \                     ??Hello_ProcessEvent_0:
+   \   00002A   EE           MOV       A,R6
+   \   00002B   6401         XRL       A,#0x1
+   \   00002D   FA           MOV       R2,A
+   \   00002E   EF           MOV       A,R7
+   \   00002F   FB           MOV       R3,A
+   \   000030   7F01         MOV       R7,#0x1
+   \   000032   02....       LJMP      ?BANKED_LEAVE_XDATA
+     19          }
+     20          #endif
+     21          
+     22          // 任务列表
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     23          const pTaskEventHandlerFn tasksArr[] = {
+   \                     tasksArr:
+   \   000000   ....         DW `??macEventLoop::?relay`
+   \   000002   ....         DW `??nwk_event_loop::?relay`
+   \   000004   ....         DW `??Hal_ProcessEvent::?relay`
+   \   000006   ....         DW `??MT_ProcessEvent::?relay`
+   \   000008   ....         DW `??APS_event_loop::?relay`
+   \   00000A   ....         DW `??APSF_ProcessEvent::?relay`
+   \   00000C   ....         DW `??ZDApp_event_loop::?relay`
+   \   00000E   ....         DW `??Hello_ProcessEvent::?relay`
+     24              macEventLoop,
+     25              nwk_event_loop,
+     26              Hal_ProcessEvent,
+     27          #if defined( MT_TASK )
+     28              MT_ProcessEvent,
+     29          #endif
+     30              APS_event_loop,
+     31          #if defined ( ZIGBEE_FRAGMENTATION )
+     32              APSF_ProcessEvent,
+     33          #endif
+     34              ZDApp_event_loop,
+     35          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+     36              ZDNwkMgr_event_loop,
+     37          #endif
+     38          #if defined(SAPP_ZSTACK)
+     39              sapp_controlEpProcess,
+     40              sapp_functionEpProcess,
+     41          #endif
+     42          #if defined(SAPP_ZSTACK_DEMO)
+     43              // 任务建立实验范例代码
+     44              // 任务列表
+     45              Hello_ProcessEvent,
+     46          #endif
+     47          };
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     48          const uint8 tasksCnt = sizeof(tasksArr)/sizeof(tasksArr[0]);
+   \                     tasksCnt:
+   \   000000   08           DB 8
+     49          
+     50          // 初始化任务
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     51          void osalInitTasks( void )
+   \                     osalInitTasks:
+     52          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     53              uint8 taskID = 0;
+     54          
+     55              macTaskInit( taskID++ );
+   \   000004                ; Setup parameters for call to function macTaskInit
+   \   000004   7900         MOV       R1,#0x0
+   \   000006   12....       LCALL     `??macTaskInit::?relay`; Banked call to: macTaskInit
+     56              nwk_init( taskID++ );
+   \   000009                ; Setup parameters for call to function nwk_init
+   \   000009   7901         MOV       R1,#0x1
+   \   00000B   12....       LCALL     `??nwk_init::?relay`; Banked call to: nwk_init
+     57              Hal_Init( taskID++ );
+   \   00000E                ; Setup parameters for call to function Hal_Init
+   \   00000E   7902         MOV       R1,#0x2
+   \   000010   12....       LCALL     `??Hal_Init::?relay`; Banked call to: Hal_Init
+     58          #if defined( MT_TASK )
+     59              MT_TaskInit( taskID++ );
+   \   000013                ; Setup parameters for call to function MT_TaskInit
+   \   000013   7903         MOV       R1,#0x3
+   \   000015   12....       LCALL     `??MT_TaskInit::?relay`; Banked call to: MT_TaskInit
+     60          #endif
+     61              APS_Init( taskID++ );
+   \   000018                ; Setup parameters for call to function APS_Init
+   \   000018   7904         MOV       R1,#0x4
+   \   00001A   12....       LCALL     `??APS_Init::?relay`; Banked call to: APS_Init
+     62          #if defined ( ZIGBEE_FRAGMENTATION )
+     63              APSF_Init( taskID++ );
+   \   00001D                ; Setup parameters for call to function APSF_Init
+   \   00001D   7905         MOV       R1,#0x5
+   \   00001F   12....       LCALL     `??APSF_Init::?relay`; Banked call to: APSF_Init
+     64          #endif
+     65              ZDApp_Init( taskID++ );
+   \   000022                ; Setup parameters for call to function ZDApp_Init
+   \   000022   7906         MOV       R1,#0x6
+   \   000024   12....       LCALL     `??ZDApp_Init::?relay`; Banked call to: ZDApp_Init
+     66          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+     67              ZDNwkMgr_Init( taskID++ );
+     68          #endif
+     69          #if defined(SAPP_ZSTACK)
+     70              sapp_taskInitProcess();
+     71          #endif
+     72          #if defined(SAPP_ZSTACK_DEMO)
+     73              // 任务建立实验范例代码
+     74              // 启动定时器
+     75              osal_start_timerEx(taskID, 0x0001, 1000);
+   \   000027                ; Setup parameters for call to function osal_start_timerEx
+   \   000027   7CE8         MOV       R4,#-0x18
+   \   000029   7D03         MOV       R5,#0x3
+   \   00002B   7A01         MOV       R2,#0x1
+   \   00002D   7B00         MOV       R3,#0x0
+   \   00002F   7907         MOV       R1,#0x7
+   \   000031   12....       LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+     76          #endif
+     77          }
+   \   000034   D083         POP       DPH
+   \   000036   D082         POP       DPL
+   \   000038   02....       LJMP      ?BRET
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0      9   Hello_ProcessEvent
+        0      9   -> HalLedBlink
+        0      9   -> osal_start_timerEx
+      2      0   osalInitTasks
+        2      0   -> APSF_Init
+        2      0   -> APS_Init
+        2      0   -> Hal_Init
+        2      0   -> MT_TaskInit
+        2      0   -> ZDApp_Init
+        2      0   -> macTaskInit
+        2      0   -> nwk_init
+        2      0   -> osal_start_timerEx
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      53  Hello_ProcessEvent
+      59  osalInitTasks
+      16  tasksArr
+       1  tasksCnt
+      12  -- Other
+
+ 
+ 112 bytes in segment BANKED_CODE
+  12 bytes in segment BANK_RELAYS
+  17 bytes in segment XDATA_ROM_C
+ 
+  12 bytes of CODE     memory
+  17 bytes of CONST    memory
+ 112 bytes of HUGECODE memory
+
+Errors: none
+Warnings: none

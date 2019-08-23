@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oldpeoplehome.dao.MotionDao">
+    <resultMap id="BaseResultMap" type="com.oldpeoplehome.entity.Motion">
+        <id column="pid" property="motionParentId" jdbcType="BIGINT"/>
+        <result column="date" property="motionDate" jdbcType="DATE"/>
+        <result column="count" property="motionCount" jdbcType="BIGINT"/>
+        <result column="distance" property="motionDistance" jdbcType="DOUBLE"/>
+        <result column="time" property="motionTime" jdbcType="TIME"/>
+    </resultMap>
+
+    <select id="findByParentId" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.MotionFilter">
+        select m.*
+        from motion m where pid = #{motionParentId}
+    </select>
+    <select id="findByDate" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.MotionFilter">
+        select *
+        from motion where pid = #{motionParentId} and DATE_FORMAT(date,'%Y-%m-%d') between #{startDate} and #{endDate}
+    </select>
+    <select id="findByParentIdAndDate" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.MotionFilter">
+        select m.*, p.* from motion m left join parent p on m.pid = p.id where m.pid = #{motionParentId} and m.date = #{startDate}
+    </select>
+    <insert id="insert" parameterType="Motion">
+        insert into motion(pid, date, count, distance, time)
+        values (#{motionParentId}, #{motionDate}, #{motionCount}, #{motionDistance}, #{motionTime})
+    </insert>
+</mapper>

@@ -9,6 +9,8 @@ public class Room {
     private int roomId;
     private String roomLocation;
     private String roomName;
+    private long parentId;
+    private Parent parent;
 
     public Room() {
     }
@@ -18,10 +20,17 @@ public class Room {
         this.roomName = roomName;
     }
 
-    public Room(Integer roomId, String roomLocation, String roomName) {
+    public Room(String roomLocation, String roomName, Long parentId) {
+        this.roomLocation = roomLocation;
+        this.roomName = roomName;
+        this.parentId = parentId;
+    }
+
+    public Room(Integer roomId, String roomLocation, String roomName, Long parentId) {
         this.roomId = roomId;
         this.roomName = roomName;
         this.roomLocation = roomLocation;
+        this.parentId = parentId;
     }
 
     public int getRoomId() {
@@ -48,12 +57,22 @@ public class Room {
         this.roomLocation = roomLocation;
     }
 
+    public long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
+
     @Override
     public String toString() {
         return "Room{" +
                 "roomId=" + roomId +
-                ", roomName='" + roomName + '\'' +
                 ", roomLocation='" + roomLocation + '\'' +
+                ", roomName='" + roomName + '\'' +
+                ", parentId=" + parentId +
+                ", parent=" + parent +
                 '}';
     }
 }
