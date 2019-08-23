@@ -10,6 +10,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 
+import com.scorpiomiku.oldpeoplehome.modules.loginregister.LoginActivity;
+
 import butterknife.ButterKnife;
 
 /**
@@ -52,7 +54,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                             Manifest.permission.READ_EXTERNAL_STORAGE,
                             Manifest.permission.CALL_PHONE,
                             Manifest.permission.CAMERA,
-                            Manifest.permission.SEND_SMS
+                            Manifest.permission.SEND_SMS,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
                     },
                     1);
         }

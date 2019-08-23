@@ -110,7 +110,6 @@ public class ChildMainActivity extends BaseActivity {
         };
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         initFragmentManager();
-        checkPermission();
         initToolbar();
     }
 
