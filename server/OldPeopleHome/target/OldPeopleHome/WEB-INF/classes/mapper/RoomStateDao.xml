@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oldpeoplehome.dao.RoomStateDao">
+    <resultMap id="BaseResultMap" type="com.oldpeoplehome.entity.RoomState">
+        <id column="rid" property="roomId" jdbcType="BIGINT"/>
+        <result column="time" property="time" jdbcType="TIMESTAMP"/>
+        <result column="temperature" property="temperature" jdbcType="DOUBLE"/>
+        <result column="humidity" property="humidity" jdbcType="DOUBLE"/>
+        <result column="isin" property="isin" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="findByRoom" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.RoomStateFilter">
+        select *
+        from rstate where rid = #{roomId}
+    </select>
+    <select id="findByTime" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.RoomStateFilter">
+        select *
+        from rstate where rid = #{roomId} and DATE_FORMAT(time,'%Y-%m-%d %H:%i:%s')between #{startDate} and #{endDate}
+    </select>
+    <select id="findByRoomAndTime" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.RoomStateFilter">
+        select r.*, room.* from rstate r left join room on r.rid = room.id where r.rid = #{roomId} and r.time = #{startDate}
+    </select>
+    <insert id="insert" parameterType="RoomState">
+        insert into rstate(rid, time, temperature, humidity, isin)
+        values (#{roomId}, #{time}, #{temperature}, #{humidity}, #{isin})
+    </insert>
+</mapper>

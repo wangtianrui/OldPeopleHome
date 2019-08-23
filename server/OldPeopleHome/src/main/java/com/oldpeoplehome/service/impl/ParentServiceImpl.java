@@ -34,6 +34,11 @@ public class ParentServiceImpl implements ParentService {
     }
 
     @Override
+    public Parent changeRoom(Parent parent, int RoomId) {
+        return null;
+    }
+
+    @Override
     public Parent findByName(String name) {
         return parentDao.findByName(name);
     }
@@ -50,7 +55,7 @@ public class ParentServiceImpl implements ParentService {
 
     @Override
     public void update(Parent parent) {
-        parentDao.insert(parent);
+        parentDao.update(parent);
     }
 
     @Override

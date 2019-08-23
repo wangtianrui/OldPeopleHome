@@ -17,4 +17,5 @@ public interface ParentService {
     void insert(Parent parent);
     void update(Parent parent);
     void delete(long id);
+    Parent changeRoom(Parent parent, int RoomId);
 }

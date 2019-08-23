@@ -48,22 +48,23 @@ public class ParentController {
     }
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public Parent add(Map<String, Object> params){
+    public Parent add(@RequestParam Map<String, Object> params){
         Parent parent = new Parent();
+        System.out.println(params);
         parent.setParentSex(String.valueOf(params.get("parentSex")));
         parent.setParentPassword(String.valueOf(params.get("parentPassword")));
         parent.setParentAccount(String.valueOf(params.get("parentAccount")));
         parent.setParentName(String.valueOf(params.get("parentName")));
         parent.setParentBirth(String.valueOf(params.get("parentBirth")));
-        parent.setParentRoomId(Integer.valueOf(String.valueOf(params.get("parentRoomId"))));
         parent.setParentLongId(String.valueOf(params.get("parentLongId")));
         parentService.insert(parent);
         return parentService.findByLongId(parent.getParentLongId());
     }
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
-    public Parent update(Map<String, Object> params, @PathVariable("id") String id) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    public Parent update(@RequestParam Map<String, Object> params, @PathVariable("id") String id) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         Parent parent = parentService.findByID(Long.valueOf(id));
+        System.out.println(params);
         MethodUtil.updateFields(parent, params);
         parentService.update(parent);
         return parent;
