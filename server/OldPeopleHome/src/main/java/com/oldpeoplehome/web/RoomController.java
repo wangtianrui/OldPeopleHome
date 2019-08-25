@@ -40,6 +40,13 @@ public class RoomController {
         System.out.println(list);
         return list;
     }
+    @RequestMapping("/list/empty")
+    @ResponseBody
+    public List listEmpty() {
+        List<Room> list = roomService.findEmpty();
+        System.out.println(list);
+        return list;
+    }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody

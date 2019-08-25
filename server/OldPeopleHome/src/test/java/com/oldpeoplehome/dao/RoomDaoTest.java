@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -63,12 +64,19 @@ public class RoomDaoTest extends BaseTest {
         System.out.println(room);
         roomDao.updateRoom(room);
     }
+
+    @Test
+    public void testFindEmpty(){
+        System.out.println(roomDao.findEmptyRoom());
+    }
+
     @Test
     public void testA(){
         Parent parent = new Parent();
         System.out.println(parent.getClass());
         Object obj = parent;
         System.out.println(obj.getClass());
+        System.out.println(Timestamp.valueOf("2018-2-2 1:1:1"));
     }
 
 }

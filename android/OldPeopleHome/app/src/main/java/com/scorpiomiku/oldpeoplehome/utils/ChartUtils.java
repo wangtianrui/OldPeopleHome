@@ -33,13 +33,13 @@ public class ChartUtils {
      * @param linename
      * @return
      */
-    public static void initSingleLineChart(LineChart mLineChart, List<Entry> list, String linename) {
+    public static void initSingleLineChart(LineChart mLineChart, List<Entry> list, String linename,int fillColor) {
 
         LineDataSet dataSet = new LineDataSet(list, "Label"); // add entries to dataset
-        dataSet.setColor(Color.parseColor("#d63f9c"));//线条颜色
+        dataSet.setColor(fillColor);//线条颜色
         dataSet.setCircleColor(Color.parseColor("#7d7d7d"));//圆点颜色
         dataSet.setDrawFilled(true);
-        dataSet.setFillColor(0xFFF56EC0);
+        dataSet.setFillColor(fillColor);
         dataSet.setLineWidth(1f);//线条宽度
 
         //设置样式
@@ -73,7 +73,7 @@ public class ChartUtils {
 
         //隐藏x轴描述
         Description description = new Description();
-        description.setText("近15天平均心率");
+        description.setText(linename);
         description.setTextSize(12f);
 //        description.setTextColor(0x000);
         description.setTextColor(Color.WHITE);

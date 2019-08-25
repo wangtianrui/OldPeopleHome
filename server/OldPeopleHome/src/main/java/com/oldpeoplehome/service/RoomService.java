@@ -13,6 +13,7 @@ public interface RoomService {
     Room findById(int roomId);
 
     List<Room> findAll();
+    List<Room> findEmpty();
 
     int insert(Room room);
 

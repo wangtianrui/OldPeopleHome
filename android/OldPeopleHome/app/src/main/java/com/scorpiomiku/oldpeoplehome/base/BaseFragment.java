@@ -48,5 +48,9 @@ public abstract class BaseFragment extends Fragment {
         return myView;
     }
 
+    public void refreshUi() {
+
+    }
+
 
 }

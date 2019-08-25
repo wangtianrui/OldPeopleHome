@@ -8,6 +8,7 @@
         <id column="id" property="roomId" jdbcType="INTEGER"/>
         <result column="location" property="roomLocation" jdbcType="VARCHAR"/>
         <result column="name" property="roomName" jdbcType="VARCHAR"/>
+        <result column="pid" property="parentId" jdbcType="BIGINT"/>
     </resultMap>
 
     <select id="findById" resultMap="BaseResultMap" parameterType="int">
@@ -16,6 +17,10 @@
 
     <select id="findAll" resultMap="BaseResultMap">
         select * from room
+    </select>
+
+    <select id="findEmptyRoom" resultMap="BaseResultMap">
+        select * from room where pid is null
     </select>
 
     <insert id="insertRoom" useGeneratedKeys="true" keyColumn="id" keyProperty="roomId" parameterType="Room">
@@ -29,7 +34,8 @@
     <update id="updateRoom" parameterType="Room">
         update room
         set location = #{roomLocation},
-            name = #{roomName}
+            name = #{roomName},
+            pid = #{parentId}
         where id =#{roomId}
     </update>
 </mapper>

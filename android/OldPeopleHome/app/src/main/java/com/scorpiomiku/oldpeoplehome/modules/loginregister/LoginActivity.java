@@ -1,8 +1,12 @@
 package com.scorpiomiku.oldpeoplehome.modules.loginregister;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +15,7 @@ import android.widget.TextView;
 
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
+import com.scorpiomiku.oldpeoplehome.modules.children.activity.ChildMainActivity;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 
 import butterknife.BindView;
@@ -38,7 +43,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void iniview() {
-
+        checkPermission();
     }
 
     @Override
@@ -70,4 +75,6 @@ public class LoginActivity extends BaseActivity {
                 break;
         }
     }
+
+
 }

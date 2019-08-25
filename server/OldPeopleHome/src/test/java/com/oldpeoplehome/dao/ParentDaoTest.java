@@ -2,6 +2,7 @@ package com.oldpeoplehome.dao;
 
 import com.oldpeoplehome.BaseTest;
 import com.oldpeoplehome.entity.Parent;
+import com.oldpeoplehome.entity.Room;
 import com.oldpeoplehome.utils.StringUtil;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ import java.util.Map;
 public class ParentDaoTest extends BaseTest {
     @Autowired
     private ParentDao parentDao;
+    @Autowired
+    private RoomDao roomDao;
 
     @Test
     public void testFindById(){
@@ -43,17 +46,21 @@ public class ParentDaoTest extends BaseTest {
     @Test
     public void testInsert(){
         Parent parent = new Parent();
-        parent.setParentLongId("510703199701230019");
-        parent.setParentBirth(Date.valueOf("1993-4-5"));
-        parent.setParentName("丁丁娃");
-        parent.setParentAccount("ding");
-        parent.setParentHeight(1232.1);
-        parent.setParentWeight(1312.1);
+        parent.setParentLongId("510703199701213123");
+        parent.setParentBirth(Date.valueOf("1927-4-5"));
+        parent.setParentName("当当娃");
+        parent.setParentAccount("dang");
+        parent.setParentHeight(12.1);
+        parent.setParentWeight(3112.1);
         parent.setParentPassword("123");
-        parent.setParentRoomId(17);
         parent.setParentSex("女");
         parent.setParentPhone("12312312312");
+        Room room = roomDao.findById(1);
+        System.out.println(room);
         parentDao.insert(parent);
+        parent = parentDao.findByLongId(parent.getParentLongId());
+        room.setParentId(parent.getParentId());
+        roomDao.updateRoom(room);
         System.out.println(parent);
     }
 
