@@ -69,6 +69,7 @@
                         android:src="@drawable/ic_step" />
 
                     <TextView
+                        android:id="@+id/now_step"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -76,21 +77,71 @@
                         android:textColor="#FFF"
                         android:textSize="30sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="目标 4000 步"
-                        android:textColor="#FFF"
-                        android:textSize="14sp" />
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="目标 "
+                            android:textColor="#FFF"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/target_step"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="4000"
+                            android:textColor="#FFF"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text=" 步"
+                            android:textColor="#FFF"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="完成 0%"
-                        android:textColor="#FFF"
-                        android:textSize="14sp" />
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="完成 "
+                            android:textColor="#FFF"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/finish_percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textColor="#FFF"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" %"
+                            android:textColor="#FFF"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </RelativeLayout>

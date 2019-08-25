@@ -13,6 +13,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.scorpiomiku.oldpeoplehome.R;
@@ -151,6 +152,11 @@ public class OldPeopleMainActivity extends BaseActivity {
      */
     private void changeFragment(int index) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if (index == 4) {
+            floatingButton.setVisibility(View.INVISIBLE);
+        } else {
+            floatingButton.setVisibility(View.VISIBLE);
+        }
         for (int i = 0; i < fragments.length; i++) {
             if (i == index) {
                 fragmentTransaction.show(fragments[i]);
