@@ -12,24 +12,27 @@ public class Motion {
     private Date motionDate;
     private long motionCount;
     private double motionDistance;
+    private double motionEnergy;
     private Time motionTime;
 
     public Motion() {
     }
 
-    public Motion(long motionParentId, String motionDate, long motionCount, double motionDistance, String motionTime) {
+    public Motion(long motionParentId, String motionDate, long motionCount, double motionDistance, double motionEnergy, String motionTime) {
         this.motionParentId = motionParentId;
         this.motionDate = Date.valueOf(motionDate);
         this.motionCount = motionCount;
         this.motionDistance = motionDistance;
+        this.motionEnergy = motionEnergy;
         this.motionTime = Time.valueOf(motionTime);
     }
 
-    public Motion(long motionParentId, Date motionDate, long motionCount, double motionDistance, Time motionTime) {
+    public Motion(long motionParentId, Date motionDate, long motionCount, double motionDistance, double motionEnergy, Time motionTime) {
         this.motionParentId = motionParentId;
         this.motionDate = motionDate;
         this.motionCount = motionCount;
         this.motionDistance = motionDistance;
+        this.motionEnergy = motionEnergy;
         this.motionTime = motionTime;
     }
 
@@ -77,13 +80,22 @@ public class Motion {
         this.motionTime = motionTime;
     }
 
+    public double getmotionEnergy() {
+        return motionEnergy;
+    }
+
+    public void setmotionEnergy(double motionEnergy) {
+        this.motionEnergy = motionEnergy;
+    }
+
     @Override
     public String toString() {
         return "Motion{" +
-                "parentId=" + motionParentId +
+                "motionParentId=" + motionParentId +
                 ", motionDate=" + motionDate +
                 ", motionCount=" + motionCount +
                 ", motionDistance=" + motionDistance +
+                ", motionEnergy=" + motionEnergy +
                 ", motionTime=" + motionTime +
                 '}';
     }
