@@ -16,6 +16,28 @@ public class TimeUtils {
         //获取当前时间
         Date date = new Date(System.currentTimeMillis());
         return simpleDateFormat.format(date) + "";
+    }
 
+    /**
+     * 运动时间转换
+     * @param time
+     * @return
+     */
+    public static String getSportTime(int time) {
+        String t = "";
+        int sec = time % 60;
+        int min = time / 60 % 60;
+        int hour = time / 60 / 60;
+        if (min < 10) {
+            t = t + "0" + min;
+        } else {
+            t = t + min;
+        }
+        if (sec < 10) {
+            t = t + ":0" + sec;
+        } else {
+            t = t + ":" + sec;
+        }
+        return t;
     }
 }

@@ -88,13 +88,18 @@ public class StepFragment extends BaseFragment {
      * 刷新数据
      *
      * @param step
-     * @param percent
      * @param cal
      * @param distance
+     * @param sportTime
+     * @param heartRate
+     * @param sleepType
      */
-    public void refreshUi(String step, String percent, String cal, String distance) {
+    @Override
+    public void refreshUi(String step, String cal, String distance, String sportTime, String [] heartRate, String sleepType) {
+        super.refreshUi(step, cal, distance, sportTime, heartRate, sleepType);
         nowStep.setText(step);
         calorieText.setText(cal);
         distanceText.setText(distance);
+        timeText.setText(sportTime);
     }
 }

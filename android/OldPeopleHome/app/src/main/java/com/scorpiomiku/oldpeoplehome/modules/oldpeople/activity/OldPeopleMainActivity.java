@@ -1,11 +1,13 @@
 package com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -30,6 +32,7 @@ import com.scorpiomiku.oldpeoplehome.service.SampleBleService;
 import com.scorpiomiku.oldpeoplehome.utils.ComparatorBleDeviceItem;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.StatusBarUtils;
+import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
 import com.sxr.sdk.ble.keepfit.aidl.IRemoteService;
 import com.sxr.sdk.ble.keepfit.aidl.IServiceCallback;
 
@@ -38,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -55,6 +59,12 @@ public class OldPeopleMainActivity extends BaseActivity {
     BottomNavigationView navigation;
     @BindView(R.id.floating_button)
     FloatingActionButton floatingButton;
+    private String step;
+    private String cal;
+    private String distance;
+    private String sportTime;
+    private String[] heartRates = new String[6];
+    private String sleepType;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
     private FragmentManager fragmentManager;
     private BaseFragment[] fragments = {
@@ -72,9 +82,22 @@ public class OldPeopleMainActivity extends BaseActivity {
             R.color.informaiton_bg
     };
 
+    @SuppressLint("HandlerLeak")
     @Override
     protected Handler initHandle() {
-        return null;
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                switch (msg.what) {
+                    case 1:
+                        //蓝牙获取信息
+                        loadData();
+                        break;
+                }
+            }
+        };
+        return handler;
     }
 
     @Override
@@ -241,14 +264,22 @@ public class OldPeopleMainActivity extends BaseActivity {
         }
 
         @Override
-        public void onGetCurSportData(int type, long timestamp, int step, int distance,
-                                      int cal, int cursleeptime, int totalrunningtime, int steptime) throws RemoteException {
-            Date date = new Date(timestamp * 1000);
+        public void onGetCurSportData(int type1, long timestamp1, int step1, int distance1,
+                                      int cal1, int cursleeptime1, int totalrunningtime1, int steptime1) throws RemoteException {
+            Date date = new Date(timestamp1 * 1000);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
             String time = sdf.format(date);
             SportData sportData =
-                    new SportData(type, time, step, distance, cal, cursleeptime, totalrunningtime, steptime, "123");
+                    new SportData(type1, time, step1, distance1, cal1, cursleeptime1, totalrunningtime1, steptime1, "123");
             LogUtils.logd("获得新运动数据:" + sportData.toString());
+            if (sportData.getType() == 0) {
+                step = sportData.getStep() + "";
+                distance = sportData.getDistance() + "";
+                cal = sportData.getCal() + "";
+            } else {
+                sportTime = TimeUtils.getSportTime(sportData.getTotalrunningtime());
+            }
+            handler.sendEmptyMessage(1);
         }
 
         @Override
@@ -317,8 +348,20 @@ public class OldPeopleMainActivity extends BaseActivity {
         }
 
         @Override
-        public void onGetDataByDay(int i, long l, int i1, int i2) throws RemoteException {
-
+        public void onGetDataByDay(int type, long timestamp1, int step1, int heartrate1) throws RemoteException {
+            LogUtils.logd(type + ";" + timestamp1 + ";" + step1 + ";" + heartrate1);
+            switch (type) {
+                case 1:
+                    step = step1 + "";
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    heartRates[5] = heartrate1 + "";
+                    break;
+                default:
+                    break;
+            }
         }
 
         @Override
@@ -574,6 +617,11 @@ public class OldPeopleMainActivity extends BaseActivity {
     private void getNewHandData() {
         try {
             mService.getCurSportData();
+            mService.getDataByDay(2, 0); //获取心率
+//            mService.getDataByDay(1, 0);
+            for (int i = 5; i >= 0; i--) {
+
+            }
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -583,4 +631,11 @@ public class OldPeopleMainActivity extends BaseActivity {
     public void onViewClicked() {
         getNewHandData();
     }
+
+    private void loadData() {
+        for (int i = 0; i < fragments.length; i++) {
+            refreshUi(step, cal, distance, sportTime, heartRates, sleepType, fragments[i]);
+        }
+    }
+
 }

@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 
 
 import com.scorpiomiku.oldpeoplehome.modules.loginregister.LoginActivity;
+import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 
 import butterknife.ButterKnife;
 
@@ -59,6 +60,10 @@ public abstract class BaseActivity extends AppCompatActivity {
                     },
                     1);
         }
+    }
+
+    public void refreshUi(String step, String cal, String distance, String sportTime, String [] heartRate, String sleepType, BaseFragment fragment) {
+        fragment.refreshUi(step, cal, distance, sportTime, heartRate, sleepType);
     }
 
 }

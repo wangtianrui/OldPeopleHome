@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
+
 import java.io.IOException;
 
 /**
@@ -48,8 +50,8 @@ public abstract class BaseFragment extends Fragment {
         return myView;
     }
 
-    public void refreshUi() {
-
+    public void refreshUi(String step, String cal, String distance, String sportTime, String [] heartRate, String sleepType) {
+        LogUtils.logd("step:" + step + ";cal:" + cal + ";dis:" + distance + ";sportTime:" + sportTime + ";heartRate:" + heartRate + ";sleepType" + sleepType);
     }
 
 

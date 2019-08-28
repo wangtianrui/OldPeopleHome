@@ -84,4 +84,9 @@ public class HeartRateFragment extends BaseFragment {
         ChartUtils.initSingleLineChart(chart, pointValues, "近15天平均心率", 0xFFF56EC0);
     }
 
+    @Override
+    public void refreshUi(String step, String cal, String distance, String sportTime, String[] heartRate, String sleepType) {
+        super.refreshUi(step, cal, distance, sportTime, heartRate, sleepType);
+        heartRateText.setText(heartRate[5]);
+    }
 }
