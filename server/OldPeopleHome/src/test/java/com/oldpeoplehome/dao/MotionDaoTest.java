@@ -30,8 +30,9 @@ public class MotionDaoTest extends BaseTest {
 
     @Test
     public void testInsert(){
-        Motion motion = new Motion(2, "2019-2-2", 1239, 11, "1:1:1");
+        Motion motion = new Motion(2, "2019-2-2", 1239, 11,22, "1:1:1");
         motionDao.insert(motion);
+        System.out.println(motionDao.findByParentId(new MotionFilter(1)));
     }
 
 }

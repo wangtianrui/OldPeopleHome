@@ -58,8 +58,9 @@ public class MotionController {
         String date = String.valueOf(params.get("date"));
         long count = Long.valueOf(String.valueOf(params.get("count")));
         double distance = Long.valueOf(String.valueOf(params.get("distance")));
+        double energy = Long.valueOf(String.valueOf(params.get("energy")));
         String time = String.valueOf(params.get("time"));
-        Motion motion = new Motion(parentId, date, count, distance, time);
+        Motion motion = new Motion(parentId, date, count, distance,energy, time);
         motionService.insert(motion);
     }
 
