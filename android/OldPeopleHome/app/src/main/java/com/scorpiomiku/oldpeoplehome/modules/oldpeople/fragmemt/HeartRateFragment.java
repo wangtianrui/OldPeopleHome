@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -13,6 +14,7 @@ import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 import com.scorpiomiku.oldpeoplehome.utils.ChartUtils;
+import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 
 import java.util.ArrayList;
 
@@ -42,7 +44,9 @@ public class HeartRateFragment extends BaseFragment {
     TextView systolic;
     @BindView(R.id.oxy)
     TextView oxy;
-
+    @BindView(R.id.progress_bar)
+    RelativeLayout progressBar;
+    private Boolean loading = false;
 
     @Override
     protected Handler initHandle() {
@@ -111,9 +115,20 @@ public class HeartRateFragment extends BaseFragment {
      * @param heart
      */
     public void changeText(String heart, String systolic, String diastolic, String oxy) {
+//        LogUtils.loge(this.systolic.getText().toString() + ";" + systolic + ";" + (systolic.equals(this.systolic.getText().toString())));
+        if (systolic.equals(this.systolic.getText().toString())) {
+            if (!loading) {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        } else {
+            loading = false;
+            progressBar.setVisibility(View.GONE);
+        }
         heartRateText.setText(heart);
         this.diastolic.setText(diastolic);
         this.systolic.setText(systolic);
         this.oxy.setText(oxy);
+
+
     }
 }

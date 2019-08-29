@@ -67,8 +67,8 @@ public class OldPeopleMainActivity extends BaseActivity {
     private String curHeartRate;
     private String[] heartRates = new String[6];
     private String sleepType;
-    private String bloodPressureShrink;
-    private String bloodPressureDiastole;
+    private String bloodPressureShrink = "0";
+    private String bloodPressureDiastole = "0";
     private String oxygen;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
@@ -418,9 +418,7 @@ public class OldPeopleMainActivity extends BaseActivity {
         public void onReceiveSensorData(int arg0, int arg1, int arg2, int arg3,
                                         int arg4) throws RemoteException {
             LogUtils.logd("onReceiveSensorData" + "result:" + arg0 + " , " + arg1 + " , " + arg2 + " , " + arg3 + " , " + arg4);
-            if (arg2 != 0) {
-                LogUtils.shortToast("测量成功");
-            }
+
             curHeartRate = arg0 + "";
             bloodPressureShrink = arg1 + "";
             bloodPressureDiastole = arg2 + "";
