@@ -7,10 +7,6 @@
     <title>首页</title>
     <link rel="stylesheet" href="firstPage_style.css">
 </head>
-<!-- <frameset cols="100,*">
-    <frame src="frame_contents.html" noresize="noresize">
-    <frame src="frame_rooms.html" name="showFrame" noresize="noresize">
-</frameset> -->
 <body>
     <div class="box1">
         <span class="upper">O</span>
@@ -20,11 +16,38 @@
         <span class="upper">H</span>
         <span class="lower">ome</span>
     </div>
+    <div class="menu">
+        <ul>
+            <li>
+                <a href="#" id="main">
+                    <span class="row_menu">主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="check">
+                    <span class="row_menu">查看</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="manage">
+                    <span  class="row_menu">管理</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" id="self">
+                    <span class="row_menu">个人中心</span>
+                </a>
+            </li>
+        </ul>
+    </div>
     <div class="leftGuide">
         <ul>
-            <li><a href="#" id="rooms" class="guide">房间</a></li><br><br>
-            <li><a href="#" id="people" class="guide">老人</a></li>
+            <li><a href="frame_rooms.html" id="rooms" class="guide" target="contents">房间</a></li><br><br>
+            <li><a href="frame_people.html" id="people" class="guide" target="contents">老人</a></li>
         </ul>       
+    </div>
+    <div class="box2">
+        <iframe id="contents" src="contents.html" frameborder="1" width="900" height="100%" name="contents"></iframe>
     </div>
 </body>
 </html>
