@@ -417,8 +417,7 @@ public class OldPeopleMainActivity extends BaseActivity {
         @Override
         public void onReceiveSensorData(int arg0, int arg1, int arg2, int arg3,
                                         int arg4) throws RemoteException {
-            LogUtils.logd("onReceiveSensorData" + "result:" + arg0 + " , " + arg1 + " , " + arg2 + " , " + arg3 + " , " + arg4);
-
+//            LogUtils.logd("onReceiveSensorData" + "result:" + arg0 + " , " + arg1 + " , " + arg2 + " , " + arg3 + " , " + arg4);
             curHeartRate = arg0 + "";
             bloodPressureShrink = arg1 + "";
             bloodPressureDiastole = arg2 + "";
@@ -640,6 +639,7 @@ public class OldPeopleMainActivity extends BaseActivity {
         try {
             mService.getCurSportData();
 //            mService.getDataByDay(2, 0); //获取心率
+            mService.setAutoHeartMode(true,)
             for (int i = 5; i >= 0; i--) {
 
             }
