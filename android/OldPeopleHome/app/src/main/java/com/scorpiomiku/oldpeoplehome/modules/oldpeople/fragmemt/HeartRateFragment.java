@@ -11,6 +11,7 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 import com.scorpiomiku.oldpeoplehome.utils.ChartUtils;
 
 import java.util.ArrayList;
@@ -35,6 +36,13 @@ public class HeartRateFragment extends BaseFragment {
     @BindView(R.id.chart)
     LineChart chart;
     Unbinder unbinder;
+    @BindView(R.id.diastolic)
+    TextView diastolic;
+    @BindView(R.id.systolic)
+    TextView systolic;
+    @BindView(R.id.oxy)
+    TextView oxy;
+
 
     @Override
     protected Handler initHandle() {
@@ -88,5 +96,24 @@ public class HeartRateFragment extends BaseFragment {
     public void refreshUi(String step, String cal, String distance, String sportTime, String[] heartRate, String sleepType) {
         super.refreshUi(step, cal, distance, sportTime, heartRate, sleepType);
         heartRateText.setText(heartRate[5]);
+    }
+
+
+    @OnClick(R.id.begin)
+    public void onViewClicked() {
+        assert ((OldPeopleMainActivity) getContext()) != null;
+        ((OldPeopleMainActivity) getContext()).setHeartRateMode(begin);
+    }
+
+    /**
+     * 修改数值
+     *
+     * @param heart
+     */
+    public void changeText(String heart, String systolic, String diastolic, String oxy) {
+        heartRateText.setText(heart);
+        this.diastolic.setText(diastolic);
+        this.systolic.setText(systolic);
+        this.oxy.setText(oxy);
     }
 }

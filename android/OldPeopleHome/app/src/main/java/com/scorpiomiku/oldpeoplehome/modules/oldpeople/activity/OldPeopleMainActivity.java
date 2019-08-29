@@ -17,6 +17,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
@@ -41,7 +42,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -59,12 +59,18 @@ public class OldPeopleMainActivity extends BaseActivity {
     BottomNavigationView navigation;
     @BindView(R.id.floating_button)
     FloatingActionButton floatingButton;
+
     private String step;
     private String cal;
     private String distance;
     private String sportTime;
+    private String curHeartRate;
     private String[] heartRates = new String[6];
     private String sleepType;
+    private String bloodPressureShrink;
+    private String bloodPressureDiastole;
+    private String oxygen;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
     private FragmentManager fragmentManager;
     private BaseFragment[] fragments = {
@@ -93,6 +99,9 @@ public class OldPeopleMainActivity extends BaseActivity {
                     case 1:
                         //蓝牙获取信息
                         loadData();
+                        break;
+                    case 2:
+                        ((HeartRateFragment) fragments[2]).changeText(curHeartRate, bloodPressureShrink, bloodPressureDiastole, oxygen);
                         break;
                 }
             }
@@ -328,8 +337,14 @@ public class OldPeopleMainActivity extends BaseActivity {
         }
 
         @Override
-        public void onGetSenserData(int i, long l, int i1, int i2) throws RemoteException {
-
+        public void onGetSenserData(int result, long timestamp, int heartrate, int sleepstatu)
+                throws RemoteException {
+            Date date = new Date(timestamp * 1000);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+            String time = sdf.format(date);
+            curHeartRate = heartrate + "";
+            LogUtils.logd("onGetSenserData-" + "result: " + result + ",time:" + time + ",heartrate:" + heartrate + ",sleepstatu:" + sleepstatu);
+            handler.sendEmptyMessage(2);
         }
 
         @Override
@@ -400,8 +415,17 @@ public class OldPeopleMainActivity extends BaseActivity {
         }
 
         @Override
-        public void onReceiveSensorData(int i, int i1, int i2, int i3, int i4) throws RemoteException {
-
+        public void onReceiveSensorData(int arg0, int arg1, int arg2, int arg3,
+                                        int arg4) throws RemoteException {
+            LogUtils.logd("onReceiveSensorData" + "result:" + arg0 + " , " + arg1 + " , " + arg2 + " , " + arg3 + " , " + arg4);
+            if (arg2 != 0) {
+                LogUtils.shortToast("测量成功");
+            }
+            curHeartRate = arg0 + "";
+            bloodPressureShrink = arg1 + "";
+            bloodPressureDiastole = arg2 + "";
+            oxygen = arg3 + "";
+            handler.sendEmptyMessage(2);
         }
 
         @Override
@@ -472,8 +496,8 @@ public class OldPeopleMainActivity extends BaseActivity {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder service) {
                 LogUtils.shortToast("Service connected");
-
                 mService = IRemoteService.Stub.asInterface(service);
+
                 try {
                     mService.registerCallback(mServiceCallback);
                     mService.openSDKLog(bSave, pathLog, "blue.log");
@@ -617,8 +641,7 @@ public class OldPeopleMainActivity extends BaseActivity {
     private void getNewHandData() {
         try {
             mService.getCurSportData();
-            mService.getDataByDay(2, 0); //获取心率
-//            mService.getDataByDay(1, 0);
+//            mService.getDataByDay(2, 0); //获取心率
             for (int i = 5; i >= 0; i--) {
 
             }
@@ -632,10 +655,34 @@ public class OldPeopleMainActivity extends BaseActivity {
         getNewHandData();
     }
 
+    /**
+     * 更新UI调用
+     */
     private void loadData() {
         for (int i = 0; i < fragments.length; i++) {
             refreshUi(step, cal, distance, sportTime, heartRates, sleepType, fragments[i]);
         }
     }
 
+    private Boolean heartRateOpen = false;
+
+    /**
+     * 测试心率按钮点击事件
+     */
+    public void setHeartRateMode(TextView begin) {
+        if (heartRateOpen) {
+            //关闭
+            begin.setText("开启");
+        } else {
+            //开启
+            begin.setText("关闭");
+        }
+        heartRateOpen = !heartRateOpen;
+        try {
+            mService.setHeartRateMode(heartRateOpen, 120);
+            mService.setBloodPressureMode(heartRateOpen);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 }

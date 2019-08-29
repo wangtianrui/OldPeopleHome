@@ -147,13 +147,13 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_heart_log" />
+                        android:src="@drawable/ic_bloodpressure" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="最小心率"
+                        android:text="血压（收缩压）"
                         android:textColor="@color/heart_rate_bg"
                         android:textSize="14sp" />
 
@@ -165,6 +165,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/diastolic"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
@@ -177,12 +178,13 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="5dp"
                             android:gravity="center"
-                            android:text="BPM"
+                            android:text="mmHg"
                             android:textColor="@color/heart_rate_bg"
                             android:textSize="14sp" />
                     </LinearLayout>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="100dp"
                     android:layout_height="120dp"
@@ -193,13 +195,13 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_heart_log" />
+                        android:src="@drawable/ic_bloodpressure" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="平均心率"
+                        android:text="血压（舒张压）"
                         android:textColor="@color/heart_rate_bg"
                         android:textSize="14sp" />
 
@@ -211,6 +213,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/systolic"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
@@ -223,12 +226,13 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="5dp"
                             android:gravity="center"
-                            android:text="BPM"
+                            android:text="mmHg"
                             android:textColor="@color/heart_rate_bg"
                             android:textSize="14sp" />
                     </LinearLayout>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="100dp"
                     android:layout_height="120dp"
@@ -239,13 +243,13 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_heart_log" />
+                        android:src="@drawable/ic_oxy" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="最大心率"
+                        android:text="血氧"
                         android:textColor="@color/heart_rate_bg"
                         android:textSize="14sp" />
 
@@ -257,6 +261,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/oxy"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
@@ -269,7 +274,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="5dp"
                             android:gravity="center"
-                            android:text="BPM"
+                            android:text="HbO2"
                             android:textColor="@color/heart_rate_bg"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -284,6 +289,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1.2"
                 android:orientation="horizontal">
+
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/chart"
                     android:layout_width="match_parent"
