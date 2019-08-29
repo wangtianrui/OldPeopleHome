@@ -639,7 +639,7 @@ public class OldPeopleMainActivity extends BaseActivity {
         try {
             mService.getCurSportData();
 //            mService.getDataByDay(2, 0); //获取心率
-            mService.setAutoHeartMode(true,)
+//            mService.setAutoHeartMode(true,)
             for (int i = 5; i >= 0; i--) {
 
             }
