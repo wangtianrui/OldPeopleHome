@@ -15,6 +15,7 @@ public interface ParentDao {
     Parent findByLongId(String longId);
     Parent findByRoomId(int roomId);
     Parent findByName(String name);
+    Parent findByAccount(String name);
     List<Parent> findAll();
     void insert(Parent parent);
     void update(Parent parent);

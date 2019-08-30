@@ -33,6 +33,9 @@
     <select id="findByName" parameterType="String" resultMap="BaseResultMap">
         select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.name=#{p.parentName}
     </select>
+    <select id="findByAccount" parameterType="String" resultMap="BaseResultMap">
+        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.account=#{p.parentAccount}
+    </select>
 
     <select id="findAll"  resultMap="BaseResultMap">
         select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id

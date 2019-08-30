@@ -15,6 +15,8 @@ import java.util.List;
 @Service
 public class ParentServiceImpl implements ParentService {
 
+
+
     @Autowired
     private ParentDao parentDao;
 
@@ -61,5 +63,9 @@ public class ParentServiceImpl implements ParentService {
     @Override
     public void delete(long id) {
         parentDao.delete(id);
+    }
+    @Override
+    public Parent login(String account) {
+        return parentDao.findByAccount(account);
     }
 }
