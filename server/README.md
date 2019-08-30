@@ -62,6 +62,7 @@
 
 | 实体           | url示例                | 请求方式 | 功能概述                                  | 参数格式                                                     |
 | -------------- | ---------------------- | -------- | ----------------------------------------- | ------------------------------------------------------------ |
+| Admin          | /admin/login           | POST     | 后台管理员账号                            | account:root,password:root                                   |
 | Room           | /room/get/1            | GET      | 查询id=1的room的详细信息                  |                                                              |
 | Room           | /room/list             | GET      | 查询所有的room信息                        |                                                              |
 | Room           | /room/list/empty       | GET      | 查询所有空置room信息(web端给老人分配房间) |                                                              |
@@ -76,6 +77,7 @@
 | Parent         | /parent/add            | POST     | 添加老人                                  | parentSex：老人性别，parentPassword：老人密码，parentAccount：账号，parentName：姓名，parentBirth：生日，parentLongId：身份证 |
 | Parent         | /parent/update/1       | POST     | 更新id=1的老人信息                        | **要更新的字段严格按照命名格式传参**比如name就传入parentName |
 | Parent         | /parent/delete/1       | DELETE   | 删除id=1的老人                            |                                                              |
+| Parent         | /parent/login          | POST     | 老人登陆                                  | 登陆成功返回老人的所有信息，登陆失败返回null（不返回）       |
 | Child          | /child/get/1           | GET      | 查询id=1的子女                            |                                                              |
 | Child          | /child/get_longid/111  | GET      | 查询身份证=111的child的详细信息           |                                                              |
 | Child          | /child/get_name/小蒋   | GET      | 查询姓名=小蒋的child的详细信息            |                                                              |
@@ -83,6 +85,7 @@
 | Child          | /child/add             | POST     |                                           | childSex，childPassword，childAccount，childName，childLongId，childPhone |
 | Child          | /child/update/1        | POST     | 更新id=1的子女信息                        | **要更新的字段严格按照命名格式传参**比如name就传入parentName |
 | Child          | /child/delete/1        | DELETE   | 删除id=1的子女信息                        |                                                              |
+| Child          | /child/login           | POST     | 登陆子女                                  | 登陆成功返回子女信息，失败返回空(不返回)                     |
 | ChildAndParent | /child_parent/child/1  | GET      | 查看子女id=1对应的老人                    |                                                              |
 | ChildAndParent | /child_parent/parent/1 | GET      | 查看老人id=1对应的子女                    |                                                              |
 | ChildAndParent | /child_parent/add      | POST     | 添加老人子女对应关系                      | 子女id：child，老人id：parent，关系：relation                |
