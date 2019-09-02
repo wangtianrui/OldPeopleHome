@@ -6,7 +6,7 @@ body {
     text-align: left;
     position: absolute;
     top: 30px;
-    left: 100px;
+    left: 10px;
     user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -21,73 +21,97 @@ body {
 }
 .lower {
     color: rgb(255, 183, 124);
-    /* font-weight: bold; */
     font-family: sans-serif;
     font-size: 45px; 
     letter-spacing: -5px;
 }
 
-
-.box2 {
-    margin-left: 100px;
-    margin-top: 20px;
-}
-#contents {
-    background-color: white;
-    border: none;
-    border-radius: 2px;
-}
-
+/* 横向菜单栏 */
 .menu {
-    width: 1080px;
+    width: auto;
     height: 50px;
     background-color: rgb(255, 183, 124);
-    margin-left: 100px;
     margin-top: 100px;
-    border-radius: 2px;
 }
 ul {
-    list-style: none;
-    text-decoration: none;
-    padding: 0;  
-    user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
+    width: auto;
+    list-style-type: none;
+    white-space: nowrap;
+    padding: 0;
 }
-li {
-    display: inline-block;
-    width: 266px;
-    height: 50px;
-    margin-left: 80px;
-    margin-top: 15px;
-    margin: 0;
-    text-align: center;
-    /* transform: translateX(30deg);
-    -moz-transform: translateX(30deg);
-    -ms-transform: translateX(30deg);
-    -o-transform: translateX(30deg);
-    -webkit-transform: translateX(30deg);
-    animation: li .2s infinite; */
+.menu li {
+    float: left;
 }
-.row_menu {
-    position: relative;
-    top: 15px;
+.menu li#self {
+    margin: 0 0 0 979px;
 }
-a {
-    text-decoration-line: none;
-    font-family: youyuan;
-    font-size: 16px;
+.menu li a {
+    /* text-indent: -9999px; */
     color: white;
+    text-decoration-line: none;
+    display: block;
+    padding: 14px 40px 15px 70px;
 }
-li:hover {
-    background-color: rgb(255, 115, 0);
+.menu li a:hover {
+    background-color: rgba(248, 148, 66, 0.7);
 }
-/* @keyframes li {
-    0%{
-        transform: translateX(30deg);
-    }
-} */
-.row_menu:active {
-    color: rgb(255, 183, 124);
+.menu ul li a#firstPage {
+    background-image: url("icons/首页.png");
+    background-repeat: no-repeat;
+    background-size: 12%;
+    background-position: 35px 16px;
+    
+}
+.menu ul li a#my {
+    background-image: url("icons/管理员.png");
+    background-repeat: no-repeat;
+    background-size: 12%;
+    background-position: 35px 16px;
+}
+
+/* 操作界面 */
+.box2 {
+    width: auto;
+    height: auto;
+    /* background-color: yellow; */
+    margin: 0 0 0 250px;
+}
+.box2 table tr td {
+    padding: 150px 50px 90px 0;
+}
+.box2 table tr td a {
+    color: white;
+    text-decoration-line: none;
+    background-image: url("icons/房间.png");
+    background-repeat: no-repeat;
+    padding: 110px 90px 20px;
+    background-position: 38px;
+}
+.box2 table tr td a:hover {
+    background-image: url("icons/房间light.png");
+}
+
+/* 纵向导航栏 */
+.guide {
+    width: 190px;
+    height: 1100px;
+    background-color: rgba(255, 183, 124, 0.3);
+    position: absolute;
+    top: 150px;
+}
+.guide li {
+    margin: 50px 0 0 0;
+}
+.guide li#delete {
+    margin: 60px 0;
+    /* background-color: yellow; */
+}
+.guide li a {
+    text-decoration-line: none;
+    color: white;
+    padding: 16px 76px 20px 50px;
+    /* background-color: yellow; */
+}
+.guide li a:hover {
+    background-color: rgba(248, 148, 66, 0.7);
 }
