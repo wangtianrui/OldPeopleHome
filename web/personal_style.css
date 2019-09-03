@@ -45,7 +45,7 @@ ul {
     float: left;
 }
 .menu li#self {
-    margin: 0 0 0 995px;
+    margin: 0 0 0 979px;
 }
 .menu li a {
     color: white;
@@ -77,6 +77,7 @@ ul {
     background-color: white;
     margin: 50px 0 0 280px;
     position: absolute;
+    border-radius: 2px;
 }
 .background .pic {
     width: 128px;
@@ -84,17 +85,151 @@ ul {
     position: relative;
     top: 36px;
     left: 30px;
+    /* background-color: yellow; */
 }
 .background .pic a {
     background-image: url("icons/管理员头像.png");
     background-repeat: no-repeat;
     background-size: 100%;
+    border-radius: 2px;
     display: block;
     padding: 64px;
 
 }
 .background .backgroundText {
+    width: 200px;
+    height: auto;
     position: relative;
     top: -100px;
     left: 308px;
+    /* background-color: yellow; */
+}
+.background .logout input {
+    width: 90px;
+    height: 30px;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    background-color: red;
+    outline: none;
+    position: relative;
+    top: -135px;
+    left: 550px;
+}
+.background .logout input:hover {
+    transform: translate(0,-1px);
+    -ms-transform: translate(0,-1px);
+    -webkit-transform: translate(0,-1px);
+    -o-transform: translate(0,-1px);
+    -moz-transform: translate(0,-1px);
+    box-shadow: 3px 3px 3px rgba(192, 192, 192, 0.801);
+}
+.background .logout input:active {
+    background-color: rgba(255, 55, 55, 0.781);
+}
+.background:hover {
+    transform: translate(0,-1px);
+    -ms-transform: translate(0,-1px);
+    -webkit-transform: translate(0,-1px);
+    -o-transform: translate(0,-1px);
+    -moz-transform: translate(0,-1px);
+    box-shadow: 10px 10px 5px rgb(252, 227, 188);
+}
+
+/* 消息块 */
+.messages {
+    width: 400px;
+    height: auto;
+    background-color: white;
+    position: absolute;
+    top: 420px;
+    left: 280px;
+}
+.messages:hover {
+    transform: translate(0,-1px);
+    -ms-transform: translate(0,-1px);
+    -webkit-transform: translate(0,-1px);
+    -o-transform: translate(0,-1px);
+    -moz-transform: translate(0,-1px);
+    box-shadow: 10px 10px 5px rgb(252, 227, 188);
+}
+.messages h2 {
+    /* background-color: yellow; */
+    padding: 0 0 0 20px;
+}
+.messages div {
+    width: 180px;
+    height: 140px;
+    border-top: 1px rgb(224, 224, 224) solid;
+    float: left;
+    margin: 5px 5px 10px 12px;
+    color: black;
+    /* background: linear-gradient(left,rgb(248, 235, 233),rgba(245, 239, 230, 0.897));
+    background: -webkit-linear-gradient(left,rgb(248, 235, 233),rgba(245, 239, 230, 0.897));
+    background: -o-linear-gradient(left,rgb(248, 235, 233),rgba(245, 239, 230, 0.897));
+    background: -moz-linear-gradient(left,rgb(248, 235, 233),rgba(245, 239, 230, 0.897)); */
+}
+.messages div h5 {
+    margin: 2px 0 0 0;
+    padding: 0 0 0 10px;
+    /* background-color: yellow; */
+}
+.messages div p {
+    width: 170px;
+    height: 105px;
+    padding: 0 0 0 10px;
+    /* background-color: rgb(255, 183, 124); */
+}
+
+/* 修改密码 */
+.modify {
+    width: 280px;
+    height: 383px;
+    background-color: white;
+    position: absolute;
+    top: 420px;
+    left: 700px;
+}
+.modify:hover {
+    transform: translate(0,-1px);
+    -ms-transform: translate(0,-1px);
+    -webkit-transform: translate(0,-1px);
+    -o-transform: translate(0,-1px);
+    -moz-transform: translate(0,-1px);
+    box-shadow: 10px 10px 5px rgb(252, 227, 188);
+}
+.modify h2 {
+    padding: 0 0 0 20px;
+}
+.modify form input {
+    position: relative;
+    top: 25px;
+    left: 40px;
+    border: 1px rgb(224, 224, 224) solid;
+    border-radius: 25px;
+    text-align: center;
+    outline: none;
+    font-size: 16px;
+}
+.modify form input#new {
+    margin-top: 30px;
+}
+.modify form input#submit {
+    margin-top: 20px;
+    margin-left: 80px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    border: none;
+}
+.modify form input#submit:hover {
+    transform: translate(0,-1px);
+    -ms-transform: translate(0,-1px);
+    -webkit-transform: translate(0,-1px);
+    -o-transform: translate(0,-1px);
+    -moz-transform: translate(0,-1px);
+    box-shadow: 3px 3px 3px rgba(192, 192, 192, 0.801);
+}
+.modify form input#submit:active {
+    background-color: rgb(235, 235, 235);
 }
