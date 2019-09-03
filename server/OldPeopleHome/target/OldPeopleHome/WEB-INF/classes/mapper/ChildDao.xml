@@ -23,7 +23,9 @@
     <select id="findByName" resultMap="BaseResultMap" parameterType="String">
         select * from child where name = #{childName}
     </select>
-
+    <select id="findByAccount" parameterType="String" resultMap="BaseResultMap">
+        select * from child where account = #{childAccount}
+    </select>
     <select id="findAll" resultMap="BaseResultMap">
         select * from child
     </select>

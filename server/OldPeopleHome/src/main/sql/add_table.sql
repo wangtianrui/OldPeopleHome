@@ -91,4 +91,10 @@ CREATE TABLE `sleep` (
   KEY `index_pid_date` (`pid`,`date`) USING BTREE,
   CONSTRAINT `fk_pid1` FOREIGN KEY (`pid`) REFERENCES `parent` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ;
+CREATE TABLE `Untitled`  (
+  `account` varchar(255) NOT NULL COMMENT '管理员账号',
+  `password` varchar(255) NULL COMMENT '管理员密码',
+  PRIMARY KEY (`account`),
+  UNIQUE INDEX `index_acc`(`account`) USING BTREE
+);
 

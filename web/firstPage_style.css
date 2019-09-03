@@ -1,13 +1,18 @@
 body {
-    background-color: aliceblue;
+    background-color: papayawhip;
     margin: 0px;
 }
+
+/* LOGO */
 .box1 {
     text-align: left;
     position: absolute;
     top: 30px;
-    left: 100px;
-
+    left: 10px;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
 }
 .upper {
     color: rgb(255, 115, 0);
@@ -18,36 +23,99 @@ body {
 }
 .lower {
     color: rgb(255, 183, 124);
-    /* font-weight: bold; */
     font-family: sans-serif;
     font-size: 45px; 
     letter-spacing: -5px;
 }
-span {
-    user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-}
-.leftGuide {
-    position: absolute;
-    top: 140px;
-    left: 100px;
-    /* border-left: 0.5px solid lightgray; */
-    border-right: 0.5px solid rgba(255, 183, 124, 0.411);
-    padding-right: 50px;
-}
-.guide {
-    text-decoration-line: none;
-    font-size: 28px;
-    font-family: youyuan;
-    font-weight: 900;
-    color: rgb(255, 183, 124);
+
+/* 横向菜单栏 */
+.menu {
+    width: auto;
+    height: 50px;
+    background-color: rgb(255, 183, 124);
+    margin-top: 100px;
 }
 ul {
-    list-style: none;
+    width: auto;
+    list-style-type: none;
+    white-space: nowrap;
     padding: 0;
 }
-.guide:hover {
-    color: rgba(211, 211, 211, 0.651);
+.menu li {
+    float: left;
+}
+.menu li#self {
+    margin: 0 0 0 979px;
+}
+.menu li a {
+    color: white;
+    text-decoration-line: none;
+    display: block;
+    padding: 14px 40px 15px 70px;
+}
+.menu li a:hover {
+    background-color: rgba(248, 148, 66, 0.7);
+}
+.menu ul li a#firstPage {
+    background-image: url("icons/首页.png");
+    background-repeat: no-repeat;
+    background-size: 12%;
+    background-position: 35px 16px;
+    
+}
+.menu ul li a#my {
+    background-image: url("icons/管理员.png");
+    background-repeat: no-repeat;
+    background-size: 12%;
+    background-position: 35px 16px;
+}
+
+/* 操作界面 */
+.box2 {
+    width: auto;
+    height: auto;
+    /* background-color: yellow; */
+    margin: 0 0 0 210px;
+}
+.box2 table tr td {
+    padding: 150px 50px 90px 0;
+    /* background-color: yellow; */
+}
+.box2 table tr td a {
+    color: papayawhip;
+    text-decoration-line: none;
+    font-size: 14px;
+    background-image: url("icons/房间.png");
+    background-repeat: no-repeat;
+    padding: 100px 90px 20px 115px;
+    background-position: 80px 30px;
+    background-size: 40%;
+}
+.box2 table tr td a:hover {
+    background-image: url("icons/房间light.png");
+}
+
+/* 纵向导航栏 */
+.guide {
+    width: 190px;
+    height: 1400px;
+    background-color: rgba(255, 183, 124, 0.3);
+    position: absolute;
+    top: 150px;
+}
+.guide li {
+    margin: 50px 0 0 0;
+}
+.guide li#delete {
+    margin: 60px 0;
+    /* background-color: yellow; */
+}
+.guide li a {
+    text-decoration-line: none;
+    color: white;
+    padding: 16px 76px 20px 50px;
+    /* background-color: yellow; */
+}
+.guide li a:hover {
+    background-color: rgba(248, 148, 66, 0.7);
 }

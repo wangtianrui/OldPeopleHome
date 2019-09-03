@@ -1,5 +1,6 @@
 package com.oldpeoplehome.web;
 
+import com.oldpeoplehome.entity.Admin;
 import com.oldpeoplehome.entity.Parent;
 import com.oldpeoplehome.service.ParentService;
 import com.oldpeoplehome.utils.MethodUtil;
@@ -75,5 +76,12 @@ public class ParentController {
     public List<Parent> delete(@PathVariable("id") String id){
         parentService.delete(Long.valueOf(id));
         return parentService.findAll();
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
+    public Parent login(@RequestParam Map<String, Object> params){
+        Parent res = parentService.login(params.get("account").toString());
+        return res.getParentPassword().equals(params.get("password").toString()) ? res:null;
     }
 }

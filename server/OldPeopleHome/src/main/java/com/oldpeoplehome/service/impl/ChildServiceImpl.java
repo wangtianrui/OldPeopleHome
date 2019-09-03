@@ -52,4 +52,8 @@ public class ChildServiceImpl implements ChildService {
     public void insert(Child child) {
         childDao.insert(child);
     }
+    @Override
+    public Child login(String account) {
+        return childDao.findByAccount(account);
+    }
 }

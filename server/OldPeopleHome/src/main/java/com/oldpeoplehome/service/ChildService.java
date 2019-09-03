@@ -13,6 +13,7 @@ public interface ChildService {
     Child findById(long childId);
     Child findByLongId(String childLongId);
     Child findByName(String childName);
+    Child login(String account);
     List<Child> findAll();
     void delete(long childId);
     void update(Child child);

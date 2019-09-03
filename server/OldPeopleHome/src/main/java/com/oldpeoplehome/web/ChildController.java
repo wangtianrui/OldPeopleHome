@@ -72,4 +72,10 @@ public class ChildController {
         childService.delete(Long.valueOf(id));
         return childService.findAll();
     }
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
+    public Child login(@RequestParam Map<String, Object> params){
+        Child res = childService.login(params.get("account").toString());
+        return res.getChildPassword().equals(params.get("password").toString()) ? res:null;
+    }
 }

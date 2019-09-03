@@ -13,6 +13,7 @@ public interface ParentService {
     Parent findByLongId(String longId);
     Parent findByRoomId(int roomId);
     Parent findByName(String name);
+    Parent login(String account);
     List<Parent> findAll();
     void insert(Parent parent);
     void update(Parent parent);
