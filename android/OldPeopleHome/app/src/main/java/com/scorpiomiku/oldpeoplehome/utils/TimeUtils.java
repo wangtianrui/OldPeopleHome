@@ -3,7 +3,9 @@ package com.scorpiomiku.oldpeoplehome.utils;
 import android.annotation.SuppressLint;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by ScorpioMiku on 2019/8/18.
@@ -12,7 +14,7 @@ import java.util.Date;
 public class TimeUtils {
     public static String getTime() {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat
-                = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+                = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// HH:mm:ss
         //获取当前时间
         Date date = new Date(System.currentTimeMillis());
         return simpleDateFormat.format(date) + "";
@@ -52,7 +54,19 @@ public class TimeUtils {
         } else {
             t = t + ":" + sec;
         }
-
         return t;
+    }
+
+    /*
+    是否有人
+     */
+    public static String getIsIn() {
+        Calendar calendars = Calendar.getInstance();
+        calendars.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
+        int hour = calendars.get(Calendar.HOUR_OF_DAY);
+        if (hour > 22 || hour < 8) {
+            return "0";
+        }
+        return "1";
     }
 }

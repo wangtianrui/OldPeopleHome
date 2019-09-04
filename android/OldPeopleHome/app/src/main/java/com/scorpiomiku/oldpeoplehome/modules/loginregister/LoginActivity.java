@@ -17,6 +17,7 @@ import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
 import com.scorpiomiku.oldpeoplehome.modules.children.activity.ChildMainActivity;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
+import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,6 +45,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void iniview() {
         checkPermission();
+
     }
 
     @Override

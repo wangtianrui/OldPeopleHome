@@ -115,7 +115,6 @@ public class HeartRateFragment extends BaseFragment {
      * @param heart
      */
     public void changeText(String heart, String systolic, String diastolic, String oxy) {
-//        LogUtils.loge(this.systolic.getText().toString() + ";" + systolic + ";" + (systolic.equals(this.systolic.getText().toString())));
         if (systolic.equals(this.systolic.getText().toString())) {
             if (!loading) {
                 progressBar.setVisibility(View.VISIBLE);
@@ -128,7 +127,7 @@ public class HeartRateFragment extends BaseFragment {
         this.diastolic.setText(diastolic);
         this.systolic.setText(systolic);
         this.oxy.setText(oxy);
-
+        data.clear();
 
     }
 }

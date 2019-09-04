@@ -1,5 +1,9 @@
 package com.scorpiomiku.oldpeoplehome.utils;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -9,6 +13,7 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 
 import static com.scorpiomiku.oldpeoplehome.utils.StaticUtils.webHost;
 
@@ -53,6 +58,19 @@ public class WebUtils {
         return requestBody;
     }
 
+    public JsonObject getJsonObj(Response response) throws IOException {
+        String result = response.body().string();
+        JsonParser jsonParser = new JsonParser();
+        JsonObject jsonObject = (JsonObject) jsonParser.parse(result);
+        return jsonObject;
+    }
+
+    public JsonObject getJsonObj(String json) throws IOException {
+        JsonParser jsonParser = new JsonParser();
+        JsonObject jsonObject = (JsonObject) jsonParser.parse(json);
+        return jsonObject;
+    }
+
     /**
      * ~上传运动信息
      *
@@ -62,6 +80,59 @@ public class WebUtils {
     public void UpSport(HashMap<String, String> data, Callback callback) {
         Request request = new Request.Builder().post(postRequestBody(data))
                 .url(webHost + "/motion/add/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 上传心率等信息
+     *
+     * @param data
+     * @param callback
+     */
+    public void upHeartRates(HashMap<String, String> data, Callback callback) {
+        Request request = new Request.Builder().post(postRequestBody(data))
+                .url(webHost + "/heartrate/add/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 获取房间数据
+     *
+     * @param roomId
+     * @param callback
+     */
+    public void getRoomData(String roomId, Callback callback) {
+        Request request = new Request.Builder()
+                .url(webHost + "/rstate/get/" + roomId)
+                .build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 获取天气信息
+     *
+     * @param callback
+     */
+    public void getWeather(Callback callback) {
+        Request request = new Request.Builder()
+                .url("https://api.caiyunapp.com/v2/TAkhjf8d1nlSlspN/112.4450,38.0134/realtime.jsonp")
+                .build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 上传房间环境数据
+     *
+     * @param hashMap
+     * @param callback
+     */
+    public void upRoomState(HashMap<String, String> hashMap, Callback callback) {
+        Request request = new Request.Builder().post(getRequestBody(hashMap))
+                .url(webHost + "/rstate/add/").build();
         Call call = mClient.newCall(request);
         call.enqueue(callback);
     }
