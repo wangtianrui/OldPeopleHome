@@ -31,7 +31,7 @@ public class OldPeopleHome extends Application {
                 String coorType = bdLocation.getCoorType();
                 //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
                 int errorCode = bdLocation.getLocType();
-//                LogUtils.logd(latitude + ";" + longitude + ";" + radius + ";" + coorType + ";" + errorCode);
+                LogUtils.logd(latitude + ";" + longitude + ";" + radius + ";" + coorType + ";" + errorCode);
             }
         });
         LocationClientOption option = new LocationClientOption();
