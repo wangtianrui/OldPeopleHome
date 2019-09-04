@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 
 
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
+import com.scorpiomiku.oldpeoplehome.utils.WebUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * Created by ScorpioMiku on 2019/6/22.
@@ -21,6 +23,8 @@ import java.io.IOException;
 public abstract class BaseFragment extends Fragment {
     private View myView;
     protected Handler handler;
+    protected HashMap<String, String> data = new HashMap<>();
+    private WebUtils webUtils;
 
     @Nullable
     @Override
@@ -32,9 +36,14 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        webUtils = WebUtils.getInstance();
         initView();
         handler = initHandle();
         refreshData();
+    }
+
+    protected WebUtils getWebUtils() {
+        return webUtils;
     }
 
     protected abstract Handler initHandle();
@@ -50,7 +59,7 @@ public abstract class BaseFragment extends Fragment {
         return myView;
     }
 
-    public void refreshUi(String step, String cal, String distance, String sportTime, String [] heartRate, String sleepType) {
+    public void refreshUi(String step, String cal, String distance, String sportTime, String[] heartRate, String sleepType) {
         LogUtils.logd("step:" + step + ";cal:" + cal + ";dis:" + distance + ";sportTime:" + sportTime + ";heartRate:" + heartRate + ";sleepType" + sleepType);
     }
 

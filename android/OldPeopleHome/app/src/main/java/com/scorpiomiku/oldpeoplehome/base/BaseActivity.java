@@ -12,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.scorpiomiku.oldpeoplehome.modules.loginregister.LoginActivity;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
+import com.scorpiomiku.oldpeoplehome.utils.WebUtils;
+
+import java.util.HashMap;
 
 import butterknife.ButterKnife;
 
@@ -21,14 +24,21 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
     protected Handler handler;
+    protected HashMap<String, String> data = new HashMap<>();
+    private WebUtils webUtils;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
+        webUtils = WebUtils.getInstance();
         iniview();
         handler = initHandle();
+    }
+
+    protected WebUtils getWebUtils() {
+        return webUtils;
     }
 
     protected abstract Handler initHandle();
@@ -62,7 +72,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    public void refreshUi(String step, String cal, String distance, String sportTime, String [] heartRate, String sleepType, BaseFragment fragment) {
+    public void refreshUi(String step, String cal, String distance, String sportTime, String[] heartRate, String sleepType, BaseFragment fragment) {
         fragment.refreshUi(step, cal, distance, sportTime, heartRate, sleepType);
     }
 

@@ -5,16 +5,26 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
+import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
+import com.scorpiomiku.oldpeoplehome.utils.WebUtils;
+
+import java.io.IOException;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.itangqi.waveloadingview.WaveLoadingView;
 import me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by ScorpioMiku on 2019/8/18.
@@ -95,11 +105,29 @@ public class StepFragment extends BaseFragment {
      * @param sleepType
      */
     @Override
-    public void refreshUi(String step, String cal, String distance, String sportTime, String [] heartRate, String sleepType) {
+    public void refreshUi(String step, String cal, String distance, String sportTime, String[] heartRate, String sleepType) {
         super.refreshUi(step, cal, distance, sportTime, heartRate, sleepType);
         nowStep.setText(step);
         calorieText.setText(cal);
         distanceText.setText(distance);
         timeText.setText(sportTime);
+        data.clear();
+        data.put("parent", "1");
+        data.put("date", TimeUtils.getUpDate());
+        data.put("count", step);
+        data.put("distance", distance);
+        data.put("time", sportTime);
+        data.put("energy", cal);
+        getWebUtils().UpSport(data, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                LogUtils.loge(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                LogUtils.logd("运动数据上传成功");
+            }
+        });
     }
 }
