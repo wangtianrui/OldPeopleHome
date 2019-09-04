@@ -59,6 +59,12 @@ CREATE TABLE `heartrate` (
   KEY `time` (`time`) USING BTREE,
   CONSTRAINT `fk_pid2` FOREIGN KEY (`pid`) REFERENCES `parent` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ;
+
+ALTER TABLE `heartrate`
+CHANGE COLUMN `rate` `rate1` double NULL DEFAULT NULL COMMENT '收缩压' AFTER `time`,
+ADD COLUMN `rate2` double NULL COMMENT '舒张压' AFTER `rate1`,
+ADD COLUMN `oxy` double NULL AFTER `rate2`;
+
 CREATE TABLE `motion` (
   `pid` bigint(20) DEFAULT NULL COMMENT 'parent id',
   `date` date DEFAULT NULL COMMENT '当日日期',
@@ -91,7 +97,7 @@ CREATE TABLE `sleep` (
   KEY `index_pid_date` (`pid`,`date`) USING BTREE,
   CONSTRAINT `fk_pid1` FOREIGN KEY (`pid`) REFERENCES `parent` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ;
-CREATE TABLE `Untitled`  (
+CREATE TABLE `admin`  (
   `account` varchar(255) NOT NULL COMMENT '管理员账号',
   `password` varchar(255) NULL COMMENT '管理员密码',
   PRIMARY KEY (`account`),

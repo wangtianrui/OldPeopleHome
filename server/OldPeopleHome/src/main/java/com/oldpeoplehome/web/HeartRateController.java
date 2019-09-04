@@ -54,8 +54,10 @@ public class HeartRateController {
     public void add(@RequestParam Map<String, Object> params){
         long parentId = Long.valueOf(String.valueOf(params.get("parentId")));
         String time = String.valueOf(params.get("time"));
-        double rate = Double.valueOf(String.valueOf(params.get("rate")));
-        HeartRate heartRate = new HeartRate(parentId, time, rate);
+        double rate1 = Double.valueOf(String.valueOf(params.get("rate1")));
+        double rate2 = Double.valueOf(String.valueOf(params.get("rate2")));
+        double oxy = Double.valueOf(String.valueOf(params.get("oxy")));
+        HeartRate heartRate = new HeartRate(parentId, time, rate1, rate2, oxy);
         heartRateService.insert(heartRate);
     }
 
