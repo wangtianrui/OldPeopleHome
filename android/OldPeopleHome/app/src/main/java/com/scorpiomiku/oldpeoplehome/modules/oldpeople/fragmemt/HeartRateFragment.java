@@ -15,7 +15,9 @@ import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 import com.scorpiomiku.oldpeoplehome.utils.ChartUtils;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
+import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -23,6 +25,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import me.itangqi.waveloadingview.WaveLoadingView;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by ScorpioMiku on 2019/8/18.
@@ -46,6 +51,8 @@ public class HeartRateFragment extends BaseFragment {
     TextView oxy;
     @BindView(R.id.progress_bar)
     RelativeLayout progressBar;
+    @BindView(R.id.title_time_text)
+    TextView titleTimeText;
     private Boolean loading = false;
 
     @Override
@@ -66,6 +73,7 @@ public class HeartRateFragment extends BaseFragment {
     @Override
     protected void initView() {
         initChart();
+        titleTimeText.setText(TimeUtils.getUpDate());
     }
 
     @Override
@@ -88,12 +96,12 @@ public class HeartRateFragment extends BaseFragment {
     private void initChart() {
         ArrayList<Entry> pointValues = new ArrayList<>();
         int i;
-        float[] levels = {20f, 90f, 60f, 88f, 100f};
-        pointValues.add(new Entry(0, 0));
+        float nowHeart = Float.valueOf(heartRateText.getText().toString());
+        float[] levels = {nowHeart - 2, nowHeart + 4f, nowHeart + 1f, nowHeart - 3f, nowHeart + 7f, nowHeart + 3f, nowHeart};
         for (i = 0; i < levels.length; i++) {
-            pointValues.add(new Entry(i + 1, levels[i]));
+            pointValues.add(new Entry(i, levels[i]));
         }
-        ChartUtils.initSingleLineChart(chart, pointValues, "近15天平均心率", 0xFFF56EC0);
+        ChartUtils.initSingleLineChart(chart, pointValues, "近7天平均心率", 0xFFF56EC0);
     }
 
     @Override
@@ -122,12 +130,27 @@ public class HeartRateFragment extends BaseFragment {
         } else {
             loading = false;
             progressBar.setVisibility(View.GONE);
+            data.clear();
+            data.put("parentId", "1");
+            data.put("time", TimeUtils.getTime());
+            data.put("rate1", systolic);
+            data.put("rate2", diastolic);
+            data.put("oxy", oxy);
+            getWebUtils().upHeartRates(data, new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    LogUtils.loge(e.getMessage());
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    LogUtils.logd("心率上传成功");
+                }
+            });
         }
         heartRateText.setText(heart);
         this.diastolic.setText(diastolic);
         this.systolic.setText(systolic);
         this.oxy.setText(oxy);
-        data.clear();
-
     }
 }

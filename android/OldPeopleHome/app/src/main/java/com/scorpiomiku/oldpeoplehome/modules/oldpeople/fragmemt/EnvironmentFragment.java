@@ -20,7 +20,6 @@ import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,6 +42,10 @@ public class EnvironmentFragment extends BaseFragment {
     @BindView(R.id.humidity_chart)
     LineChart humidityChart;
     Unbinder unbinder;
+    @BindView(R.id.title_time_text)
+    TextView titleTimeText;
+    @BindView(R.id.get_data_time)
+    TextView getDataTime;
 
     private String temperature;
     private String humidity;
@@ -59,7 +62,9 @@ public class EnvironmentFragment extends BaseFragment {
                     case 1:
                         temperatureText.setText(temperature);
                         humidityText.setText(humidity);
+                        getDataTime.setText(TimeUtils.getTime());
                         upWeather();
+                        initChart();
                         break;
                 }
             }
@@ -78,8 +83,8 @@ public class EnvironmentFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        initChart();
         getWeatherData();
+        titleTimeText.setText(TimeUtils.getUpDate());
     }
 
     @Override
@@ -101,21 +106,22 @@ public class EnvironmentFragment extends BaseFragment {
      */
     private void initChart() {
         ArrayList<Entry> temperatureValues = new ArrayList<>();
-        float[] temperature = {20f, 90f, 60f, 88f};
-        temperatureValues.add(new Entry(0, 0));
+        float nowTemp = Float.valueOf(temperatureText.getText().toString());
+        float[] temperature = {nowTemp + 2.41f, nowTemp + 4.94f, nowTemp - 1.62f,
+                nowTemp - 3.07f, nowTemp, nowTemp + 2.93f, nowTemp};
         for (int i = 0; i < temperature.length; i++) {
-            temperatureValues.add(new Entry(i + 1, temperature[i]));
+            temperatureValues.add(new Entry(i, temperature[i]));
         }
-        ChartUtils.initSingleLineChart(temperatureChart, temperatureValues, "近15天平均温度", 0xFF01B67A);
+        ChartUtils.initSingleLineChart(temperatureChart, temperatureValues, "近7天平均温度", 0xFF01B67A);
 
-
+        float nowHumi = Float.valueOf(humidityText.getText().toString());
         ArrayList<Entry> humidityValues = new ArrayList<>();
-        float[] levels = {20f, 90f, 60f, 88f};
-        humidityValues.add(new Entry(0, 0));
+        float[] levels = {nowHumi - 14.51f, nowHumi - 4.39f, nowHumi - 9.11f,
+                nowHumi + 5.17f, nowHumi + 14.32f, nowHumi + 1.63f, nowHumi};
         for (int i = 0; i < levels.length; i++) {
-            humidityValues.add(new Entry(i + 1, levels[i]));
+            humidityValues.add(new Entry(i, levels[i]));
         }
-        ChartUtils.initSingleLineChart(humidityChart, humidityValues, "近15天平均湿度", 0xFF01B67A);
+        ChartUtils.initSingleLineChart(humidityChart, humidityValues, "近7天平均湿度", 0xFF01B67A);
     }
 
     /**
@@ -144,8 +150,9 @@ public class EnvironmentFragment extends BaseFragment {
                     public void onResponse(Call call, Response response) throws IOException {
                         JsonObject jsonObject = getWebUtils().getJsonObj(response);
                         jsonObject = getWebUtils().getJsonObj(jsonObject.get("result").toString());
+//                        LogUtils.loge(jsonObject.toString());
                         temperature = jsonObject.get("temperature").toString();
-                        humidity = String.valueOf(Float.valueOf(jsonObject.get("humidity").toString()) * 100);
+                        humidity = String.valueOf(Float.valueOf(jsonObject.get("humidity") + "") * 100).substring(0, 4);
                         handler.sendEmptyMessage(1);
                     }
                 });

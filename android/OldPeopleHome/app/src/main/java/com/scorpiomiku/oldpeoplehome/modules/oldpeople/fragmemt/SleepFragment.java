@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,6 +36,8 @@ public class SleepFragment extends BaseFragment {
     IndefinitePagerIndicator viewpagerPagerIndicator;
     @BindView(R.id.view_pager)
     ViewPager viewPager;
+    @BindView(R.id.title_time_text)
+    TextView titleTimeText;
 
     @Override
     protected Handler initHandle() {
@@ -55,6 +58,7 @@ public class SleepFragment extends BaseFragment {
     protected void initView() {
 //        initPie();
         initViewPager();
+        titleTimeText.setText(TimeUtils.getUpDate());
     }
 
 

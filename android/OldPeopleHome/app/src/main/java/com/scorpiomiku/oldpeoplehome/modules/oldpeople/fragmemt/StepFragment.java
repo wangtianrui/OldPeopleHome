@@ -5,17 +5,14 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
-import com.scorpiomiku.oldpeoplehome.utils.WebUtils;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +55,8 @@ public class StepFragment extends BaseFragment {
     @BindView(R.id.time_pb)
     ZzHorizontalProgressBar timePb;
     Unbinder unbinder;
+    @BindView(R.id.title_time_text)
+    TextView titleTimeText;
 
     @Override
     protected Handler initHandle() {
@@ -85,6 +84,7 @@ public class StepFragment extends BaseFragment {
         // TODO: inflate a fragment view
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
         unbinder = ButterKnife.bind(this, rootView);
+        titleTimeText.setText(TimeUtils.getUpDate());
         return rootView;
     }
 
