@@ -104,13 +104,13 @@ public class MapFragment extends BaseFragment {
      * 轨迹
      */
     private void drawLine() {
-//        LatLng p1 = new LatLng(38.019467, 112.455778);
-//        LatLng p2 = new LatLng(38.019467, 112.465778);1
-//        LatLng p3 = new LatLng(38.019467, 112.455978);
+        LatLng p1 = new LatLng(38.019467, 112.455778);
+        LatLng p2 = new LatLng(38.019467, 112.465778);
+        LatLng p3 = new LatLng(38.019467, 112.455978);
         List<LatLng> points = new ArrayList<LatLng>();
-//        points.add(p1);
-//        points.add(p2);
-//        points.add(p3);
+        points.add(p1);
+        points.add(p2);
+        points.add(p3);
         //设置折线的属性
         OverlayOptions mOverlayOptions = new PolylineOptions()
                 .width(10)

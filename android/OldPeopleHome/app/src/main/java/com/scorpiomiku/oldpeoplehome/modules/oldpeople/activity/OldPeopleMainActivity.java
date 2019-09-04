@@ -59,6 +59,8 @@ public class OldPeopleMainActivity extends BaseActivity {
     BottomNavigationView navigation;
     @BindView(R.id.floating_button)
     FloatingActionButton floatingButton;
+    @BindView(R.id.close_button)
+    FloatingActionButton closeButton;
 
     private String step;
     private String cal;
@@ -70,6 +72,8 @@ public class OldPeopleMainActivity extends BaseActivity {
     private String bloodPressureShrink = "0";
     private String bloodPressureDiastole = "0";
     private String oxygen;
+
+    private Boolean mIsBound = false;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
     private FragmentManager fragmentManager;
@@ -493,6 +497,7 @@ public class OldPeopleMainActivity extends BaseActivity {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder service) {
                 LogUtils.shortToast("Service connected");
+                mIsBound = true;
                 mService = IRemoteService.Stub.asInterface(service);
 
                 try {
@@ -638,17 +643,9 @@ public class OldPeopleMainActivity extends BaseActivity {
     private void getNewHandData() {
         try {
             mService.getCurSportData();
-            for (int i = 5; i >= 0; i--) {
-
-            }
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-    }
-
-    @OnClick(R.id.floating_button)
-    public void onViewClicked() {
-        getNewHandData();
     }
 
     /**
@@ -679,6 +676,28 @@ public class OldPeopleMainActivity extends BaseActivity {
             mService.setBloodPressureMode(heartRateOpen);
         } catch (RemoteException e) {
             e.printStackTrace();
+        }
+    }
+
+
+    @OnClick({R.id.floating_button, R.id.close_button})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.floating_button:
+                getNewHandData();
+                break;
+            case R.id.close_button:
+                callRemoteDisconnect();
+                if (mIsBound) {
+                    try {
+                        mService.unregisterCallback(mServiceCallback);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    unbindService(mServiceConnection);
+                }
+                mIsBound = false;
+                break;
         }
     }
 }

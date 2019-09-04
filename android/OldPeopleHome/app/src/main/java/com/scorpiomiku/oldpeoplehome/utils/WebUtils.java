@@ -136,4 +136,30 @@ public class WebUtils {
         Call call = mClient.newCall(request);
         call.enqueue(callback);
     }
+
+    /**
+     * 注册child
+     *
+     * @param hashMap
+     * @param callback
+     */
+    public void registerChild(HashMap<String, String> hashMap, Callback callback) {
+        Request request = new Request.Builder().post(getRequestBody(hashMap))
+                .url(webHost + "/child/add/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * child login
+     *
+     * @param hashMap
+     * @param callback
+     */
+    public void loginChild(HashMap<String, String> hashMap, Callback callback) {
+        Request request = new Request.Builder().post(getRequestBody(hashMap))
+                .url(webHost + "/child/login/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.scorpiomiku.oldpeoplehome.bean.User;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.WebUtils;
 
@@ -25,6 +26,15 @@ public abstract class BaseFragment extends Fragment {
     protected Handler handler;
     protected HashMap<String, String> data = new HashMap<>();
     private WebUtils webUtils;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Nullable
     @Override

@@ -1,7 +1,9 @@
 package com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,10 +56,32 @@ public class HeartRateFragment extends BaseFragment {
     @BindView(R.id.title_time_text)
     TextView titleTimeText;
     private Boolean loading = false;
+    private float heartRate;
 
+    @SuppressLint("HandlerLeak")
     @Override
     protected Handler initHandle() {
-        return null;
+        return new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                switch (msg.what){
+                    case 1:
+                        getWebUtils().upHeartRates(data, new okhttp3.Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                LogUtils.loge(e.getMessage());
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                LogUtils.logd("心率上传成功");
+                            }
+                        });
+                        break;
+                }
+            }
+        };
     }
 
     @Override
@@ -72,7 +96,7 @@ public class HeartRateFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        initChart();
+//        initChart();
         titleTimeText.setText(TimeUtils.getUpDate());
     }
 
@@ -125,32 +149,25 @@ public class HeartRateFragment extends BaseFragment {
     public void changeText(String heart, String systolic, String diastolic, String oxy) {
         if (systolic.equals(this.systolic.getText().toString())) {
             if (!loading) {
-                progressBar.setVisibility(View.VISIBLE);
+//                progressBar.setVisibility(View.VISIBLE);
             }
         } else {
             loading = false;
             progressBar.setVisibility(View.GONE);
+//            begin.setText("开启");
             data.clear();
             data.put("parentId", "1");
             data.put("time", TimeUtils.getTime());
             data.put("rate1", systolic);
             data.put("rate2", diastolic);
             data.put("oxy", oxy);
-            getWebUtils().upHeartRates(data, new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    LogUtils.loge(e.getMessage());
-                }
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    LogUtils.logd("心率上传成功");
-                }
-            });
+            initChart();
+            handler.sendEmptyMessage(1);
         }
         heartRateText.setText(heart);
         this.diastolic.setText(diastolic);
         this.systolic.setText(systolic);
         this.oxy.setText(oxy);
+
     }
 }
