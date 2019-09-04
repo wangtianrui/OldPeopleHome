@@ -12,22 +12,28 @@ public class HeartRate {
 
     private long parentId;
     private Timestamp time;
-    private double rate;
+    private double rate1;
+    private double rate2;
+    private double oxy;
 
     public HeartRate() {
     }
 
-    public HeartRate(long parentId, String time, double rate) {
-        this.parentId = parentId;
-        this.time = Timestamp.valueOf(time);
-        this.rate = rate;
-    }
-
-    public HeartRate(long parentId, Timestamp time, double rate) {
+    public HeartRate(long parentId, Timestamp time, double rate1, double rate2, double oxy) {
         this.parentId = parentId;
         this.time = time;
-        this.rate = rate;
+        this.rate1 = rate1;
+        this.rate2 = rate2;
+        this.oxy = oxy;
     }
+    public HeartRate(long parentId, String time, double rate1, double rate2, double oxy) {
+        this.parentId = parentId;
+        this.time = Timestamp.valueOf(time);
+        this.rate1 = rate1;
+        this.rate2 = rate2;
+        this.oxy = oxy;
+    }
+
 
     public long getParentId() {
         return parentId;
@@ -45,20 +51,38 @@ public class HeartRate {
         this.time = time;
     }
 
-    public double getRate() {
-        return rate;
+    public double getRate1() {
+        return rate1;
     }
 
-    public void setRate(double rate) {
-        this.rate = rate;
+    public void setRate1(double rate1) {
+        this.rate1 = rate1;
+    }
+
+    public double getRate2() {
+        return rate2;
+    }
+
+    public void setRate2(double rate2) {
+        this.rate2 = rate2;
+    }
+
+    public double getOxy() {
+        return oxy;
+    }
+
+    public void setOxy(double oxy) {
+        this.oxy = oxy;
     }
 
     @Override
     public String toString() {
-        return "HeartRateDao{" +
+        return "HeartRate{" +
                 "parentId=" + parentId +
                 ", time=" + time +
-                ", rate=" + rate +
+                ", rate1=" + rate1 +
+                ", rate2=" + rate2 +
+                ", oxy=" + oxy +
                 '}';
     }
 }

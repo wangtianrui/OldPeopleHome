@@ -7,7 +7,9 @@
     <resultMap id="BaseResultMap" type="com.oldpeoplehome.entity.HeartRate">
         <id column="pid" property="parentId" jdbcType="BIGINT"/>
         <result column="time" property="time" jdbcType="TIMESTAMP"/>
-        <result column="rate" property="rate" jdbcType="DOUBLE"/>
+        <result column="rate1" property="rate1" jdbcType="DOUBLE"/>
+        <result column="rate2" property="rate2" jdbcType="DOUBLE"/>
+        <result column="oxy" property="oxy" jdbcType="DOUBLE"/>
     </resultMap>
 
     <select id="findByParent" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.HeartRateFilter">
@@ -22,7 +24,7 @@
         select h.*, p.* from heartrate h left join parent p on h.pid = p.id where h.pid = #{parentId} and h.date = #{startDate}
     </select>
     <insert id="insert" parameterType="HeartRate">
-        insert into heartrate(pid, time, rate)
-        values (#{parentId}, #{time}, #{rate})
+        insert into heartrate(pid, time, rate1,rate2,oxy)
+        values (#{parentId}, #{time}, #{rate1}, #{rat2e}, #{oxy})
     </insert>
 </mapper>
