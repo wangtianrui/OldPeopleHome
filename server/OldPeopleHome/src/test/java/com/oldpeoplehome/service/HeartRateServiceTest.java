@@ -17,10 +17,10 @@ public class HeartRateServiceTest extends BaseTest {
 
     @Test
     public void test(){
-//        HeartRate heartRate = new HeartRate(1, "2019-8-22 10:00:00", 20.3);
-//        heartRateService.insert(heartRate);
-        HeartRateFilter heartRateFilter = new HeartRateFilter(1);
-        System.out.println(heartRateService.findByParent(heartRateFilter));
+        HeartRate heartRate = new HeartRate(1, "2019-8-22 10:00:00", 20.3, 21,21);
+        heartRateService.insert(heartRate);
+//        HeartRateFilter heartRateFilter = new HeartRateFilter(1);
+//        System.out.println(heartRateService.findByParent(heartRateFilter));
     }
 
 }

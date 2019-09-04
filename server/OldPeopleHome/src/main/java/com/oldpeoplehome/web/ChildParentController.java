@@ -40,12 +40,13 @@ public class ChildParentController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public void add(@RequestParam Map<String, Object> params) {
+    public ChildParent add(@RequestParam Map<String, Object> params) {
 
         long child = Long.valueOf(String.valueOf(params.get("child")));
         long parent = Long.valueOf(String.valueOf(params.get("parent")));
         String relation = String.valueOf(params.get("relation"));
         ChildParent childParent = new ChildParent(parent, child, relation);
         childParentService.combine(childParent);
+        return childParent;
     }
 }
