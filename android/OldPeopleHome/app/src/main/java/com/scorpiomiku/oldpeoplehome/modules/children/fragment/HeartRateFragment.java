@@ -29,8 +29,6 @@ public class HeartRateFragment extends BaseFragment {
     WaveLoadingView waveLoadingView;
     @BindView(R.id.heart_rate_text)
     TextView heartRateText;
-    @BindView(R.id.begin)
-    TextView begin;
     @BindView(R.id.chart)
     LineChart chart;
     Unbinder unbinder;

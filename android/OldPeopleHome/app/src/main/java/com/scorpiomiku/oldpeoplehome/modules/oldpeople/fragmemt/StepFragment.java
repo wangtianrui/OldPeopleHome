@@ -22,7 +22,6 @@ import butterknife.Unbinder;
 import me.itangqi.waveloadingview.WaveLoadingView;
 import me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar;
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.Response;
 
 /**
@@ -69,7 +68,7 @@ public class StepFragment extends BaseFragment {
                 super.handleMessage(msg);
                 switch (msg.what) {
                     case 1:
-                        getWebUtils().UpSport(data, new okhttp3.Callback() {
+                        getWebUtils().upSport(data, new okhttp3.Callback() {
                             @Override
                             public void onFailure(Call call, IOException e) {
                                 LogUtils.loge(e.getMessage());

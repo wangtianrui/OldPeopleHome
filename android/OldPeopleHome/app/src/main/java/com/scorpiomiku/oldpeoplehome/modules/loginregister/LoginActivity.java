@@ -59,6 +59,7 @@ public class LoginActivity extends BaseActivity {
                 switch (msg.what) {
                     case 1:
                         Intent intent = new Intent(LoginActivity.this, ChildMainActivity.class);
+                        intent.putExtra("user", getChildUser());
                         startActivity(intent);
                         finish();
                         break;

@@ -1,5 +1,6 @@
 package com.scorpiomiku.oldpeoplehome.utils;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -71,15 +72,35 @@ public class WebUtils {
         return jsonObject;
     }
 
+    public JsonArray getJsonArray(Response response) throws IOException {
+        String result = response.body().string();
+        JsonParser jsonParser = new JsonParser();
+        JsonArray jsonObject = (JsonArray) jsonParser.parse(result);
+        return jsonObject;
+    }
+
     /**
      * ~上传运动信息
      *
      * @param data
      * @param callback
      */
-    public void UpSport(HashMap<String, String> data, Callback callback) {
+    public void upSport(HashMap<String, String> data, Callback callback) {
         Request request = new Request.Builder().post(postRequestBody(data))
                 .url(webHost + "/motion/add/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 获取运动数据
+     *
+     * @param parentId
+     * @param callback
+     */
+    public void getSport(String parentId, Callback callback) {
+        Request request = new Request.Builder()
+                .url(webHost + "/motion/get/" + parentId).build();
         Call call = mClient.newCall(request);
         call.enqueue(callback);
     }
@@ -159,6 +180,33 @@ public class WebUtils {
     public void loginChild(HashMap<String, String> hashMap, Callback callback) {
         Request request = new Request.Builder().post(getRequestBody(hashMap))
                 .url(webHost + "/child/login/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 孩子绑定老人
+     *
+     * @param hashMap
+     * @param callback
+     */
+    public void childBindOldPeople(HashMap<String, String> hashMap, Callback callback) {
+        Request request = new Request.Builder().post(getRequestBody(hashMap))
+                .url(webHost + "/child_parent/add/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 获得已绑定了的老人
+     *
+     * @param childId
+     * @param callback
+     */
+    public void getBindOldPeople(String childId, Callback callback) {
+//        LogUtils.loge(webHost + "/child_parent/child/" + childId);
+        Request request = new Request.Builder()
+                .url(webHost + "/child_parent/child/" + childId).build();
         Call call = mClient.newCall(request);
         call.enqueue(callback);
     }

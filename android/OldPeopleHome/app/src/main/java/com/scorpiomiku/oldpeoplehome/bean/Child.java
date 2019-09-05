@@ -1,16 +1,27 @@
 package com.scorpiomiku.oldpeoplehome.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by ScorpioMiku on 2019/9/4.
  */
 
-public class Child implements User {
+public class Child implements User, Serializable {
     private String childSex;
     private String childPassword;
     private String childAccount;
     private String childName;
     private String childLongId;
     private String childPhone;
+    private String childId;
+
+    public String getChildId() {
+        return childId;
+    }
+
+    public void setChildId(String childId) {
+        this.childId = childId;
+    }
 
     public String getChildSex() {
         return childSex;
