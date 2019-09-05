@@ -32,17 +32,15 @@ public class HeartRateController {
         List<HeartRate> list;
         String startDate = request.getParameter("start");
         String endDate = request.getParameter("end");
-        if (endDate == null){
+        if (endDate == null) {
             if (startDate == null) {
                 HeartRateFilter heartRateFilter = new HeartRateFilter(Long.valueOf(id));
                 list = heartRateService.findByParent(heartRateFilter);
-            }
-            else {
+            } else {
                 HeartRateFilter heartRateFilter = new HeartRateFilter(Timestamp.valueOf(startDate), Long.valueOf(id));
                 list = heartRateService.findByParentAndTime(heartRateFilter);
             }
-        }
-        else{
+        } else {
             HeartRateFilter heartRateFilter = new HeartRateFilter(Timestamp.valueOf(startDate), Timestamp.valueOf(endDate), Long.valueOf(id));
             list = heartRateService.findByTime(heartRateFilter);
         }
@@ -51,13 +49,14 @@ public class HeartRateController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public void add(@RequestParam Map<String, Object> params){
+    public void add(@RequestParam Map<String, Object> params) {
         long parentId = Long.valueOf(String.valueOf(params.get("parentId")));
         String time = String.valueOf(params.get("time"));
+        double rate = Double.valueOf(String.valueOf(params.get("rate")));
         double rate1 = Double.valueOf(String.valueOf(params.get("rate1")));
         double rate2 = Double.valueOf(String.valueOf(params.get("rate2")));
         double oxy = Double.valueOf(String.valueOf(params.get("oxy")));
-        HeartRate heartRate = new HeartRate(parentId, time, rate1, rate2, oxy);
+        HeartRate heartRate = new HeartRate(parentId, time, rate, rate1, rate2, oxy);
         heartRateService.insert(heartRate);
     }
 

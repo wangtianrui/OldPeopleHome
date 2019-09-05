@@ -1,21 +1,20 @@
 package com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
-import com.scorpiomiku.oldpeoplehome.utils.WebUtils;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,7 +22,6 @@ import butterknife.Unbinder;
 import me.itangqi.waveloadingview.WaveLoadingView;
 import me.zhouzhuo.zzhorizontalprogressbar.ZzHorizontalProgressBar;
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.Response;
 
 /**
@@ -58,10 +56,33 @@ public class StepFragment extends BaseFragment {
     @BindView(R.id.time_pb)
     ZzHorizontalProgressBar timePb;
     Unbinder unbinder;
+    @BindView(R.id.title_time_text)
+    TextView titleTimeText;
 
+    @SuppressLint("HandlerLeak")
     @Override
     protected Handler initHandle() {
-        return null;
+        return new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                switch (msg.what) {
+                    case 1:
+                        getWebUtils().upSport(data, new okhttp3.Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                LogUtils.loge(e.getMessage());
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                LogUtils.logd("运动数据上传成功");
+                            }
+                        });
+                        break;
+                }
+            }
+        };
     }
 
     @Override
@@ -85,6 +106,7 @@ public class StepFragment extends BaseFragment {
         // TODO: inflate a fragment view
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
         unbinder = ButterKnife.bind(this, rootView);
+        titleTimeText.setText(TimeUtils.getUpDate());
         return rootView;
     }
 
@@ -118,16 +140,12 @@ public class StepFragment extends BaseFragment {
         data.put("distance", distance);
         data.put("time", sportTime);
         data.put("energy", cal);
-        getWebUtils().UpSport(data, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                LogUtils.loge(e.getMessage());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                LogUtils.logd("运动数据上传成功");
-            }
-        });
+        handler.sendEmptyMessage(1);
+        float temp = Float.valueOf(step) / 10000 * 100;
+        waveLoadingView.setProgressValue((int) temp);
+        caloriePb.setProgress((int) (temp - 6));
+        distancePb.setProgress((int) (temp - 1));
+        timePb.setProgress((int) (temp + 8));
+        finishPercent.setText((int) temp + "");
     }
 }

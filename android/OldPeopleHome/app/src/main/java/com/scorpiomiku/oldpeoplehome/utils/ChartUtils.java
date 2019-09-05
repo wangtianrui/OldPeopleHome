@@ -33,7 +33,7 @@ public class ChartUtils {
      * @param linename
      * @return
      */
-    public static void initSingleLineChart(LineChart mLineChart, List<Entry> list, String linename,int fillColor) {
+    public static void initSingleLineChart(LineChart mLineChart, List<Entry> list, String linename, int fillColor) {
 
         LineDataSet dataSet = new LineDataSet(list, "Label"); // add entries to dataset
         dataSet.setColor(fillColor);//线条颜色
@@ -61,8 +61,13 @@ public class ChartUtils {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);//设置x轴的显示位置
         xAxis.setGranularity(1f);//禁止放大后x轴标签重绘
         List<String> xList = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
-            xList.add(String.valueOf(i + 1).concat("号"));
+        int today = TimeUtils.getDay();
+        for (int i = list.size() - 1; i >= 0; i--) {
+            int temp = today - i;
+            if (temp <= 0) {
+                temp += 31;
+            }
+            xList.add(String.valueOf(temp).concat("号"));
         }
         xAxis.setValueFormatter(new IndexAxisValueFormatter(xList));
 

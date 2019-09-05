@@ -40,12 +40,12 @@ public class TimeUtils {
         int min = time / 60 % 60;
         int hour = time / 60 / 60;
         if (hour > 0 && hour < 10) {
-            t = t + "0" + hour;
+            t = t + "0" + hour + ":";
         } else if (hour == 0) {
-            t = t + "00";
+            t = t + "00:";
         }
         if (min < 10) {
-            t = t + ":0" + min;
+            t = t + "0" + min;
         } else {
             t = t + min;
         }
@@ -57,8 +57,10 @@ public class TimeUtils {
         return t;
     }
 
-    /*
-    是否有人
+    /**
+     * 是否有人
+     *
+     * @return
      */
     public static String getIsIn() {
         Calendar calendars = Calendar.getInstance();
@@ -68,5 +70,18 @@ public class TimeUtils {
             return "0";
         }
         return "1";
+    }
+
+
+    /**
+     * 获取号数
+     *
+     * @return
+     */
+    public static int getDay() {
+        Calendar calendars = Calendar.getInstance();
+        calendars.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
+        int day = calendars.get(Calendar.DATE);
+        return day;
     }
 }

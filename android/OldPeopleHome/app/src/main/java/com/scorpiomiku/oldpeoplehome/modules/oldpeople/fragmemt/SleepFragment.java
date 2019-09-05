@@ -14,6 +14,10 @@ import android.widget.TextView;
 import com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.bean.SleepData;
+import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,12 +33,14 @@ public class SleepFragment extends BaseFragment {
     WaveLoadingView waveLoadingView;
     @BindView(R.id.sleep_text)
     TextView sleepText;
-
     Unbinder unbinder;
     @BindView(R.id.viewpager_pager_indicator)
     IndefinitePagerIndicator viewpagerPagerIndicator;
     @BindView(R.id.view_pager)
     ViewPager viewPager;
+    @BindView(R.id.title_time_text)
+    TextView titleTimeText;
+    private ArrayList<SleepData> data = new ArrayList<>();
 
     @Override
     protected Handler initHandle() {
@@ -53,8 +59,8 @@ public class SleepFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-//        initPie();
         initViewPager();
+        titleTimeText.setText(TimeUtils.getUpDate());
     }
 
 
@@ -116,12 +122,12 @@ public class SleepFragment extends BaseFragment {
         viewPager.setAdapter(new FragmentPagerAdapter(fragmentManager) {
             @Override
             public Fragment getItem(int i) {
-                return new SleepViewPagerItem();
+                return SleepViewPagerItem.instance(data.get(i));
             }
 
             @Override
             public int getCount() {
-                return 10;
+                return data.size();
             }
         });
         viewpagerPagerIndicator.attachToViewPager(viewPager);

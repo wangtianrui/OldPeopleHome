@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
@@ -15,6 +16,8 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.bean.SleepData;
+import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,14 @@ public class SleepViewPagerItem extends BaseFragment {
     @BindView(R.id.pie_chart)
     PieChart sleepPie;
     Unbinder unbinder;
+    private SleepData sleepData;
+
+
+    public static SleepViewPagerItem instance(SleepData sleepData) {
+        SleepViewPagerItem sleepViewPagerItem = new SleepViewPagerItem();
+        sleepViewPagerItem.sleepData = sleepData;
+        return sleepViewPagerItem;
+    }
 
     @Override
     protected Handler initHandle() {

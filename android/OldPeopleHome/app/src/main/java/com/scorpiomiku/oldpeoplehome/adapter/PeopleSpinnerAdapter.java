@@ -9,7 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.scorpiomiku.oldpeoplehome.R;
+import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
+import com.scorpiomiku.oldpeoplehome.utils.StaticUtils;
 
 import java.util.List;
 
@@ -19,9 +22,9 @@ import java.util.List;
 
 public class PeopleSpinnerAdapter extends BaseAdapter {
     private Context context;
-    private List<String> people;
+    private List<OldPeople> people;
 
-    public PeopleSpinnerAdapter(Context context, List<String> people) {
+    public PeopleSpinnerAdapter(Context context, List<OldPeople> people) {
         this.context = context;
         this.people = people;
     }
@@ -48,7 +51,8 @@ public class PeopleSpinnerAdapter extends BaseAdapter {
         if (view != null) {
             ImageView avatar = view.findViewById(R.id.spinner_avatar);
             TextView name = view.findViewById(R.id.spinner_name);
-            name.setText(people.get(i));
+            name.setText(people.get(i).getParentName());
+            Glide.with(context).load(StaticUtils.oldPeopleAvatars[i]).into(avatar);
         }
         return view;
     }

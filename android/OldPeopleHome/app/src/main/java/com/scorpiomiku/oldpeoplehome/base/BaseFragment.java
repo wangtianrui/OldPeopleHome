@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
+import com.scorpiomiku.oldpeoplehome.bean.User;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.WebUtils;
 
@@ -25,6 +27,15 @@ public abstract class BaseFragment extends Fragment {
     protected Handler handler;
     protected HashMap<String, String> data = new HashMap<>();
     private WebUtils webUtils;
+//    private User user;
+//
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     @Nullable
     @Override
@@ -39,7 +50,7 @@ public abstract class BaseFragment extends Fragment {
         webUtils = WebUtils.getInstance();
         initView();
         handler = initHandle();
-        refreshData();
+//        refreshData();
     }
 
     protected WebUtils getWebUtils() {
@@ -61,6 +72,10 @@ public abstract class BaseFragment extends Fragment {
 
     public void refreshUi(String step, String cal, String distance, String sportTime, String[] heartRate, String sleepType) {
         LogUtils.logd("step:" + step + ";cal:" + cal + ";dis:" + distance + ";sportTime:" + sportTime + ";heartRate:" + heartRate + ";sleepType" + sleepType);
+    }
+
+    public void refreshUi(OldPeople oldPeople) {
+        LogUtils.logd(oldPeople.toString());
     }
 
 

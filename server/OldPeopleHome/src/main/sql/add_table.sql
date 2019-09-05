@@ -65,6 +65,9 @@ CHANGE COLUMN `rate` `rate1` double NULL DEFAULT NULL COMMENT '收缩压' AFTER 
 ADD COLUMN `rate2` double NULL COMMENT '舒张压' AFTER `rate1`,
 ADD COLUMN `oxy` double NULL AFTER `rate2`;
 
+ALTER TABLE `heartrate`
+ADD COLUMN `rate` double NULL COMMENT '心率' AFTER `time`;
+
 CREATE TABLE `motion` (
   `pid` bigint(20) DEFAULT NULL COMMENT 'parent id',
   `date` date DEFAULT NULL COMMENT '当日日期',

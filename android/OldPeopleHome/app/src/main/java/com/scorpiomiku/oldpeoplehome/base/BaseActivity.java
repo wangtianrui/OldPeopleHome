@@ -10,6 +10,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 
+import com.scorpiomiku.oldpeoplehome.bean.Child;
+import com.scorpiomiku.oldpeoplehome.bean.User;
 import com.scorpiomiku.oldpeoplehome.modules.loginregister.LoginActivity;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.WebUtils;
@@ -26,6 +28,20 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Handler handler;
     protected HashMap<String, String> data = new HashMap<>();
     private WebUtils webUtils;
+    private User user;
+
+    public Child getChildUser() {
+        return ((Child) user);
+    }
+
+
+    public User getOldPeopleUser() {
+        return (user);
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
