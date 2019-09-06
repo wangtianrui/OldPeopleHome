@@ -12,8 +12,11 @@ import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.bean.HeartRate;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 import com.scorpiomiku.oldpeoplehome.utils.ChartUtils;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
@@ -57,15 +60,17 @@ public class HeartRateFragment extends BaseFragment {
     TextView titleTimeText;
     private Boolean loading = false;
     private float heartRate;
+    private boolean firstInit = true;
+    private float firstHeart;
 
     @SuppressLint("HandlerLeak")
     @Override
     protected Handler initHandle() {
-        return new Handler(){
+        return new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-                switch (msg.what){
+                switch (msg.what) {
                     case 1:
                         getWebUtils().upHeartRates(data, new okhttp3.Callback() {
                             @Override
@@ -78,6 +83,10 @@ public class HeartRateFragment extends BaseFragment {
                                 LogUtils.logd("心率上传成功");
                             }
                         });
+                        break;
+                    case 2:
+                        //获取数据
+                        initChart();
                         break;
                 }
             }
@@ -96,8 +105,23 @@ public class HeartRateFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-//        initChart();
         titleTimeText.setText(TimeUtils.getUpDate());
+        getWebUtils().getHeartRates(((OldPeopleMainActivity) getActivity()).getOldPeopleUser().getParentId(), new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                LogUtils.loge(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                JsonArray jsonElements = getWebUtils().getJsonArray(response);
+                LogUtils.loge(jsonElements.toString());
+                Gson gson = new Gson();
+                HeartRate[] heartRates = gson.fromJson(jsonElements, HeartRate[].class);
+                firstHeart = Float.valueOf(heartRates[heartRates.length - 1].getRate());
+                handler.sendEmptyMessage(2);
+            }
+        });
     }
 
     @Override
@@ -118,14 +142,25 @@ public class HeartRateFragment extends BaseFragment {
      * 初始化折线图
      */
     private void initChart() {
-        ArrayList<Entry> pointValues = new ArrayList<>();
-        int i;
-        float nowHeart = Float.valueOf(heartRateText.getText().toString());
-        float[] levels = {nowHeart - 2, nowHeart + 4f, nowHeart + 1f, nowHeart - 3f, nowHeart + 7f, nowHeart + 3f, nowHeart};
-        for (i = 0; i < levels.length; i++) {
-            pointValues.add(new Entry(i, levels[i]));
+        if (firstInit) {
+            ArrayList<Entry> pointValues = new ArrayList<>();
+            int i;
+            float[] levels = {firstHeart - 2, firstHeart + 4f, firstHeart + 1f, firstHeart - 3f, firstHeart + 7f, firstHeart + 3f, firstHeart};
+            for (i = 0; i < levels.length; i++) {
+                pointValues.add(new Entry(i, levels[i]));
+            }
+            ChartUtils.initSingleLineChart(chart, pointValues, "近7天平均心率", 0xFFF56EC0);
+            firstInit = !firstInit;
+        } else {
+            ArrayList<Entry> pointValues = new ArrayList<>();
+            int i;
+            float nowHeart = Float.valueOf(heartRateText.getText().toString());
+            float[] levels = {nowHeart - 2, nowHeart + 4f, nowHeart + 1f, nowHeart - 3f, nowHeart + 7f, nowHeart + 3f, nowHeart};
+            for (i = 0; i < levels.length; i++) {
+                pointValues.add(new Entry(i, levels[i]));
+            }
+            ChartUtils.initSingleLineChart(chart, pointValues, "近7天平均心率", 0xFFF56EC0);
         }
-        ChartUtils.initSingleLineChart(chart, pointValues, "近7天平均心率", 0xFFF56EC0);
     }
 
     @Override
@@ -149,17 +184,16 @@ public class HeartRateFragment extends BaseFragment {
     public void changeText(String heart, String systolic, String diastolic, String oxy) {
         if (systolic.equals(this.systolic.getText().toString())) {
             if (!loading) {
-//                progressBar.setVisibility(View.VISIBLE);
             }
         } else {
             loading = false;
             progressBar.setVisibility(View.GONE);
-//            begin.setText("开启");
             data.clear();
-            data.put("parentId", "1");
+            data.put("parentId", ((OldPeopleMainActivity) getActivity()).getOldPeopleUser().getParentId());
             data.put("time", TimeUtils.getTime());
             data.put("rate1", systolic);
             data.put("rate2", diastolic);
+            data.put("rate", heart);
             data.put("oxy", oxy);
             initChart();
             handler.sendEmptyMessage(1);
@@ -168,6 +202,5 @@ public class HeartRateFragment extends BaseFragment {
         this.diastolic.setText(diastolic);
         this.systolic.setText(systolic);
         this.oxy.setText(oxy);
-
     }
 }

@@ -19,10 +19,16 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.scorpiomiku.oldpeoplehome.OldPeopleHome;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.bean.BleDeviceItem;
+import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
 import com.scorpiomiku.oldpeoplehome.bean.SportData;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt.EnvironmentFragment;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt.HeartRateFragment;
@@ -61,6 +67,7 @@ public class OldPeopleMainActivity extends BaseActivity {
     FloatingActionButton floatingButton;
     @BindView(R.id.close_button)
     FloatingActionButton closeButton;
+    private LocationClient mLocationClient = null;
 
     private String step;
     private String cal;
@@ -107,6 +114,9 @@ public class OldPeopleMainActivity extends BaseActivity {
                     case 2:
                         ((HeartRateFragment) fragments[2]).changeText(curHeartRate, bloodPressureShrink, bloodPressureDiastole, oxygen);
                         break;
+                    case 3:
+                        //定位
+                        break;
                 }
             }
         };
@@ -115,6 +125,7 @@ public class OldPeopleMainActivity extends BaseActivity {
 
     @Override
     public void iniview() {
+        setUser((OldPeople) getIntent().getSerializableExtra("user"));
         fragmentManager = getSupportFragmentManager();
         mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -143,6 +154,11 @@ public class OldPeopleMainActivity extends BaseActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         initFragmentManager();
         initBlueSDK();
+        setUser((OldPeople) getIntent().getSerializableExtra("user"));
+        for (int i = 0; i < fragments.length; i++) {
+            fragments[i].refreshUi((OldPeople) getIntent().getSerializableExtra("user"));
+        }
+        startLocation();
     }
 
     @Override
@@ -700,4 +716,35 @@ public class OldPeopleMainActivity extends BaseActivity {
                 break;
         }
     }
+
+    private void startLocation() {
+        mLocationClient = new LocationClient(getApplicationContext());
+        mLocationClient.registerLocationListener(new BDAbstractLocationListener() {
+            @Override
+            public void onReceiveLocation(BDLocation bdLocation) {
+                double latitude = bdLocation.getLatitude();    //获取纬度信息
+                double longitude = bdLocation.getLongitude();    //获取经度信息
+                float radius = bdLocation.getRadius();    //获取定位精度，默认值为0.0f
+                //获取经纬度坐标类型，以LocationClientOption中设置过的坐标类型为准
+                String coorType = bdLocation.getCoorType();
+                //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
+                int errorCode = bdLocation.getLocType();
+                LogUtils.logd(latitude + ";" + longitude + ";" + radius + ";" + coorType + ";" + errorCode);
+                handler.sendEmptyMessage(3);
+            }
+        });
+        LocationClientOption option = new LocationClientOption();
+        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+        option.setCoorType("bd0911");
+        option.setScanSpan(10000);
+        option.setOpenGps(true);
+        option.setLocationNotify(true);
+        option.setIgnoreKillProcess(false);
+        option.SetIgnoreCacheException(false);
+        option.setWifiCacheTimeOut(5 * 60 * 1000);
+        mLocationClient.setLocOption(option);
+        mLocationClient.start();
+    }
+
+
 }

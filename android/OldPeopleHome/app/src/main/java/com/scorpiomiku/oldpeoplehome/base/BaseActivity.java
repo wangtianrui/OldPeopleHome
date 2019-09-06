@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 
 
 import com.scorpiomiku.oldpeoplehome.bean.Child;
+import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
 import com.scorpiomiku.oldpeoplehome.bean.User;
 import com.scorpiomiku.oldpeoplehome.modules.loginregister.LoginActivity;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
@@ -35,8 +36,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
-    public User getOldPeopleUser() {
-        return (user);
+    public OldPeople getOldPeopleUser() {
+        return (OldPeople) user;
     }
 
     public void setUser(User user) {
