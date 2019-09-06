@@ -5,6 +5,7 @@ import com.oldpeoplehome.entity.ChildParent;
 import com.oldpeoplehome.entity.Parent;
 import com.oldpeoplehome.entity.Room;
 import com.oldpeoplehome.service.ChildParentService;
+import com.oldpeoplehome.service.ParentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,8 @@ public class ChildParentController {
 
     @Autowired
     private ChildParentService childParentService;
+    @Autowired
+    private ParentService parentService;
 
     @RequestMapping("/child/{id}")
     @ResponseBody
@@ -40,12 +43,13 @@ public class ChildParentController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public void add(@RequestParam Map<String, Object> params) {
+    public Parent add(@RequestParam Map<String, Object> params) {
 
         long child = Long.valueOf(String.valueOf(params.get("child")));
         long parent = Long.valueOf(String.valueOf(params.get("parent")));
         String relation = String.valueOf(params.get("relation"));
         ChildParent childParent = new ChildParent(parent, child, relation);
         childParentService.combine(childParent);
+        return parentService.findByID(parent);
     }
 }

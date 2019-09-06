@@ -12,6 +12,7 @@ public class HeartRate {
 
     private long parentId;
     private Timestamp time;
+    private double rate;
     private double rate1;
     private double rate2;
     private double oxy;
@@ -19,16 +20,39 @@ public class HeartRate {
     public HeartRate() {
     }
 
-    public HeartRate(long parentId, Timestamp time, double rate1, double rate2, double oxy) {
+    public HeartRate(long parentId, Timestamp time, double rate1, double rate, double rate2, double oxy) {
         this.parentId = parentId;
         this.time = time;
+        this.rate = rate;
         this.rate1 = rate1;
         this.rate2 = rate2;
         this.oxy = oxy;
     }
-    public HeartRate(long parentId, String time, double rate1, double rate2, double oxy) {
+
+    @Override
+    public String toString() {
+        return "HeartRate{" +
+                "parentId=" + parentId +
+                ", time=" + time +
+                ", rate=" + rate +
+                ", rate1=" + rate1 +
+                ", rate2=" + rate2 +
+                ", oxy=" + oxy +
+                '}';
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+
+    public HeartRate(long parentId, String time, double rate1, double rate, double rate2, double oxy) {
         this.parentId = parentId;
         this.time = Timestamp.valueOf(time);
+        this.rate = rate;
         this.rate1 = rate1;
         this.rate2 = rate2;
         this.oxy = oxy;
@@ -42,7 +66,8 @@ public class HeartRate {
     public void setParentId(long parentId) {
         this.parentId = parentId;
     }
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     public Timestamp getTime() {
         return time;
     }
@@ -75,14 +100,4 @@ public class HeartRate {
         this.oxy = oxy;
     }
 
-    @Override
-    public String toString() {
-        return "HeartRate{" +
-                "parentId=" + parentId +
-                ", time=" + time +
-                ", rate1=" + rate1 +
-                ", rate2=" + rate2 +
-                ", oxy=" + oxy +
-                '}';
-    }
 }
