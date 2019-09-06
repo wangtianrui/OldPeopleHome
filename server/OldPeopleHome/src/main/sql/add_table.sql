@@ -106,4 +106,12 @@ CREATE TABLE `admin`  (
   PRIMARY KEY (`account`),
   UNIQUE INDEX `index_acc`(`account`) USING BTREE
 );
+CREATE TABLE `location`  (
+  `pid` bigint(0) NOT NULL,
+  `longitude` float NULL COMMENT '经度',
+  `latitude` float NULL COMMENT '纬度',
+  `time` datetime(0) NULL,
+  INDEX `date`(`time`) USING BTREE,
+  CONSTRAINT `pid_2` FOREIGN KEY (`pid`) REFERENCES `parent` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
