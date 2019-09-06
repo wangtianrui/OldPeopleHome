@@ -88,6 +88,10 @@ int main(void)
   zmain_vdd_check();
 
   // Initialize board I/O
+  
+  
+  
+  A
   InitBoard( OB_COLD );
 
   // Initialze HAL drivers
