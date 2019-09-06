@@ -28,6 +28,7 @@ import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.bean.BleDeviceItem;
+import com.scorpiomiku.oldpeoplehome.bean.Location;
 import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
 import com.scorpiomiku.oldpeoplehome.bean.SportData;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt.EnvironmentFragment;
@@ -43,16 +44,21 @@ import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
 import com.sxr.sdk.ble.keepfit.aidl.IRemoteService;
 import com.sxr.sdk.ble.keepfit.aidl.IServiceCallback;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by ScorpioMiku on 2019/8/18.
@@ -79,6 +85,8 @@ public class OldPeopleMainActivity extends BaseActivity {
     private String bloodPressureShrink = "0";
     private String bloodPressureDiastole = "0";
     private String oxygen;
+
+    private Location location;
 
     private Boolean mIsBound = false;
 
@@ -116,6 +124,22 @@ public class OldPeopleMainActivity extends BaseActivity {
                         break;
                     case 3:
                         //定位
+                        data.clear();
+                        data.put("parent", location.getParent());
+                        data.put("longitude", location.getLongitude());
+                        data.put("latitude", location.getLatitude());
+                        data.put("time", location.getTime());
+                        getWebUtils().upLocation(data, new okhttp3.Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                LogUtils.loge(e.getMessage());
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                LogUtils.logd("上传位置成功");
+                            }
+                        });
                         break;
                 }
             }
@@ -730,6 +754,11 @@ public class OldPeopleMainActivity extends BaseActivity {
                 //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
                 int errorCode = bdLocation.getLocType();
                 LogUtils.logd(latitude + ";" + longitude + ";" + radius + ";" + coorType + ";" + errorCode);
+                location = new Location();
+                location.setLatitude(latitude + "");
+                location.setLongitude(longitude + "");
+                location.setParent(getOldPeopleUser().getParentId());
+                location.setTime(TimeUtils.getTime());
                 handler.sendEmptyMessage(3);
             }
         });

@@ -1,9 +1,4 @@
-package com.scorpiomiku.wifitrick;
 
-import android.util.Log;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -35,7 +30,7 @@ public class WebUtils {
         return instance;
     }
 
-    public static RequestBody getRequestBody(HashMap<String, String> data) {
+    public RequestBody getRequestBody(HashMap<String, String> data) {
         String body = "";
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
         Set<String> keys = data.keySet();
@@ -47,14 +42,14 @@ public class WebUtils {
         return requestBody;
     }
 
-    public static void upRoomState(HashMap<String, String> hashMap, Callback callback) {
+    public void upRoomState(HashMap<String, String> hashMap, Callback callback) {
         Request request = new Request.Builder().post(getRequestBody(hashMap))
                 .url(webHost + "/rstate/add/").build();
         Call call = mClient.newCall(request);
         call.enqueue(callback);
     }
 
-    public static void getTest(Callback callback) {
+    public void getRoomData(Callback callback) {
         Request request = new Request.Builder()
                 .url("http://192.168.0.1/cgi-bin/node.cgi")
                 .build();

@@ -249,6 +249,30 @@ public class WebUtils {
         Call call = mClient.newCall(request);
         call.enqueue(callback);
     }
-//
-//    public void upLocation()
+
+    /**
+     * 上传坐标
+     *
+     * @param hashMap
+     * @param callback
+     */
+    public void upLocation(HashMap<String, String> hashMap, Callback callback) {
+        Request request = new Request.Builder().post(getRequestBody(hashMap))
+                .url(webHost + "/location/add/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 获取坐标
+     *
+     * @param parentId
+     * @param callback
+     */
+    public void getLocation(String parentId, Callback callback) {
+        Request request = new Request.Builder()
+                .url(webHost + "/location/get/" + parentId).build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
 }
