@@ -27,15 +27,7 @@ public abstract class BaseFragment extends Fragment {
     protected Handler handler;
     protected HashMap<String, String> data = new HashMap<>();
     private WebUtils webUtils;
-//    private User user;
-//
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+
 
     @Nullable
     @Override
@@ -48,12 +40,15 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         webUtils = WebUtils.getInstance();
+//        LogUtils.loge("web init ");
         initView();
         handler = initHandle();
-//        refreshData();
     }
 
     protected WebUtils getWebUtils() {
+        if (webUtils == null) {
+            webUtils = WebUtils.getInstance();
+        }
         return webUtils;
     }
 

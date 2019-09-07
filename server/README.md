@@ -77,7 +77,7 @@
 | Parent         | /parent/add            | POST     | 添加老人                                  | parentSex：老人性别，parentPassword：老人密码，parentAccount：账号，parentName：姓名，parentBirth：生日，parentLongId：身份证 |
 | Parent         | /parent/update/1       | POST     | 更新id=1的老人信息                        | **要更新的字段严格按照命名格式传参**比如name就传入parentName |
 | Parent         | /parent/delete/1       | DELETE   | 删除id=1的老人                            |                                                              |
-| Parent         | /parent/login          | POST     | 老人登陆                                  | 登陆成功返回老人的所有信息，登陆失败返回null（不返回） account:bao,password:123      |
+| Parent         | /parent/login          | POST     | 老人登陆                                  | 登陆成功返回老人的所有信息，登陆失败返回null（不返回） account:bao,password:123 |
 | Child          | /child/get/1           | GET      | 查询id=1的子女                            |                                                              |
 | Child          | /child/get_longid/111  | GET      | 查询身份证=111的child的详细信息           |                                                              |
 | Child          | /child/get_name/小蒋   | GET      | 查询姓名=小蒋的child的详细信息            |                                                              |
@@ -85,7 +85,7 @@
 | Child          | /child/add             | POST     |                                           | childSex，childPassword，childAccount，childName，childLongId，childPhone |
 | Child          | /child/update/1        | POST     | 更新id=1的子女信息                        | **要更新的字段严格按照命名格式传参**比如name就传入parentName |
 | Child          | /child/delete/1        | DELETE   | 删除id=1的子女信息                        |                                                              |
-| Child          | /child/login           | POST     | 登陆子女                                  | 登陆成功返回子女信息，失败返回空(不返回)             account:bao,password:123        |
+| Child          | /child/login           | POST     | 登陆子女                                  | 登陆成功返回子女信息，失败返回空(不返回)             account:bao,password:123 |
 | ChildAndParent | /child_parent/child/1  | GET      | 查看子女id=1对应的老人                    |                                                              |
 | ChildAndParent | /child_parent/parent/1 | GET      | 查看老人id=1对应的子女                    |                                                              |
 | ChildAndParent | /child_parent/add      | POST     | 添加老人子女对应关系                      | 子女id：child，老人id：parent，关系：relation                |
@@ -97,3 +97,5 @@
 | Sleep          | /sleep/add             | POST     | 添加老人睡眠信息                          | parent，date，deep，light，awake                             |
 | HeartRate      | /heartrate/get/1       | GET      | 查找id=1的心率信息                        | 参数格式：yyyy-mm-dd hh-mm-ss  加上start参数可以查看某一时刻。加上start和end参数可以查看某一时间段。 |
 | HeartRate      | /heartrate/add         | POST     | 添加老人睡眠信息                          | parentId，time，rate1(收缩压)，rate2(舒张压)，oxy(血氧)      |
+| Location       | /location/get/1        | GET      | 查找id=1的老人位置信息                    | 参数格式：yyyy-mm-dd hh-mm-ss  加上start参数可以查看某一时刻。加上start和end参数可以查看某一时间段。 |
+| Location       | /location/add          | POST     | 添加老人位置信息                          | parent，longitude，latitude，time。添加成功返回Location对象  |

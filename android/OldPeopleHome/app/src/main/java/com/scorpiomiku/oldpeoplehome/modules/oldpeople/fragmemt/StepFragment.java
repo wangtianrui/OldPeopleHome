@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
 
@@ -97,7 +98,7 @@ public class StepFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-
+        titleTimeText.setText(TimeUtils.getUpDate());
     }
 
 
@@ -106,7 +107,6 @@ public class StepFragment extends BaseFragment {
         // TODO: inflate a fragment view
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
         unbinder = ButterKnife.bind(this, rootView);
-        titleTimeText.setText(TimeUtils.getUpDate());
         return rootView;
     }
 
@@ -134,7 +134,7 @@ public class StepFragment extends BaseFragment {
         distanceText.setText(distance);
         timeText.setText(sportTime);
         data.clear();
-        data.put("parent", "1");
+        data.put("parent", ((OldPeopleMainActivity) getActivity()).getOldPeopleUser().getParentId());
         data.put("date", TimeUtils.getUpDate());
         data.put("count", step);
         data.put("distance", distance);

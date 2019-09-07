@@ -2,6 +2,8 @@ package com.scorpiomiku.oldpeoplehome.utils;
 
 import android.annotation.SuppressLint;
 
+import com.scorpiomiku.oldpeoplehome.bean.SleepData;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -84,4 +86,84 @@ public class TimeUtils {
         int day = calendars.get(Calendar.DATE);
         return day;
     }
+
+
+    /**
+     * 获取睡觉总时间
+     *
+     * @param sleepData
+     * @return
+     */
+    public static int getSleepWholeTime(SleepData sleepData) {
+        int whole = 0;
+        whole += timeString2Second(sleepData.getAwakeTime());
+        whole += timeString2Second(sleepData.getDeepTime());
+        whole += timeString2Second(sleepData.getLightTime());
+        LogUtils.loge(whole + "");
+        return whole;
+    }
+
+    public static int timeString2Second(String time) {
+        String[] times = time.split(":");
+        int whole = 0;
+        whole += Integer.valueOf(times[0]) * 60 * 60;
+        LogUtils.logd(whole + "");
+        whole += Integer.valueOf(times[1]) * 60;
+        LogUtils.logd(whole + "");
+        whole += Integer.valueOf(times[2]);
+        return whole;
+    }
+
+    public static String getWholeTimeString(int wholeTime) {
+        int hour, minute, second;
+        String time = "";
+        hour = wholeTime / 3600;
+        minute = (wholeTime - hour * 3600) / 60;
+        second = wholeTime - hour * 3600 - minute * 60;
+        if (hour < 10) {
+            time += "0";
+            time += hour;
+        } else {
+            time += hour;
+        }
+        time += ":";
+        if (minute < 10) {
+            time += "0";
+            time += minute;
+        } else {
+            time += minute;
+        }
+        time += ":";
+        if (second < 10) {
+            time += "0";
+            time += second;
+        } else {
+            time += second;
+        }
+        return time;
+    }
+
+    /**
+     * 比较大小
+     *
+     * @param sleepData1
+     * @param sleepData2
+     * @return 1>2 ? 1 : 0
+     */
+    public static int compareTime(String sleepData1, String sleepData2) {
+        String[] times1 = sleepData1.split("-");
+        String[] times2 = sleepData2.split("-");
+        if (Integer.valueOf(times1[1]) > Integer.valueOf(times2[1])) {
+            return -1;
+        } else if (Integer.valueOf(times1[1]) == Integer.valueOf(times2[1])) {
+            if (Integer.valueOf(times1[2]) > Integer.valueOf(times2[2])) {
+                return -1;
+            } else {
+                return 1;
+            }
+        } else {
+            return 1;
+        }
+    }
+
 }

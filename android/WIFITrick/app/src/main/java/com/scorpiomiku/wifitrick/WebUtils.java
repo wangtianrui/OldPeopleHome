@@ -35,16 +35,6 @@ public class WebUtils {
         return instance;
     }
 
-    public static FormBody getBody(HashMap<String, String> data) {
-        FormBody.Builder bodyBuilder = new FormBody.Builder();
-        Set<String> keys = data.keySet();
-        for (String key : keys) {
-            bodyBuilder.add(key, data.get(key));
-        }
-
-        return bodyBuilder.build();
-    }
-
     public static RequestBody getRequestBody(HashMap<String, String> data) {
         String body = "";
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
@@ -53,7 +43,6 @@ public class WebUtils {
             body += key + "=" + data.get(key) + "&";
         }
         body = body.substring(0, body.length() - 1);
-//        Log.d(TAG, "getRequestBody: " + body);
         RequestBody requestBody = RequestBody.create(mediaType, body);
         return requestBody;
     }

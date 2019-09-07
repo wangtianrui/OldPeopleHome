@@ -1,18 +1,16 @@
 package com.scorpiomiku.oldpeoplehome.modules.loginregister;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -20,11 +18,10 @@ import com.google.gson.JsonObject;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
 import com.scorpiomiku.oldpeoplehome.bean.Child;
+import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
 import com.scorpiomiku.oldpeoplehome.modules.children.activity.ChildMainActivity;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
-import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
-import com.scorpiomiku.oldpeoplehome.utils.WebUtils;
 
 import java.io.IOException;
 
@@ -48,6 +45,10 @@ public class LoginActivity extends BaseActivity {
     LinearLayout linearLayoutBtnRegister;
     @BindView(R.id.login_find_pwd)
     TextView loginFindPwd;
+    @BindView(R.id.is_older)
+    RadioButton isOlder;
+
+    private Boolean isOlderLogin = false;
 
     @SuppressLint("HandlerLeak")
     @Override
@@ -66,6 +67,11 @@ public class LoginActivity extends BaseActivity {
                     case 2:
                         LogUtils.shortToast("密码错误");
                         break;
+                    case 3:
+                        Intent intent1 = new Intent(LoginActivity.this, OldPeopleMainActivity.class);
+                        intent1.putExtra("user", getOldPeopleUser());
+                        startActivity(intent1);
+                        break;
                 }
             }
         };
@@ -74,7 +80,12 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void iniview() {
         checkPermission();
-
+        isOlder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                isOlderLogin = b;
+            }
+        });
     }
 
     @Override
@@ -116,27 +127,51 @@ public class LoginActivity extends BaseActivity {
         data.clear();
         data.put("account", account);
         data.put("password", password);
-        getWebUtils().loginChild(data, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                LogUtils.loge(e.getMessage());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    JsonObject jsonObject = getWebUtils().getJsonObj(response);
-                    Gson gson = new Gson();
-                    Child child = gson.fromJson(jsonObject, Child.class);
-                    setUser(child);
-                    handler.sendEmptyMessage(1);
-                } catch (Exception e) {
+        if (!isOlderLogin) {
+            getWebUtils().loginChild(data, new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
                     LogUtils.loge(e.getMessage());
-                    handler.sendEmptyMessage(2);
                 }
 
-            }
-        });
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    try {
+                        JsonObject jsonObject = getWebUtils().getJsonObj(response);
+                        Gson gson = new Gson();
+                        Child child = gson.fromJson(jsonObject, Child.class);
+                        setUser(child);
+                        handler.sendEmptyMessage(1);
+                    } catch (Exception e) {
+                        LogUtils.loge(e.getMessage());
+                        handler.sendEmptyMessage(2);
+                    }
+
+                }
+            });
+        } else {
+            getWebUtils().loginParent(data, new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    LogUtils.loge(e.getMessage());
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    try {
+                        JsonObject jsonObject = getWebUtils().getJsonObj(response);
+                        Gson gson = new Gson();
+                        OldPeople oldPeople = gson.fromJson(jsonObject, OldPeople.class);
+                        setUser(oldPeople);
+                        handler.sendEmptyMessage(3);
+                    } catch (Exception e) {
+                        LogUtils.loge(e.getMessage());
+                        handler.sendEmptyMessage(2);
+                    }
+
+                }
+            });
+        }
     }
 
 }

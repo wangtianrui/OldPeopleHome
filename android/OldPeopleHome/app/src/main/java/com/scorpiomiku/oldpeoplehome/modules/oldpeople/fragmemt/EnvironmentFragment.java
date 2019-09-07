@@ -148,12 +148,16 @@ public class EnvironmentFragment extends BaseFragment {
 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        JsonObject jsonObject = getWebUtils().getJsonObj(response);
-                        jsonObject = getWebUtils().getJsonObj(jsonObject.get("result").toString());
+                        try {
+                            JsonObject jsonObject = getWebUtils().getJsonObj(response);
+                            jsonObject = getWebUtils().getJsonObj(jsonObject.get("result").toString());
 //                        LogUtils.loge(jsonObject.toString());
-                        temperature = jsonObject.get("temperature").toString();
-                        humidity = String.valueOf(Float.valueOf(jsonObject.get("humidity") + "") * 100).substring(0, 4);
-                        handler.sendEmptyMessage(1);
+                            temperature = jsonObject.get("temperature").toString();
+                            humidity = String.valueOf(Float.valueOf(jsonObject.get("humidity") + "") * 100).substring(0, 4);
+                            handler.sendEmptyMessage(1);
+                        } catch (Exception e) {
+                            LogUtils.loge(e.getMessage());
+                        }
                     }
                 });
             }

@@ -1,7 +1,9 @@
 package com.scorpiomiku.oldpeoplehome.modules.children.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +11,24 @@ import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
+import com.scorpiomiku.oldpeoplehome.bean.RoomState;
 import com.scorpiomiku.oldpeoplehome.utils.ChartUtils;
+import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by ScorpioMiku on 2019/8/18.
@@ -33,10 +44,25 @@ public class EnvironmentFragment extends BaseFragment {
     @BindView(R.id.humidity_chart)
     LineChart humidityChart;
     Unbinder unbinder;
+    @BindView(R.id.now_time_text)
+    TextView nowTimeText;
 
+    private RoomState roomState;
+
+    @SuppressLint("HandlerLeak")
     @Override
     protected Handler initHandle() {
-        return null;
+        return new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                switch (msg.what) {
+                    case 1:
+                        refreshData();
+                        break;
+                }
+            }
+        };
     }
 
     @Override
@@ -46,12 +72,15 @@ public class EnvironmentFragment extends BaseFragment {
 
     @Override
     protected void refreshData() {
-
+        nowTimeText.setText(roomState.getTime());
+        temperatureText.setText(roomState.getTemperature());
+        humidityText.setText(roomState.getHumidity());
+        initChart();
     }
 
     @Override
     protected void initView() {
-        initChart();
+
     }
 
     @Override
@@ -92,5 +121,29 @@ public class EnvironmentFragment extends BaseFragment {
             humidityValues.add(new Entry(i, levels[i]));
         }
         ChartUtils.initSingleLineChart(humidityChart, humidityValues, "近7天平均湿度", 0xFF01B67A);
+    }
+
+    @Override
+    public void refreshUi(OldPeople oldPeople) {
+        super.refreshUi(oldPeople);
+        getWebUtils().getRoomData(oldPeople.getParentId(), new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                LogUtils.loge(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    JsonArray jsonElements = getWebUtils().getJsonArray(response);
+                    Gson gson = new Gson();
+                    RoomState[] roomStates = gson.fromJson(jsonElements, RoomState[].class);
+                    roomState = roomStates[roomStates.length - 1];
+                    handler.sendEmptyMessage(1);
+                } catch (Exception e) {
+                    LogUtils.loge(e.getMessage());
+                }
+            }
+        });
     }
 }

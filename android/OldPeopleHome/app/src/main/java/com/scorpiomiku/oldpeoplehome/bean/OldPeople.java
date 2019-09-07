@@ -1,10 +1,12 @@
 package com.scorpiomiku.oldpeoplehome.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by ScorpioMiku on 2019/9/4.
  */
 
-public class OldPeople implements User {
+public class OldPeople implements User, Serializable {
     private String parentId;
     private String parentLongId;
     private String parentName;

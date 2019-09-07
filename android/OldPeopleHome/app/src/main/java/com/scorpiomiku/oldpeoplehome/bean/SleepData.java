@@ -1,22 +1,27 @@
 package com.scorpiomiku.oldpeoplehome.bean;
 
+import android.support.annotation.NonNull;
+
+import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
+import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
+
 /**
  * Created by ScorpioMiku on 2019/9/4.
  */
 
-public class SleepData {
-    private String parent;
+public class SleepData implements Comparable<SleepData> {
+    private String parentId;
     private String date;
-    private String deep;
-    private String light;
-    private String awake;
+    private String deepTime;
+    private String lightTime;
+    private String awakeTime;
 
-    public String getParent() {
-        return parent;
+    public String getParentId() {
+        return parentId;
     }
 
-    public void setParent(String parent) {
-        this.parent = parent;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
     public String getDate() {
@@ -27,27 +32,43 @@ public class SleepData {
         this.date = date;
     }
 
-    public String getDeep() {
-        return deep;
+    public String getDeepTime() {
+        return deepTime;
     }
 
-    public void setDeep(String deep) {
-        this.deep = deep;
+    public void setDeepTime(String deepTime) {
+        this.deepTime = deepTime;
     }
 
-    public String getLight() {
-        return light;
+    public String getLightTime() {
+        return lightTime;
     }
 
-    public void setLight(String light) {
-        this.light = light;
+    public void setLightTime(String lightTime) {
+        this.lightTime = lightTime;
     }
 
-    public String getAwake() {
-        return awake;
+    public String getAwakeTime() {
+        return awakeTime;
     }
 
-    public void setAwake(String awake) {
-        this.awake = awake;
+    public void setAwakeTime(String awakeTime) {
+        this.awakeTime = awakeTime;
+    }
+
+    @Override
+    public int compareTo(@NonNull SleepData sleepData) {
+        return TimeUtils.compareTime(date, sleepData.getDate());
+    }
+
+    @Override
+    public String toString() {
+        return "SleepData{" +
+                "parentId='" + parentId + '\'' +
+                ", date='" + date + '\'' +
+                ", deepTime='" + deepTime + '\'' +
+                ", lightTime='" + lightTime + '\'' +
+                ", awakeTime='" + awakeTime + '\'' +
+                '}';
     }
 }

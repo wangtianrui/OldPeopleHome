@@ -1,7 +1,9 @@
 package com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,18 +13,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
 import com.scorpiomiku.oldpeoplehome.bean.SleepData;
+import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.itangqi.waveloadingview.WaveLoadingView;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by ScorpioMiku on 2019/8/18.
@@ -40,11 +51,24 @@ public class SleepFragment extends BaseFragment {
     ViewPager viewPager;
     @BindView(R.id.title_time_text)
     TextView titleTimeText;
-    private ArrayList<SleepData> data = new ArrayList<>();
+    private ArrayList<SleepData> sleepDatas = new ArrayList<>();
+    private SleepData yesterday;
 
+    @SuppressLint("HandlerLeak")
     @Override
     protected Handler initHandle() {
-        return null;
+        return new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                switch (msg.what) {
+                    case 1:
+                        refreshData();
+                        initViewPager();
+                        break;
+                }
+            }
+        };
     }
 
     @Override
@@ -54,12 +78,11 @@ public class SleepFragment extends BaseFragment {
 
     @Override
     protected void refreshData() {
-
+        sleepText.setText(TimeUtils.getWholeTimeString(TimeUtils.getSleepWholeTime(yesterday)));
     }
 
     @Override
     protected void initView() {
-        initViewPager();
         titleTimeText.setText(TimeUtils.getUpDate());
     }
 
@@ -78,41 +101,6 @@ public class SleepFragment extends BaseFragment {
         unbinder.unbind();
     }
 
-    /**
-     * 绘制饼图
-     */
-//    private void initPie() {
-//        List<PieEntry> strings = new ArrayList<>();
-//        strings.add(new PieEntry(30f, "深度睡眠"));
-//        strings.add(new PieEntry(70f, "浅度睡眠"));
-//
-//        PieDataSet dataSet = new PieDataSet(strings, "");
-//
-//        ArrayList<Integer> colors = new ArrayList<Integer>();
-//        colors.add(getResources().getColor(R.color.sleep_deep));
-//        colors.add(getResources().getColor(R.color.sleep_shallow));
-//        dataSet.setColors(colors);
-//        dataSet.setValueTextSize(16f);
-//        PieData pieData = new PieData(dataSet);
-//        pieData.setDrawValues(true);
-//        pieData.setValueFormatter(new PercentFormatter());
-//        pieData.setValueTextSize(16f);
-//        pieData.setValueTextColor(getResources().getColor(R.color.place_holder));
-//
-//
-//        sleepPie.setData(pieData);
-//        sleepPie.invalidate();
-//
-//        Description description = new Description();
-//        description.setText("");
-//        sleepPie.setDescription(description);
-//        sleepPie.setHoleRadius(0f);
-//        sleepPie.setTransparentCircleRadius(0f);
-//        Legend legend = sleepPie.getLegend();
-//        legend.setEnabled(false);
-//
-//    }
-
 
     /**
      * 初始化Viewpager
@@ -122,14 +110,45 @@ public class SleepFragment extends BaseFragment {
         viewPager.setAdapter(new FragmentPagerAdapter(fragmentManager) {
             @Override
             public Fragment getItem(int i) {
-                return SleepViewPagerItem.instance(data.get(i));
+                return SleepViewPagerItem.instance(sleepDatas.get(i));
             }
 
             @Override
             public int getCount() {
-                return data.size();
+                return sleepDatas.size();
             }
         });
         viewpagerPagerIndicator.attachToViewPager(viewPager);
+    }
+
+    @Override
+    public void refreshUi(OldPeople oldPeople) {
+        super.refreshUi(oldPeople);
+
+        getWebUtils().getSleepData(oldPeople.getParentId(), new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                LogUtils.loge(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    JsonArray jsonElements = getWebUtils().getJsonArray(response);
+                    Gson gson = new Gson();
+                    SleepData[] sleeps = gson.fromJson(jsonElements, SleepData[].class);
+                    Arrays.sort(sleeps);
+                    for (int i = 0; i < sleeps.length; i++) {
+                        LogUtils.loge(sleeps[i].toString());
+                    }
+                    yesterday = sleeps[sleeps.length - 1];
+                    sleepDatas.clear();
+                    sleepDatas.addAll(Arrays.asList(sleeps));
+                    handler.sendEmptyMessage(1);
+                } catch (Exception e) {
+                    LogUtils.loge(e.getMessage());
+                }
+            }
+        });
     }
 }

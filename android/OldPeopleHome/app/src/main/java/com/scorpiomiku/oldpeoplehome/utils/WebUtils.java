@@ -119,6 +119,19 @@ public class WebUtils {
     }
 
     /**
+     * 获取心率
+     *
+     * @param parentId
+     * @param callback
+     */
+    public void getHeartRates(String parentId, Callback callback) {
+        Request request = new Request.Builder()
+                .url(webHost + "/heartrate/get/" + parentId).build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
      * 获取房间数据
      *
      * @param roomId
@@ -185,6 +198,19 @@ public class WebUtils {
     }
 
     /**
+     * 老人登录
+     *
+     * @param hashMap
+     * @param callback
+     */
+    public void loginParent(HashMap<String, String> hashMap, Callback callback) {
+        Request request = new Request.Builder().post(getRequestBody(hashMap))
+                .url(webHost + "/parent/login/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
      * 孩子绑定老人
      *
      * @param hashMap
@@ -207,6 +233,45 @@ public class WebUtils {
 //        LogUtils.loge(webHost + "/child_parent/child/" + childId);
         Request request = new Request.Builder()
                 .url(webHost + "/child_parent/child/" + childId).build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 获取睡眠数据
+     *
+     * @param parentId
+     * @param callback
+     */
+    public void getSleepData(String parentId, Callback callback) {
+        Request request = new Request.Builder()
+                .url(webHost + "/sleep/get/" + parentId).build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 上传坐标
+     *
+     * @param hashMap
+     * @param callback
+     */
+    public void upLocation(HashMap<String, String> hashMap, Callback callback) {
+        Request request = new Request.Builder().post(getRequestBody(hashMap))
+                .url(webHost + "/location/add/").build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
+
+    /**
+     * 获取坐标
+     *
+     * @param parentId
+     * @param callback
+     */
+    public void getLocation(String parentId, Callback callback) {
+        Request request = new Request.Builder()
+                .url(webHost + "/location/get/" + parentId).build();
         Call call = mClient.newCall(request);
         call.enqueue(callback);
     }
