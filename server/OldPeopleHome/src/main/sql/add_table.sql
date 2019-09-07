@@ -31,7 +31,8 @@ CREATE TABLE `room` (
   UNIQUE KEY `index` (`pid`) USING BTREE,
   CONSTRAINT `room_fk_1` FOREIGN KEY (`pid`) REFERENCES `parent` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci  ROW_FORMAT=DYNAMIC;
-
+ALTER TABLE `room`
+ADD COLUMN `temp` float NULL COMMENT '房间温度阈值' AFTER `pid`;
 CREATE TABLE `child` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `longid` char(18) NOT NULL COMMENT '身份证',

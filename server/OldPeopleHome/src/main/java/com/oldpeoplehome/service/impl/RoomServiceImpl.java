@@ -48,4 +48,5 @@ public class RoomServiceImpl implements RoomService {
     public int delete(int roomId) {
         return roomDao.deleteRoom(roomId);
     }
+
 }

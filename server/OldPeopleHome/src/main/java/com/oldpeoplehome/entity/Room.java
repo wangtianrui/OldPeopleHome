@@ -11,6 +11,7 @@ public class Room {
     private String roomName;
     private long parentId;
     private Parent parent;
+    private float temp;
 
     public Room() {
     }
@@ -18,19 +19,27 @@ public class Room {
     public Room(String roomLocation, String roomName) {
         this.roomLocation = roomLocation;
         this.roomName = roomName;
+
+    }
+    public Room(String roomLocation, String roomName, float temp) {
+        this.roomLocation = roomLocation;
+        this.roomName = roomName;
+        this.temp = temp;
     }
 
-    public Room(String roomLocation, String roomName, Long parentId) {
+    public Room(String roomLocation, String roomName, Long parentId, float temp) {
         this.roomLocation = roomLocation;
         this.roomName = roomName;
         this.parentId = parentId;
+        this.temp = temp;
     }
 
-    public Room(Integer roomId, String roomLocation, String roomName, Long parentId) {
+    public Room(Integer roomId, String roomLocation, String roomName, Long parentId, float temp) {
         this.roomId = roomId;
         this.roomName = roomName;
         this.roomLocation = roomLocation;
         this.parentId = parentId;
+        this.temp = temp;
     }
 
     public int getRoomId() {
@@ -64,6 +73,20 @@ public class Room {
     public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
+    public void setParentId(String parentId) {
+        this.parentId = Long.valueOf(parentId);
+    }
+
+    public float getTemp() {
+        return temp;
+    }
+
+    public void setTemp(float temp) {
+        this.temp = temp;
+    }
+    public void setTemp(String temp) {
+        this.temp = Float.valueOf(temp);
+    }
 
     @Override
     public String toString() {
@@ -73,6 +96,7 @@ public class Room {
                 ", roomName='" + roomName + '\'' +
                 ", parentId=" + parentId +
                 ", parent=" + parent +
+                ", temp=" + temp +
                 '}';
     }
 }

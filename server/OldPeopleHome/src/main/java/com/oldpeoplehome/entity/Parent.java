@@ -117,6 +117,9 @@ public class Parent {
     public void setParentHeight(Double parentHeight) {
         this.parentHeight = parentHeight;
     }
+    public void setParentHeight(String parentHeight) {
+        this.parentHeight = Double.valueOf(parentHeight);
+    }
 
     public double getParentWeight() {
         return parentWeight;
@@ -124,6 +127,9 @@ public class Parent {
 
     public void setParentWeight(Double parentWeight) {
         this.parentWeight = parentWeight;
+    }
+    public void setParentWeight(String parentWeight) {
+        this.parentWeight = Double.valueOf(parentWeight);
     }
 
     public Date getParentBirth() {
@@ -151,6 +157,9 @@ public class Parent {
 
     public void setParentRoomId(Integer parentRoomId) {
         this.parentRoomId = parentRoomId;
+    }
+    public void setParentRoomId(String parentRoomId) {
+        this.parentRoomId = Integer.valueOf(parentRoomId);
     }
 
     public Room getParentRoom() {
