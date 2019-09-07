@@ -22,8 +22,16 @@ public class Node {
                 "nwkAddr='" + nwkAddr + '\'' +
                 ", parAddr='" + parAddr + '\'' +
                 ", macAddr='" + macAddr + '\'' +
-                ", funcList=" + funcList +
+                ", funcList=" + funcListString() +
                 '}';
+    }
+
+    private String funcListString() {
+        String temp = "";
+        for (int i = 0; i < funcList.length; i++) {
+            temp += funcList[i].toString();
+        }
+        return temp;
     }
 
     public String getNwkAddr() {

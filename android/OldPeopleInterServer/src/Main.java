@@ -1,4 +1,6 @@
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -15,6 +17,21 @@ public class Main {
         webUtils = WebUtils.getInstance();
         System.out.println("开始转发任务");
         getAndUpData();
+//        fengshan();
+    }
+
+    private static void fengshan() {
+        webUtils.fengshan(8, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                System.out.println(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+            }
+        });
     }
 
     private static void getAndUpData() {
@@ -31,10 +48,11 @@ public class Main {
 
                         @Override
                         public void onResponse(Call call, Response response) throws IOException {
-                            String body = response.body().string();
+                            JsonArray jsonElements = getJsonArray(response);
                             Gson gson = new Gson();
-                            Node[] nodes = gson.fromJson(body, Node[].class);
+                            Node[] nodes = gson.fromJson(jsonElements, Node[].class);
                             for (Node node : nodes) {
+                                System.out.println("接收到数据:" + node.toString());
                                 funcList[] funcLists = node.getFuncList();
                                 for (funcList funcList : funcLists) {
                                     if (funcList.getType().equals("安防")) {
@@ -47,6 +65,7 @@ public class Main {
                                 }
                             }
                             RoomData roomData = new RoomData(isin, temporature, humidity, TimeUtils.getTime(), "1");
+                            System.out.println("解析出房间信息:" + roomData);
                             webUtils.upRoomState(roomData.getMap(), new Callback() {
                                 @Override
                                 public void onFailure(Call call, IOException e) {
@@ -55,7 +74,7 @@ public class Main {
 
                                 @Override
                                 public void onResponse(Call call, Response response) throws IOException {
-                                    System.out.println("上传成功:" + roomData.toString());
+                                    System.out.println("房间信息上传成功");
                                     getAndUpData();
                                 }
                             });
@@ -67,4 +86,12 @@ public class Main {
             }
         }).start();
     }
+
+    private static JsonArray getJsonArray(Response response) throws IOException {
+        String result = response.body().string();
+        JsonParser jsonParser = new JsonParser();
+        JsonArray jsonObject = (JsonArray) jsonParser.parse(result);
+        return jsonObject;
+    }
+
 }

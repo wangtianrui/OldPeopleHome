@@ -57,5 +57,10 @@ public class WebUtils {
         call.enqueue(callback);
     }
 
-
+    public void fengshan(int code, Callback callback) {
+        Request request = new Request.Builder()
+                .url("http://192.168.0.1/cgi-bin/send_node.cgi" + "?type=11&id=3&data=" + code).build();
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
 }
