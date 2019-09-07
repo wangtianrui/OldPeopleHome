@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Old People Home - 老人注册</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon.png">
-    <link rel="stylesheet" href="addPeople_style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="css/icons/favicon.png">
+    <link rel="stylesheet" href="css/addPeople_style.css">
+    <script src="js/addPeople.js"></script>
 </head>
 <body>
     <div class="box1">
@@ -17,15 +18,15 @@
         <span class="upper">H</span>
         <span class="lower">ome</span>
     </div>
-    <div class="register_1">
+    <div class="register_1" id="register_1" style="display: block">
         <h3>老人注册</h3>
         <form>
             <input type="text" placeholder="账号"><br>
             <input type="password" placeholder="密码"><br>
-            <input type="button" value="next" id="next">
+            <input type="button" value="next" id="next" onclick="changeDiv()">
         </form>
     </div>
-    <div class="register_2">
+    <div class="register_2" id="register_2" style="display: none">
         <h3>老人注册</h3>
         <form action="firstPage.html">
             <input type="text" placeholder="姓名"><br>
