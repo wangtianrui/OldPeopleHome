@@ -23,6 +23,8 @@ import com.google.gson.JsonArray;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.bean.Location;
+import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
+import com.scorpiomiku.oldpeoplehome.modules.children.activity.ChildMainActivity;
 import com.scorpiomiku.oldpeoplehome.modules.oldpeople.activity.OldPeopleMainActivity;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 
@@ -48,6 +50,7 @@ public class MapFragment extends BaseFragment {
     MapView map;
     Unbinder unbinder;
     LatLng GEO_ZHONGBEI = new LatLng(38.019467, 112.455778);
+    private OldPeople oldPeople;
 
     private ArrayList<Location> locations = new ArrayList<>();
 
@@ -60,7 +63,8 @@ public class MapFragment extends BaseFragment {
                 super.handleMessage(msg);
                 switch (msg.what) {
                     case 1:
-                        drawLine();
+//                        drawLine();
+                        refreshUi(oldPeople);
                         break;
                 }
             }
@@ -74,26 +78,7 @@ public class MapFragment extends BaseFragment {
 
     @Override
     protected void refreshData() {
-        getWebUtils().getLocation(((OldPeopleMainActivity) getActivity()).getOldPeopleUser().getParentId(), new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                LogUtils.loge(e.getMessage());
-            }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    JsonArray jsonElements = getWebUtils().getJsonArray(response);
-                    Gson gson = new Gson();
-                    Location[] locas = gson.fromJson(jsonElements, Location[].class);
-                    locations.clear();
-                    locations.addAll(Arrays.asList(locas));
-                    handler.sendEmptyMessage(1);
-                } catch (Exception e) {
-                    LogUtils.loge(e.getMessage());
-                }
-            }
-        });
     }
 
     @Override
@@ -105,6 +90,7 @@ public class MapFragment extends BaseFragment {
         MapStatus.Builder builder = new MapStatus.Builder();
         builder.zoom(16.5f);
         map.getMap().setMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+        refreshData();
     }
 
     @Override
@@ -163,5 +149,44 @@ public class MapFragment extends BaseFragment {
         //在地图上绘制折线
         //mPloyline 折线对象
         Overlay mPolyline = map.getMap().addOverlay(mOverlayOptions);
+    }
+
+    @Override
+    public void refreshUi(OldPeople oldPeople) {
+        super.refreshUi(oldPeople);
+        this.oldPeople = oldPeople;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                getWebUtils().getLocation(oldPeople.getParentId(), new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        LogUtils.loge(e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        try {
+                            JsonArray jsonElements = getWebUtils().getJsonArray(response);
+                            Gson gson = new Gson();
+                            Location[] locas = gson.fromJson(jsonElements, Location[].class);
+                            for (int i = 0; i < locas.length; i++) {
+//                                LogUtils.loge(locas[i].toString());
+                            }
+                            locations.clear();
+                            locations.addAll(Arrays.asList(locas));
+                            handler.sendEmptyMessage(1);
+                        } catch (Exception e) {
+                            LogUtils.loge(e.getMessage());
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 }
