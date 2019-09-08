@@ -1,0 +1,2434 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        02/Sep/2019  17:51:19 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Components\stack\sys\ZGlobals.c                /
+//    Command line       =  -f C:\Users\Administrator\Desktop\ZStack-CC2530-r /
+//                          200_1\Projects\SappWsn\..\zstack\Tools\CC2530DB\f /
+//                          8wEndev.cfg (-DCPU32MHZ -DROOT=__near_func        /
+//                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6        /
+//                          -DMAC_CFG_RX_MAX=3) -f C:\Users\Administrator\Des /
+//                          ktop\ZStack-CC2530-r200_1\Projects\SappWsn\..\zst /
+//                          ack\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO     /
+//                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR      /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x94127                     /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 C:\Users\Administrator\Des /
+//                          ktop\ZStack-CC2530-r200_1\Components\stack\sys\ZG /
+//                          lobals.c -D NWK_AUTO_POLL -D ZTOOL_P1 -D          /
+//                          xMT_TASK -D xMT_SYS_FUNC -D MT_ZDO_FUNC -D        /
+//                          SAPP_ZSTACK -lC C:\Users\Administrator\Desktop\ZS /
+//                          tack-CC2530-r200_1\Projects\SappWsn\EndDeviceEB\L /
+//                          ist\ -lA C:\Users\Administrator\Desktop\ZStack-CC /
+//                          2530-r200_1\Projects\SappWsn\EndDeviceEB\List\    /
+//                          --diag_suppress Pe001,Pa010 -o                    /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\EndDeviceEB\Obj\ -e           /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\ -I                           /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\Source\ -I                    /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\zstack\ZMain\TI2530DB\ -I  /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\hal\include\ /
+//                           -I C:\Users\Administrator\Desktop\ZStack-CC2530- /
+//                          r200_1\Projects\SappWsn\..\..\Components\hal\targ /
+//                          et\CC2530EB\ -I C:\Users\Administrator\Desktop\ZS /
+//                          tack-CC2530-r200_1\Projects\SappWsn\..\..\Compone /
+//                          nts\mac\include\ -I C:\Users\Administrator\Deskto /
+//                          p\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Com /
+//                          ponents\mac\high_level\ -I                        /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\mac\low_leve /
+//                          l\srf04\ -I C:\Users\Administrator\Desktop\ZStack /
+//                          -CC2530-r200_1\Projects\SappWsn\..\..\Components\ /
+//                          mac\low_level\srf04\single_chip\ -I               /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\mt\ -I       /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\osal\include /
+//                          \ -I C:\Users\Administrator\Desktop\ZStack-CC2530 /
+//                          -r200_1\Projects\SappWsn\..\..\Components\service /
+//                          s\saddr\ -I C:\Users\Administrator\Desktop\ZStack /
+//                          -CC2530-r200_1\Projects\SappWsn\..\..\Components\ /
+//                          services\sdata\ -I C:\Users\Administrator\Desktop /
+//                          \ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Comp /
+//                          onents\stack\af\ -I C:\Users\Administrator\Deskto /
+//                          p\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Com /
+//                          ponents\stack\nwk\ -I C:\Users\Administrator\Desk /
+//                          top\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\C /
+//                          omponents\stack\sapi\ -I                          /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\stack\sec\   /
+//                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r /
+//                          200_1\Projects\SappWsn\..\..\Components\stack\sys /
+//                          \ -I C:\Users\Administrator\Desktop\ZStack-CC2530 /
+//                          -r200_1\Projects\SappWsn\..\..\Components\stack\z /
+//                          do\ -I C:\Users\Administrator\Desktop\ZStack-CC25 /
+//                          30-r200_1\Projects\SappWsn\..\..\Components\zmac\ /
+//                           -I C:\Users\Administrator\Desktop\ZStack-CC2530- /
+//                          r200_1\Projects\SappWsn\..\..\Components\zmac\f8w /
+//                          \ -Ohz --require_prototypes                       /
+//    List file          =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\EndDeviceEB\List\ZGlobals.s51 /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME ZGlobals
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_THREE
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?V0
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN __INIT_XDATA_I
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??zgInit?relay
+        FUNCTION ??zgInit?relay,0203H
+        PUBLIC ??zgInitItems?relay
+        FUNCTION ??zgInitItems?relay,0203H
+        PUBLIC ??zgReadStartupOptions?relay
+        FUNCTION ??zgReadStartupOptions?relay,0203H
+        PUBLIC ??zgSetItem?relay
+        FUNCTION ??zgSetItem?relay,0203H
+        PUBLIC ??zgWriteStartupOptions?relay
+        FUNCTION ??zgWriteStartupOptions?relay,0203H
+        PUBLIC zgApsAckWaitMultiplier
+        PUBLIC zgApsDefaultMaxBindingTime
+        PUBLIC zgApsNonMemberRadius
+        PUBLIC zgApsUseExtendedPANID
+        PUBLIC zgApsUseInsecureJoin
+        PUBLIC zgApscAckWaitDurationPolled
+        PUBLIC zgApscMaxFrameRetries
+        PUBLIC zgBcastDeliveryTime
+        PUBLIC zgConcentratorDiscoveryTime
+        PUBLIC zgConcentratorEnable
+        PUBLIC zgConcentratorRC
+        PUBLIC zgConcentratorRadius
+        PUBLIC zgConfigPANID
+        PUBLIC zgDefaultChannelList
+        PUBLIC zgDefaultStartingScanDuration
+        PUBLIC zgDeviceLogicalType
+        PUBLIC zgExtendedPANID
+        PUBLIC zgIndirectMsgTimeout
+        PUBLIC zgInit
+        FUNCTION zgInit,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC zgInitItems
+        FUNCTION zgInitItems,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 18, STACK
+        PUBLIC zgMaxBcastRetires
+        PUBLIC zgMaxDataRetries
+        PUBLIC zgMaxPollFailureRetries
+        PUBLIC zgNwkMgrMinTransmissions
+        PUBLIC zgNwkMgrMode
+        PUBLIC zgNwkMode
+        PUBLIC zgNwkSrcRtgExpiryTime
+        PUBLIC zgPassiveAckTimeout
+        PUBLIC zgPollRate
+        PUBLIC zgPreConfigKeys
+        PUBLIC zgQueuedPollRate
+        PUBLIC zgReadStartupOptions
+        FUNCTION zgReadStartupOptions,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 15, STACK
+        PUBLIC zgRejoinPollRate
+        PUBLIC zgResponsePollRate
+        PUBLIC zgRouteDiscoveryTime
+        PUBLIC zgRouteExpiryTime
+        PUBLIC zgSapiEndpoint
+        PUBLIC zgSecurePermitJoin
+        PUBLIC zgSecurityMode
+        PUBLIC zgSetItem
+        FUNCTION zgSetItem,021203H
+        ARGFRAME XSTACK, 2, STACK
+        LOCFRAME XSTACK, 14, STACK
+        PUBLIC zgStackProfile
+        PUBLIC zgStartDelay
+        PUBLIC zgTrustCenterAddr
+        PUBLIC zgUseDefaultTCLK
+        PUBLIC zgWriteStartupOptions
+        FUNCTION zgWriteStartupOptions,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 15, STACK
+        PUBLIC zgZdoDirectCB
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-2
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B SameValue
+        CFI A SameValue
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT SameValue
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon1
+        
+ZMacGetReq          SYMBOL "ZMacGetReq"
+osal_nv_read        SYMBOL "osal_nv_read"
+osal_nv_item_init   SYMBOL "osal_nv_item_init"
+osal_nv_write       SYMBOL "osal_nv_write"
+osal_memcpy         SYMBOL "osal_memcpy"
+??ZMacGetReq?relay  SYMBOL "?relay", ZMacGetReq
+??osal_memcpy?relay SYMBOL "?relay", osal_memcpy
+??osal_nv_item_init?relay SYMBOL "?relay", osal_nv_item_init
+??osal_nv_read?relay SYMBOL "?relay", osal_nv_read
+??osal_nv_write?relay SYMBOL "?relay", osal_nv_write
+zgInit              SYMBOL "zgInit"
+??zgInit?relay      SYMBOL "?relay", zgInit
+zgInitItems         SYMBOL "zgInitItems"
+??zgInitItems?relay SYMBOL "?relay", zgInitItems
+zgReadStartupOptions SYMBOL "zgReadStartupOptions"
+??zgReadStartupOptions?relay SYMBOL "?relay", zgReadStartupOptions
+zgSetItem           SYMBOL "zgSetItem"
+??zgSetItem?relay   SYMBOL "?relay", zgSetItem
+zgWriteStartupOptions SYMBOL "zgWriteStartupOptions"
+??zgWriteStartupOptions?relay SYMBOL "?relay", zgWriteStartupOptions
+
+        EXTERN ZMacGetReq
+        FUNCTION ZMacGetReq,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_nv_read
+        FUNCTION osal_nv_read,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_nv_item_init
+        FUNCTION osal_nv_item_init,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 16, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_nv_write
+        FUNCTION osal_nv_write,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??ZMacGetReq?relay
+        FUNCTION ??ZMacGetReq?relay,00H
+        EXTERN ??osal_memcpy?relay
+        FUNCTION ??osal_memcpy?relay,00H
+        EXTERN ??osal_nv_item_init?relay
+        FUNCTION ??osal_nv_item_init?relay,00H
+        EXTERN ??osal_nv_read?relay
+        FUNCTION ??osal_nv_read?relay,00H
+        EXTERN ??osal_nv_write?relay
+        FUNCTION ??osal_nv_write?relay,00H
+
+// C:\Users\Administrator\Desktop\ZStack-CC2530-r200_1\Components\stack\sys\ZGlobals.c
+//    1 /**************************************************************************************************
+//    2   Filename:       ZGlobals.c
+//    3   Revised:        $Date: 2011-05-25 19:35:25 -0700 (Wed, 25 May 2011) $
+//    4   Revision:       $Revision: 26100 $
+//    5 
+//    6   Description:    User definable Z-Stack parameters.
+//    7 
+//    8 
+//    9   Copyright 2007-2011 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product. Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /*********************************************************************
+//   41  * INCLUDES
+//   42  */
+//   43 
+//   44 #include "ZComDef.h"
+//   45 #include "OSAL_Nv.h"
+//   46 #include "ZDObject.h"
+//   47 #include "ZGlobals.h"
+//   48 #include "ZDNwkMgr.h"
+//   49 #include "OnBoard.h"
+//   50 #include "ZDSecMgr.h"
+//   51 
+//   52 /*********************************************************************
+//   53  * MACROS
+//   54  */
+//   55 
+//   56 /*********************************************************************
+//   57  * CONSTANTS
+//   58  */
+//   59 
+//   60 /*********************************************************************
+//   61  * TYPEDEFS
+//   62  */
+//   63 
+//   64 typedef struct zgItem
+//   65 {
+//   66   uint16 id;
+//   67   uint16 len;
+//   68   void *buf;
+//   69 } zgItem_t;
+//   70 
+//   71 /*********************************************************************
+//   72  * NWK GLOBAL VARIABLES
+//   73  */
+//   74 
+//   75 // Polling values
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   76 uint16 zgPollRate = POLL_RATE;
+zgPollRate:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for zgPollRate>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   77 uint16 zgQueuedPollRate = QUEUED_POLL_RATE;
+zgQueuedPollRate:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for zgQueuedPollRate>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   78 uint16 zgResponsePollRate = RESPONSE_POLL_RATE;
+zgResponsePollRate:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for zgResponsePollRate>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   79 uint16 zgRejoinPollRate = REJOIN_POLL_RATE;
+zgRejoinPollRate:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for zgRejoinPollRate>`
+        REQUIRE __INIT_XDATA_I
+//   80 
+//   81 // Transmission retries numbers
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   82 uint8 zgMaxDataRetries = NWK_MAX_DATA_RETRIES;
+zgMaxDataRetries:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgMaxDataRetries>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   83 uint8 zgMaxPollFailureRetries = MAX_POLL_FAILURE_RETRIES;
+zgMaxPollFailureRetries:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgMaxPollFailureRetries>`
+        REQUIRE __INIT_XDATA_I
+//   84 
+//   85 // Default channel list
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   86 uint32 zgDefaultChannelList = DEFAULT_CHANLIST;
+zgDefaultChannelList:
+        DATA32
+        DS 4
+        REQUIRE `?<Initializer for zgDefaultChannelList>`
+        REQUIRE __INIT_XDATA_I
+//   87 
+//   88 // Default starting scan duration
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   89 uint8 zgDefaultStartingScanDuration = STARTING_SCAN_DURATION;
+zgDefaultStartingScanDuration:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgDefaultStartingScanDuratio`
+        REQUIRE __INIT_XDATA_I
+//   90 
+//   91 // Stack profile Id
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   92 uint8 zgStackProfile = STACK_PROFILE_ID;
+zgStackProfile:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgStackProfile>`
+        REQUIRE __INIT_XDATA_I
+//   93 
+//   94 // Default indirect message holding timeout
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   95 uint8 zgIndirectMsgTimeout = NWK_INDIRECT_MSG_TIMEOUT;
+zgIndirectMsgTimeout:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgIndirectMsgTimeout>`
+        REQUIRE __INIT_XDATA_I
+//   96 
+//   97 // Security mode
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   98 uint8 zgSecurityMode = ZG_SECURITY_MODE;
+zgSecurityMode:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//   99 
+//  100 // Secure permit join
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  101 uint8 zgSecurePermitJoin = true;
+zgSecurePermitJoin:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgSecurePermitJoin>`
+        REQUIRE __INIT_XDATA_I
+//  102 
+//  103 // Trust center address
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+//  104 uint16 zgTrustCenterAddr = ZG_TRUSTCENTER_ADDR;
+zgTrustCenterAddr:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//  105 
+//  106 // Route Discovery Time - amount of time that a route request lasts
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  107 uint8 zgRouteDiscoveryTime = ROUTE_DISCOVERY_TIME;
+zgRouteDiscoveryTime:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgRouteDiscoveryTime>`
+        REQUIRE __INIT_XDATA_I
+//  108 
+//  109 // Route expiry
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  110 uint8 zgRouteExpiryTime = ROUTE_EXPIRY_TIME;
+zgRouteExpiryTime:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgRouteExpiryTime>`
+        REQUIRE __INIT_XDATA_I
+//  111 
+//  112 // Extended PAN Id
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  113 uint8 zgExtendedPANID[Z_EXTADDR_LEN];
+zgExtendedPANID:
+        DS 8
+        REQUIRE __INIT_XDATA_Z
+//  114 
+//  115 // Broadcast parameters
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  116 uint8 zgMaxBcastRetires   = MAX_BCAST_RETRIES;
+zgMaxBcastRetires:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgMaxBcastRetires>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  117 uint8 zgPassiveAckTimeout = PASSIVE_ACK_TIMEOUT;
+zgPassiveAckTimeout:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgPassiveAckTimeout>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  118 uint8 zgBcastDeliveryTime = BCAST_DELIVERY_TIME;
+zgBcastDeliveryTime:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgBcastDeliveryTime>`
+        REQUIRE __INIT_XDATA_I
+//  119 
+//  120 // Network mode
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  121 uint8 zgNwkMode = NWK_MODE;
+zgNwkMode:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgNwkMode>`
+        REQUIRE __INIT_XDATA_I
+//  122 
+//  123 // Many-to-one values
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  124 uint8 zgConcentratorEnable = CONCENTRATOR_ENABLE;
+zgConcentratorEnable:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  125 uint8 zgConcentratorDiscoveryTime = CONCENTRATOR_DISCOVERY_TIME;
+zgConcentratorDiscoveryTime:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  126 uint8 zgConcentratorRadius = CONCENTRATOR_RADIUS;
+zgConcentratorRadius:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgConcentratorRadius>`
+        REQUIRE __INIT_XDATA_I
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  127 uint8 zgConcentratorRC = CONCENTRATOR_ROUTE_CACHE;   // concentrator with route cache (no memory constraints)
+zgConcentratorRC:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  128 uint8 zgNwkSrcRtgExpiryTime = SRC_RTG_EXPIRY_TIME;
+zgNwkSrcRtgExpiryTime:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgNwkSrcRtgExpiryTime>`
+        REQUIRE __INIT_XDATA_I
+//  129 
+//  130 /*********************************************************************
+//  131  * APS GLOBAL VARIABLES
+//  132  */
+//  133 
+//  134 // The maximum number of retries allowed after a transmission failure
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  135 uint8 zgApscMaxFrameRetries = APSC_MAX_FRAME_RETRIES;
+zgApscMaxFrameRetries:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgApscMaxFrameRetries>`
+        REQUIRE __INIT_XDATA_I
+//  136 
+//  137 // The maximum number of seconds (milliseconds) to wait for an
+//  138 // acknowledgement to a transmitted frame.
+//  139 
+//  140 // This number is used by polled devices.
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  141 uint16 zgApscAckWaitDurationPolled = APSC_ACK_WAIT_DURATION_POLLED;
+zgApscAckWaitDurationPolled:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for zgApscAckWaitDurationPolled>`
+        REQUIRE __INIT_XDATA_I
+//  142 
+//  143 // This number is used by non-polled devices in the following formula:
+//  144 //   (100 mSec) * (_NIB.MaxDepth * zgApsAckWaitMultiplier)
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  145 uint8 zgApsAckWaitMultiplier = 2;
+zgApsAckWaitMultiplier:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgApsAckWaitMultiplier>`
+        REQUIRE __INIT_XDATA_I
+//  146 
+//  147 // The maximum number of milliseconds for the end device binding
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  148 uint16 zgApsDefaultMaxBindingTime = APS_DEFAULT_MAXBINDING_TIME;
+zgApsDefaultMaxBindingTime:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for zgApsDefaultMaxBindingTime>`
+        REQUIRE __INIT_XDATA_I
+//  149 
+//  150 // The 64-big identifier of the network to join or form.
+//  151 // Default set to all zeros
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  152 uint8 zgApsUseExtendedPANID[Z_EXTADDR_LEN] = {00,00,00,00,00,00,00,00};
+zgApsUseExtendedPANID:
+        DS 8
+        REQUIRE __INIT_XDATA_Z
+//  153 
+//  154 // A boolean flag that indicates whether it is OK to use insecure join
+//  155 // on startup. Default set to true
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  156 uint8 zgApsUseInsecureJoin = TRUE;
+zgApsUseInsecureJoin:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgApsUseInsecureJoin>`
+        REQUIRE __INIT_XDATA_I
+//  157 
+//  158 // The radius of broadcast multicast transmissions
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  159 uint8 zgApsNonMemberRadius = APS_DEFAULT_NONMEMBER_RADIUS;
+zgApsNonMemberRadius:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgApsNonMemberRadius>`
+        REQUIRE __INIT_XDATA_I
+//  160 
+//  161 /*********************************************************************
+//  162  * SECURITY GLOBAL VARIABLES
+//  163  */
+//  164 
+//  165 // If true, preConfigKey should be configured on all devices on the network
+//  166 // If false, it is configured only on the coordinator and sent to other
+//  167 // devices upon joining.
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  168 uint8 zgPreConfigKeys = FALSE;// TRUE;
+zgPreConfigKeys:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  169 
+//  170 // If true, defaultTCLinkKey should be configured on all devices on the
+//  171 // network. If false, individual trust center link key between each device and
+//  172 // the trust center should be manually configured via MT_WRITE_NV
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  173 uint8 zgUseDefaultTCLK = TRUE; // FALSE
+zgUseDefaultTCLK:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgUseDefaultTCLK>`
+        REQUIRE __INIT_XDATA_I
+//  174 
+//  175 /*********************************************************************
+//  176  * ZDO GLOBAL VARIABLES
+//  177  */
+//  178 
+//  179 // Configured PAN ID
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  180 uint16 zgConfigPANID = ZDAPP_CONFIG_PAN_ID;
+zgConfigPANID:
+        DATA16
+        DS 2
+        REQUIRE `?<Initializer for zgConfigPANID>`
+        REQUIRE __INIT_XDATA_I
+//  181 
+//  182 // Device Logical Type
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  183 uint8 zgDeviceLogicalType = DEVICE_LOGICAL_TYPE;
+zgDeviceLogicalType:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgDeviceLogicalType>`
+        REQUIRE __INIT_XDATA_I
+//  184 
+//  185 // Startup Delay
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  186 uint8 zgStartDelay = START_DELAY;
+zgStartDelay:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgStartDelay>`
+        REQUIRE __INIT_XDATA_I
+//  187 
+//  188 #if !defined MT_TASK
+//  189 // Flag to use verbose (i.e. "cc2480-style") direct MT callbacks in ZDProfile.c, ZDP_IncomingData().
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  190 uint8 zgZdoDirectCB = FALSE;
+zgZdoDirectCB:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  191 #endif
+//  192 
+//  193 // Min number of attempted transmissions for Channel Interference detection
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  194 uint8 zgNwkMgrMinTransmissions = ZDNWKMGR_MIN_TRANSMISSIONS;
+zgNwkMgrMinTransmissions:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgNwkMgrMinTransmissions>`
+        REQUIRE __INIT_XDATA_I
+//  195 
+//  196 /*********************************************************************
+//  197  * APPLICATION GLOBAL VARIABLES
+//  198  */
+//  199 
+//  200 // Network Manager Mode
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  201 uint8 zgNwkMgrMode = ZDNWKMGR_ENABLE;
+zgNwkMgrMode:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgNwkMgrMode>`
+        REQUIRE __INIT_XDATA_I
+//  202 
+//  203 /*********************************************************************
+//  204  * NON-STANDARD GLOBAL VARIABLES
+//  205  */
+//  206 
+//  207 // Simple API Endpoint
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  208 uint8 zgSapiEndpoint = SAPI_ENDPOINT;
+zgSapiEndpoint:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for zgSapiEndpoint>`
+        REQUIRE __INIT_XDATA_I
+//  209 
+//  210 /*********************************************************************
+//  211  * LOCAL VARIABLES
+//  212  */
+//  213 
+//  214 /*********************************************************************
+//  215  * ZGlobal Item Table
+//  216  */
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  217 static CONST zgItem_t zgItemTable[] =
+zgItemTable:
+        DATA16
+        DW 0
+        DW 0
+        DW 0H
+//  218 {
+//  219 #if defined ( NV_INIT )
+//  220 #if !defined MT_TASK
+//  221   {
+//  222     ZCD_NV_ZDO_DIRECT_CB, sizeof(zgZdoDirectCB), &zgZdoDirectCB
+//  223   },
+//  224 #endif
+//  225   {
+//  226     ZCD_NV_LOGICAL_TYPE, sizeof(zgDeviceLogicalType), &zgDeviceLogicalType
+//  227   },
+//  228   {
+//  229     ZCD_NV_POLL_RATE, sizeof(zgPollRate), &zgPollRate
+//  230   },
+//  231   {
+//  232     ZCD_NV_QUEUED_POLL_RATE, sizeof(zgQueuedPollRate), &zgQueuedPollRate
+//  233   },
+//  234   {
+//  235     ZCD_NV_RESPONSE_POLL_RATE, sizeof(zgResponsePollRate), &zgResponsePollRate
+//  236   },
+//  237   {
+//  238     ZCD_NV_REJOIN_POLL_RATE, sizeof(zgRejoinPollRate), &zgRejoinPollRate
+//  239   },
+//  240   {
+//  241     ZCD_NV_DATA_RETRIES, sizeof(zgMaxDataRetries), &zgMaxDataRetries
+//  242   },
+//  243   {
+//  244     ZCD_NV_POLL_FAILURE_RETRIES, sizeof(zgMaxPollFailureRetries), &zgMaxPollFailureRetries
+//  245   },
+//  246   {
+//  247     ZCD_NV_CHANLIST, sizeof(zgDefaultChannelList), &zgDefaultChannelList
+//  248   },
+//  249   {
+//  250     ZCD_NV_SCAN_DURATION, sizeof(zgDefaultStartingScanDuration), &zgDefaultStartingScanDuration
+//  251   },
+//  252   {
+//  253     ZCD_NV_STACK_PROFILE, sizeof(zgStackProfile), &zgStackProfile
+//  254   },
+//  255   {
+//  256     ZCD_NV_INDIRECT_MSG_TIMEOUT, sizeof(zgIndirectMsgTimeout), &zgIndirectMsgTimeout
+//  257   },
+//  258   {
+//  259     ZCD_NV_ROUTE_EXPIRY_TIME, sizeof(zgRouteExpiryTime), &zgRouteExpiryTime
+//  260   },
+//  261   {
+//  262     ZCD_NV_EXTENDED_PAN_ID, Z_EXTADDR_LEN, zgExtendedPANID
+//  263   },
+//  264   {
+//  265     ZCD_NV_BCAST_RETRIES, sizeof(zgMaxBcastRetires), &zgMaxBcastRetires
+//  266   },
+//  267   {
+//  268     ZCD_NV_PASSIVE_ACK_TIMEOUT, sizeof(zgPassiveAckTimeout), &zgPassiveAckTimeout
+//  269   },
+//  270   {
+//  271     ZCD_NV_BCAST_DELIVERY_TIME, sizeof(zgBcastDeliveryTime), &zgBcastDeliveryTime
+//  272   },
+//  273   {
+//  274     ZCD_NV_NWK_MODE, sizeof(zgNwkMode), &zgNwkMode
+//  275   },
+//  276   {
+//  277     ZCD_NV_CONCENTRATOR_ENABLE, sizeof(zgConcentratorEnable), &zgConcentratorEnable
+//  278   },
+//  279   {
+//  280     ZCD_NV_CONCENTRATOR_DISCOVERY, sizeof(zgConcentratorDiscoveryTime), &zgConcentratorDiscoveryTime
+//  281   },
+//  282   {
+//  283     ZCD_NV_CONCENTRATOR_RADIUS, sizeof(zgConcentratorRadius), &zgConcentratorRadius
+//  284   },
+//  285   {
+//  286     ZCD_NV_CONCENTRATOR_RC, sizeof(zgConcentratorRC), &zgConcentratorRC
+//  287   },
+//  288   {
+//  289     ZCD_NV_SRC_RTG_EXPIRY_TIME, sizeof(zgNwkSrcRtgExpiryTime), &zgNwkSrcRtgExpiryTime
+//  290   },
+//  291   {
+//  292     ZCD_NV_ROUTE_DISCOVERY_TIME, sizeof(zgRouteDiscoveryTime), &zgRouteDiscoveryTime
+//  293   },
+//  294 #ifndef NONWK
+//  295   {
+//  296     ZCD_NV_PANID, sizeof(zgConfigPANID), &zgConfigPANID
+//  297   },
+//  298   {
+//  299     ZCD_NV_PRECFGKEYS_ENABLE, sizeof(zgPreConfigKeys), &zgPreConfigKeys
+//  300   },
+//  301   {
+//  302     ZCD_NV_SECURITY_MODE, sizeof(zgSecurityMode), &zgSecurityMode
+//  303   },
+//  304   {
+//  305     ZCD_NV_SECURE_PERMIT_JOIN, sizeof(zgSecurePermitJoin), &zgSecurePermitJoin
+//  306   },
+//  307   {
+//  308     ZCD_NV_USE_DEFAULT_TCLK, sizeof(zgUseDefaultTCLK), &zgUseDefaultTCLK
+//  309   },
+//  310   {
+//  311     ZCD_NV_TRUSTCENTER_ADDR, sizeof(zgTrustCenterAddr), &zgTrustCenterAddr
+//  312   },
+//  313 #endif // NONWK
+//  314   {
+//  315     ZCD_NV_APS_FRAME_RETRIES, sizeof(zgApscMaxFrameRetries), &zgApscMaxFrameRetries
+//  316   },
+//  317   {
+//  318     ZCD_NV_APS_ACK_WAIT_DURATION, sizeof(zgApscAckWaitDurationPolled), &zgApscAckWaitDurationPolled
+//  319   },
+//  320   {
+//  321     ZCD_NV_APS_ACK_WAIT_MULTIPLIER, sizeof(zgApsAckWaitMultiplier), &zgApsAckWaitMultiplier
+//  322   },
+//  323   {
+//  324     ZCD_NV_BINDING_TIME, sizeof(zgApsDefaultMaxBindingTime), &zgApsDefaultMaxBindingTime
+//  325   },
+//  326   {
+//  327     ZCD_NV_APS_USE_EXT_PANID, Z_EXTADDR_LEN, zgApsUseExtendedPANID
+//  328   },
+//  329   {
+//  330     ZCD_NV_APS_USE_INSECURE_JOIN, sizeof(zgApsUseInsecureJoin), &zgApsUseInsecureJoin
+//  331   },
+//  332   {
+//  333     ZCD_NV_APS_NONMEMBER_RADIUS, sizeof(zgApsNonMemberRadius), &zgApsNonMemberRadius
+//  334   },
+//  335   {
+//  336     ZCD_NV_START_DELAY, sizeof(zgStartDelay), &zgStartDelay
+//  337   },
+//  338   {
+//  339     ZCD_NV_SAPI_ENDPOINT, sizeof(zgSapiEndpoint), &zgSapiEndpoint
+//  340   },
+//  341   {
+//  342     ZCD_NV_NWK_MGR_MODE, sizeof(zgNwkMgrMode), &zgNwkMgrMode
+//  343   },
+//  344   {
+//  345     ZCD_NV_NWKMGR_MIN_TX, sizeof(zgNwkMgrMinTransmissions), &zgNwkMgrMinTransmissions
+//  346   },
+//  347 #endif // NV_INIT
+//  348   // Last item -- DO NOT MOVE IT!
+//  349   {
+//  350     0x00, 0, NULL
+//  351   }
+//  352 };
+//  353 
+//  354 /*********************************************************************
+//  355  * LOCAL FUNCTIONS
+//  356  */
+//  357 
+//  358 static uint8 zgItemInit( uint16 id, uint16 len, void *buf, uint8 setDefault );
+//  359 
+//  360 #ifndef NONWK
+//  361 static uint8 zgPreconfigKeyInit( uint8 setDefault );
+//  362 #endif
+//  363 
+//  364 /*********************************************************************
+//  365  * @fn       zgItemInit()
+//  366  *
+//  367  * @brief
+//  368  *
+//  369  *   Initialize a global item. If the item doesn't exist in NV memory,
+//  370  *   write the system default (value passed in) into NV memory. But if
+//  371  *   it exists, set the item to the value stored in NV memory.
+//  372  *
+//  373  *   Also, if setDefault is TRUE and the item exists, we will write
+//  374  *   the default value to NV space.
+//  375  *
+//  376  * @param   id - item id
+//  377  * @param   len - item len
+//  378  * @param   buf - pointer to the item
+//  379  * @param   setDefault - TRUE to set default, not read
+//  380  *
+//  381  * @return  ZSUCCESS if successful, NV_ITEM_UNINIT if item did not
+//  382  *          exist in NV, NV_OPER_FAILED if failure.
+//  383  */
+//  384 static uint8 zgItemInit( uint16 id, uint16 len, void *buf, uint8 setDefault )
+//  385 {
+//  386   uint8 status;
+//  387 
+//  388   // If the item doesn't exist in NV memory, create and initialize
+//  389   // it with the value passed in.
+//  390   status = osal_nv_item_init( id, len, buf );
+//  391   if ( status == ZSUCCESS )
+//  392   {
+//  393     if ( setDefault )
+//  394     {
+//  395       // Write the default value back to NV
+//  396       status = osal_nv_write( id, 0, len, buf );
+//  397     }
+//  398     else
+//  399     {
+//  400       // The item exists in NV memory, read it from NV memory
+//  401       status = osal_nv_read( id, 0, len, buf );
+//  402     }
+//  403   }
+//  404 
+//  405   return (status);
+//  406 }
+//  407 
+//  408 /*********************************************************************
+//  409  * API FUNCTIONS
+//  410  */
+//  411 
+//  412 /*********************************************************************
+//  413  * @fn          zgInit
+//  414  *
+//  415  * @brief
+//  416  *
+//  417  *   Initialize the Z-Stack Globals. If an item doesn't exist in
+//  418  *   NV memory, write the system default into NV memory. But if
+//  419  *   it exists, set the item to the value stored in NV memory.
+//  420  *
+//  421  * NOTE: The Startup Options (ZCD_NV_STARTUP_OPTION) indicate
+//  422  *       that the Config state items (zgItemTable) need to be
+//  423  *       set to defaults (ZCD_STARTOPT_DEFAULT_CONFIG_STATE). The
+//  424  *
+//  425  * @param       none
+//  426  *
+//  427  * @return      ZSUCCESS if successful, NV_ITEM_UNINIT if item did not
+//  428  *              exist in NV, NV_OPER_FAILED if failure.
+//  429  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  430 uint8 zgInit( void )
+zgInit:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function zgInit
+        CODE
+//  431 {
+        FUNCALL zgInit, zgReadStartupOptions
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zgInit, ZMacGetReq
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zgInit, zgInitItems
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zgInit, zgWriteStartupOptions
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//  432   uint8  setDefault = FALSE;
+        MOV     R6,#0x0
+//  433 
+//  434   // Do we want to default the Config state values
+//  435   if ( zgReadStartupOptions() & ZCD_STARTOPT_DEFAULT_CONFIG_STATE )
+        ; Setup parameters for call to function zgReadStartupOptions
+        LCALL   ??zgReadStartupOptions?relay
+        MOV     A,R1
+        MOV     C,0xE0 /* A   */.0
+        JNC     ??zgInit_0
+//  436   {
+//  437     setDefault = TRUE;
+        INC     R6
+//  438   }
+//  439 
+//  440 #if 0
+//  441   // Enable this section if you need to track the number of resets
+//  442   // This section is normally disabled to minimize "wear" on NV memory
+//  443   uint16 bootCnt = 0;
+//  444 
+//  445   // Update the Boot Counter
+//  446   if ( osal_nv_item_init( ZCD_NV_BOOTCOUNTER, sizeof(bootCnt), &bootCnt ) == ZSUCCESS )
+//  447   {
+//  448     // Get the old value from NV memory
+//  449     osal_nv_read( ZCD_NV_BOOTCOUNTER, 0, sizeof(bootCnt), &bootCnt );
+//  450   }
+//  451 
+//  452   // Increment the Boot Counter and store it into NV memory
+//  453   if ( setDefault )
+//  454     bootCnt = 0;
+//  455   else
+//  456     bootCnt++;
+//  457   osal_nv_write( ZCD_NV_BOOTCOUNTER, 0, sizeof(bootCnt), &bootCnt );
+//  458 #endif
+//  459 
+//  460   // Initialize the Extended PAN ID as my own extended address
+//  461   ZMacGetReq( ZMacExtAddr, zgExtendedPANID );
+??zgInit_0:
+        ; Setup parameters for call to function ZMacGetReq
+        MOV     R2,#zgExtendedPANID & 0xff
+        MOV     R3,#(zgExtendedPANID >> 8) & 0xff
+        MOV     R1,#-0x1e
+        LCALL   ??ZMacGetReq?relay
+//  462 
+//  463   // Initialize the items table
+//  464   zgInitItems( setDefault );
+        ; Setup parameters for call to function zgInitItems
+        MOV     A,R6
+        MOV     R1,A
+        LCALL   ??zgInitItems?relay
+//  465 
+//  466 #ifndef NONWK
+//  467   if ( ZG_SECURE_ENABLED )
+//  468   {
+//  469     // Initialize the Pre-Configured Key to the default key
+//  470     zgPreconfigKeyInit( setDefault );
+//  471 
+//  472     // Initialize NV items for all Keys: NWK, APS, TCLK and Master
+//  473     ZDSecMgrInitNVKeyTables( setDefault );
+//  474   }
+//  475 #endif // NONWK
+//  476 
+//  477   // Clear the Config State default
+//  478   if ( setDefault )
+        MOV     A,R6
+        MOV     C,0xE0 /* A   */.0
+        JNC     ??zgInit_1
+//  479   {
+//  480     zgWriteStartupOptions( ZG_STARTUP_CLEAR, ZCD_STARTOPT_DEFAULT_CONFIG_STATE );
+        ; Setup parameters for call to function zgWriteStartupOptions
+        MOV     R2,#0x1
+        MOV     R1,#0x0
+        LCALL   ??zgWriteStartupOptions?relay
+//  481   }
+//  482 
+//  483   return ( ZSUCCESS );
+??zgInit_1:
+        MOV     R1,#0x0
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock0
+//  484 }
+//  485 
+//  486 /*********************************************************************
+//  487  * @fn          zgInitItems
+//  488  *
+//  489  * @brief       Initializes RAM variables from NV.  If NV items don't
+//  490  *              exist, then the NV is initialize with what is in RAM
+//  491  *              variables.
+//  492  *
+//  493  * @param       none
+//  494  *
+//  495  * @return      none
+//  496  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  497 void zgInitItems( uint8 setDefault )
+zgInitItems:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function zgInitItems
+        CODE
+//  498 {
+        FUNCALL zgInitItems, osal_nv_read
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zgInitItems, osal_nv_item_init
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 16, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 16, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zgInitItems, osal_nv_write
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xe
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 14)
+        ; Saved register size: 14
+        ; Auto size: 0
+        MOV     ?V0 + 5,R1
+//  499   uint8  i = 0;
+        MOV     ?V0 + 4,#0x0
+        SJMP    ??zgInitItems_0
+//  500 
+//  501   while ( zgItemTable[i].id != 0x00 )
+//  502   {
+??zgInitItems_1:
+        ; Setup parameters for call to function osal_nv_read
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 16)
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 18)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   ??osal_nv_read?relay
+??zgInitItems_2:
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 14)
+//  503     // Initialize the item
+//  504     zgItemInit( zgItemTable[i].id, zgItemTable[i].len, zgItemTable[i].buf, setDefault  );
+//  505 
+//  506     // Move on to the next item
+//  507     i++;
+??zgInitItems_3:
+        INC     ?V0 + 4
+??zgInitItems_0:
+        MOV     A,?V0 + 4
+        MOV     B,#0x6
+        MUL     AB
+        MOV     R0,A
+        MOV     R2,B
+        MOV     A,R2
+        MOV     R1,A
+        LCALL   ?Subroutine1 & 0xFFFF
+??CrossCallReturnLabel_0:
+        JZ      ??zgInitItems_4
+        MOV     A,?V0 + 4
+        MOV     B,#0x6
+        MUL     AB
+        MOV     R0,A
+        MOV     A,R2
+        MOV     R1,A
+        MOV     A,#zgItemTable & 0xff
+        ADD     A,R0
+        MOV     R0,A
+        MOV     A,#(zgItemTable >> 8) & 0xff
+        ADDC    A,R1
+        MOV     R1,A
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        CLR     A
+        MOVC    A,@A+DPTR
+        MOV     ?V0 + 2,A
+        MOV     A,#0x1
+        MOVC    A,@A+DPTR
+        MOV     ?V0 + 3,A
+        MOV     DPL,R0
+        MOV     DPH,R1
+        INC     DPTR
+        INC     DPTR
+        CLR     A
+        MOVC    A,@A+DPTR
+        PUSH    A
+        MOV     A,#0x1
+        MOVC    A,@A+DPTR
+        MOV     DPH,A
+        POP     DPL
+        MOV     ?V0 + 0,DPL
+        MOV     ?V0 + 1,DPH
+        MOV     DPL,R0
+        MOV     DPH,R1
+        CLR     A
+        MOVC    A,@A+DPTR
+        PUSH    A
+        MOV     A,#0x1
+        MOVC    A,@A+DPTR
+        MOV     DPH,A
+        POP     DPL
+        MOV     R6,DPL
+        MOV     R7,DPH
+        ; Setup parameters for call to function osal_nv_item_init
+        MOV     R0,#?V0 + 2
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 16)
+        MOV     R4,?V0 + 0
+        MOV     R5,?V0 + 1
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   ??osal_nv_item_init?relay
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 14)
+        MOV     A,R1
+        JNZ     ??zgInitItems_3
+        MOV     A,?V0 + 5
+        MOV     R0,#?V0 + 2
+        JNZ     $+5
+        LJMP    ??zgInitItems_1 & 0xFFFF
+        ; Setup parameters for call to function osal_nv_write
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 16)
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 18)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   ??osal_nv_write?relay
+        LJMP    ??zgInitItems_2 & 0xFFFF
+        CFI CFA_XSP16 add(XSP16, 14)
+//  508   }
+//  509 }
+??zgInitItems_4:
+        MOV     R7,#0x6
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock1
+//  510 
+//  511 /*********************************************************************
+//  512  * @fn          zgReadStartupOptions
+//  513  *
+//  514  * @brief       Reads the ZCD_NV_STARTUP_OPTION NV Item.
+//  515  *
+//  516  * @param       none
+//  517  *
+//  518  * @return      the ZCD_NV_STARTUP_OPTION NV item
+//  519  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  520 uint8 zgReadStartupOptions( void )
+zgReadStartupOptions:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function zgReadStartupOptions
+        CODE
+//  521 {
+        FUNCALL zgReadStartupOptions, osal_nv_item_init
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 13, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 13, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zgReadStartupOptions, osal_nv_read
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+//  522   // Default to Use Config State and Use Network State
+//  523   uint8 startupOption = 0;
+        LCALL   ?Subroutine2 & 0xFFFF
+//  524 
+//  525   // This should have been done in ZMain.c, but just in case.
+//  526   if ( osal_nv_item_init( ZCD_NV_STARTUP_OPTION,
+//  527                               sizeof(startupOption),
+//  528                               &startupOption ) == ZSUCCESS )
+??CrossCallReturnLabel_4:
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 13)
+        MOV     R4,#0x1
+        MOV     R5,#0x0
+        MOV     R2,#0x3
+        MOV     R3,#0x0
+        LCALL   ??osal_nv_item_init?relay
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+        MOV     A,R1
+        JNZ     ??zgReadStartupOptions_0
+//  529   {
+//  530     // Read saved startup control
+//  531     osal_nv_read( ZCD_NV_STARTUP_OPTION,
+//  532                   0,
+//  533                   sizeof( startupOption ),
+//  534                   &startupOption);
+        ; Setup parameters for call to function osal_nv_read
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 13)
+        MOV     ?V0 + 0,#0x1
+        MOV     ?V0 + 1,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 15)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#0x3
+        MOV     R3,#0x0
+        LCALL   ??osal_nv_read?relay
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+//  535   }
+//  536   return ( startupOption );
+??zgReadStartupOptions_0:
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    A,@DPTR
+        MOV     R1,A
+        CFI EndBlock cfiBlock2
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+//  537 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     A,#0x1
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 10)
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock3
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine2:
+        CFI Block cfiCond4 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_4
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiCond5 Using cfiCommon0
+        CFI (cfiCond5) NoFunction
+        CFI (cfiCond5) Conditional ??CrossCallReturnLabel_5
+        CFI (cfiCond5) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond5) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond5) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond5) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond5) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond5) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond5) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond5) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond5) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond5) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond5) CFA_SP SP+0
+        CFI (cfiCond5) CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiPicker6 Using cfiCommon1
+        CFI (cfiPicker6) NoFunction
+        CFI (cfiPicker6) Picker
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        CLR     A
+        CFI EndBlock cfiCond4
+        CFI EndBlock cfiCond5
+        CFI EndBlock cfiPicker6
+        REQUIRE ??Subroutine4_0
+        ; // Fall through to label ??Subroutine4_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine4_0:
+        CFI Block cfiCond7 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_6
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiCond8 Using cfiCommon0
+        CFI (cfiCond8) NoFunction
+        CFI (cfiCond8) Conditional ??CrossCallReturnLabel_4
+        CFI (cfiCond8) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond8) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond8) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond8) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond8) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond8) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond8) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond8) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond8) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond8) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond8) CFA_SP SP+0
+        CFI (cfiCond8) CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiCond9 Using cfiCommon0
+        CFI (cfiCond9) NoFunction
+        CFI (cfiCond9) Conditional ??CrossCallReturnLabel_5
+        CFI (cfiCond9) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond9) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond9) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond9) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond9) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond9) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond9) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond9) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond9) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond9) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond9) CFA_SP SP+0
+        CFI (cfiCond9) CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiPicker10 Using cfiCommon1
+        CFI (cfiPicker10) NoFunction
+        CFI (cfiPicker10) Picker
+        MOVX    @DPTR,A
+        ; Setup parameters for call to function osal_nv_item_init
+        ; Setup parameters for call to function osal_nv_read
+        ; Setup parameters for call to function osal_nv_write
+        MOV     ?V0 + 0,DPL
+        MOV     ?V0 + 1,DPH
+        MOV     R0,#?V0 + 0
+        RET
+        CFI EndBlock cfiCond7
+        CFI EndBlock cfiCond8
+        CFI EndBlock cfiCond9
+        CFI EndBlock cfiPicker10
+//  538 
+//  539 /*********************************************************************
+//  540  * @fn          zgWriteStartupOptions
+//  541  *
+//  542  * @brief       Writes bits into the ZCD_NV_STARTUP_OPTION NV Item.
+//  543  *
+//  544  * @param       action - ZG_STARTUP_SET set bit, ZG_STARTUP_CLEAR to
+//  545  *               clear bit. The set bit is an OR operation, and the
+//  546  *               clear bit is an AND ~(bitOptions) operation.
+//  547  *
+//  548  * @param       bitOptions - which bits to perform action on:
+//  549  *                      ZCD_STARTOPT_DEFAULT_CONFIG_STATE
+//  550  *                      ZCD_STARTOPT_DEFAULT_NETWORK_STATE
+//  551  *
+//  552  * @return      ZSUCCESS if successful
+//  553  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  554 uint8 zgWriteStartupOptions( uint8 action, uint8 bitOptions )
+zgWriteStartupOptions:
+        CFI Block cfiBlock11 Using cfiCommon0
+        CFI Function zgWriteStartupOptions
+        CODE
+//  555 {
+        FUNCALL zgWriteStartupOptions, osal_nv_read
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zgWriteStartupOptions, osal_nv_write
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+        MOV     A,R1
+        MOV     R6,A
+        MOV     A,R2
+        MOV     R7,A
+//  556   uint8 status;
+//  557   uint8 startupOptions = 0;
+        LCALL   ?Subroutine2 & 0xFFFF
+//  558 
+//  559   status = osal_nv_read( ZCD_NV_STARTUP_OPTION,
+//  560                 0,
+//  561                 sizeof( startupOptions ),
+//  562                 &startupOptions );
+??CrossCallReturnLabel_5:
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 13)
+        MOV     ?V0 + 0,#0x1
+        MOV     ?V0 + 1,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 15)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#0x3
+        MOV     R3,#0x0
+        LCALL   ??osal_nv_read?relay
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+        MOV     A,R1
+//  563 
+//  564   if ( status == ZSUCCESS )
+        JNZ     ??zgWriteStartupOptions_0
+//  565   {
+//  566     if ( action == ZG_STARTUP_SET )
+        MOV     A,#-0x1
+        XRL     A,R6
+        JNZ     ??zgWriteStartupOptions_1
+//  567     {
+//  568       // Set bits
+//  569       startupOptions |= bitOptions;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    A,@DPTR
+        ORL     A,R7
+        SJMP    ??zgWriteStartupOptions_2
+//  570     }
+//  571     else
+//  572     {
+//  573       // Clear bits
+//  574       startupOptions &= (bitOptions ^ 0xFF);
+??zgWriteStartupOptions_1:
+        MOV     A,#-0x1
+        XRL     A,R7
+        MOV     R0,A
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    A,@DPTR
+        ANL     A,R0
+//  575     }
+//  576 
+//  577     // Changed?
+//  578     status = osal_nv_write( ZCD_NV_STARTUP_OPTION,
+//  579                  0,
+//  580                  sizeof( startupOptions ),
+//  581                  &startupOptions );
+//  582   }
+??zgWriteStartupOptions_2:
+        LCALL   ??Subroutine4_0 & 0xFFFF
+??CrossCallReturnLabel_6:
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 13)
+        MOV     ?V0 + 0,#0x1
+        MOV     ?V0 + 1,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 15)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#0x3
+        MOV     R3,#0x0
+        LCALL   ??osal_nv_write?relay
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+//  583 
+//  584   return ( status );
+??zgWriteStartupOptions_0:
+        LJMP    ?Subroutine0 & 0xFFFF
+        CFI EndBlock cfiBlock11
+//  585 }
+//  586 
+//  587 /*********************************************************************
+//  588  * @fn          zgSetItem
+//  589  *
+//  590  * @brief       Set RAM variables from set-NV, if it exist in the zgItemTable
+//  591  *
+//  592  * @param       id - NV ID
+//  593  *              len - NV item length
+//  594  *              buf - pointer to the input buffer
+//  595  *
+//  596  * @return      none
+//  597  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  598 void zgSetItem( uint16 id, uint16 len, void *buf )
+zgSetItem:
+        CFI Block cfiBlock12 Using cfiCommon0
+        CFI Function zgSetItem
+        CODE
+//  599 {
+        FUNCALL zgSetItem, osal_memcpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xb
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        ; Saved register size: 11
+        ; Auto size: 0
+        MOV     A,#0xb
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     ?V0 + 0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0 + 1,A
+//  600 
+//  601   uint8  i = 0;
+        MOV     R6,#0x0
+        SJMP    ??zgSetItem_0
+//  602 
+//  603   // Look up the NV item table
+//  604   while ( zgItemTable[i].id != 0x00 )
+//  605   {
+//  606     if( zgItemTable[i].id == id )
+//  607     {
+//  608       if ( zgItemTable[i].len == len )
+//  609       {
+//  610         osal_memcpy( zgItemTable[i].buf, buf, len );
+//  611       }
+//  612       break;
+//  613     }
+//  614     // Move on to the next item
+//  615     i++;
+??zgSetItem_1:
+        INC     R6
+??zgSetItem_0:
+        MOV     A,R6
+        MOV     B,#0x6
+        MUL     AB
+        MOV     R0,A
+        MOV     R1,B
+        LCALL   ?Subroutine1 & 0xFFFF
+??CrossCallReturnLabel_1:
+        JZ      ??zgSetItem_2
+        CLR     A
+        MOVC    A,@A+DPTR
+        MOV     R0,A
+        MOV     A,#0x1
+        MOVC    A,@A+DPTR
+        MOV     R1,A
+        MOV     A,R2
+        XRL     A,R0
+        JNZ     ??zgSetItem_3
+        MOV     A,R3
+        XRL     A,R1
+??zgSetItem_3:
+        JNZ     ??zgSetItem_1
+        MOV     A,R6
+        MOV     B,#0x6
+        MUL     AB
+        MOV     R0,A
+        MOV     R2,B
+        MOV     A,R2
+        MOV     R1,A
+        MOV     A,#(zgItemTable + 2) & 0xff
+        ADD     A,R0
+        MOV     DPL,A
+        MOV     A,#((zgItemTable + 2) >> 8) & 0xff
+        LCALL   ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_2:
+        MOV     A,R4
+        XRL     A,R0
+        JNZ     ??zgSetItem_4
+        MOV     A,R5
+        XRL     A,R1
+??zgSetItem_4:
+        JNZ     ??zgSetItem_2
+        ; Setup parameters for call to function osal_memcpy
+        MOV     ?V0 + 2,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_THREE
+        CFI CFA_XSP16 add(XSP16, 14)
+        MOV     A,R6
+        MOV     B,#0x6
+        MUL     AB
+        MOV     R0,A
+        MOV     A,R2
+        MOV     R1,A
+        MOV     A,#(zgItemTable + 4) & 0xff
+        ADD     A,R0
+        MOV     DPL,A
+        MOV     A,#((zgItemTable + 4) >> 8) & 0xff
+        ADDC    A,R1
+        MOV     DPH,A
+        CLR     A
+        MOVC    A,@A+DPTR
+        MOV     R2,A
+        MOV     A,#0x1
+        MOVC    A,@A+DPTR
+        MOV     R3,A
+        LCALL   ??osal_memcpy?relay
+        MOV     A,#0x3
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+//  616   }
+//  617 }
+??zgSetItem_2:
+        MOV     R7,#0x3
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock12
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+        CFI Block cfiCond13 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_0
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 14)
+        CFI Block cfiCond14 Using cfiCommon0
+        CFI (cfiCond14) NoFunction
+        CFI (cfiCond14) Conditional ??CrossCallReturnLabel_1
+        CFI (cfiCond14) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond14) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond14) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond14) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond14) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond14) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond14) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond14) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond14) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond14) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond14) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond14) CFA_SP SP+0
+        CFI (cfiCond14) CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiPicker15 Using cfiCommon1
+        CFI (cfiPicker15) NoFunction
+        CFI (cfiPicker15) Picker
+        MOV     A,#zgItemTable & 0xff
+        ADD     A,R0
+        MOV     DPL,A
+        MOV     A,#(zgItemTable >> 8) & 0xff
+        LCALL   ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_3:
+        MOV     A,R0
+        ORL     A,R1
+        RET
+        CFI EndBlock cfiCond13
+        CFI EndBlock cfiCond14
+        CFI EndBlock cfiPicker15
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine3:
+        CFI Block cfiCond16 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_2
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiCond17 Using cfiCommon0
+        CFI (cfiCond17) NoFunction
+        CFI (cfiCond17) Conditional ??CrossCallReturnLabel_3, ??CrossCallReturnLabel_0
+        CFI (cfiCond17) R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+        CFI (cfiCond17) VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+        CFI (cfiCond17) V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI (cfiCond17) V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond17) V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond17) V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond17) V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond17) V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond17) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond17) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond17) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond17) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond17) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond17) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond17) CFA_SP SP+0
+        CFI (cfiCond17) CFA_XSP16 add(XSP16, 14)
+        CFI Block cfiCond18 Using cfiCommon0
+        CFI (cfiCond18) NoFunction
+        CFI (cfiCond18) Conditional ??CrossCallReturnLabel_3, ??CrossCallReturnLabel_1
+        CFI (cfiCond18) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond18) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond18) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond18) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond18) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond18) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond18) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond18) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond18) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond18) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond18) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond18) CFA_SP SP+0
+        CFI (cfiCond18) CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiPicker19 Using cfiCommon1
+        CFI (cfiPicker19) NoFunction
+        CFI (cfiPicker19) Picker
+        ADDC    A,R1
+        MOV     DPH,A
+        CLR     A
+        MOVC    A,@A+DPTR
+        MOV     R0,A
+        MOV     A,#0x1
+        MOVC    A,@A+DPTR
+        MOV     R1,A
+        RET
+        CFI EndBlock cfiCond16
+        CFI EndBlock cfiCond17
+        CFI EndBlock cfiCond18
+        CFI EndBlock cfiPicker19
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgPollRate>`:
+        DATA16
+        DW 1000
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgQueuedPollRate>`:
+        DATA16
+        DW 100
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgResponsePollRate>`:
+        DATA16
+        DW 100
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgRejoinPollRate>`:
+        DATA16
+        DW 440
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgMaxDataRetries>`:
+        DATA8
+        DB 2
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgMaxPollFailureRetries>`:
+        DATA8
+        DB 2
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgDefaultChannelList>`:
+        DATA32
+        DD 2048
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgDefaultStartingScanDuratio`:
+        DATA8
+        DB 5
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgStackProfile>`:
+        DATA8
+        DB 2
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgIndirectMsgTimeout>`:
+        DATA8
+        DB 7
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgSecurePermitJoin>`:
+        DATA8
+        DB 1
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgRouteDiscoveryTime>`:
+        DATA8
+        DB 5
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgRouteExpiryTime>`:
+        DATA8
+        DB 30
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgMaxBcastRetires>`:
+        DATA8
+        DB 2
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgPassiveAckTimeout>`:
+        DATA8
+        DB 5
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgBcastDeliveryTime>`:
+        DATA8
+        DB 30
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgNwkMode>`:
+        DATA8
+        DB 2
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgConcentratorRadius>`:
+        DATA8
+        DB 10
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgNwkSrcRtgExpiryTime>`:
+        DATA8
+        DB 10
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgApscMaxFrameRetries>`:
+        DATA8
+        DB 3
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgApscAckWaitDurationPolled>`:
+        DATA16
+        DW 3000
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgApsAckWaitMultiplier>`:
+        DATA8
+        DB 2
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgApsDefaultMaxBindingTime>`:
+        DATA16
+        DW 16000
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgApsUseInsecureJoin>`:
+        DATA8
+        DB 1
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgApsNonMemberRadius>`:
+        DATA8
+        DB 2
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgUseDefaultTCLK>`:
+        DATA8
+        DB 1
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgConfigPANID>`:
+        DATA16
+        DW 16679
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgDeviceLogicalType>`:
+        DATA8
+        DB 2
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgStartDelay>`:
+        DATA8
+        DB 10
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgNwkMgrMinTransmissions>`:
+        DATA8
+        DB 20
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgNwkMgrMode>`:
+        DATA8
+        DB 1
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for zgSapiEndpoint>`:
+        DATA8
+        DB 224
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??zgInit?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    zgInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??zgInitItems?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    zgInitItems
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??zgReadStartupOptions?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    zgReadStartupOptions
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??zgWriteStartupOptions?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    zgWriteStartupOptions
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??zgSetItem?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    zgSetItem
+
+        END
+//  618 
+//  619 #ifndef NONWK
+//  620 /*********************************************************************
+//  621  * @fn       zgPreconfigKeyInit()
+//  622  *
+//  623  * @brief
+//  624  *
+//  625  *   Initialize ZCD_NV_PRECFGKEY NV item. If the item doesn't exist in NV memory,
+//  626  *   write the system default (value passed in) into NV memory. But if
+//  627  *   it exists do not overwrite it.
+//  628  *
+//  629  *   Also, if setDefault is TRUE and the item exists, we will write
+//  630  *   the default value to NV space.
+//  631  *
+//  632  * @param   setDefault - TRUE to set default
+//  633  *
+//  634  * @return  ZSUCCESS if successful, NV_ITEM_UNINIT if item did not
+//  635  *          exist in NV, NV_OPER_FAILED if failure.
+//  636  */
+//  637 static uint8 zgPreconfigKeyInit( uint8 setDefault )
+//  638 {
+//  639   uint8 zgPreConfigKey[SEC_KEY_LEN];
+//  640   uint8 status;
+//  641 
+//  642   // Initialize the Pre-Configured Key to the default key
+//  643   osal_memcpy( zgPreConfigKey, defaultKey, SEC_KEY_LEN );
+//  644 
+//  645   // If the item doesn't exist in NV memory, create and initialize it
+//  646   status = osal_nv_item_init( ZCD_NV_PRECFGKEY, SEC_KEY_LEN, zgPreConfigKey );
+//  647   if ( status == ZSUCCESS )
+//  648   {
+//  649     if ( setDefault )
+//  650     {
+//  651       // Write the default value back to NV
+//  652       status =  osal_nv_write( ZCD_NV_PRECFGKEY, 0, SEC_KEY_LEN, zgPreConfigKey );
+//  653     }
+//  654   }
+//  655 
+//  656   // clear local copy of default key
+//  657   osal_memset(zgPreConfigKey, 0x00, SEC_KEY_LEN);
+//  658 
+//  659   return (status);
+//  660 }
+//  661 #endif
+//  662 
+//  663 /*********************************************************************
+//  664 *********************************************************************/
+// 
+// 598 bytes in segment BANKED_CODE
+//  30 bytes in segment BANK_RELAYS
+//   6 bytes in segment CODE_C
+//  42 bytes in segment XDATA_I
+//  42 bytes in segment XDATA_ID
+//  24 bytes in segment XDATA_Z
+// 
+// 676 bytes of CODE  memory
+//  66 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: 1

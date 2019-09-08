@@ -50,8 +50,8 @@ public class ParentDaoTest extends BaseTest {
         parent.setParentBirth(Date.valueOf("1927-4-5"));
         parent.setParentName("当当娃");
         parent.setParentAccount("dang");
-        parent.setParentHeight(12.1);
-        parent.setParentWeight(3112.1);
+        parent.setParentHeight(123.2);
+        parent.setParentWeight(1123.2);
         parent.setParentPassword("123");
         parent.setParentSex("女");
         parent.setParentPhone("12312312312");

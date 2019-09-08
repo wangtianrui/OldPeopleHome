@@ -9,6 +9,7 @@
         <result column="location" property="roomLocation" jdbcType="VARCHAR"/>
         <result column="name" property="roomName" jdbcType="VARCHAR"/>
         <result column="pid" property="parentId" jdbcType="BIGINT"/>
+        <result column="temp" property="temp" jdbcType="FLOAT"/>
     </resultMap>
 
     <select id="findById" resultMap="BaseResultMap" parameterType="int">
@@ -35,7 +36,9 @@
         update room
         set location = #{roomLocation},
             name = #{roomName},
-            pid = #{parentId}
+            pid = #{parentId},
+            temp = #{temp}
         where id =#{roomId}
     </update>
+
 </mapper>

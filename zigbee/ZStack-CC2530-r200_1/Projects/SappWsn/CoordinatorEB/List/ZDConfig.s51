@@ -1,0 +1,628 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        02/Sep/2019  17:11:49 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Components\stack\zdo\ZDConfig.c                /
+//    Command line       =  -f C:\Users\Administrator\Desktop\ZStack-CC2530-r /
+//                          200_1\Projects\SappWsn\..\zstack\Tools\CC2530DB\f /
+//                          8wCoord.cfg (-DCPU32MHZ -DROOT=__near_func        /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f C:\Users\Administrator\Desktop\ZStack-CC2530-r /
+//                          200_1\Projects\SappWsn\..\zstack\Tools\CC2530DB\f /
+//                          8wConfig.cfg (-DZIGBEEPRO -DSECURE=0              /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x94127                     /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 C:\Users\Administrator\Des /
+//                          ktop\ZStack-CC2530-r200_1\Components\stack\zdo\ZD /
+//                          Config.c -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC    /
+//                          -D MT_ZDO_FUNC -D SAPP_ZSTACK -lC                 /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\CoordinatorEB\List\ -lA       /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\CoordinatorEB\List\           /
+//                          --diag_suppress Pe001,Pa010 -o                    /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\CoordinatorEB\Obj\ -e         /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\ -I                           /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\Source\ -I                    /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\zstack\ZMain\TI2530DB\ -I  /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\hal\include\ /
+//                           -I C:\Users\Administrator\Desktop\ZStack-CC2530- /
+//                          r200_1\Projects\SappWsn\..\..\Components\hal\targ /
+//                          et\CC2530EB\ -I C:\Users\Administrator\Desktop\ZS /
+//                          tack-CC2530-r200_1\Projects\SappWsn\..\..\Compone /
+//                          nts\mac\include\ -I C:\Users\Administrator\Deskto /
+//                          p\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Com /
+//                          ponents\mac\high_level\ -I                        /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\mac\low_leve /
+//                          l\srf04\ -I C:\Users\Administrator\Desktop\ZStack /
+//                          -CC2530-r200_1\Projects\SappWsn\..\..\Components\ /
+//                          mac\low_level\srf04\single_chip\ -I               /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\mt\ -I       /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\osal\include /
+//                          \ -I C:\Users\Administrator\Desktop\ZStack-CC2530 /
+//                          -r200_1\Projects\SappWsn\..\..\Components\service /
+//                          s\saddr\ -I C:\Users\Administrator\Desktop\ZStack /
+//                          -CC2530-r200_1\Projects\SappWsn\..\..\Components\ /
+//                          services\sdata\ -I C:\Users\Administrator\Desktop /
+//                          \ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Comp /
+//                          onents\stack\af\ -I C:\Users\Administrator\Deskto /
+//                          p\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Com /
+//                          ponents\stack\nwk\ -I C:\Users\Administrator\Desk /
+//                          top\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\C /
+//                          omponents\stack\sapi\ -I                          /
+//                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\..\..\Components\stack\sec\   /
+//                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r /
+//                          200_1\Projects\SappWsn\..\..\Components\stack\sys /
+//                          \ -I C:\Users\Administrator\Desktop\ZStack-CC2530 /
+//                          -r200_1\Projects\SappWsn\..\..\Components\stack\z /
+//                          do\ -I C:\Users\Administrator\Desktop\ZStack-CC25 /
+//                          30-r200_1\Projects\SappWsn\..\..\Components\zmac\ /
+//                           -I C:\Users\Administrator\Desktop\ZStack-CC2530- /
+//                          r200_1\Projects\SappWsn\..\..\Components\zmac\f8w /
+//                          \ -Ohz --require_prototypes                       /
+//    List file          =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200 /
+//                          _1\Projects\SappWsn\CoordinatorEB\List\ZDConfig.s /
+//                          51                                                /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME ZDConfig
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??ZDConfig_InitDescriptors?relay
+        FUNCTION ??ZDConfig_InitDescriptors?relay,0203H
+        PUBLIC ??ZDConfig_UpdateNodeDescriptor?relay
+        FUNCTION ??ZDConfig_UpdateNodeDescriptor?relay,0203H
+        PUBLIC ??ZDConfig_UpdatePowerDescriptor?relay
+        FUNCTION ??ZDConfig_UpdatePowerDescriptor?relay,0203H
+        PUBLIC ZDConfig_InitDescriptors
+        FUNCTION ZDConfig_InitDescriptors,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC ZDConfig_UpdateNodeDescriptor
+        FUNCTION ZDConfig_UpdateNodeDescriptor,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC ZDConfig_UpdatePowerDescriptor
+        FUNCTION ZDConfig_UpdatePowerDescriptor,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC ZDO_Config_Node_Descriptor
+        PUBLIC ZDO_Config_Power_Descriptor
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+ZDConfig_InitDescriptors SYMBOL "ZDConfig_InitDescriptors"
+??ZDConfig_InitDescriptors?relay SYMBOL "?relay", ZDConfig_InitDescriptors
+ZDConfig_UpdateNodeDescriptor SYMBOL "ZDConfig_UpdateNodeDescriptor"
+??ZDConfig_UpdateNodeDescriptor?relay SYMBOL "?relay", ZDConfig_UpdateNodeDescriptor
+ZDConfig_UpdatePowerDescriptor SYMBOL "ZDConfig_UpdatePowerDescriptor"
+??ZDConfig_UpdatePowerDescriptor?relay SYMBOL "?relay", ZDConfig_UpdatePowerDescriptor
+
+// C:\Users\Administrator\Desktop\ZStack-CC2530-r200_1\Components\stack\zdo\ZDConfig.c
+//    1 /**************************************************************************************************
+//    2   Filename:       ZDConfig.c
+//    3   Revised:        $Date: 2008-02-12 16:32:50 -0800 (Tue, 12 Feb 2008) $
+//    4   Revision:       $Revision: 16393 $
+//    5 
+//    6 
+//    7   Description:    This file contains the configuration attributes for the Zigbee Device Object.
+//    8                   These are references to Configuration items that MUST be defined in ZDApp.c.
+//    9                   The names mustn't change.
+//   10 
+//   11 
+//   12   Copyright 2004-2007 Texas Instruments Incorporated. All rights reserved.
+//   13 
+//   14   IMPORTANT: Your use of this Software is limited to those specific rights
+//   15   granted under the terms of a software license agreement between the user
+//   16   who downloaded the software, his/her employer (which must be your employer)
+//   17   and Texas Instruments Incorporated (the "License").  You may not use this
+//   18   Software unless you agree to abide by the terms of the License. The License
+//   19   limits your use, and you acknowledge, that the Software may not be modified,
+//   20   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   21   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   22   frequency transceiver, which is integrated into your product.  Other than for
+//   23   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   24   works of, modify, distribute, perform, display or sell this Software and/or
+//   25   its documentation for any purpose.
+//   26 
+//   27   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   28   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+//   29   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+//   30   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   31   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   32   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   33   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   34   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   35   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   36   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   37   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   38 
+//   39   Should you have any questions regarding your right to use this Software,
+//   40   contact Texas Instruments Incorporated at www.TI.com. 
+//   41 **************************************************************************************************/
+//   42 
+//   43 /*********************************************************************
+//   44  * INCLUDES
+//   45  */
+//   46 #include "ZComdef.h"
+//   47 #include "AF.h"
+//   48 #include "ZDObject.h"
+//   49 #include "ZDConfig.h"
+//   50 
+//   51  /*********************************************************************
+//   52  * MACROS
+//   53  */
+//   54 
+//   55 /*********************************************************************
+//   56  * CONSTANTS
+//   57  */
+//   58 
+//   59 /*********************************************************************
+//   60  * TYPEDEFS
+//   61  */
+//   62 
+//   63 /*********************************************************************
+//   64  * GLOBAL VARIABLES
+//   65  */
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   66 NodeDescriptorFormat_t ZDO_Config_Node_Descriptor;
+ZDO_Config_Node_Descriptor:
+        DS 13
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+//   67 NodePowerDescriptorFormat_t ZDO_Config_Power_Descriptor;
+ZDO_Config_Power_Descriptor:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//   68 
+//   69 /*********************************************************************
+//   70  * EXTERNAL VARIABLES
+//   71  */
+//   72 
+//   73 /*********************************************************************
+//   74  * EXTERNAL FUNCTIONS
+//   75  */
+//   76 
+//   77 /*********************************************************************
+//   78  * LOCAL FUNCTIONS
+//   79  */
+//   80 
+//   81 /*********************************************************************
+//   82  * LOCAL VARIABLES
+//   83  */
+//   84 
+//   85 /*********************************************************************
+//   86  * @fn      ZDConfig_InitDescriptors()
+//   87  *
+//   88  * @brief   Setup the ZDO descriptors 
+//   89  *             Node, Power
+//   90  *
+//   91  * @param   none
+//   92  *
+//   93  * @return  none
+//   94  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   95 void ZDConfig_InitDescriptors( void )
+ZDConfig_InitDescriptors:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function ZDConfig_InitDescriptors
+        CODE
+//   96 {
+        FUNCALL ZDConfig_InitDescriptors, ZDConfig_UpdateNodeDescriptor
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   97   ZDConfig_UpdateNodeDescriptor();
+        ; Setup parameters for call to function ZDConfig_UpdateNodeDescriptor
+        LCALL   ??ZDConfig_UpdateNodeDescriptor?relay
+        CFI EndBlock cfiBlock0
+//   98   ZDConfig_UpdatePowerDescriptor();
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+//   99 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        MOV     DPTR,#ZDO_Config_Power_Descriptor
+        MOV     A,#0x10
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#-0x3f
+        CFI EndBlock cfiBlock1
+        REQUIRE ??Subroutine1_0
+        ; // Fall through to label ??Subroutine1_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine1_0:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        MOVX    @DPTR,A
+        POP     DPH
+        CFI CFA_SP SP+-4
+        CFI DPH0 SameValue
+        POP     DPL
+        CFI CFA_SP SP+-3
+        CFI DPL0 SameValue
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock2
+//  100 
+//  101 /*********************************************************************
+//  102  * @fn      ZDConfig_UpdateNodeDescriptor()
+//  103  *
+//  104  * @brief   Update the ZDO Node Descriptor 
+//  105  *
+//  106  * @param   none
+//  107  *
+//  108  * @return  none
+//  109  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  110 void ZDConfig_UpdateNodeDescriptor( void )
+ZDConfig_UpdateNodeDescriptor:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function ZDConfig_UpdateNodeDescriptor
+        CODE
+//  111 {
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  112   // Build the Node Descriptor
+//  113   if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+//  114     ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_COORDINATOR;
+//  115   else if ( ZSTACK_ROUTER_BUILD )
+//  116     ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_ROUTER;
+//  117   else if ( ZSTACK_END_DEVICE_BUILD )
+//  118     ZDO_Config_Node_Descriptor.LogicalType = NODETYPE_DEVICE;
+//  119   
+//  120   ZDO_Config_Node_Descriptor.ComplexDescAvail = FALSE;      // set elsewhere
+//  121   ZDO_Config_Node_Descriptor.UserDescAvail = FALSE;         // set elsewhere
+//  122   ZDO_Config_Node_Descriptor.Reserved = 0;                  // Reserved
+        MOV     DPTR,#ZDO_Config_Node_Descriptor
+        CLR     A
+        MOVX    @DPTR,A
+//  123   ZDO_Config_Node_Descriptor.APSFlags = 0;                  // NO APS flags
+//  124   ZDO_Config_Node_Descriptor.FrequencyBand = NODEFREQ_2400; // Frequency Band
+        INC     DPTR
+        MOV     A,#0x40
+        MOVX    @DPTR,A
+//  125   
+//  126   // MAC Capabilities
+//  127   if ( ZSTACK_ROUTER_BUILD )
+//  128   {
+//  129     ZDO_Config_Node_Descriptor.CapabilityFlags 
+//  130               = (CAPINFO_DEVICETYPE_FFD | CAPINFO_POWER_AC | CAPINFO_RCVR_ON_IDLE);
+//  131     
+//  132     if ( ZG_BUILD_COORDINATOR_TYPE && ZG_DEVICE_COORDINATOR_TYPE )
+//  133       ZDO_Config_Node_Descriptor.CapabilityFlags |= CAPINFO_ALTPANCOORD;
+        INC     DPTR
+        MOV     A,#0xf
+        MOVX    @DPTR,A
+//  134   }
+//  135   else if ( ZSTACK_END_DEVICE_BUILD )
+//  136   {
+//  137     ZDO_Config_Node_Descriptor.CapabilityFlags = (CAPINFO_DEVICETYPE_RFD
+//  138   #if ( RFD_RCVC_ALWAYS_ON == TRUE)
+//  139             | CAPINFO_RCVR_ON_IDLE
+//  140   #endif
+//  141         );
+//  142   }
+//  143   
+//  144   // Manufacturer Code - *YOU FILL IN*
+//  145   ZDO_Config_Node_Descriptor.ManufacturerCode[0] = 0;
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//  146   ZDO_Config_Node_Descriptor.ManufacturerCode[1] = 0;
+        INC     DPTR
+        MOVX    @DPTR,A
+//  147   
+//  148   // Maximum Buffer Size
+//  149   ZDO_Config_Node_Descriptor.MaxBufferSize = MAX_BUFFER_SIZE;
+        INC     DPTR
+        MOV     A,#0x50
+        MOVX    @DPTR,A
+//  150 
+//  151   // Maximum Incoming Transfer Size Field
+//  152   ZDO_Config_Node_Descriptor.MaxInTransferSize[0] = LO_UINT16( MAX_TRANSFER_SIZE );
+        INC     DPTR
+        MOV     A,#-0x60
+        MOVX    @DPTR,A
+//  153   ZDO_Config_Node_Descriptor.MaxInTransferSize[1] = HI_UINT16( MAX_TRANSFER_SIZE );
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//  154   
+//  155   // Maximum Outgoing Transfer Size Field
+//  156   ZDO_Config_Node_Descriptor.MaxOutTransferSize[0] = LO_UINT16( MAX_TRANSFER_SIZE );
+        MOV     DPTR,#ZDO_Config_Node_Descriptor + 10
+        MOV     A,#-0x60
+        MOVX    @DPTR,A
+//  157   ZDO_Config_Node_Descriptor.MaxOutTransferSize[1] = HI_UINT16( MAX_TRANSFER_SIZE );
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//  158   
+//  159   // Server Mask
+//  160   ZDO_Config_Node_Descriptor.ServerMask = 0;
+        MOV     DPTR,#ZDO_Config_Node_Descriptor + 8
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+//  161   
+//  162   // Descriptor Capability Field - extended active endpoint list and 
+//  163   // extended simple descriptor are not supported.
+//  164   ZDO_Config_Node_Descriptor.DescriptorCapability = 0;
+        MOV     DPTR,#ZDO_Config_Node_Descriptor + 12
+        SJMP    ??Subroutine1_0
+        CFI EndBlock cfiBlock3
+//  165 }
+//  166 
+//  167 /*********************************************************************
+//  168  * @fn      ZDConfig_UpdatePowerDescriptor()
+//  169  *
+//  170  * @brief   Update the ZDO Power Descriptor 
+//  171  *
+//  172  * @param   none
+//  173  *
+//  174  * @return  none
+//  175  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  176 void ZDConfig_UpdatePowerDescriptor( void )
+ZDConfig_UpdatePowerDescriptor:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function ZDConfig_UpdatePowerDescriptor
+        CODE
+//  177 {
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  178   // Build the Power Descriptor  
+//  179   if ( ZSTACK_ROUTER_BUILD )
+//  180   {
+//  181     ZDO_Config_Power_Descriptor.PowerMode = NODECURPWR_RCVR_ALWAYS_ON;
+//  182     ZDO_Config_Power_Descriptor.AvailablePowerSources = NODEAVAILPWR_MAINS;
+//  183     ZDO_Config_Power_Descriptor.CurrentPowerSource = NODEAVAILPWR_MAINS;
+//  184     ZDO_Config_Power_Descriptor.CurrentPowerSourceLevel = NODEPOWER_LEVEL_100;
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock4
+//  185   }
+//  186   else if ( ZSTACK_END_DEVICE_BUILD )
+//  187   {
+//  188     if ( zgPollRate )
+//  189       ZDO_Config_Power_Descriptor.PowerMode = NODECURPWR_RCVR_AUTO;
+//  190     else
+//  191       ZDO_Config_Power_Descriptor.PowerMode = NODECURPWR_RCVR_STIM;
+//  192       
+//  193     ZDO_Config_Power_Descriptor.AvailablePowerSources = NODEAVAILPWR_RECHARGE;
+//  194     ZDO_Config_Power_Descriptor.CurrentPowerSource = NODEAVAILPWR_RECHARGE;
+//  195     ZDO_Config_Power_Descriptor.CurrentPowerSourceLevel = NODEPOWER_LEVEL_66;
+//  196   }
+//  197 }
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??ZDConfig_InitDescriptors?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    ZDConfig_InitDescriptors
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??ZDConfig_UpdateNodeDescriptor?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    ZDConfig_UpdateNodeDescriptor
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??ZDConfig_UpdatePowerDescriptor?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    ZDConfig_UpdatePowerDescriptor
+
+        END
+//  198 
+//  199 /*********************************************************************
+//  200 *********************************************************************/
+//  201 
+//  202 
+// 
+// 83 bytes in segment BANKED_CODE
+// 18 bytes in segment BANK_RELAYS
+// 15 bytes in segment XDATA_Z
+// 
+// 101 bytes of CODE  memory
+//  15 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none
