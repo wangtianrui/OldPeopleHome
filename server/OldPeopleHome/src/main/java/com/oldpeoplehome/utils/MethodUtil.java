@@ -13,7 +13,7 @@ public class MethodUtil {
     public static void updateFields(Object obj, Map<String, Object> params)throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         Class<?> pClass = obj.getClass();
         for (Map.Entry<String, Object> entry: params.entrySet()){
-            Method method = pClass.getMethod("set" + StringUtil.capital(entry.getKey()), entry.getValue().getClass());
+            Method method = pClass.getMethod("mySet" + StringUtil.capital(entry.getKey()), entry.getValue().getClass());
             method.invoke(obj, entry.getValue());
         }
     }

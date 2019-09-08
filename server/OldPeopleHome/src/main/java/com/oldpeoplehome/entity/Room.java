@@ -73,9 +73,6 @@ public class Room {
     public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
-    public void setParentId(String parentId) {
-        this.parentId = Long.valueOf(parentId);
-    }
 
     public float getTemp() {
         return temp;
@@ -84,8 +81,19 @@ public class Room {
     public void setTemp(float temp) {
         this.temp = temp;
     }
-    public void setTemp(String temp) {
+    public void mySetTemp(String temp) {
         this.temp = Float.valueOf(temp);
+    }
+
+    public void mySetRoomName(String roomName){
+        this.roomName = roomName;
+    }
+    public void mySetRoomLocation(String roomLocation) {
+        this.roomLocation = roomLocation;
+    }
+
+    public void mySetParentId(String parentId) {
+        this.parentId = Long.valueOf(parentId);
     }
 
     @Override

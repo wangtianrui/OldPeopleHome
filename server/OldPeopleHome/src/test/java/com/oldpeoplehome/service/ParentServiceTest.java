@@ -26,7 +26,7 @@ public class ParentServiceTest extends BaseTest {
         parent.setParentPassword("a");
         parent.setParentAccount("a");
         parent.setParentName("a");
-        parent.setParentBirth("2011-2-2");
+        parent.mySetParentBirth("2011-2-2");
         parent.setParentLongId("a");
         parentService.insert(parent);
         System.out.println(parentService.findByLongId("a"));
