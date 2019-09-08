@@ -1,0 +1,1423 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         02/Sep/2019  17:12:42 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Components\hal\target\CC2530EB\hal_io.c          #
+#    Command line       =  -f C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8w #
+#                          Router.cfg (-DCPU32MHZ -DROOT=__near_func          #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f                   #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wCon #
+#                          fig.cfg (-DZIGBEEPRO -DSECURE=0                    #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x94127                      #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 C:\Users\Administrator\Desk #
+#                          top\ZStack-CC2530-r200_1\Components\hal\target\CC2 #
+#                          530EB\hal_io.c -D ZTOOL_P1 -D MT_TASK -D           #
+#                          MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG  #
+#                          -D SAPP_ZSTACK -lC C:\Users\Administrator\Desktop\ #
+#                          ZStack-CC2530-r200_1\Projects\SappWsn\RouterEB\Lis #
+#                          t\ -lA C:\Users\Administrator\Desktop\ZStack-CC253 #
+#                          0-r200_1\Projects\SappWsn\RouterEB\List\           #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\RouterEB\Obj\ -e                #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\ -I                          #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\Source\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\zstack\ZMain\TI2530DB\ -I    #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\hal\include\   #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\hal\target\ #
+#                          CC2530EB\ -I C:\Users\Administrator\Desktop\ZStack #
+#                          -CC2530-r200_1\Projects\SappWsn\..\..\Components\m #
+#                          ac\include\ -I C:\Users\Administrator\Desktop\ZSta #
+#                          ck-CC2530-r200_1\Projects\SappWsn\..\..\Components #
+#                          \mac\high_level\ -I C:\Users\Administrator\Desktop #
+#                          \ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Compo #
+#                          nents\mac\low_level\srf04\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\mac\low_level\ #
+#                          srf04\single_chip\ -I C:\Users\Administrator\Deskt #
+#                          op\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Com #
+#                          ponents\mt\ -I C:\Users\Administrator\Desktop\ZSta #
+#                          ck-CC2530-r200_1\Projects\SappWsn\..\..\Components #
+#                          \osal\include\ -I C:\Users\Administrator\Desktop\Z #
+#                          Stack-CC2530-r200_1\Projects\SappWsn\..\..\Compone #
+#                          nts\services\saddr\ -I C:\Users\Administrator\Desk #
+#                          top\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Co #
+#                          mponents\services\sdata\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\stack\af\ -I   #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\stack\nwk\ -I  #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\stack\sapi\    #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\stack\sec\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\stack\sys\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\stack\zdo\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\zmac\ -I    #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\zmac\f8w\      #
+#                          -Ohz --require_prototypes                          #
+#    List file          =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\RouterEB\List\hal_io.lst        #
+#    Object file        =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\RouterEB\Obj\hal_io.r51         #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Administrator\Desktop\ZStack-CC2530-r200_1\Components\hal\target\CC2530EB\hal_io.c
+      1          #include "hal_io.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x89
+   \   unsigned char volatile __sfr P0IFG
+   \                     P0IFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8a
+   \   unsigned char volatile __sfr P1IFG
+   \                     P1IFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8b
+   \   unsigned char volatile __sfr P2IFG
+   \                     P2IFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8c
+   \   unsigned char volatile __sfr PICTL
+   \                     PICTL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8d
+   \   unsigned char volatile __sfr P1IEN
+   \                     P1IEN:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8f
+   \   unsigned char volatile __sfr P0INP
+   \                     P0INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x9a
+   \   unsigned char volatile __sfr IEN2
+   \                     IEN2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa0
+   \   union <unnamed> volatile __sfr _A_P2
+   \                     _A_P2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xab
+   \   unsigned char volatile __sfr P0IEN
+   \                     P0IEN:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xac
+   \   unsigned char volatile __sfr P2IEN
+   \                     P2IEN:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb8
+   \   union <unnamed> volatile __sfr _A_IEN1
+   \                     _A_IEN1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc0
+   \   union <unnamed> volatile __sfr _A_IRCON
+   \                     _A_IRCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xe8
+   \   union <unnamed> volatile __sfr _A_IRCON2
+   \                     _A_IRCON2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf3
+   \   unsigned char volatile __sfr P0SEL
+   \                     P0SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf4
+   \   unsigned char volatile __sfr P1SEL
+   \                     P1SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf5
+   \   unsigned char volatile __sfr P2SEL
+   \                     P2SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf6
+   \   unsigned char volatile __sfr P1INP
+   \                     P1INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf7
+   \   unsigned char volatile __sfr P2INP
+   \                     P2INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xff
+   \   unsigned char volatile __sfr P2DIR
+   \                     P2DIR:
+   \   000000                DS 1
+      2          #include "OSAL.h"
+      3          #include <string.h>
+      4          
+      5          static struct {
+      6              uint8 ioIntTskId;
+      7              uint8 intInUse[MAX_IOGROUP + 1];
+      8              uint8 endPointMap[MAX_IOPORT + 1];
+      9              void *endPointArgMap[MAX_IOPORT + 1];
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     10          } ioIntResMap;
+   \                     ioIntResMap:
+   \   000000                DS 67
+   \   000043                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     11          void HalIOInit(uint8 taskId)
+   \                     HalIOInit:
+     12          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+     13              memset(&ioIntResMap, 0, sizeof(ioIntResMap));
+   \   000007                ; Setup parameters for call to function memset
+   \   000007   75..43       MOV     ?V0 + 0,#0x43
+   \   00000A   75..00       MOV     ?V0 + 1,#0x0
+   \   00000D   78..         MOV     R0,#?V0 + 0
+   \   00000F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000012   7C00         MOV     R4,#0x0
+   \   000014   7D00         MOV     R5,#0x0
+   \   000016   7A..         MOV     R2,#ioIntResMap & 0xff
+   \   000018   7B..         MOV     R3,#(ioIntResMap >> 8) & 0xff
+   \   00001A   12....       LCALL   ??memset?relay
+   \   00001D   7402         MOV     A,#0x2
+   \   00001F   12....       LCALL   ?DEALLOC_XSTACK8
+     14              ioIntResMap.ioIntTskId = taskId;
+   \   000022   EE           MOV     A,R6
+   \   000023   90....       MOV     DPTR,#ioIntResMap
+   \   000026   F0           MOVX    @DPTR,A
+     15          }
+   \   000027                REQUIRE ?Subroutine0
+   \   000027                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F02         MOV     R7,#0x2
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+     16          /***********************************************************
+     17          **  函数名称: HalIOSetInput
+     18          **  实现功能: 设置端口为普通输入IO
+     19          **  入口参数: group:Port;
+     20          **            bit:Bit;
+     21          **            pull:(Pull_None:无上下拉; Pull_Up:上拉; Pull_Down:下拉;);
+     22          **  返回结果: IOInt_None
+     23          **  注意事项: CC2530的通用IO上下拉电阻是对整个端口的设置，
+     24          **            不能实现将同一端口的不同位配置为上下拉不同
+     25          ***********************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     26          void HalIOSetInput(uint8 group, uint8 bit, PullSet_t pull)
+   \                     HalIOSetInput:
+     27          {
+   \   000000   C0..         PUSH    ?V0 + 0
+   \   000002   C0..         PUSH    ?V0 + 1
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   \   000004   E9           MOV     A,R1
+     28              switch(group)
+   \   000005   600C         JZ      ??HalIOSetInput_0
+   \   000007   14           DEC     A
+   \   000008   606D         JZ      ??HalIOSetInput_1
+   \   00000A   14           DEC     A
+   \   00000B   7003         JNZ     $+5
+   \   00000D   02....       LJMP    ??HalIOSetInput_2 & 0xFFFF
+   \   000010   02....       LJMP    ??HalIOSetInput_3 & 0xFFFF
+     29              {
+     30              case 0:
+     31                  //设置为通用输入IO
+     32                  CLRBIT(P0DIR, bit);
+   \                     ??HalIOSetInput_0:
+   \   000013   75..01       MOV     ?V0 + 0,#0x1
+   \   000016   75..00       MOV     ?V0 + 1,#0x0
+   \   000019   EA           MOV     A,R2
+   \   00001A   78..         MOV     R0,#?V0 + 0
+   \   00001C   12....       LCALL   ?S_SHL
+   \   00001F   E5..         MOV     A,?V0 + 0
+   \   000021   F4           CPL     A
+   \   000022   52FD         ANL     0xfd,A
+     33                  CLRBIT(P0SEL, bit);
+   \   000024   52F3         ANL     0xf3,A
+     34                  //设置内部上下拉电阻状态
+     35                  if(Pull_None == pull)
+   \   000026   EB           MOV     A,R3
+   \   000027   7013         JNZ     ??HalIOSetInput_4
+     36                      SETBIT(P0INP, bit);     //P0INP[7-0]:(0:上下拉有效; 1:无效;)
+   \   000029   75..01       MOV     ?V0 + 0,#0x1
+   \   00002C   75..00       MOV     ?V0 + 1,#0x0
+   \   00002F   EA           MOV     A,R2
+   \   000030   78..         MOV     R0,#?V0 + 0
+   \   000032   12....       LCALL   ?S_SHL
+   \   000035   E5..         MOV     A,?V0 + 0
+   \   000037   428F         ORL     0x8f,A
+   \   000039   02....       LJMP    ??HalIOSetInput_3 & 0xFFFF
+     37                  else if(Pull_Up == pull)
+   \                     ??HalIOSetInput_4:
+   \   00003C   7401         MOV     A,#0x1
+   \   00003E   6B           XRL     A,R3
+   \   00003F   7017         JNZ     ??HalIOSetInput_5
+     38                  {
+     39                      CLRBIT(P0INP, bit);     //P0INP[7-0]:(0:上下拉有效; 1:无效;)
+   \   000041   75..01       MOV     ?V0 + 0,#0x1
+   \   000044   75..00       MOV     ?V0 + 1,#0x0
+   \   000047   EA           MOV     A,R2
+   \   000048   78..         MOV     R0,#?V0 + 0
+   \   00004A   12....       LCALL   ?S_SHL
+   \   00004D   E5..         MOV     A,?V0 + 0
+   \   00004F   F4           CPL     A
+   \   000050   528F         ANL     0x8f,A
+     40                      CLRBIT(P2INP, 5);       //P2INP[5  ]:(0:Port0 上拉; 1:Port0 下拉;)
+   \   000052   53F7DF       ANL     0xf7,#0xdf
+   \   000055   02....       LJMP    ??HalIOSetInput_3 & 0xFFFF
+     41                  }
+     42                  else if(Pull_Down == pull)
+   \                     ??HalIOSetInput_5:
+   \   000058   7402         MOV     A,#0x2
+   \   00005A   6B           XRL     A,R3
+   \   00005B   6003         JZ      $+5
+   \   00005D   02....       LJMP    ??HalIOSetInput_3 & 0xFFFF
+     43                  {
+     44                      CLRBIT(P0INP, bit);     //P0INP[7-0]:(0:上下拉有效; 1:无效;)
+   \   000060   75..01       MOV     ?V0 + 0,#0x1
+   \   000063   75..00       MOV     ?V0 + 1,#0x0
+   \   000066   EA           MOV     A,R2
+   \   000067   78..         MOV     R0,#?V0 + 0
+   \   000069   12....       LCALL   ?S_SHL
+   \   00006C   E5..         MOV     A,?V0 + 0
+   \   00006E   F4           CPL     A
+   \   00006F   528F         ANL     0x8f,A
+     45                      SETBIT(P2INP, 5);       //P2INP[5  ]:(0:Port0 上拉; 1:Port0 下拉;)
+   \   000071   43F720       ORL     0xf7,#0x20
+   \   000074   02....       LJMP    ??HalIOSetInput_3 & 0xFFFF
+     46                  }
+     47                  break;
+     48              case 1:
+     49                  //设置为通用输入IO
+     50                  CLRBIT(P1DIR, bit);
+   \                     ??HalIOSetInput_1:
+   \   000077   75..01       MOV     ?V0 + 0,#0x1
+   \   00007A   75..00       MOV     ?V0 + 1,#0x0
+   \   00007D   EA           MOV     A,R2
+   \   00007E   78..         MOV     R0,#?V0 + 0
+   \   000080   12....       LCALL   ?S_SHL
+   \   000083   E5..         MOV     A,?V0 + 0
+   \   000085   F4           CPL     A
+   \   000086   52FE         ANL     0xfe,A
+     51                  CLRBIT(P1SEL, bit);
+   \   000088   52F4         ANL     0xf4,A
+     52                  //设置内部上下拉电阻状态
+     53                  if(Pull_None == pull)
+   \   00008A   EB           MOV     A,R3
+   \   00008B   7013         JNZ     ??HalIOSetInput_6
+     54                      SETBIT(P1INP, bit);     //P1INP[7-2]:(0:上下拉有效; 1:无效;) P[1-0] 写无效，读为0.
+   \   00008D   75..01       MOV     ?V0 + 0,#0x1
+   \   000090   75..00       MOV     ?V0 + 1,#0x0
+   \   000093   EA           MOV     A,R2
+   \   000094   78..         MOV     R0,#?V0 + 0
+   \   000096   12....       LCALL   ?S_SHL
+   \   000099   E5..         MOV     A,?V0 + 0
+   \   00009B   42F6         ORL     0xf6,A
+   \   00009D   02....       LJMP    ??HalIOSetInput_3 & 0xFFFF
+     55                  else if(Pull_Up == pull)
+   \                     ??HalIOSetInput_6:
+   \   0000A0   7401         MOV     A,#0x1
+   \   0000A2   6B           XRL     A,R3
+   \   0000A3   7016         JNZ     ??HalIOSetInput_7
+     56                  {
+     57                      CLRBIT(P1INP, bit);     //P1INP[7-2]:(0:上下拉有效; 1:无效;) P[1-0] 写无效，读为0.
+   \   0000A5   75..01       MOV     ?V0 + 0,#0x1
+   \   0000A8   75..00       MOV     ?V0 + 1,#0x0
+   \   0000AB   EA           MOV     A,R2
+   \   0000AC   78..         MOV     R0,#?V0 + 0
+   \   0000AE   12....       LCALL   ?S_SHL
+   \   0000B1   E5..         MOV     A,?V0 + 0
+   \   0000B3   F4           CPL     A
+   \   0000B4   52F6         ANL     0xf6,A
+     58                      CLRBIT(P2INP, 6);       //P2INP[6  ]:(0:Port1 上拉; 1:Port1 下拉;)
+   \   0000B6   53F7BF       ANL     0xf7,#0xbf
+   \   0000B9   8077         SJMP    ??HalIOSetInput_3
+     59                  }
+     60                  else if(Pull_Down == pull)
+   \                     ??HalIOSetInput_7:
+   \   0000BB   7402         MOV     A,#0x2
+   \   0000BD   6B           XRL     A,R3
+   \   0000BE   7072         JNZ     ??HalIOSetInput_3
+     61                  {
+     62                      CLRBIT(P1INP, bit);     //P1INP[7-2]:(0:上下拉有效; 1:无效;) P[1-0] 写无效，读为0.
+   \   0000C0   75..01       MOV     ?V0 + 0,#0x1
+   \   0000C3   75..00       MOV     ?V0 + 1,#0x0
+   \   0000C6   EA           MOV     A,R2
+   \   0000C7   78..         MOV     R0,#?V0 + 0
+   \   0000C9   12....       LCALL   ?S_SHL
+   \   0000CC   E5..         MOV     A,?V0 + 0
+   \   0000CE   F4           CPL     A
+   \   0000CF   52F6         ANL     0xf6,A
+     63                      SETBIT(P2INP, 6);       //P2INP[6  ]:(0:Port1 上拉; 1:Port1 下拉;)
+   \   0000D1   43F740       ORL     0xf7,#0x40
+   \   0000D4   805C         SJMP    ??HalIOSetInput_3
+     64                  }
+     65                  break;
+     66              case 2:
+     67                  //设置为通用输入IO
+     68                  CLRBIT(P2DIR, bit);
+   \                     ??HalIOSetInput_2:
+   \   0000D6   75..01       MOV     ?V0 + 0,#0x1
+   \   0000D9   75..00       MOV     ?V0 + 1,#0x0
+   \   0000DC   EA           MOV     A,R2
+   \   0000DD   78..         MOV     R0,#?V0 + 0
+   \   0000DF   12....       LCALL   ?S_SHL
+   \   0000E2   E5..         MOV     A,?V0 + 0
+   \   0000E4   F4           CPL     A
+   \   0000E5   52FF         ANL     0xff,A
+     69                  CLRBIT(P2SEL, bit);
+   \   0000E7   52F5         ANL     0xf5,A
+     70                  //设置内部上下拉电阻状态
+     71                  if(Pull_None == pull)
+   \   0000E9   EB           MOV     A,R3
+   \   0000EA   7012         JNZ     ??HalIOSetInput_8
+     72                      SETBIT(P2INP, bit);     //P2INP[4-0]:(0:上下拉有效; 1:无效;)
+   \   0000EC   75..01       MOV     ?V0 + 0,#0x1
+   \   0000EF   75..00       MOV     ?V0 + 1,#0x0
+   \   0000F2   EA           MOV     A,R2
+   \   0000F3   78..         MOV     R0,#?V0 + 0
+   \   0000F5   12....       LCALL   ?S_SHL
+   \   0000F8   E5..         MOV     A,?V0 + 0
+   \   0000FA   42F7         ORL     0xf7,A
+   \   0000FC   8034         SJMP    ??HalIOSetInput_3
+     73                  else if(Pull_Up == pull)
+   \                     ??HalIOSetInput_8:
+   \   0000FE   7401         MOV     A,#0x1
+   \   000100   6B           XRL     A,R3
+   \   000101   7016         JNZ     ??HalIOSetInput_9
+     74                  {
+     75                      CLRBIT(P2INP, bit);     //P2INP[4-0]:(0:上下拉有效; 1:无效;)
+   \   000103   75..01       MOV     ?V0 + 0,#0x1
+   \   000106   75..00       MOV     ?V0 + 1,#0x0
+   \   000109   EA           MOV     A,R2
+   \   00010A   78..         MOV     R0,#?V0 + 0
+   \   00010C   12....       LCALL   ?S_SHL
+   \   00010F   E5..         MOV     A,?V0 + 0
+   \   000111   F4           CPL     A
+   \   000112   52F7         ANL     0xf7,A
+     76                      CLRBIT(P2INP, 7);       //P2INP[7  ]:(0:Port2 上拉; 1:Port2 下拉;)
+   \   000114   53F77F       ANL     0xf7,#0x7f
+   \   000117   8019         SJMP    ??HalIOSetInput_3
+     77                  }
+     78                  else if(Pull_Down == pull)
+   \                     ??HalIOSetInput_9:
+   \   000119   7402         MOV     A,#0x2
+   \   00011B   6B           XRL     A,R3
+   \   00011C   7014         JNZ     ??HalIOSetInput_3
+     79                  {
+     80                      CLRBIT(P2INP, bit);     //P2INP[4-0]:(0:上下拉有效; 1:无效;)
+   \   00011E   75..01       MOV     ?V0 + 0,#0x1
+   \   000121   75..00       MOV     ?V0 + 1,#0x0
+   \   000124   EA           MOV     A,R2
+   \   000125   78..         MOV     R0,#?V0 + 0
+   \   000127   12....       LCALL   ?S_SHL
+   \   00012A   E5..         MOV     A,?V0 + 0
+   \   00012C   F4           CPL     A
+   \   00012D   52F7         ANL     0xf7,A
+     81                      SETBIT(P2INP, 7);       //P2INP[7  ]:(0:Port2 上拉; 1:Port2 下拉;)
+   \   00012F   43F780       ORL     0xf7,#0x80
+     82                  }
+     83                  break;
+     84              default:
+     85                  break;
+     86              }
+     87          }
+   \                     ??HalIOSetInput_3:
+   \   000132   02....       LJMP    ?Subroutine1 & 0xFFFF
+   \   000135                REQUIRE P0DIR
+   \   000135                REQUIRE P0SEL
+   \   000135                REQUIRE P0INP
+   \   000135                REQUIRE P2INP
+   \   000135                REQUIRE P1DIR
+   \   000135                REQUIRE P1SEL
+   \   000135                REQUIRE P1INP
+   \   000135                REQUIRE P2DIR
+   \   000135                REQUIRE P2SEL
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   D0..         POP     ?V0 + 1
+   \   000002   D0..         POP     ?V0 + 0
+   \   000004   02....       LJMP    ?BRET
+     88          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     89          void HalIOSetOutput(uint8 group, uint8 bit)
+   \                     HalIOSetOutput:
+     90          {
+   \   000000   C0..         PUSH    ?V0 + 0
+   \   000002   C0..         PUSH    ?V0 + 1
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     91             switch(group)
+   \   000004   E9           MOV     A,R1
+   \   000005   6008         JZ      ??HalIOSetOutput_0
+   \   000007   14           DEC     A
+   \   000008   601A         JZ      ??HalIOSetOutput_1
+   \   00000A   14           DEC     A
+   \   00000B   602C         JZ      ??HalIOSetOutput_2
+   \   00000D   803D         SJMP    ??HalIOSetOutput_3
+     92             {
+     93             case 0: P0DIR |= (1 << bit); P0SEL &= ~(1 << bit); break;
+   \                     ??HalIOSetOutput_0:
+   \   00000F   75..01       MOV     ?V0 + 0,#0x1
+   \   000012   75..00       MOV     ?V0 + 1,#0x0
+   \   000015   EA           MOV     A,R2
+   \   000016   78..         MOV     R0,#?V0 + 0
+   \   000018   12....       LCALL   ?S_SHL
+   \   00001B   E5..         MOV     A,?V0 + 0
+   \   00001D   42FD         ORL     0xfd,A
+   \   00001F   F4           CPL     A
+   \   000020   52F3         ANL     0xf3,A
+   \   000022   8028         SJMP    ??HalIOSetOutput_3
+     94             case 1: P1DIR |= (1 << bit); P1SEL &= ~(1 << bit); break;
+   \                     ??HalIOSetOutput_1:
+   \   000024   75..01       MOV     ?V0 + 0,#0x1
+   \   000027   75..00       MOV     ?V0 + 1,#0x0
+   \   00002A   EA           MOV     A,R2
+   \   00002B   78..         MOV     R0,#?V0 + 0
+   \   00002D   12....       LCALL   ?S_SHL
+   \   000030   E5..         MOV     A,?V0 + 0
+   \   000032   42FE         ORL     0xfe,A
+   \   000034   F4           CPL     A
+   \   000035   52F4         ANL     0xf4,A
+   \   000037   8013         SJMP    ??HalIOSetOutput_3
+     95             case 2: P2DIR |= (1 << bit); P2SEL &= ~(1 << bit); break;
+   \                     ??HalIOSetOutput_2:
+   \   000039   75..01       MOV     ?V0 + 0,#0x1
+   \   00003C   75..00       MOV     ?V0 + 1,#0x0
+   \   00003F   EA           MOV     A,R2
+   \   000040   78..         MOV     R0,#?V0 + 0
+   \   000042   12....       LCALL   ?S_SHL
+   \   000045   E5..         MOV     A,?V0 + 0
+   \   000047   42FF         ORL     0xff,A
+   \   000049   F4           CPL     A
+   \   00004A   52F5         ANL     0xf5,A
+     96             }
+     97          }
+   \                     ??HalIOSetOutput_3:
+   \   00004C   80..         SJMP    ?Subroutine1
+   \   00004E                REQUIRE P0DIR
+   \   00004E                REQUIRE P0SEL
+   \   00004E                REQUIRE P1DIR
+   \   00004E                REQUIRE P1SEL
+   \   00004E                REQUIRE P2DIR
+   \   00004E                REQUIRE P2SEL
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     98          uint8 HalIOGetLevel(uint8 group, uint8 bit)
+   \                     HalIOGetLevel:
+     99          {
+   \   000000   C0..         PUSH    ?V0 + 0
+   \   000002   C0..         PUSH    ?V0 + 1
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   \   000004   E9           MOV     A,R1
+    100              switch(group)
+   \   000005   6008         JZ      ??HalIOGetLevel_0
+   \   000007   14           DEC     A
+   \   000008   601B         JZ      ??HalIOGetLevel_1
+   \   00000A   14           DEC     A
+   \   00000B   602C         JZ      ??HalIOGetLevel_2
+   \   00000D   803C         SJMP    ??HalIOGetLevel_3
+    101              {
+    102              case 0: return !!(P0 & (1 << bit));
+   \                     ??HalIOGetLevel_0:
+   \   00000F   75..01       MOV     ?V0 + 0,#0x1
+   \   000012   75..00       MOV     ?V0 + 1,#0x0
+   \   000015   EA           MOV     A,R2
+   \   000016   78..         MOV     R0,#?V0 + 0
+   \   000018   12....       LCALL   ?S_SHL
+   \   00001B   E5..         MOV     A,?V0 + 0
+   \   00001D   5580         ANL     A,0x80
+   \   00001F   602A         JZ      ??HalIOGetLevel_3
+   \                     ??HalIOGetLevel_4:
+   \   000021   7901         MOV     R1,#0x1
+   \   000023   8028         SJMP    ??HalIOGetLevel_5
+    103              case 1: return !!(P1 & (1 << bit));
+   \                     ??HalIOGetLevel_1:
+   \   000025   75..01       MOV     ?V0 + 0,#0x1
+   \   000028   75..00       MOV     ?V0 + 1,#0x0
+   \   00002B   EA           MOV     A,R2
+   \   00002C   78..         MOV     R0,#?V0 + 0
+   \   00002E   12....       LCALL   ?S_SHL
+   \   000031   E5..         MOV     A,?V0 + 0
+   \   000033   5590         ANL     A,0x90
+   \   000035   6014         JZ      ??HalIOGetLevel_3
+   \   000037   80E8         SJMP    ??HalIOGetLevel_4
+    104              case 2: return !!(P2 & (1 << bit));
+   \                     ??HalIOGetLevel_2:
+   \   000039   75..01       MOV     ?V0 + 0,#0x1
+   \   00003C   75..00       MOV     ?V0 + 1,#0x0
+   \   00003F   EA           MOV     A,R2
+   \   000040   78..         MOV     R0,#?V0 + 0
+   \   000042   12....       LCALL   ?S_SHL
+   \   000045   E5..         MOV     A,?V0 + 0
+   \   000047   55A0         ANL     A,0xa0
+   \   000049   70D6         JNZ     ??HalIOGetLevel_4
+    105              }
+    106              return 0;
+   \                     ??HalIOGetLevel_3:
+   \   00004B   7900         MOV     R1,#0x0
+   \                     ??HalIOGetLevel_5:
+   \   00004D                REQUIRE ?Subroutine1
+   \   00004D                REQUIRE _A_P0
+   \   00004D                REQUIRE _A_P1
+   \   00004D                REQUIRE _A_P2
+   \   00004D                ; // Fall through to label ?Subroutine1
+    107          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    108          void HalIOSetLevel(uint8 group, uint8 bit, uint8 value)
+   \                     HalIOSetLevel:
+    109          {
+   \   000000   C0..         PUSH    ?V0 + 0
+   \   000002   C0..         PUSH    ?V0 + 1
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    110              switch(group)
+   \   000004   E9           MOV     A,R1
+   \   000005   6008         JZ      ??HalIOSetLevel_0
+   \   000007   14           DEC     A
+   \   000008   6027         JZ      ??HalIOSetLevel_1
+   \   00000A   14           DEC     A
+   \   00000B   6046         JZ      ??HalIOSetLevel_2
+   \   00000D   8064         SJMP    ??HalIOSetLevel_3
+    111              {
+    112              case 0:
+    113                  if(value)
+   \                     ??HalIOSetLevel_0:
+   \   00000F   EB           MOV     A,R3
+   \   000010   75..01       MOV     ?V0 + 0,#0x1
+   \   000013   75..00       MOV     ?V0 + 1,#0x0
+   \   000016   600C         JZ      ??HalIOSetLevel_4
+    114                      SETBIT(P0, bit);
+   \   000018   EA           MOV     A,R2
+   \   000019   78..         MOV     R0,#?V0 + 0
+   \   00001B   12....       LCALL   ?S_SHL
+   \   00001E   E5..         MOV     A,?V0 + 0
+   \   000020   4280         ORL     0x80,A
+   \   000022   804F         SJMP    ??HalIOSetLevel_3
+    115                  else
+    116                      CLRBIT(P0, bit);
+   \                     ??HalIOSetLevel_4:
+   \   000024   EA           MOV     A,R2
+   \   000025   78..         MOV     R0,#?V0 + 0
+   \   000027   12....       LCALL   ?S_SHL
+   \   00002A   E5..         MOV     A,?V0 + 0
+   \   00002C   F4           CPL     A
+   \   00002D   5280         ANL     0x80,A
+   \   00002F   8042         SJMP    ??HalIOSetLevel_3
+    117                  break;
+    118              case 1:
+    119                  if(value)
+   \                     ??HalIOSetLevel_1:
+   \   000031   EB           MOV     A,R3
+   \   000032   75..01       MOV     ?V0 + 0,#0x1
+   \   000035   75..00       MOV     ?V0 + 1,#0x0
+   \   000038   600C         JZ      ??HalIOSetLevel_5
+    120                      SETBIT(P1, bit);
+   \   00003A   EA           MOV     A,R2
+   \   00003B   78..         MOV     R0,#?V0 + 0
+   \   00003D   12....       LCALL   ?S_SHL
+   \   000040   E5..         MOV     A,?V0 + 0
+   \   000042   4290         ORL     0x90,A
+   \   000044   802D         SJMP    ??HalIOSetLevel_3
+    121                  else
+    122                      CLRBIT(P1, bit);
+   \                     ??HalIOSetLevel_5:
+   \   000046   EA           MOV     A,R2
+   \   000047   78..         MOV     R0,#?V0 + 0
+   \   000049   12....       LCALL   ?S_SHL
+   \   00004C   E5..         MOV     A,?V0 + 0
+   \   00004E   F4           CPL     A
+   \   00004F   5290         ANL     0x90,A
+   \   000051   8020         SJMP    ??HalIOSetLevel_3
+    123                  break;
+    124              case 2:
+    125                  if(value)
+   \                     ??HalIOSetLevel_2:
+   \   000053   EB           MOV     A,R3
+   \   000054   75..01       MOV     ?V0 + 0,#0x1
+   \   000057   75..00       MOV     ?V0 + 1,#0x0
+   \   00005A   600C         JZ      ??HalIOSetLevel_6
+    126                      SETBIT(P2, bit);
+   \   00005C   EA           MOV     A,R2
+   \   00005D   78..         MOV     R0,#?V0 + 0
+   \   00005F   12....       LCALL   ?S_SHL
+   \   000062   E5..         MOV     A,?V0 + 0
+   \   000064   42A0         ORL     0xa0,A
+   \   000066   800B         SJMP    ??HalIOSetLevel_3
+    127                  else
+    128                      CLRBIT(P2, bit);
+   \                     ??HalIOSetLevel_6:
+   \   000068   EA           MOV     A,R2
+   \   000069   78..         MOV     R0,#?V0 + 0
+   \   00006B   12....       LCALL   ?S_SHL
+   \   00006E   E5..         MOV     A,?V0 + 0
+   \   000070   F4           CPL     A
+   \   000071   52A0         ANL     0xa0,A
+    129                  break;
+    130              }
+    131          }
+   \                     ??HalIOSetLevel_3:
+   \   000073   80..         SJMP    ?Subroutine1
+   \   000075                REQUIRE _A_P0
+   \   000075                REQUIRE _A_P1
+   \   000075                REQUIRE _A_P2
+    132          /***********************************************************
+    133          **  函数名称: IOIntteruptSet
+    134          **  实现功能: 设置端口中断触发方式
+    135          **  入口参数: group:Port;
+    136          **            bit:Bit;
+    137          **            trigger:(IOInt_Rising:上升沿触发; IOInt_Falling:下降沿触发;)
+    138          **  返回结果: IOInt_None
+    139          **  注意事项: CC2530的通用IO中断触发方式是对整个端口的设置，
+    140          **            只有P1口的高四位和第四位触发方式可以设置为不同
+    141          **            P0端口和P2端口的所有端口触发方式以最后一次设置为准。
+    142          ***********************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    143          void HalIOIntSet(uint8 endPoint, uint8 group, uint8 bit, IntSel_t trigger, void *arg)
+   \                     HalIOIntSet:
+    144          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FD           MOV     R5,A
+   \   000007   EA           MOV     A,R2
+   \   000008   FF           MOV     R7,A
+   \   000009   EB           MOV     A,R3
+   \   00000A   FE           MOV     R6,A
+   \   00000B   740C         MOV     A,#0xc
+   \   00000D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   FA           MOV     R2,A
+   \   000012   A3           INC     DPTR
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   FB           MOV     R3,A
+    145              if(HAL_IOPORT(group, bit) > MAX_IOPORT)
+   \   000015   8F..         MOV     ?V0 + 2,R7
+   \   000017   75..00       MOV     ?V0 + 3,#0x0
+   \   00001A   7403         MOV     A,#0x3
+   \   00001C   78..         MOV     R0,#?V0 + 2
+   \   00001E   12....       LCALL   ?S_SHL
+   \   000021   8E..         MOV     ?V0 + 0,R6
+   \   000023   E5..         MOV     A,?V0 + 2
+   \   000025   45..         ORL     A,?V0 + 0
+   \   000027   A9..         MOV     R1,?V0 + 3
+   \   000029   C3           CLR     C
+   \   00002A   9415         SUBB    A,#0x15
+   \   00002C   E9           MOV     A,R1
+   \   00002D   9400         SUBB    A,#0x0
+   \   00002F   C3           CLR     C
+   \   000030   65D0         XRL     A,PSW
+   \   000032   33           RLC     A
+   \   000033   4003         JC      $+5
+   \   000035   02....       LJMP    ??HalIOIntSet_0 & 0xFFFF
+    146                  return;
+    147              if(trigger == IOInt_None)
+   \   000038   EC           MOV     A,R4
+   \   000039   7022         JNZ     ??HalIOIntSet_1
+    148              {
+    149                  CLRBIT(ioIntResMap.intInUse[group], bit);
+   \   00003B   75..01       MOV     ?V0 + 0,#0x1
+   \   00003E   75..00       MOV     ?V0 + 1,#0x0
+   \   000041   EE           MOV     A,R6
+   \   000042   78..         MOV     R0,#?V0 + 0
+   \   000044   12....       LCALL   ?S_SHL
+   \   000047   E5..         MOV     A,?V0 + 0
+   \   000049   F4           CPL     A
+   \   00004A   F8           MOV     R0,A
+   \   00004B   8F..         MOV     ?V0 + 0,R7
+   \   00004D   74..         MOV     A,#(ioIntResMap + 1) & 0xff
+   \   00004F   25..         ADD     A,?V0 + 0
+   \   000051   F582         MOV     DPL,A
+   \   000053   74..         MOV     A,#((ioIntResMap + 1) >> 8) & 0xff
+   \   000055   3400         ADDC    A,#0x0
+   \   000057   F583         MOV     DPH,A
+   \   000059   E0           MOVX    A,@DPTR
+   \   00005A   58           ANL     A,R0
+   \   00005B   804A         SJMP    ??HalIOIntSet_2
+    150              }
+    151              else
+    152              {
+    153                  SETBIT(ioIntResMap.intInUse[group], bit);
+   \                     ??HalIOIntSet_1:
+   \   00005D   8F82         MOV     DPL,R7
+   \   00005F   8582..       MOV     ?V0 + 2,DPL
+   \   000062   75..00       MOV     ?V0 + 3,#0x0
+   \   000065   75..01       MOV     ?V0 + 0,#0x1
+   \   000068   75..00       MOV     ?V0 + 1,#0x0
+   \   00006B   EE           MOV     A,R6
+   \   00006C   78..         MOV     R0,#?V0 + 0
+   \   00006E   12....       LCALL   ?S_SHL
+   \   000071   74..         MOV     A,#(ioIntResMap + 1) & 0xff
+   \   000073   25..         ADD     A,?V0 + 2
+   \   000075   F582         MOV     DPL,A
+   \   000077   74..         MOV     A,#((ioIntResMap + 1) >> 8) & 0xff
+   \   000079   3400         ADDC    A,#0x0
+   \   00007B   F583         MOV     DPH,A
+   \   00007D   E0           MOVX    A,@DPTR
+   \   00007E   45..         ORL     A,?V0 + 0
+   \   000080   F0           MOVX    @DPTR,A
+    154                  ioIntResMap.endPointMap[HAL_IOPORT(group, bit)] = endPoint;
+   \   000081   7403         MOV     A,#0x3
+   \   000083   78..         MOV     R0,#?V0 + 2
+   \   000085   12....       LCALL   ?S_SHL
+   \   000088   8E..         MOV     ?V0 + 0,R6
+   \   00008A   E5..         MOV     A,?V0 + 2
+   \   00008C   45..         ORL     A,?V0 + 0
+   \   00008E   F8           MOV     R0,A
+   \   00008F   74..         MOV     A,#(ioIntResMap + 4) & 0xff
+   \   000091   28           ADD     A,R0
+   \   000092   F582         MOV     DPL,A
+   \   000094   74..         MOV     A,#((ioIntResMap + 4) >> 8) & 0xff
+   \   000096   39           ADDC    A,R1
+   \   000097   F583         MOV     DPH,A
+   \   000099   ED           MOV     A,R5
+   \   00009A   F0           MOVX    @DPTR,A
+    155                  ioIntResMap.endPointArgMap[HAL_IOPORT(group, bit)] = arg;
+   \   00009B   E8           MOV     A,R0
+   \   00009C   C3           CLR     C
+   \   00009D   33           RLC     A
+   \   00009E   F8           MOV     R0,A
+   \   00009F   E9           MOV     A,R1
+   \   0000A0   12....       LCALL   ?Subroutine5 & 0xFFFF
+    156              }
+   \                     ??CrossCallReturnLabel_7:
+   \   0000A3   EA           MOV     A,R2
+   \   0000A4   F0           MOVX    @DPTR,A
+   \   0000A5   A3           INC     DPTR
+   \   0000A6   EB           MOV     A,R3
+   \                     ??HalIOIntSet_2:
+   \   0000A7   F0           MOVX    @DPTR,A
+    157              switch(group)
+   \   0000A8   EF           MOV     A,R7
+   \   0000A9   600C         JZ      ??HalIOIntSet_3
+   \   0000AB   14           DEC     A
+   \   0000AC   6040         JZ      ??HalIOIntSet_4
+   \   0000AE   14           DEC     A
+   \   0000AF   7003         JNZ     $+5
+   \   0000B1   02....       LJMP    ??HalIOIntSet_5 & 0xFFFF
+   \   0000B4   02....       LJMP    ??HalIOIntSet_0 & 0xFFFF
+    158              {
+    159              case 0:
+    160                  if(trigger == IOInt_None)
+   \                     ??HalIOIntSet_3:
+   \   0000B7   EC           MOV     A,R4
+   \   0000B8   75..01       MOV     ?V0 + 0,#0x1
+   \   0000BB   75..00       MOV     ?V0 + 1,#0x0
+   \   0000BE   700D         JNZ     ??HalIOIntSet_6
+    161                      CLRBIT(P0IEN, bit);
+   \   0000C0   EE           MOV     A,R6
+   \   0000C1   78..         MOV     R0,#?V0 + 0
+   \   0000C3   12....       LCALL   ?S_SHL
+   \   0000C6   E5..         MOV     A,?V0 + 0
+   \   0000C8   F4           CPL     A
+   \   0000C9   52AB         ANL     0xab,A
+   \   0000CB   8017         SJMP    ??HalIOIntSet_7
+    162                  else
+    163                  {
+    164                      SETBIT(P0IEN, bit);
+   \                     ??HalIOIntSet_6:
+   \   0000CD   EE           MOV     A,R6
+   \   0000CE   78..         MOV     R0,#?V0 + 0
+   \   0000D0   12....       LCALL   ?S_SHL
+   \   0000D3   E5..         MOV     A,?V0 + 0
+   \   0000D5   42AB         ORL     0xab,A
+    165                      if(trigger == IOInt_Rising)
+   \   0000D7   7401         MOV     A,#0x1
+   \   0000D9   6C           XRL     A,R4
+   \   0000DA   7005         JNZ     ??HalIOIntSet_8
+    166                          CLRBIT(PICTL, 0);
+   \   0000DC   538CFE       ANL     0x8c,#0xfe
+   \   0000DF   8003         SJMP    ??HalIOIntSet_7
+    167                      else
+    168                          SETBIT(PICTL, 0);
+   \                     ??HalIOIntSet_8:
+   \   0000E1   438C01       ORL     0x8c,#0x1
+    169                  }
+    170                  P0IFG = 0x00;       //清除P0相应位中断标志
+   \                     ??HalIOIntSet_7:
+   \   0000E4   758900       MOV     0x89,#0x0
+    171                  P0IF = 0;           //清除P0端口总中断标志
+   \   0000E7   C2C5         CLR     0xc0.5
+    172                  //SETBIT(IEN1, 5);  //P0总中断允许
+    173                  CLRBIT(IEN1, 5);    //P0总中断禁止
+   \   0000E9   C2BD         CLR     0xb8.5
+    174                  break;
+   \   0000EB   02....       LJMP    ??HalIOIntSet_0 & 0xFFFF
+    175              case 1:
+    176                  if(trigger == IOInt_None)
+   \                     ??HalIOIntSet_4:
+   \   0000EE   EC           MOV     A,R4
+   \   0000EF   7013         JNZ     ??HalIOIntSet_9
+    177                      CLRBIT(P1IEN, bit);
+   \   0000F1   75..01       MOV     ?V0 + 0,#0x1
+   \   0000F4   75..00       MOV     ?V0 + 1,#0x0
+   \   0000F7   EE           MOV     A,R6
+   \   0000F8   78..         MOV     R0,#?V0 + 0
+   \   0000FA   12....       LCALL   ?S_SHL
+   \   0000FD   E5..         MOV     A,?V0 + 0
+   \   0000FF   F4           CPL     A
+   \   000100   528D         ANL     0x8d,A
+   \   000102   8042         SJMP    ??HalIOIntSet_10
+    178                  else
+    179                  {
+    180                      uint8 ctlBit = (bit <= 3) ? 1 : 2;
+   \                     ??HalIOIntSet_9:
+   \   000104   EE           MOV     A,R6
+   \   000105   C3           CLR     C
+   \   000106   9404         SUBB    A,#0x4
+   \   000108   5004         JNC     ??HalIOIntSet_11
+   \   00010A   7901         MOV     R1,#0x1
+   \   00010C   8002         SJMP    ??HalIOIntSet_12
+   \                     ??HalIOIntSet_11:
+   \   00010E   7902         MOV     R1,#0x2
+    181                      SETBIT(P1IEN, bit);
+   \                     ??HalIOIntSet_12:
+   \   000110   75..01       MOV     ?V0 + 0,#0x1
+   \   000113   75..00       MOV     ?V0 + 1,#0x0
+   \   000116   EE           MOV     A,R6
+   \   000117   78..         MOV     R0,#?V0 + 0
+   \   000119   12....       LCALL   ?S_SHL
+   \   00011C   E5..         MOV     A,?V0 + 0
+   \   00011E   428D         ORL     0x8d,A
+    182                      if(trigger == IOInt_Rising)
+   \   000120   7401         MOV     A,#0x1
+   \   000122   6C           XRL     A,R4
+   \   000123   7012         JNZ     ??HalIOIntSet_13
+    183                          CLRBIT(PICTL, ctlBit);
+   \   000125   E9           MOV     A,R1
+   \   000126   F8           MOV     R0,A
+   \   000127   7401         MOV     A,#0x1
+   \   000129   B80002       CJNE    R0,#0x0,??HalIOIntSet_14
+   \   00012C   8004         SJMP    ??HalIOIntSet_15
+   \                     ??HalIOIntSet_14:
+   \   00012E   C3           CLR     C
+   \   00012F   33           RLC     A
+   \   000130   D8FC         DJNZ    R0,??HalIOIntSet_14
+   \                     ??HalIOIntSet_15:
+   \   000132   F4           CPL     A
+   \   000133   528C         ANL     0x8c,A
+   \   000135   800F         SJMP    ??HalIOIntSet_10
+    184                      else
+    185                          SETBIT(PICTL, ctlBit);
+   \                     ??HalIOIntSet_13:
+   \   000137   E9           MOV     A,R1
+   \   000138   F8           MOV     R0,A
+   \   000139   7401         MOV     A,#0x1
+   \   00013B   B80002       CJNE    R0,#0x0,??HalIOIntSet_16
+   \   00013E   8004         SJMP    ??HalIOIntSet_17
+   \                     ??HalIOIntSet_16:
+   \   000140   C3           CLR     C
+   \   000141   33           RLC     A
+   \   000142   D8FC         DJNZ    R0,??HalIOIntSet_16
+   \                     ??HalIOIntSet_17:
+   \   000144   428C         ORL     0x8c,A
+    186                  }
+    187                  P1IFG = 0X00;     //清除P0相应位中断标志
+   \                     ??HalIOIntSet_10:
+   \   000146   758A00       MOV     0x8a,#0x0
+    188                  P1IF = 0;         //清除P0端口总中断标志
+   \   000149   C2EB         CLR     0xe8.3
+    189                  //SETBIT(IEN2, 4);  //P1总中断允许
+    190                  CLRBIT(IEN2, 4);    //P1总中断禁止
+   \   00014B   539AEF       ANL     0x9a,#0xef
+    191                  break;
+   \   00014E   8035         SJMP    ??HalIOIntSet_0
+    192              case 2:
+    193                  if(trigger == IOInt_None)
+   \                     ??HalIOIntSet_5:
+   \   000150   EC           MOV     A,R4
+   \   000151   75..01       MOV     ?V0 + 0,#0x1
+   \   000154   75..00       MOV     ?V0 + 1,#0x0
+   \   000157   700D         JNZ     ??HalIOIntSet_18
+    194                      CLRBIT(P2IEN, bit);
+   \   000159   EE           MOV     A,R6
+   \   00015A   78..         MOV     R0,#?V0 + 0
+   \   00015C   12....       LCALL   ?S_SHL
+   \   00015F   E5..         MOV     A,?V0 + 0
+   \   000161   F4           CPL     A
+   \   000162   52AC         ANL     0xac,A
+   \   000164   8017         SJMP    ??HalIOIntSet_19
+    195                  else
+    196                  {
+    197                      SETBIT(P2IEN, bit);
+   \                     ??HalIOIntSet_18:
+   \   000166   EE           MOV     A,R6
+   \   000167   78..         MOV     R0,#?V0 + 0
+   \   000169   12....       LCALL   ?S_SHL
+   \   00016C   E5..         MOV     A,?V0 + 0
+   \   00016E   42AC         ORL     0xac,A
+    198                      if(trigger == IOInt_Rising)
+   \   000170   7401         MOV     A,#0x1
+   \   000172   6C           XRL     A,R4
+   \   000173   7005         JNZ     ??HalIOIntSet_20
+    199                          CLRBIT(PICTL, 3);
+   \   000175   538CF7       ANL     0x8c,#0xf7
+   \   000178   8003         SJMP    ??HalIOIntSet_19
+    200                      else
+    201                          SETBIT(PICTL, 3);
+   \                     ??HalIOIntSet_20:
+   \   00017A   438C08       ORL     0x8c,#0x8
+    202                  }
+    203                  P2IFG = 0X00;     //清除P0相应位中断标志
+   \                     ??HalIOIntSet_19:
+   \   00017D   758B00       MOV     0x8b,#0x0
+    204                  P2IF = 0;         //清除P0端口总中断标志
+   \   000180   C2E8         CLR     0xe8.0
+    205                  //SETBIT(IEN2, 1);  //P2总中断允许
+    206                  CLRBIT(IEN2, 1);    //P2总中断禁止
+   \   000182   539AFD       ANL     0x9a,#0xfd
+    207                  break;
+   \                     ??HalIOIntSet_0:
+   \   000185   7F04         MOV     R7,#0x4
+   \   000187   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   00018A                REQUIRE P0IEN
+   \   00018A                REQUIRE PICTL
+   \   00018A                REQUIRE P0IFG
+   \   00018A                REQUIRE _A_IRCON
+   \   00018A                REQUIRE _A_IEN1
+   \   00018A                REQUIRE P1IEN
+   \   00018A                REQUIRE P1IFG
+   \   00018A                REQUIRE _A_IRCON2
+   \   00018A                REQUIRE IEN2
+   \   00018A                REQUIRE P2IEN
+   \   00018A                REQUIRE P2IFG
+    208              default :
+    209                  break;
+    210              }
+    211          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   33           RLC     A
+   \   000001   F9           MOV     R1,A
+   \   000002   74..         MOV     A,#(ioIntResMap + 25) & 0xff
+   \   000004   28           ADD     A,R0
+   \   000005   F582         MOV     DPL,A
+   \   000007   74..         MOV     A,#((ioIntResMap + 25) >> 8) & 0xff
+   \   000009   39           ADDC    A,R1
+   \   00000A   F583         MOV     DPH,A
+   \   00000C   22           RET
+    212          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    213          void HalIOPortPoll()
+   \                     HalIOPortPoll:
+    214          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    215              OSALIOIntData_t* IOIntData;
+    216          
+    217              uint8 idx;
+    218              uint8 flag = ioIntResMap.intInUse[0] & P0IFG;
+   \   000005   90....       MOV     DPTR,#ioIntResMap + 1
+   \   000008   E0           MOVX    A,@DPTR
+   \   000009   5589         ANL     A,0x89
+   \   00000B   FF           MOV     R7,A
+    219              for(idx = 0; flag && (idx < 8); idx++)
+   \   00000C   7E00         MOV     R6,#0x0
+   \   00000E   6022         JZ      ??HalIOPortPoll_0
+    220              {
+    221                  if(BV(idx) & flag)
+   \                     ??HalIOPortPoll_1:
+   \   000010   75..01       MOV     ?V0 + 0,#0x1
+   \   000013   75..00       MOV     ?V0 + 1,#0x0
+   \   000016   EE           MOV     A,R6
+   \   000017   78..         MOV     R0,#?V0 + 0
+   \   000019   12....       LCALL   ?S_SHL
+   \   00001C   E5..         MOV     A,?V0 + 0
+   \   00001E   5F           ANL     A,R7
+   \   00001F   600A         JZ      ??CrossCallReturnLabel_6
+    222                  {
+    223                      IOIntData = (OSALIOIntData_t *)osal_msg_allocate(sizeof(OSALIOIntData_t));
+   \   000021                ; Setup parameters for call to function osal_msg_allocate
+   \   000021   12....       LCALL   ?Subroutine4 & 0xFFFF
+    224                      IOIntData->hdr.event = IOPORT_INT_EVENT;
+    225                      IOIntData->endPoint = ioIntResMap.endPointMap[HAL_IOPORT(0, idx)];
+   \                     ??CrossCallReturnLabel_2:
+   \   000024   8E82         MOV     DPL,R6
+   \   000026   A882         MOV     R0,DPL
+   \   000028   12....       LCALL   ??Subroutine6_0 & 0xFFFF
+    226                      IOIntData->arg = ioIntResMap.endPointArgMap[HAL_IOPORT(0, idx)];
+    227                      osal_msg_send(ioIntResMap.ioIntTskId, (uint8*)(IOIntData));
+    228                  }
+    229              }
+   \                     ??CrossCallReturnLabel_6:
+   \   00002B   0E           INC     R6
+   \   00002C   EE           MOV     A,R6
+   \   00002D   C3           CLR     C
+   \   00002E   9408         SUBB    A,#0x8
+   \   000030   40DE         JC      ??HalIOPortPoll_1
+    230              flag = ioIntResMap.intInUse[1] & P1IFG;
+   \                     ??HalIOPortPoll_0:
+   \   000032   90....       MOV     DPTR,#ioIntResMap + 2
+   \   000035   E0           MOVX    A,@DPTR
+   \   000036   558A         ANL     A,0x8a
+   \   000038   FF           MOV     R7,A
+    231              for(idx = 0; flag && (idx < 8); idx++)
+   \   000039   7E00         MOV     R6,#0x0
+   \   00003B   6020         JZ      ??HalIOPortPoll_2
+    232              {
+    233                  if(BV(idx) & flag)
+   \                     ??HalIOPortPoll_3:
+   \   00003D   75..01       MOV     ?V0 + 0,#0x1
+   \   000040   75..00       MOV     ?V0 + 1,#0x0
+   \   000043   EE           MOV     A,R6
+   \   000044   78..         MOV     R0,#?V0 + 0
+   \   000046   12....       LCALL   ?S_SHL
+   \   000049   E5..         MOV     A,?V0 + 0
+   \   00004B   5F           ANL     A,R7
+   \   00004C   6008         JZ      ??CrossCallReturnLabel_4
+    234                  {
+    235                      IOIntData = (OSALIOIntData_t *)osal_msg_allocate(sizeof(OSALIOIntData_t));
+   \   00004E                ; Setup parameters for call to function osal_msg_allocate
+   \   00004E   12....       LCALL   ?Subroutine3 & 0xFFFF
+    236                      IOIntData->hdr.event = IOPORT_INT_EVENT;
+    237                      IOIntData->endPoint = ioIntResMap.endPointMap[HAL_IOPORT(1, idx)];
+    238                      IOIntData->arg = ioIntResMap.endPointArgMap[HAL_IOPORT(1, idx)];
+    239                      osal_msg_send(ioIntResMap.ioIntTskId, (uint8*)(IOIntData));
+    240                  }
+    241              }
+   \                     ??CrossCallReturnLabel_0:
+   \   000051   4408         ORL     A,#0x8
+   \   000053   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   000056   0E           INC     R6
+   \   000057   EE           MOV     A,R6
+   \   000058   C3           CLR     C
+   \   000059   9408         SUBB    A,#0x8
+   \   00005B   40E0         JC      ??HalIOPortPoll_3
+    242              flag = ioIntResMap.intInUse[2] & P2IFG;
+   \                     ??HalIOPortPoll_2:
+   \   00005D   90....       MOV     DPTR,#ioIntResMap + 3
+   \   000060   E0           MOVX    A,@DPTR
+   \   000061   558B         ANL     A,0x8b
+   \   000063   FF           MOV     R7,A
+    243              for(idx = 0; flag && (idx < 5); idx++)
+   \   000064   7E00         MOV     R6,#0x0
+   \   000066   6020         JZ      ??HalIOPortPoll_4
+    244              {
+    245                  if(BV(idx) & flag)
+   \                     ??HalIOPortPoll_5:
+   \   000068   75..01       MOV     ?V0 + 0,#0x1
+   \   00006B   75..00       MOV     ?V0 + 1,#0x0
+   \   00006E   EE           MOV     A,R6
+   \   00006F   78..         MOV     R0,#?V0 + 0
+   \   000071   12....       LCALL   ?S_SHL
+   \   000074   E5..         MOV     A,?V0 + 0
+   \   000076   5F           ANL     A,R7
+   \   000077   6008         JZ      ??CrossCallReturnLabel_5
+    246                  {
+    247                      IOIntData = (OSALIOIntData_t *)osal_msg_allocate(sizeof(OSALIOIntData_t));
+   \   000079                ; Setup parameters for call to function osal_msg_allocate
+   \   000079   12....       LCALL   ?Subroutine3 & 0xFFFF
+    248                      IOIntData->hdr.event = IOPORT_INT_EVENT;
+    249                      IOIntData->endPoint = ioIntResMap.endPointMap[HAL_IOPORT(2, idx)];
+    250                      IOIntData->arg = ioIntResMap.endPointArgMap[HAL_IOPORT(2, idx)];
+    251                      osal_msg_send(ioIntResMap.ioIntTskId, (uint8*)(IOIntData));
+    252                  }
+    253              }
+   \                     ??CrossCallReturnLabel_1:
+   \   00007C   4410         ORL     A,#0x10
+   \   00007E   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000081   0E           INC     R6
+   \   000082   EE           MOV     A,R6
+   \   000083   C3           CLR     C
+   \   000084   9405         SUBB    A,#0x5
+   \   000086   40E0         JC      ??HalIOPortPoll_5
+    254              // 中断事件处理完毕,清除硬件中断标志位。
+    255              P0IFG = 0;
+   \                     ??HalIOPortPoll_4:
+   \   000088   758900       MOV     0x89,#0x0
+    256              P1IFG = 0;
+   \   00008B   758A00       MOV     0x8a,#0x0
+    257              P2IFG = 0;
+   \   00008E   758B00       MOV     0x8b,#0x0
+    258          }
+   \   000091   02....       LJMP    ?Subroutine0 & 0xFFFF
+   \   000094                REQUIRE P0IFG
+   \   000094                REQUIRE P1IFG
+   \   000094                REQUIRE P2IFG
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   000003   8E..         MOV     ?V0 + 0,R6
+   \   000005   E5..         MOV     A,?V0 + 0
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   7A05         MOV     R2,#0x5
+   \   000002   7B00         MOV     R3,#0x0
+   \   000004   12....       LCALL   ??osal_msg_allocate?relay
+   \   000007   8A82         MOV     DPL,R2
+   \   000009   8B83         MOV     DPH,R3
+   \   00000B   74F0         MOV     A,#-0x10
+   \   00000D   F0           MOVX    @DPTR,A
+   \   00000E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   F8           MOV     R0,A
+   \   000001                REQUIRE ??Subroutine6_0
+   \   000001                ; // Fall through to label ??Subroutine6_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine6_0:
+   \   000000   74..         MOV     A,#(ioIntResMap + 4) & 0xff
+   \   000002   28           ADD     A,R0
+   \   000003   F582         MOV     DPL,A
+   \   000005   74..         MOV     A,#((ioIntResMap + 4) >> 8) & 0xff
+   \   000007   3400         ADDC    A,#0x0
+   \   000009   F583         MOV     DPH,A
+   \   00000B   E0           MOVX    A,@DPTR
+   \   00000C   8A82         MOV     DPL,R2
+   \   00000E   8B83         MOV     DPH,R3
+   \   000010   A3           INC     DPTR
+   \   000011   A3           INC     DPTR
+   \   000012   F0           MOVX    @DPTR,A
+   \   000013   E8           MOV     A,R0
+   \   000014   C3           CLR     C
+   \   000015   33           RLC     A
+   \   000016   F8           MOV     R0,A
+   \   000017   E4           CLR     A
+   \   000018   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   00001B   E0           MOVX    A,@DPTR
+   \   00001C   F8           MOV     R0,A
+   \   00001D   A3           INC     DPTR
+   \   00001E   E0           MOVX    A,@DPTR
+   \   00001F   F9           MOV     R1,A
+   \   000020   8A82         MOV     DPL,R2
+   \   000022   8B83         MOV     DPH,R3
+   \   000024   A3           INC     DPTR
+   \   000025   A3           INC     DPTR
+   \   000026   A3           INC     DPTR
+   \   000027   E8           MOV     A,R0
+   \   000028   F0           MOVX    @DPTR,A
+   \   000029   A3           INC     DPTR
+   \   00002A   E9           MOV     A,R1
+   \   00002B   F0           MOVX    @DPTR,A
+   \   00002C                ; Setup parameters for call to function osal_msg_send
+   \   00002C                ; Setup parameters for call to function osal_msg_send
+   \   00002C                ; Setup parameters for call to function osal_msg_send
+   \   00002C   90....       MOV     DPTR,#ioIntResMap
+   \   00002F   E0           MOVX    A,@DPTR
+   \   000030   F9           MOV     R1,A
+   \   000031   12....       LCALL   ??osal_msg_send?relay
+   \   000034   22           RET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalIOInit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalIOInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalIOSetInput?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalIOSetInput
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalIOSetOutput?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalIOSetOutput
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalIOGetLevel?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalIOGetLevel
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalIOSetLevel?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalIOSetLevel
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalIOIntSet?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalIOIntSet
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalIOPortPoll?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalIOPortPoll
+
+   Maximum stack usage in bytes:
+
+     Function               ISTACK PSTACK XSTACK
+     --------               ------ ------ ------
+     HalIOGetLevel              2      0      0
+     HalIOInit                  0      0     12
+       -> memset                0      0     24
+     HalIOIntSet                1      0     14
+     HalIOPortPoll              1      0     10
+       -> osal_msg_allocate     0      0     20
+       -> osal_msg_send         0      0     20
+       -> osal_msg_allocate     0      0     20
+       -> osal_msg_send         0      0     20
+       -> osal_msg_allocate     0      0     20
+       -> osal_msg_send         0      0     20
+     HalIOSetInput              2      0      0
+     HalIOSetLevel              2      0      0
+     HalIOSetOutput             2      0      0
+
+
+   Segment part sizes:
+
+     Function/Label         Bytes
+     --------------         -----
+     _A_P0                     1
+     P0IFG                     1
+     P1IFG                     1
+     P2IFG                     1
+     PICTL                     1
+     P1IEN                     1
+     P0INP                     1
+     _A_P1                     1
+     IEN2                      1
+     _A_P2                     1
+     P0IEN                     1
+     P2IEN                     1
+     _A_IEN1                   1
+     _A_IRCON                  1
+     _A_IRCON2                 1
+     P0SEL                     1
+     P1SEL                     1
+     P2SEL                     1
+     P1INP                     1
+     P2INP                     1
+     P0DIR                     1
+     P1DIR                     1
+     P2DIR                     1
+     ioIntResMap              67
+     HalIOInit                39
+     ?Subroutine0              5
+     HalIOSetInput           309
+     ?Subroutine1              7
+     HalIOSetOutput           78
+     HalIOGetLevel            77
+     HalIOSetLevel           117
+     HalIOIntSet             394
+     ?Subroutine5             13
+     HalIOPortPoll           148
+     ?Subroutine3              8
+     ?Subroutine4             15
+     ?Subroutine2              1
+     ??Subroutine6_0          53
+     ??HalIOInit?relay         6
+     ??HalIOSetInput?relay     6
+     ??HalIOSetOutput?relay    6
+     ??HalIOGetLevel?relay     6
+     ??HalIOSetLevel?relay     6
+     ??HalIOIntSet?relay       6
+     ??HalIOPortPoll?relay     6
+
+ 
+ 1 264 bytes in segment BANKED_CODE
+    42 bytes in segment BANK_RELAYS
+    23 bytes in segment SFR_AN
+    67 bytes in segment XDATA_Z
+ 
+ 1 306 bytes of CODE  memory
+     0 bytes of DATA  memory (+ 23 bytes shared)
+    67 bytes of XDATA memory
+
+Errors: none
+Warnings: none

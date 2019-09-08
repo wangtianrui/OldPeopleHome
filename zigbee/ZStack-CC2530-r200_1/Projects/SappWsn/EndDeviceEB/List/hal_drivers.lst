@@ -1,0 +1,595 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         02/Sep/2019  17:51:21 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Components\hal\common\hal_drivers.c              #
+#    Command line       =  -f C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8w #
+#                          Endev.cfg (-DCPU32MHZ -DROOT=__near_func           #
+#                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6         #
+#                          -DMAC_CFG_RX_MAX=3) -f C:\Users\Administrator\Desk #
+#                          top\ZStack-CC2530-r200_1\Projects\SappWsn\..\zstac #
+#                          k\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO        #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x94127                      #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 C:\Users\Administrator\Desk #
+#                          top\ZStack-CC2530-r200_1\Components\hal\common\hal #
+#                          _drivers.c -D NWK_AUTO_POLL -D ZTOOL_P1 -D         #
+#                          xMT_TASK -D xMT_SYS_FUNC -D MT_ZDO_FUNC -D         #
+#                          SAPP_ZSTACK -lC C:\Users\Administrator\Desktop\ZSt #
+#                          ack-CC2530-r200_1\Projects\SappWsn\EndDeviceEB\Lis #
+#                          t\ -lA C:\Users\Administrator\Desktop\ZStack-CC253 #
+#                          0-r200_1\Projects\SappWsn\EndDeviceEB\List\        #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\EndDeviceEB\Obj\ -e             #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\ -I                          #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\Source\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\zstack\ZMain\TI2530DB\ -I    #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\hal\include\   #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\hal\target\ #
+#                          CC2530EB\ -I C:\Users\Administrator\Desktop\ZStack #
+#                          -CC2530-r200_1\Projects\SappWsn\..\..\Components\m #
+#                          ac\include\ -I C:\Users\Administrator\Desktop\ZSta #
+#                          ck-CC2530-r200_1\Projects\SappWsn\..\..\Components #
+#                          \mac\high_level\ -I C:\Users\Administrator\Desktop #
+#                          \ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Compo #
+#                          nents\mac\low_level\srf04\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\mac\low_level\ #
+#                          srf04\single_chip\ -I C:\Users\Administrator\Deskt #
+#                          op\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Com #
+#                          ponents\mt\ -I C:\Users\Administrator\Desktop\ZSta #
+#                          ck-CC2530-r200_1\Projects\SappWsn\..\..\Components #
+#                          \osal\include\ -I C:\Users\Administrator\Desktop\Z #
+#                          Stack-CC2530-r200_1\Projects\SappWsn\..\..\Compone #
+#                          nts\services\saddr\ -I C:\Users\Administrator\Desk #
+#                          top\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Co #
+#                          mponents\services\sdata\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\stack\af\ -I   #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\stack\nwk\ -I  #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\stack\sapi\    #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\stack\sec\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\stack\sys\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\stack\zdo\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\zmac\ -I    #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\zmac\f8w\      #
+#                          -Ohz --require_prototypes                          #
+#    List file          =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\EndDeviceEB\List\hal_drivers.ls #
+#                          t                                                  #
+#    Object file        =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\EndDeviceEB\Obj\hal_drivers.r51 #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Administrator\Desktop\ZStack-CC2530-r200_1\Components\hal\common\hal_drivers.c
+      1          /**************************************************************************************************
+      2            Filename:       hal_drivers.c
+      3            Revised:        $Date: 2007-07-06 10:42:24 -0700 (Fri, 06 Jul 2007) $
+      4            Revision:       $Revision: 13579 $
+      5          
+      6            Description:    This file contains the interface to the Drivers Service.
+      7          
+      8          
+      9            Copyright 2005-2010 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          
+     41          /**************************************************************************************************
+     42           *                                            INCLUDES
+     43           **************************************************************************************************/
+     44          #include "hal_types.h"
+     45          #include "OSAL.h"
+     46          #include "hal_drivers.h"
+     47          #include "hal_adc.h"
+     48          #if (defined HAL_DMA) && (HAL_DMA == TRUE)
+     49            #include "hal_dma.h"
+     50          #endif
+     51          #include "hal_key.h"
+     52          #include "hal_lcd.h"
+     53          #include "hal_led.h"
+     54          #include "hal_io.h"
+     55          #include "hal_timer.h"
+     56          #include "hal_uart.h"
+     57          #include "hal_sleep.h"
+     58          #if (defined HAL_AES) && (HAL_AES == TRUE)
+     59            #include "hal_aes.h"
+     60          #endif
+     61          
+     62          #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+     63            #include "hal_spi.h"
+     64          #endif
+     65          #if (defined HAL_HID) && (HAL_HID == TRUE)
+     66            #include "usb_hid.h"
+     67          #endif
+     68          
+     69          #ifdef CC2591_COMPRESSION_WORKAROUND
+     70            #include "mac_rx.h"
+     71          #endif
+     72          
+     73          /**************************************************************************************************
+     74           *                                            MACROS
+     75           **************************************************************************************************/
+     76          
+     77          
+     78          
+     79          /**************************************************************************************************
+     80           *                                          CONSTANTS
+     81           **************************************************************************************************/
+     82          
+     83          
+     84          /**************************************************************************************************
+     85           *                                          TYPEDEFS
+     86           **************************************************************************************************/
+     87          
+     88          
+     89          /**************************************************************************************************
+     90           *                                      GLOBAL VARIABLES
+     91           **************************************************************************************************/
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     92          uint8 Hal_TaskID;
+   \                     Hal_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     93          
+     94          extern void HalLedUpdate( void ); /* Notes: This for internal only so it shouldn't be in hal_led.h */
+     95          
+     96          /**************************************************************************************************
+     97           *                                      FUNCTIONS - API
+     98           **************************************************************************************************/
+     99          
+    100          /**************************************************************************************************
+    101           * @fn      Hal_Init
+    102           *
+    103           * @brief   Hal Initialization function.
+    104           *
+    105           * @param   task_id - Hal TaskId
+    106           *
+    107           * @return  None
+    108           **************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    109          void Hal_Init( uint8 task_id )
+   \                     Hal_Init:
+    110          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    111            /* Register task ID */
+    112            Hal_TaskID = task_id;
+   \   000004   E9           MOV     A,R1
+   \   000005   90....       MOV     DPTR,#Hal_TaskID
+   \   000008   F0           MOVX    @DPTR,A
+    113            
+    114          #ifdef CC2591_COMPRESSION_WORKAROUND  
+    115            osal_start_reload_timer( Hal_TaskID, PERIOD_RSSI_RESET_EVT, PERIOD_RSSI_RESET_TIMEOUT );
+    116          #endif  
+    117          }
+   \   000009                REQUIRE ?Subroutine0
+   \   000009                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    118          
+    119          /**************************************************************************************************
+    120           * @fn      Hal_DriverInit
+    121           *
+    122           * @brief   Initialize HW - These need to be initialized before anyone.
+    123           *
+    124           * @param   task_id - Hal TaskId
+    125           *
+    126           * @return  None
+    127           **************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    128          void HalDriverInit (void)
+   \                     HalDriverInit:
+    129          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    130            /* TIMER */
+    131          #if (defined HAL_TIMER) && (HAL_TIMER == TRUE)
+    132            #error "The hal timer driver module is removed."
+    133          #endif
+    134          
+    135            /* ADC */
+    136          #if (defined HAL_ADC) && (HAL_ADC == TRUE)
+    137            HalAdcInit();
+   \   000004                ; Setup parameters for call to function HalAdcInit
+   \   000004   12....       LCALL   ??HalAdcInit?relay
+    138          #endif
+    139          
+    140            /* DMA */
+    141          #if (defined HAL_DMA) && (HAL_DMA == TRUE)
+    142            // Must be called before the init call to any module that uses DMA.
+    143            HalDmaInit();
+   \   000007                ; Setup parameters for call to function HalDmaInit
+   \   000007   12....       LCALL   ??HalDmaInit?relay
+    144          #endif
+    145          
+    146            /* AES */
+    147          #if (defined HAL_AES) && (HAL_AES == TRUE)
+    148            HalAesInit();
+   \   00000A                ; Setup parameters for call to function HalAesInit
+   \   00000A   12....       LCALL   ??HalAesInit?relay
+    149          #endif
+    150          
+    151            /* LCD */
+    152          #if (defined HAL_LCD) && (HAL_LCD == TRUE)
+    153            HalLcdInit();
+    154          #endif
+    155          
+    156            /* LED */
+    157          #if (defined HAL_LED) && (HAL_LED == TRUE)
+    158            HalLedInit();
+   \   00000D                ; Setup parameters for call to function HalLedInit
+   \   00000D   12....       LCALL   ??HalLedInit?relay
+    159          #endif
+    160          
+    161            /* UART */
+    162          #if (defined HAL_UART) && (HAL_UART == TRUE)
+    163            HalUARTInit();
+   \   000010                ; Setup parameters for call to function HalUARTInit
+   \   000010   12....       LCALL   ??HalUARTInit?relay
+    164          #endif
+    165          
+    166            /* KEY */
+    167          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
+    168            HalKeyInit();
+    169          #endif
+    170          
+    171            /* SPI */
+    172          #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+    173            HalSpiInit();
+    174          #endif
+    175          
+    176            /* HID */
+    177          #if (defined HAL_HID) && (HAL_HID == TRUE)
+    178            usbHidInit();
+    179          #endif
+    180          }
+   \   000013   80..         SJMP    ?Subroutine0
+    181          
+    182          
+    183          /**************************************************************************************************
+    184           * @fn      Hal_ProcessEvent
+    185           *
+    186           * @brief   Hal Process Event
+    187           *
+    188           * @param   task_id - Hal TaskId
+    189           *          events - events
+    190           *
+    191           * @return  None
+    192           **************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    193          uint16 Hal_ProcessEvent( uint8 task_id, uint16 events )
+   \                     Hal_ProcessEvent:
+    194          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    195            uint8 *msgPtr;
+    196            
+    197            (void)task_id;  // Intentionally unreferenced parameter
+    198          
+    199            if ( events & SYS_EVENT_MSG )
+   \   000009   5480         ANL     A,#0x80
+   \   00000B   6019         JZ      ??Hal_ProcessEvent_0
+    200            {
+    201              msgPtr = osal_msg_receive(Hal_TaskID);
+   \   00000D                ; Setup parameters for call to function osal_msg_receive
+   \   00000D   8003         SJMP    ??Hal_ProcessEvent_1
+    202          
+    203              while (msgPtr)
+    204              {
+    205                /* Do something here - for now, just deallocate the msg and move on */
+    206          
+    207                /* De-allocate */
+    208                osal_msg_deallocate( msgPtr );
+   \                     ??Hal_ProcessEvent_2:
+   \   00000F                ; Setup parameters for call to function osal_msg_deallocate
+   \   00000F   12....       LCALL   ??osal_msg_deallocate?relay
+    209                /* Next */
+    210                msgPtr = osal_msg_receive( Hal_TaskID );
+   \   000012                ; Setup parameters for call to function osal_msg_receive
+   \                     ??Hal_ProcessEvent_1:
+   \   000012   90....       MOV     DPTR,#Hal_TaskID
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   F9           MOV     R1,A
+   \   000017   12....       LCALL   ??osal_msg_receive?relay
+    211              }
+   \   00001A   EA           MOV     A,R2
+   \   00001B   4B           ORL     A,R3
+   \   00001C   70F1         JNZ     ??Hal_ProcessEvent_2
+    212              return events ^ SYS_EVENT_MSG;
+   \   00001E   EE           MOV     A,R6
+   \   00001F   FA           MOV     R2,A
+   \   000020   EF           MOV     A,R7
+   \   000021   6480         XRL     A,#0x80
+   \                     ??Hal_ProcessEvent_3:
+   \   000023   FB           MOV     R3,A
+   \   000024   801D         SJMP    ??Hal_ProcessEvent_4
+    213            }
+    214          
+    215            if ( events & HAL_LED_BLINK_EVENT )
+   \                     ??Hal_ProcessEvent_0:
+   \   000026   EE           MOV     A,R6
+   \   000027   5402         ANL     A,#0x2
+   \   000029   600A         JZ      ??Hal_ProcessEvent_5
+    216            {
+    217          #if (defined (BLINK_LEDS)) && (HAL_LED == TRUE)
+    218              HalLedUpdate();
+   \   00002B                ; Setup parameters for call to function HalLedUpdate
+   \   00002B   12....       LCALL   ??HalLedUpdate?relay
+    219          #endif /* BLINK_LEDS && HAL_LED */
+    220              return events ^ HAL_LED_BLINK_EVENT;
+   \   00002E   EE           MOV     A,R6
+   \   00002F   6402         XRL     A,#0x2
+   \   000031   FA           MOV     R2,A
+   \   000032   EF           MOV     A,R7
+   \   000033   80EE         SJMP    ??Hal_ProcessEvent_3
+    221            }
+    222          
+    223            if (events & HAL_KEY_EVENT)
+   \                     ??Hal_ProcessEvent_5:
+   \   000035   EE           MOV     A,R6
+   \   000036   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000038   5005         JNC     ??Hal_ProcessEvent_6
+    224            {
+    225          
+    226          #if (defined HAL_KEY) && (HAL_KEY == TRUE)
+    227              /* Check for keys */
+    228              HalKeyPoll();
+    229          
+    230              /* if interrupt disabled, do next polling */
+    231              if (!Hal_KeyIntEnable)
+    232              {
+    233                osal_start_timerEx( Hal_TaskID, HAL_KEY_EVENT, 100);
+    234              }
+    235          #endif // HAL_KEY
+    236          
+    237              return events ^ HAL_KEY_EVENT;
+   \   00003A   6401         XRL     A,#0x1
+   \   00003C   FA           MOV     R2,A
+   \   00003D   8004         SJMP    ??Hal_ProcessEvent_4
+    238            }
+    239          
+    240          #ifdef POWER_SAVING
+    241            if ( events & HAL_SLEEP_TIMER_EVENT )
+    242            {
+    243              halRestoreSleepLevel();
+    244              return events ^ HAL_SLEEP_TIMER_EVENT;
+    245            }
+    246          #endif
+    247          
+    248          #ifdef CC2591_COMPRESSION_WORKAROUND
+    249            if ( events & PERIOD_RSSI_RESET_EVT )
+    250            {
+    251              macRxResetRssi();
+    252              return (events ^ PERIOD_RSSI_RESET_EVT);
+    253            }
+    254          #endif  
+    255            
+    256            /* Nothing interested, discard the message */
+    257            return 0;
+   \                     ??Hal_ProcessEvent_6:
+   \   00003F   7A00         MOV     R2,#0x0
+   \   000041   7B00         MOV     R3,#0x0
+   \                     ??Hal_ProcessEvent_4:
+   \   000043   7F02         MOV     R7,#0x2
+   \   000045   02....       LJMP    ?BANKED_LEAVE_XDATA
+    258          
+    259          }
+    260          
+    261          /**************************************************************************************************
+    262           * @fn      Hal_ProcessPoll
+    263           *
+    264           * @brief   This routine will be called by OSAL to poll UART, TIMER...
+    265           *
+    266           * @param   task_id - Hal TaskId
+    267           *
+    268           * @return  None
+    269           **************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    270          void Hal_ProcessPoll ()
+   \                     Hal_ProcessPoll:
+    271          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    272          
+    273            /* Timer Poll */
+    274          #if (defined HAL_TIMER) && (HAL_TIMER == TRUE)
+    275              #error "The hal timer driver module is removed."
+    276          #endif
+    277          
+    278            /* UART Poll */
+    279          #if (defined HAL_UART) && (HAL_UART == TRUE)
+    280              HalUARTPoll();
+   \   000004                ; Setup parameters for call to function HalUARTPoll
+   \   000004   12....       LCALL   ??HalUARTPoll?relay
+    281          #endif
+    282            
+    283              HalIOPortPoll();
+   \   000007                ; Setup parameters for call to function HalIOPortPoll
+   \   000007   12....       LCALL   ??HalIOPortPoll?relay
+    284          
+    285            /* SPI Poll */
+    286          #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+    287              HalSpiPoll();
+    288          #endif
+    289          
+    290            /* HID poll */
+    291          #if (defined HAL_HID) && (HAL_HID == TRUE)
+    292              usbHidProcessEvents();
+    293          #endif
+    294            
+    295          #if defined( POWER_SAVING )
+    296              /* Allow sleep before the next OSAL event loop */
+    297              ALLOW_SLEEP_MODE();
+    298          #endif
+    299          
+    300          }
+   \   00000A   80..         SJMP    ?Subroutine0
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Hal_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Hal_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??HalDriverInit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalDriverInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Hal_ProcessEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Hal_ProcessEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??Hal_ProcessPoll?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    Hal_ProcessPoll
+    301          
+    302          
+    303          /**************************************************************************************************
+    304          **************************************************************************************************/
+    305          
+
+   Maximum stack usage in bytes:
+
+     Function                 ISTACK PSTACK XSTACK
+     --------                 ------ ------ ------
+     HalDriverInit                2      0      0
+       -> HalAdcInit              4      0      0
+       -> HalDmaInit              4      0      0
+       -> HalAesInit              4      0      0
+       -> HalLedInit              4      0      0
+       -> HalUARTInit             4      0      0
+     Hal_Init                     2      0      0
+     Hal_ProcessEvent             0      0     10
+       -> osal_msg_receive        0      0     20
+       -> osal_msg_deallocate     0      0     20
+       -> osal_msg_receive        0      0     20
+       -> HalLedUpdate            0      0     20
+     Hal_ProcessPoll              2      0      0
+       -> HalUARTPoll             4      0      0
+       -> HalIOPortPoll           4      0      0
+
+
+   Segment part sizes:
+
+     Function/Label           Bytes
+     --------------           -----
+     Hal_TaskID                  1
+     Hal_Init                    9
+     ?Subroutine0                7
+     HalDriverInit              21
+     Hal_ProcessEvent           72
+     Hal_ProcessPoll            12
+     ??Hal_Init?relay            6
+     ??HalDriverInit?relay       6
+     ??Hal_ProcessEvent?relay    6
+     ??Hal_ProcessPoll?relay     6
+
+ 
+ 121 bytes in segment BANKED_CODE
+  24 bytes in segment BANK_RELAYS
+   1 byte  in segment XDATA_Z
+ 
+ 145 bytes of CODE  memory
+   1 byte  of XDATA memory
+
+Errors: none
+Warnings: none

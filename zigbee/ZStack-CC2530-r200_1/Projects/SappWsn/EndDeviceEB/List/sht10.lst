@@ -1,0 +1,1167 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         02/Sep/2019  17:56:30 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Components\hal\target\CC2530EB\sht10.c           #
+#    Command line       =  -f C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8w #
+#                          Endev.cfg (-DCPU32MHZ -DROOT=__near_func           #
+#                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6         #
+#                          -DMAC_CFG_RX_MAX=3) -f C:\Users\Administrator\Desk #
+#                          top\ZStack-CC2530-r200_1\Projects\SappWsn\..\zstac #
+#                          k\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO        #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x94127                      #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 C:\Users\Administrator\Desk #
+#                          top\ZStack-CC2530-r200_1\Components\hal\target\CC2 #
+#                          530EB\sht10.c -D NWK_AUTO_POLL -D ZTOOL_P1 -D      #
+#                          xMT_TASK -D xMT_SYS_FUNC -D MT_ZDO_FUNC -D         #
+#                          SAPP_ZSTACK -lC C:\Users\Administrator\Desktop\ZSt #
+#                          ack-CC2530-r200_1\Projects\SappWsn\EndDeviceEB\Lis #
+#                          t\ -lA C:\Users\Administrator\Desktop\ZStack-CC253 #
+#                          0-r200_1\Projects\SappWsn\EndDeviceEB\List\        #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\EndDeviceEB\Obj\ -e             #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\ -I                          #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\Source\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\zstack\ZMain\TI2530DB\ -I    #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\hal\include\   #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\hal\target\ #
+#                          CC2530EB\ -I C:\Users\Administrator\Desktop\ZStack #
+#                          -CC2530-r200_1\Projects\SappWsn\..\..\Components\m #
+#                          ac\include\ -I C:\Users\Administrator\Desktop\ZSta #
+#                          ck-CC2530-r200_1\Projects\SappWsn\..\..\Components #
+#                          \mac\high_level\ -I C:\Users\Administrator\Desktop #
+#                          \ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Compo #
+#                          nents\mac\low_level\srf04\ -I                      #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\mac\low_level\ #
+#                          srf04\single_chip\ -I C:\Users\Administrator\Deskt #
+#                          op\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Com #
+#                          ponents\mt\ -I C:\Users\Administrator\Desktop\ZSta #
+#                          ck-CC2530-r200_1\Projects\SappWsn\..\..\Components #
+#                          \osal\include\ -I C:\Users\Administrator\Desktop\Z #
+#                          Stack-CC2530-r200_1\Projects\SappWsn\..\..\Compone #
+#                          nts\services\saddr\ -I C:\Users\Administrator\Desk #
+#                          top\ZStack-CC2530-r200_1\Projects\SappWsn\..\..\Co #
+#                          mponents\services\sdata\ -I                        #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\stack\af\ -I   #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\stack\nwk\ -I  #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\stack\sapi\    #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\stack\sec\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\stack\sys\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\stack\zdo\  #
+#                          -I C:\Users\Administrator\Desktop\ZStack-CC2530-r2 #
+#                          00_1\Projects\SappWsn\..\..\Components\zmac\ -I    #
+#                          C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\..\..\Components\zmac\f8w\      #
+#                          -Ohz --require_prototypes                          #
+#    List file          =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\EndDeviceEB\List\sht10.lst      #
+#    Object file        =  C:\Users\Administrator\Desktop\ZStack-CC2530-r200_ #
+#                          1\Projects\SappWsn\EndDeviceEB\Obj\sht10.r51       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Administrator\Desktop\ZStack-CC2530-r200_1\Components\hal\target\CC2530EB\sht10.c
+      1          
+      2          #include "sht10.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+      3          
+      4          /***********************************************
+      5          **Function Name:      SHT10_Transstart
+      6          **Description:        发送开始时序
+      7          **
+      8          **                    generates a transmission start
+      9          **                          _____         ________
+     10          **                    DATA:      |_______|
+     11          **                              ___     ___
+     12          **                    SCK : ___|   |___|   |______
+     13          **Input Parameters:   	无
+     14          **Output Parameters: 	无
+     15          ************************************************/
+     16          
+     17          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     18          void SHT10_Transstart(void)
+   \                     SHT10_Transstart:
+     19          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     20              SDIO_DIR_OUT;
+   \   000000   12....       LCALL   ?Subroutine4 & 0xFFFF
+     21              SCLK_DIR_OUT;
+     22              SCLK_LOW;
+   \                     ??CrossCallReturnLabel_21:
+   \   000003   C280         CLR     0x80.0
+     23              SDIO_HIGH;
+   \   000005   D281         SETB    0x80.1
+     24              DELAY(DURATION1);
+   \   000007   78E8         MOV     R0,#-0x18
+   \   000009   7903         MOV     R1,#0x3
+   \                     ??SHT10_Transstart_0:
+   \   00000B   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00000E   70FB         JNZ     ??SHT10_Transstart_0
+     25              DELAY(DURATION1);
+   \   000010   78E8         MOV     R0,#-0x18
+   \   000012   7903         MOV     R1,#0x3
+   \                     ??SHT10_Transstart_1:
+   \   000014   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000017   70FB         JNZ     ??SHT10_Transstart_1
+     26              SCLK_HIGH;
+   \   000019   D280         SETB    0x80.0
+     27              DELAY(DURATION1);
+   \   00001B   78E8         MOV     R0,#-0x18
+   \   00001D   7903         MOV     R1,#0x3
+   \                     ??SHT10_Transstart_2:
+   \   00001F   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000022   70FB         JNZ     ??SHT10_Transstart_2
+     28              SDIO_LOW;
+   \   000024   C281         CLR     0x80.1
+     29              DELAY(DURATION1);
+   \   000026   78E8         MOV     R0,#-0x18
+   \   000028   7903         MOV     R1,#0x3
+   \                     ??SHT10_Transstart_3:
+   \   00002A   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   00002D   70FB         JNZ     ??SHT10_Transstart_3
+     30              SCLK_LOW;
+   \   00002F   C280         CLR     0x80.0
+     31              DELAY(DURATION1);
+   \   000031   78E8         MOV     R0,#-0x18
+   \   000033   7903         MOV     R1,#0x3
+   \                     ??SHT10_Transstart_4:
+   \   000035   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   000038   70FB         JNZ     ??SHT10_Transstart_4
+     32              SCLK_HIGH;
+   \   00003A   D280         SETB    0x80.0
+     33              DELAY(DURATION1);
+   \   00003C   78E8         MOV     R0,#-0x18
+   \   00003E   7903         MOV     R1,#0x3
+   \                     ??SHT10_Transstart_5:
+   \   000040   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000043   70FB         JNZ     ??SHT10_Transstart_5
+     34              SDIO_HIGH;
+   \   000045   D281         SETB    0x80.1
+     35              DELAY(DURATION1);
+   \   000047   78E8         MOV     R0,#-0x18
+   \   000049   7903         MOV     R1,#0x3
+   \                     ??SHT10_Transstart_6:
+   \   00004B   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   00004E   70FB         JNZ     ??SHT10_Transstart_6
+     36              SCLK_LOW;	
+   \   000050   C280         CLR     0x80.0
+     37          }
+   \   000052   02....       LJMP    ?BRET
+   \   000055                REQUIRE P0DIR
+   \   000055                REQUIRE _A_P0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   43FD02       ORL     0xfd,#0x2
+   \   000003   43FD01       ORL     0xfd,#0x1
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   E8           MOV     A,R0
+   \   000001   FA           MOV     R2,A
+   \   000002   E9           MOV     A,R1
+   \   000003   FB           MOV     R3,A
+   \   000004   EA           MOV     A,R2
+   \   000005   24FF         ADD     A,#-0x1
+   \   000007   18           DEC     R0
+   \   000008   EB           MOV     A,R3
+   \   000009   34FF         ADDC    A,#-0x1
+   \   00000B   F9           MOV     R1,A
+   \   00000C   EA           MOV     A,R2
+   \   00000D   4B           ORL     A,R3
+   \   00000E   22           RET
+     38          
+     39          /**********************************************************************************************************
+     40          **Function Name:      SHT10_WriteByte
+     41          **Description:        写时序
+     42          **Input Parameters:   无
+     43          **Output Parameters: 无
+     44          **************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     45          unsigned char SHT10_WriteByte(unsigned char data)
+   \                     SHT10_WriteByte:
+     46          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+   \   000000   E9           MOV     A,R1
+   \   000001   FC           MOV     R4,A
+     47            unsigned char i;
+     48            SDIO_DIR_OUT;
+   \   000002   12....       LCALL   ?Subroutine4 & 0xFFFF
+     49            SCLK_DIR_OUT;
+     50            for(i=0x80;i>0;i=(i>>1))              //shift bit for masking
+   \                     ??CrossCallReturnLabel_22:
+   \   000005   7D80         MOV     R5,#-0x80
+     51            {
+     52              if(i&data)
+   \                     ??SHT10_WriteByte_0:
+   \   000007   ED           MOV     A,R5
+   \   000008   5C           ANL     A,R4
+   \   000009   6004         JZ      ??SHT10_WriteByte_1
+     53                SDIO_HIGH;                        //masking value with i , write to SENSI-BUS
+   \   00000B   D281         SETB    0x80.1
+   \   00000D   8002         SJMP    ??SHT10_WriteByte_2
+     54              else
+     55                SDIO_LOW;
+   \                     ??SHT10_WriteByte_1:
+   \   00000F   C281         CLR     0x80.1
+     56              DELAY(DURATION1);          //pulswith approx. 5 us
+   \                     ??SHT10_WriteByte_2:
+   \   000011   78E8         MOV     R0,#-0x18
+   \   000013   7903         MOV     R1,#0x3
+   \                     ??SHT10_WriteByte_3:
+   \   000015   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   000018   70FB         JNZ     ??SHT10_WriteByte_3
+     57              SCLK_HIGH;                          //clk for SENSI-BUS
+   \   00001A   D280         SETB    0x80.0
+     58              DELAY(DURATION1);          //pulswith approx. 5 us
+   \   00001C   78E8         MOV     R0,#-0x18
+   \   00001E   7903         MOV     R1,#0x3
+   \                     ??SHT10_WriteByte_4:
+   \   000020   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000023   70FB         JNZ     ??SHT10_WriteByte_4
+     59              SCLK_LOW;
+   \   000025   C280         CLR     0x80.0
+     60              DELAY(DURATION1);          //pulswith approx. 5 us
+   \   000027   78E8         MOV     R0,#-0x18
+   \   000029   7903         MOV     R1,#0x3
+   \                     ??SHT10_WriteByte_5:
+   \   00002B   12....       LCALL   ?Subroutine2 & 0xFFFF
+     61            }
+   \                     ??CrossCallReturnLabel_9:
+   \   00002E   70FB         JNZ     ??SHT10_WriteByte_5
+   \   000030   ED           MOV     A,R5
+   \   000031   C3           CLR     C
+   \   000032   13           RRC     A
+   \   000033   FD           MOV     R5,A
+   \   000034   70D1         JNZ     ??SHT10_WriteByte_0
+     62            SDIO_HIGH;                            //release DATA-line
+   \   000036   D281         SETB    0x80.1
+     63                      //pulswith approx. 5 us
+     64            SDIO_DIR_IN;                     	 //Change SDA to be input
+   \   000038   53FDFD       ANL     0xfd,#0xfd
+     65            DELAY(DURATION1);
+   \   00003B   78E8         MOV     R0,#-0x18
+   \   00003D   7903         MOV     R1,#0x3
+   \                     ??SHT10_WriteByte_6:
+   \   00003F   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   000042   70FB         JNZ     ??SHT10_WriteByte_6
+     66            SCLK_HIGH;                          //clk for SENSI-BUS
+   \   000044   D280         SETB    0x80.0
+     67            if(READ_SDIO)
+   \   000046   A281         MOV     C,0x80.1
+   \   000048   5004         JNC     ??SHT10_WriteByte_7
+     68            {
+     69                    return 1; 						//error=1 in case of no acknowledge
+   \   00004A   7901         MOV     R1,#0x1
+   \   00004C   800D         SJMP    ??SHT10_WriteByte_8
+     70            }
+     71            DELAY(DURATION1);          //pulswith approx. 5 us
+   \                     ??SHT10_WriteByte_7:
+   \   00004E   78E8         MOV     R0,#-0x18
+   \   000050   7903         MOV     R1,#0x3
+   \                     ??SHT10_WriteByte_9:
+   \   000052   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   000055   70FB         JNZ     ??SHT10_WriteByte_9
+     72            SCLK_LOW;
+   \   000057   C280         CLR     0x80.0
+     73            return 0;
+   \   000059   7900         MOV     R1,#0x0
+   \                     ??SHT10_WriteByte_8:
+   \   00005B   02....       LJMP    ?BRET
+   \   00005E                REQUIRE P0DIR
+   \   00005E                REQUIRE _A_P0
+     74          }
+     75          
+     76          /**********************************************************************************************************
+     77          **Function Name:      SHT10_ReadByte
+     78          **Description:        读时序
+     79          **Input Parameters:   ack--->reads a byte form the Sensibus and gives an acknowledge in case of "ack=1"
+     80          **Output Parameters: 无
+     81          **********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     82          unsigned char SHT10_ReadByte(unsigned char ack)
+   \                     SHT10_ReadByte:
+     83          {
+   \   000000   EE           MOV     A,R6
+   \   000001   C0E0         PUSH    A
+   \   000003                ; Saved register size: 1
+   \   000003                ; Auto size: 0
+   \   000003   E9           MOV     A,R1
+   \   000004   F8           MOV     R0,A
+     84            unsigned char i,val=0;
+   \   000005   7900         MOV     R1,#0x0
+     85            SDIO_DIR_OUT;
+   \   000007   43FD02       ORL     0xfd,#0x2
+     86            SDIO_HIGH;                            //release DATA-line
+   \   00000A   D281         SETB    0x80.1
+     87            SDIO_DIR_IN;
+   \   00000C   53FDFD       ANL     0xfd,#0xfd
+     88            for(i=0x80;i>0;i=(i>>1))             //shift bit for masking
+   \   00000F   7E80         MOV     R6,#-0x80
+     89            {
+     90                SCLK_HIGH;                          //clk for SENSI-BUS
+   \                     ??SHT10_ReadByte_0:
+   \   000011   D280         SETB    0x80.0
+     91                DELAY(DURATION1);
+   \   000013   7AE8         MOV     R2,#-0x18
+   \   000015   7B03         MOV     R3,#0x3
+   \                     ??SHT10_ReadByte_1:
+   \   000017   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   00001A   70FB         JNZ     ??SHT10_ReadByte_1
+     92                if(READ_SDIO)
+   \   00001C   A281         MOV     C,0x80.1
+   \   00001E   5004         JNC     ??SHT10_ReadByte_2
+     93                  val=(val|i);                  //read bit
+   \   000020   EE           MOV     A,R6
+   \   000021   C9           XCH     A,R1
+   \   000022   49           ORL     A,R1
+   \   000023   F9           MOV     R1,A
+     94                SCLK_LOW;
+   \                     ??SHT10_ReadByte_2:
+   \   000024   C280         CLR     0x80.0
+     95                DELAY(DURATION1);
+   \   000026   7AE8         MOV     R2,#-0x18
+   \   000028   7B03         MOV     R3,#0x3
+   \                     ??SHT10_ReadByte_3:
+   \   00002A   12....       LCALL   ?Subroutine3 & 0xFFFF
+     96            }
+   \                     ??CrossCallReturnLabel_17:
+   \   00002D   70FB         JNZ     ??SHT10_ReadByte_3
+   \   00002F   EE           MOV     A,R6
+   \   000030   C3           CLR     C
+   \   000031   13           RRC     A
+   \   000032   FE           MOV     R6,A
+   \   000033   70DC         JNZ     ??SHT10_ReadByte_0
+     97            SDIO_DIR_OUT;
+   \   000035   43FD02       ORL     0xfd,#0x2
+     98            if(ack)                           //in case of "ack==1" pull down DATA-Line
+   \   000038   E8           MOV     A,R0
+   \   000039   6004         JZ      ??SHT10_ReadByte_4
+     99                SDIO_LOW;
+   \   00003B   C281         CLR     0x80.1
+   \   00003D   8002         SJMP    ??SHT10_ReadByte_5
+    100            else
+    101                SDIO_HIGH;
+   \                     ??SHT10_ReadByte_4:
+   \   00003F   D281         SETB    0x80.1
+    102            SCLK_HIGH;                            //clk #9 for ack
+   \                     ??SHT10_ReadByte_5:
+   \   000041   D280         SETB    0x80.0
+    103            DELAY(DURATION1);              //pulswith approx. 5 us
+   \   000043   7AE8         MOV     R2,#-0x18
+   \   000045   7B03         MOV     R3,#0x3
+   \                     ??SHT10_ReadByte_6:
+   \   000047   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   00004A   70FB         JNZ     ??SHT10_ReadByte_6
+    104            SCLK_LOW;
+   \   00004C   C280         CLR     0x80.0
+    105            DELAY(DURATION1);
+   \   00004E   7AE8         MOV     R2,#-0x18
+   \   000050   7B03         MOV     R3,#0x3
+   \                     ??SHT10_ReadByte_7:
+   \   000052   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   000055   70FB         JNZ     ??SHT10_ReadByte_7
+    106            SDIO_HIGH;                            //release DATA-line
+   \   000057   D281         SETB    0x80.1
+    107            DELAY(DURATION1);
+   \   000059   7AE8         MOV     R2,#-0x18
+   \   00005B   7B03         MOV     R3,#0x3
+   \                     ??SHT10_ReadByte_8:
+   \   00005D   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000060   70FB         JNZ     ??SHT10_ReadByte_8
+    108            SDIO_DIR_IN;
+   \   000062   53FDFD       ANL     0xfd,#0xfd
+    109            return val;
+   \   000065   D0E0         POP     A
+   \   000067   FE           MOV     R6,A
+   \   000068   02....       LJMP    ?BRET
+   \   00006B                REQUIRE P0DIR
+   \   00006B                REQUIRE _A_P0
+    110          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   EA           MOV     A,R2
+   \   000001   FC           MOV     R4,A
+   \   000002   EB           MOV     A,R3
+   \   000003   FD           MOV     R5,A
+   \   000004   EC           MOV     A,R4
+   \   000005   24FF         ADD     A,#-0x1
+   \   000007   1A           DEC     R2
+   \   000008   ED           MOV     A,R5
+   \   000009   34FF         ADDC    A,#-0x1
+   \   00000B   FB           MOV     R3,A
+   \   00000C   EC           MOV     A,R4
+   \   00000D   4D           ORL     A,R5
+   \   00000E   22           RET
+    111          
+    112          /**********************************************************************************************************
+    113          **Function Name:      SHT10_Connectionreset
+    114          **Description:        通讯复位时序
+    115          **                   communication reset: DATA-line=1 and at least 9 SCK cycles followed by transstart
+    116          **                          _____________________________________________________         ________
+    117          **                    DATA:                                                      |_______|
+    118          **                             _    _    _    _    _    _    _    _    _        ___     ___
+    119          **                    SCK : __| |__| |__| |__| |__| |__| |__| |__| |__| |______|   |___|   |______
+    120          **Input Parameters:   无
+    121          **Output Parameters: 无
+    122          **********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    123          void SHT10_Connectionreset(void)
+   \                     SHT10_Connectionreset:
+    124          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    125            unsigned char ClkCnt;
+    126            SDIO_DIR_OUT;
+   \   000004   12....       LCALL   ?Subroutine4 & 0xFFFF
+    127            SCLK_DIR_OUT;
+    128            SDIO_HIGH;
+   \                     ??CrossCallReturnLabel_23:
+   \   000007   D281         SETB    0x80.1
+    129            SCLK_LOW;                              //Initial state
+   \   000009   C280         CLR     0x80.0
+    130            DELAY(DURATION1);
+   \   00000B   78E8         MOV     R0,#-0x18
+   \   00000D   7903         MOV     R1,#0x3
+   \                     ??SHT10_Connectionreset_0:
+   \   00000F   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   000012   70FB         JNZ     ??SHT10_Connectionreset_0
+    131            for(ClkCnt=0;ClkCnt<9;ClkCnt++)           //9 SCK cycles
+   \   000014   7C09         MOV     R4,#0x9
+    132            {
+    133              SCLK_HIGH;
+   \                     ??SHT10_Connectionreset_1:
+   \   000016   D280         SETB    0x80.0
+    134                  DELAY(DURATION1); 	
+   \   000018   78E8         MOV     R0,#-0x18
+   \   00001A   7903         MOV     R1,#0x3
+   \                     ??SHT10_Connectionreset_2:
+   \   00001C   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   00001F   70FB         JNZ     ??SHT10_Connectionreset_2
+    135              SCLK_LOW;
+   \   000021   C280         CLR     0x80.0
+    136              DELAY(DURATION1);
+   \   000023   78E8         MOV     R0,#-0x18
+   \   000025   7903         MOV     R1,#0x3
+   \                     ??SHT10_Connectionreset_3:
+   \   000027   12....       LCALL   ?Subroutine2 & 0xFFFF
+    137            }
+   \                     ??CrossCallReturnLabel_14:
+   \   00002A   70FB         JNZ     ??SHT10_Connectionreset_3
+   \   00002C   1C           DEC     R4
+   \   00002D   EC           MOV     A,R4
+   \   00002E   70E6         JNZ     ??SHT10_Connectionreset_1
+    138            SHT10_Transstart();                           //transmission start
+   \   000030                ; Setup parameters for call to function SHT10_Transstart
+   \   000030   12....       LCALL   ??SHT10_Transstart?relay
+    139          }
+   \   000033                REQUIRE ?Subroutine0
+   \   000033                REQUIRE P0DIR
+   \   000033                REQUIRE _A_P0
+   \   000033                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    140          
+    141          /**********************************************************************************************************
+    142          **Function Name:      SHT10_Softreset
+    143          **Description:        软件复位时序resets the sensor by a softreset
+    144          **Input Parameters:   无
+    145          **Output Parameters: 无
+    146          **********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    147          unsigned char SHT10_Softreset(void)
+   \                     SHT10_Softreset:
+    148          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    149            unsigned char error=0;
+    150            SHT10_Connectionreset();              //reset communication
+   \   000004                ; Setup parameters for call to function SHT10_Connectionreset
+   \   000004   12....       LCALL   ??SHT10_Connectionreset?relay
+    151            error+=SHT10_WriteByte(CMD_Soft_Reset);        //send RESET-command to sensor
+    152            return error;                     //error=1 in case of no response form the sensor
+   \   000007                ; Setup parameters for call to function SHT10_WriteByte
+   \   000007   791E         MOV     R1,#0x1e
+   \   000009   12....       LCALL   ??SHT10_WriteByte?relay
+   \   00000C   80..         SJMP    ?Subroutine0
+    153          }
+    154          
+    155          /**********************************************************************************************************
+    156          **Function Name:      SHT10_WriteStatusReg
+    157          **Description:        写状态寄存器
+    158          **Input Parameters:   *p_value
+    159          **Output Parameters: 无
+    160          **********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    161          unsigned char SHT10_WriteStatusReg(unsigned char RegVlaue)
+   \                     SHT10_WriteStatusReg:
+    162          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+    163            unsigned char error=0;
+    164            SHT10_Transstart();                           //transmission start
+   \   000007                ; Setup parameters for call to function SHT10_Transstart
+   \   000007   12....       LCALL   ??SHT10_Transstart?relay
+    165            error+=SHT10_WriteByte(CMD_Write_STATUS_REG); //send command to sensor
+   \   00000A                ; Setup parameters for call to function SHT10_WriteByte
+   \   00000A   7906         MOV     R1,#0x6
+   \   00000C   12....       LCALL   ??SHT10_WriteByte?relay
+   \   00000F   E9           MOV     A,R1
+   \   000010   FF           MOV     R7,A
+    166            error+=SHT10_WriteByte(RegVlaue);             //send value of status register
+    167            return error;                             //error>=1 in case of no response form the sensor
+   \   000011                ; Setup parameters for call to function SHT10_WriteByte
+   \   000011   EE           MOV     A,R6
+   \   000012   F9           MOV     R1,A
+   \   000013   12....       LCALL   ??SHT10_WriteByte?relay
+   \   000016   E9           MOV     A,R1
+   \   000017   2F           ADD     A,R7
+   \   000018   F9           MOV     R1,A
+   \   000019                REQUIRE ?Subroutine1
+   \   000019                ; // Fall through to label ?Subroutine1
+    168          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    169          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    170          unsigned char SHT10_ReadStatusReg(void)
+   \                     SHT10_ReadStatusReg:
+    171          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    172            unsigned char tmp=0;
+    173            SHT10_Transstart();                           //transmission start
+   \   000004                ; Setup parameters for call to function SHT10_Transstart
+   \   000004   12....       LCALL   ??SHT10_Transstart?relay
+    174            SHT10_WriteByte(CMD_Read_STATUS_REG);         //send command to sensor
+   \   000007                ; Setup parameters for call to function SHT10_WriteByte
+   \   000007   7907         MOV     R1,#0x7
+   \   000009   12....       LCALL   ??SHT10_WriteByte?relay
+    175            tmp = SHT10_ReadByte(ACK);             				//send value of status register
+    176            return tmp;                             			//error>=1 in case of no response form the sensor
+   \   00000C                ; Setup parameters for call to function SHT10_ReadByte
+   \   00000C   7901         MOV     R1,#0x1
+   \   00000E   12....       LCALL   ??SHT10_ReadByte?relay
+   \   000011   80..         SJMP    ?Subroutine0
+    177          }
+    178          /**********************************************************************************************************
+    179          **Function Name:      SHT10_Mearsure
+    180          **Description:        读时序      makes a measurement (humidity/temperature) with checksum
+    181          **Input Parameters:   *p_value       ,*p_checknum       ,mode
+    182          **Output Parameters: 无
+    183          **********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    184          unsigned char SHT10_Measure(unsigned int *p_value, unsigned char *p_checksum, unsigned char mode)
+   \                     SHT10_Measure:
+    185          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   8C..         MOV     ?V0 + 2,R4
+   \   00000B   8D..         MOV     ?V0 + 3,R5
+   \   00000D   89..         MOV     ?V0 + 4,R1
+    186            unsigned error=0;
+   \   00000F   7E00         MOV     R6,#0x0
+    187            unsigned int i;
+    188            SHT10_Transstart();                   //transmission start
+   \   000011                ; Setup parameters for call to function SHT10_Transstart
+   \   000011   12....       LCALL   ??SHT10_Transstart?relay
+    189            switch(mode)
+   \   000014   E5..         MOV     A,?V0 + 4
+   \   000016   14           DEC     A
+   \   000017   6005         JZ      ??SHT10_Measure_0
+   \   000019   14           DEC     A
+   \   00001A   6006         JZ      ??SHT10_Measure_1
+   \   00001C   800B         SJMP    ??SHT10_Measure_2
+    190            {                                 //send command to sensor
+    191              case TEMPERATURE:
+    192                  error+=SHT10_WriteByte(CMD_TEM_MES);
+   \                     ??SHT10_Measure_0:
+   \   00001E                ; Setup parameters for call to function SHT10_WriteByte
+   \   00001E   7903         MOV     R1,#0x3
+   \   000020   8002         SJMP    ??SHT10_Measure_3
+    193                  break;
+    194              case HUMIDITY:
+    195                  error+=SHT10_WriteByte(CMD_HUMI_MES);
+   \                     ??SHT10_Measure_1:
+   \   000022                ; Setup parameters for call to function SHT10_WriteByte
+   \   000022   7905         MOV     R1,#0x5
+   \                     ??SHT10_Measure_3:
+   \   000024   12....       LCALL   ??SHT10_WriteByte?relay
+   \   000027   E9           MOV     A,R1
+   \   000028   FE           MOV     R6,A
+    196                  break;
+    197            }
+    198            SDIO_DIR_IN;
+   \                     ??SHT10_Measure_2:
+   \   000029   53FDFD       ANL     0xfd,#0xfd
+    199            for(i=0;i<1500;i++)              //wait until sensor has finished the measurement
+   \   00002C   7CDC         MOV     R4,#-0x24
+   \   00002E   7D05         MOV     R5,#0x5
+    200            {
+    201                if(READ_SDIO == 0)
+   \                     ??SHT10_Measure_4:
+   \   000030   A281         MOV     C,0x80.1
+   \   000032   5015         JNC     ??SHT10_Measure_5
+    202                  break;
+    203                else
+    204                  DELAY(100);
+   \   000034   7864         MOV     R0,#0x64
+   \   000036   7900         MOV     R1,#0x0
+   \                     ??SHT10_Measure_6:
+   \   000038   12....       LCALL   ?Subroutine2 & 0xFFFF
+    205            }
+   \                     ??CrossCallReturnLabel_15:
+   \   00003B   70FB         JNZ     ??SHT10_Measure_6
+   \   00003D   EC           MOV     A,R4
+   \   00003E   24FF         ADD     A,#-0x1
+   \   000040   1C           DEC     R4
+   \   000041   ED           MOV     A,R5
+   \   000042   34FF         ADDC    A,#-0x1
+   \   000044   FD           MOV     R5,A
+   \   000045   EC           MOV     A,R4
+   \   000046   4D           ORL     A,R5
+   \   000047   70E7         JNZ     ??SHT10_Measure_4
+    206            if(READ_SDIO)
+   \                     ??SHT10_Measure_5:
+   \   000049   A281         MOV     C,0x80.1
+   \   00004B   5001         JNC     ??SHT10_Measure_7
+    207                error+=1;                       			//or timeout (~2 sec.) is reached
+   \   00004D   0E           INC     R6
+    208            *(p_value)=SHT10_ReadByte(ACK);      		 		//read the first byte (MSB)
+   \                     ??SHT10_Measure_7:
+   \   00004E                ; Setup parameters for call to function SHT10_ReadByte
+   \   00004E   7901         MOV     R1,#0x1
+   \   000050   12....       LCALL   ??SHT10_ReadByte?relay
+   \   000053   E9           MOV     A,R1
+   \   000054   85..82       MOV     DPL,?V0 + 0
+   \   000057   85..83       MOV     DPH,?V0 + 1
+   \   00005A   F0           MOVX    @DPTR,A
+   \   00005B   A3           INC     DPTR
+   \   00005C   E4           CLR     A
+   \   00005D   F0           MOVX    @DPTR,A
+    209            *(p_value)=SHT10_ReadByte(ACK)+(*(p_value)<<8);     //read the second byte (LSB)
+   \   00005E                ; Setup parameters for call to function SHT10_ReadByte
+   \   00005E   7901         MOV     R1,#0x1
+   \   000060   12....       LCALL   ??SHT10_ReadByte?relay
+   \   000063   E9           MOV     A,R1
+   \   000064   F5..         MOV     ?V0 + 6,A
+   \   000066   85..82       MOV     DPL,?V0 + 0
+   \   000069   85..83       MOV     DPH,?V0 + 1
+   \   00006C   E0           MOVX    A,@DPTR
+   \   00006D   F9           MOV     R1,A
+   \   00006E   E5..         MOV     A,?V0 + 6
+   \   000070   F0           MOVX    @DPTR,A
+   \   000071   A3           INC     DPTR
+   \   000072   E9           MOV     A,R1
+   \   000073   F0           MOVX    @DPTR,A
+    210            *p_checksum=SHT10_ReadByte(noACK);    				//read checksum
+   \   000074                ; Setup parameters for call to function SHT10_ReadByte
+   \   000074   7900         MOV     R1,#0x0
+   \   000076   12....       LCALL   ??SHT10_ReadByte?relay
+   \   000079   E9           MOV     A,R1
+   \   00007A   85..82       MOV     DPL,?V0 + 2
+   \   00007D   85..83       MOV     DPH,?V0 + 3
+   \   000080   F0           MOVX    @DPTR,A
+    211            return(error);
+   \   000081   EE           MOV     A,R6
+   \   000082   F9           MOV     R1,A
+   \   000083   7F08         MOV     R7,#0x8
+   \   000085   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000088                REQUIRE P0DIR
+   \   000088                REQUIRE _A_P0
+    212          }
+    213          
+    214          /**********************************************************************************************************
+    215          **Function Name:      SHT10_Calculate
+    216          **Description:        计算
+    217          **Input Parameters:   humi [Ticks] (12 bit)
+    218          **                    temp [Ticks] (14 bit)
+    219          **Output Parameters: humi [%RH]
+    220          **                    temp []
+    221          **********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    222          float SHT10_Calculate(unsigned int data,unsigned char mode)
+   \                     SHT10_Calculate:
+    223          {
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+    224            const float C1=-4.0;              // for 8 Bit
+    225            const float C2=+0.648;            // for 8 Bit
+    226            const float C3=-0.0000072;        // for 8 Bit
+    227            const float D1=-39.6;             // for 12 Bit @ 3V
+    228            const float D2=+0.04;             // for 12 Bit @ 3V
+    229            const float T1=0.01;              // for 8 bit
+    230            const float T2=0.00128;           // for 8 bit
+    231            float rh_lin;                     // rh_lin: Humidity linear
+    232            float rh_true;                    // rh_true: Temperature compensated humidity
+    233            float t_C;                        // t_C   : Temperature []
+    234            if (mode == 1)
+   \   000007   7401         MOV     A,#0x1
+   \   000009   6E           XRL     A,R6
+   \   00000A   7037         JNZ     ??SHT10_Calculate_0
+    235            {
+    236              t_C=data*D2+D1;                      //calc. temperature from ticks to []
+    237              return (t_C);
+   \   00000C   8A..         MOV     ?V0 + 0,R2
+   \   00000E   8B..         MOV     ?V0 + 1,R3
+   \   000010   E4           CLR     A
+   \   000011   F5..         MOV     ?V0 + 2,A
+   \   000013   F5..         MOV     ?V0 + 3,A
+   \   000015   78..         MOV     R0,#?V0 + 0
+   \   000017   12....       LCALL   ?UL_TO_FLT
+   \   00001A   90....       MOV     DPTR,#__Constant_3d23d70a
+   \   00001D   78..         MOV     R0,#?V0 + 4
+   \   00001F   12....       LCALL   ?L_MOV_X
+   \   000022   78..         MOV     R0,#?V0 + 0
+   \   000024   79..         MOV     R1,#?V0 + 4
+   \   000026   12....       LCALL   ?FLT_MUL
+   \   000029   90....       MOV     DPTR,#__Constant_c21e6666
+   \   00002C   78..         MOV     R0,#?V0 + 4
+   \   00002E   12....       LCALL   ?L_MOV_X
+   \   000031   78..         MOV     R0,#?V0 + 0
+   \   000033   79..         MOV     R1,#?V0 + 4
+   \   000035   12....       LCALL   ?FLT_ADD
+   \   000038   AA..         MOV     R2,?V0 + 0
+   \   00003A   AB..         MOV     R3,?V0 + 1
+   \   00003C   AC..         MOV     R4,?V0 + 2
+   \   00003E   AD..         MOV     R5,?V0 + 3
+   \   000040   02....       LJMP    ??SHT10_Calculate_1 & 0xFFFF
+    238            }
+    239            else if(mode == 2)
+   \                     ??SHT10_Calculate_0:
+   \   000043   7402         MOV     A,#0x2
+   \   000045   6E           XRL     A,R6
+   \   000046   6003         JZ      $+5
+   \   000048   02....       LJMP    ??SHT10_Calculate_2 & 0xFFFF
+    240            {
+    241              rh_lin=C3*data*data + C2*data + C1;     //calc. humidity from ticks to [%RH]
+    242              rh_true=(t_C-25)*(T1+T2*data)+rh_lin;   //calc. temperature compensated humidity [%RH]
+   \   00004B   8A..         MOV     ?V0 + 4,R2
+   \   00004D   8B..         MOV     ?V0 + 5,R3
+   \   00004F   E4           CLR     A
+   \   000050   F5..         MOV     ?V0 + 6,A
+   \   000052   F5..         MOV     ?V0 + 7,A
+   \   000054   78..         MOV     R0,#?V0 + 4
+   \   000056   12....       LCALL   ?UL_TO_FLT
+   \   000059   90....       MOV     DPTR,#__Constant_c1c80000
+   \   00005C   78..         MOV     R0,#?V0 + 0
+   \   00005E   12....       LCALL   ?L_MOV_X
+   \   000061   78..         MOV     R0,#?V0 + 8
+   \   000063   79..         MOV     R1,#?V0 + 0
+   \   000065   12....       LCALL   ?FLT_ADD
+   \   000068   85....       MOV     ?V0 + 0,?V0 + 4
+   \   00006B   85....       MOV     ?V0 + 1,?V0 + 5
+   \   00006E   85....       MOV     ?V0 + 2,?V0 + 6
+   \   000071   85....       MOV     ?V0 + 3,?V0 + 7
+   \   000074   90....       MOV     DPTR,#__Constant_3aa7c5ac
+   \   000077   78..         MOV     R0,#?V0 + 12
+   \   000079   12....       LCALL   ?L_MOV_X
+   \   00007C   78..         MOV     R0,#?V0 + 0
+   \   00007E   79..         MOV     R1,#?V0 + 12
+   \   000080   12....       LCALL   ?FLT_MUL
+   \   000083   90....       MOV     DPTR,#__Constant_3c23d70a
+   \   000086   78..         MOV     R0,#?V0 + 12
+   \   000088   12....       LCALL   ?L_MOV_X
+   \   00008B   78..         MOV     R0,#?V0 + 0
+   \   00008D   79..         MOV     R1,#?V0 + 12
+   \   00008F   12....       LCALL   ?FLT_ADD
+   \   000092   78..         MOV     R0,#?V0 + 8
+   \   000094   79..         MOV     R1,#?V0 + 0
+   \   000096   12....       LCALL   ?FLT_MUL
+   \   000099   85....       MOV     ?V0 + 0,?V0 + 4
+   \   00009C   85....       MOV     ?V0 + 1,?V0 + 5
+   \   00009F   85....       MOV     ?V0 + 2,?V0 + 6
+   \   0000A2   85....       MOV     ?V0 + 3,?V0 + 7
+   \   0000A5   90....       MOV     DPTR,#__Constant_b6f19787
+   \   0000A8   78..         MOV     R0,#?V0 + 12
+   \   0000AA   12....       LCALL   ?L_MOV_X
+   \   0000AD   78..         MOV     R0,#?V0 + 0
+   \   0000AF   79..         MOV     R1,#?V0 + 12
+   \   0000B1   12....       LCALL   ?FLT_MUL
+   \   0000B4   78..         MOV     R0,#?V0 + 0
+   \   0000B6   79..         MOV     R1,#?V0 + 4
+   \   0000B8   12....       LCALL   ?FLT_MUL
+   \   0000BB   90....       MOV     DPTR,#__Constant_3f25e354
+   \   0000BE   78..         MOV     R0,#?V0 + 12
+   \   0000C0   12....       LCALL   ?L_MOV_X
+   \   0000C3   78..         MOV     R0,#?V0 + 4
+   \   0000C5   79..         MOV     R1,#?V0 + 12
+   \   0000C7   12....       LCALL   ?FLT_MUL
+   \   0000CA   78..         MOV     R0,#?V0 + 0
+   \   0000CC   79..         MOV     R1,#?V0 + 4
+   \   0000CE   12....       LCALL   ?FLT_ADD
+   \   0000D1   90....       MOV     DPTR,#__Constant_c0800000
+   \   0000D4   78..         MOV     R0,#?V0 + 4
+   \   0000D6   12....       LCALL   ?L_MOV_X
+   \   0000D9   78..         MOV     R0,#?V0 + 0
+   \   0000DB   79..         MOV     R1,#?V0 + 4
+   \   0000DD   12....       LCALL   ?FLT_ADD
+   \   0000E0   78..         MOV     R0,#?V0 + 8
+   \   0000E2   79..         MOV     R1,#?V0 + 0
+   \   0000E4   12....       LCALL   ?FLT_ADD
+    243              if(rh_true>100)rh_true=100;       //cut if the value is outside of
+   \   0000E7   90....       MOV     DPTR,#__Constant_42c80001
+   \   0000EA   78..         MOV     R0,#?V0 + 0
+   \   0000EC   12....       LCALL   ?L_MOV_X
+   \   0000EF   78..         MOV     R0,#?V0 + 8
+   \   0000F1   79..         MOV     R1,#?V0 + 0
+   \   0000F3   12....       LCALL   ?FLT_GE
+   \   0000F6   5005         JNC     ??SHT10_Calculate_3
+   \   0000F8   90....       MOV     DPTR,#__Constant_42c80000
+   \   0000FB   8014         SJMP    ??SHT10_Calculate_4
+    244              if(rh_true<0.1)rh_true=0.1;       //the physical possible range
+   \                     ??SHT10_Calculate_3:
+   \   0000FD   90....       MOV     DPTR,#__Constant_3dcccccd
+   \   000100   78..         MOV     R0,#?V0 + 0
+   \   000102   12....       LCALL   ?L_MOV_X
+   \   000105   78..         MOV     R0,#?V0 + 8
+   \   000107   79..         MOV     R1,#?V0 + 0
+   \   000109   12....       LCALL   ?FLT_LT
+   \   00010C   5008         JNC     ??SHT10_Calculate_5
+   \   00010E   90....       MOV     DPTR,#__Constant_3dcccccd
+   \                     ??SHT10_Calculate_4:
+   \   000111   78..         MOV     R0,#?V0 + 8
+   \   000113   12....       LCALL   ?L_MOV_X
+    245              return (rh_true);
+   \                     ??SHT10_Calculate_5:
+   \   000116   AA..         MOV     R2,?V0 + 8
+   \   000118   AB..         MOV     R3,?V0 + 9
+   \   00011A   AC..         MOV     R4,?V0 + 10
+   \   00011C   AD..         MOV     R5,?V0 + 11
+   \   00011E   8008         SJMP    ??SHT10_Calculate_1
+    246            }
+    247            else
+    248              return 0;
+   \                     ??SHT10_Calculate_2:
+   \   000120   7A00         MOV     R2,#0x0
+   \   000122   7B00         MOV     R3,#0x0
+   \   000124   7C00         MOV     R4,#0x0
+   \   000126   7D00         MOV     R5,#0x0
+   \                     ??SHT10_Calculate_1:
+   \   000128   7F10         MOV     R7,#0x10
+   \   00012A   02....       LJMP    ?BANKED_LEAVE_XDATA
+    249          }
+    250          /**********************************************************************************************************
+    251          **Function Name:      SHT10_init
+    252          **Description:        初始化SHT10
+    253          **********************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    254          void SHT10_init(unsigned int Initial_Reg)
+   \                     SHT10_init:
+    255          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+    256            SHT10_Connectionreset();
+   \   000007                ; Setup parameters for call to function SHT10_Connectionreset
+   \   000007   12....       LCALL   ??SHT10_Connectionreset?relay
+    257            SHT10_WriteStatusReg(Initial_Reg);
+   \   00000A                ; Setup parameters for call to function SHT10_WriteStatusReg
+   \   00000A   EE           MOV     A,R6
+   \   00000B   F9           MOV     R1,A
+   \   00000C   12....       LCALL   ??SHT10_WriteStatusReg?relay
+    258          }
+   \   00000F   02....       LJMP    ?Subroutine1 & 0xFFFF
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3d23d70a:
+   \   000000   0AD7233D     DD 3D23D70AH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_c21e6666:
+   \   000000   66661EC2     DD 0C21E6666H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_c1c80000:
+   \   000000   0000C8C1     DD 0C1C80000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3aa7c5ac:
+   \   000000   ACC5A73A     DD 3AA7C5ACH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3c23d70a:
+   \   000000   0AD7233C     DD 3C23D70AH
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_b6f19787:
+   \   000000   8797F1B6     DD 0B6F19787H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3f25e354:
+   \   000000   54E3253F     DD 3F25E354H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_c0800000:
+   \   000000   000080C0     DD 0C0800000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_42c80001:
+   \   000000   0100C842     DD 42C80001H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_42c80000:
+   \   000000   0000C842     DD 42C80000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3dcccccd:
+   \   000000   CDCCCC3D     DD 3DCCCCCDH
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_Transstart?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_Transstart
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_WriteByte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_WriteByte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_ReadByte?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_ReadByte
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_Connectionreset?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_Connectionreset
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_Softreset?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_Softreset
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_WriteStatusReg?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_WriteStatusReg
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_ReadStatusReg?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_ReadStatusReg
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_Measure?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_Measure
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_Calculate?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_Calculate
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SHT10_init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SHT10_init
+    259          
+    260          
+    261          
+
+   Maximum stack usage in bytes:
+
+     Function                   ISTACK PSTACK XSTACK
+     --------                   ------ ------ ------
+     SHT10_Calculate                0      0     24
+     SHT10_Connectionreset          2      0      9
+       -> SHT10_Transstart          4      0      0
+     SHT10_Measure                  1      0     16
+       -> SHT10_Transstart          0      0     32
+       -> SHT10_WriteByte           0      0     32
+       -> SHT10_WriteByte           0      0     32
+       -> SHT10_ReadByte            0      0     32
+       -> SHT10_ReadByte            0      0     32
+       -> SHT10_ReadByte            0      0     32
+     SHT10_ReadByte                 1      0     16
+     SHT10_ReadStatusReg            2      0      0
+       -> SHT10_Transstart          4      0      0
+       -> SHT10_WriteByte           4      0      0
+       -> SHT10_ReadByte            4      0      0
+     SHT10_Softreset                2      0      0
+       -> SHT10_Connectionreset     4      0      0
+       -> SHT10_WriteByte           4      0      0
+     SHT10_Transstart               0      0     16
+     SHT10_WriteByte                0      0     16
+     SHT10_WriteStatusReg           0      0     18
+       -> SHT10_Transstart          0      0     18
+       -> SHT10_WriteByte           0      0     18
+       -> SHT10_WriteByte           0      0     18
+     SHT10_init                     0      0      9
+       -> SHT10_Connectionreset     0      0     18
+       -> SHT10_WriteStatusReg      0      0     18
+
+
+   Segment part sizes:
+
+     Function/Label                Bytes
+     --------------                -----
+     _A_P0                            1
+     P0DIR                            1
+     SHT10_Transstart                85
+     ?Subroutine4                     7
+     ?Subroutine2                    15
+     SHT10_WriteByte                 94
+     SHT10_ReadByte                 107
+     ?Subroutine3                    15
+     SHT10_Connectionreset           51
+     ?Subroutine0                     7
+     SHT10_Softreset                 14
+     SHT10_WriteStatusReg            25
+     ?Subroutine1                     5
+     SHT10_ReadStatusReg             19
+     SHT10_Measure                  136
+     SHT10_Calculate                301
+     SHT10_init                      18
+     __Constant_3d23d70a              4
+     __Constant_c21e6666              4
+     __Constant_c1c80000              4
+     __Constant_3aa7c5ac              4
+     __Constant_3c23d70a              4
+     __Constant_b6f19787              4
+     __Constant_3f25e354              4
+     __Constant_c0800000              4
+     __Constant_42c80001              4
+     __Constant_42c80000              4
+     __Constant_3dcccccd              4
+     ??SHT10_Transstart?relay         6
+     ??SHT10_WriteByte?relay          6
+     ??SHT10_ReadByte?relay           6
+     ??SHT10_Connectionreset?relay    6
+     ??SHT10_Softreset?relay          6
+     ??SHT10_WriteStatusReg?relay     6
+     ??SHT10_ReadStatusReg?relay      6
+     ??SHT10_Measure?relay            6
+     ??SHT10_Calculate?relay          6
+     ??SHT10_init?relay               6
+
+ 
+ 899 bytes in segment BANKED_CODE
+  60 bytes in segment BANK_RELAYS
+   2 bytes in segment SFR_AN
+  44 bytes in segment XDATA_ROM_C
+ 
+ 959 bytes of CODE  memory
+   0 bytes of CONST memory (+ 44 bytes shared)
+   0 bytes of DATA  memory (+  2 bytes shared)
+
+Errors: none
+Warnings: none
