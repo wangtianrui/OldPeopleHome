@@ -52,12 +52,18 @@ public class Child {
     public void setChildLongId(String childLongId) {
         this.childLongId = childLongId;
     }
+    public void mySetChildLongId(String childLongId) {
+        this.childLongId = childLongId;
+    }
 
     public String getChildName() {
         return childName;
     }
 
     public void setChildName(String childName) {
+        this.childName = childName;
+    }
+    public void mySetChildName(String childName) {
         this.childName = childName;
     }
 
@@ -68,12 +74,18 @@ public class Child {
     public void setChildSex(String childSex) {
         this.childSex = childSex;
     }
+    public void mySetChildSex(String childSex) {
+        this.childSex = childSex;
+    }
 
     public String getChildAccount() {
         return childAccount;
     }
 
     public void setChildAccount(String childAccount) {
+        this.childAccount = childAccount;
+    }
+    public void mySetChildAccount(String childAccount) {
         this.childAccount = childAccount;
     }
 
@@ -84,12 +96,18 @@ public class Child {
     public void setChildPassword(String childPassword) {
         this.childPassword = childPassword;
     }
+    public void mySetChildPassword(String childPassword) {
+        this.childPassword = childPassword;
+    }
 
     public String getChildPhone() {
         return childPhone;
     }
 
     public void setChildPhone(String childPhone) {
+        this.childPhone = childPhone;
+    }
+    public void mySetChildPhone(String childPhone) {
         this.childPhone = childPhone;
     }
 

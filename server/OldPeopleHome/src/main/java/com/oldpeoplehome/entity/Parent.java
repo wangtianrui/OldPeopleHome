@@ -49,6 +49,7 @@ public class Parent {
         this.parentBirth = parentBirth;
         this.parentPhone = parentPhone;
     }
+
     public Parent(Long parentId, String parentLongId, String parentName, String parentSex, String parentAccount, String parentPassword, Double parentHeight, Double parentWeight, Date parentBirth, String parentPhone) {
         this.parentId = parentId;
         this.parentLongId = parentLongId;
@@ -70,11 +71,19 @@ public class Parent {
         this.parentId = parentId;
     }
 
+    public void mySetParentId(String parentId) {
+        this.parentId = Long.valueOf(parentId);
+    }
+
     public String getParentLongId() {
         return parentLongId;
     }
 
     public void setParentLongId(String parentLongId) {
+        this.parentLongId = parentLongId;
+    }
+
+    public void mySetParentLongId(String parentLongId) {
         this.parentLongId = parentLongId;
     }
 
@@ -86,11 +95,19 @@ public class Parent {
         this.parentName = parentName;
     }
 
+    public void mySetParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
     public String getParentSex() {
         return parentSex;
     }
 
     public void setParentSex(String parentSex) {
+        this.parentSex = parentSex;
+    }
+
+    public void mySetParentSex(String parentSex) {
         this.parentSex = parentSex;
     }
 
@@ -102,11 +119,19 @@ public class Parent {
         this.parentAccount = parentAccount;
     }
 
+    public void mySetParentAccount(String parentAccount) {
+        this.parentAccount = parentAccount;
+    }
+
     public String getParentPassword() {
         return parentPassword;
     }
 
     public void setParentPassword(String parentPassword) {
+        this.parentPassword = parentPassword;
+    }
+
+    public void mySetParentPassword(String parentPassword) {
         this.parentPassword = parentPassword;
     }
 
@@ -118,6 +143,10 @@ public class Parent {
         this.parentHeight = parentHeight;
     }
 
+    public void mySetParentHeight(String parentHeight) {
+        this.parentHeight = Double.valueOf(parentHeight);
+    }
+
     public double getParentWeight() {
         return parentWeight;
     }
@@ -126,6 +155,11 @@ public class Parent {
         this.parentWeight = parentWeight;
     }
 
+    public void mySetParentWeight(String parentWeight) {
+        this.parentWeight = Double.valueOf(parentWeight);
+    }
+
+
     public Date getParentBirth() {
         return parentBirth;
     }
@@ -133,7 +167,8 @@ public class Parent {
     public void setParentBirth(Date parentBirth) {
         this.parentBirth = parentBirth;
     }
-    public void setParentBirth(String parentBirth) {
+
+    public void mySetParentBirth(String parentBirth) {
         this.parentBirth = Date.valueOf(parentBirth);
     }
 
@@ -145,6 +180,10 @@ public class Parent {
         this.parentPhone = parentPhone;
     }
 
+    public void mySetParentPhone(String parentPhone) {
+        this.parentPhone = parentPhone;
+    }
+
     public int getParentRoomId() {
         return parentRoomId;
     }
@@ -152,6 +191,11 @@ public class Parent {
     public void setParentRoomId(Integer parentRoomId) {
         this.parentRoomId = parentRoomId;
     }
+
+    public void mySetParentRoomId(String parentRoomId) {
+        this.parentRoomId = Integer.valueOf(parentRoomId);
+    }
+
 
     public Room getParentRoom() {
         return parentRoom;

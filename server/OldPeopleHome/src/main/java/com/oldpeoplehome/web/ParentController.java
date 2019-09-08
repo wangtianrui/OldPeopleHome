@@ -56,7 +56,7 @@ public class ParentController {
         parent.setParentPassword(String.valueOf(params.get("parentPassword")));
         parent.setParentAccount(String.valueOf(params.get("parentAccount")));
         parent.setParentName(String.valueOf(params.get("parentName")));
-        parent.setParentBirth(String.valueOf(params.get("parentBirth")));
+        parent.mySetParentBirth(String.valueOf(params.get("parentBirth")));
         parent.setParentLongId(String.valueOf(params.get("parentLongId")));
         parentService.insert(parent);
         return parentService.findByLongId(parent.getParentLongId());

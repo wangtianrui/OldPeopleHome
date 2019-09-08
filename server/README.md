@@ -24,15 +24,15 @@
 
 * 房间表 room
 
-  |  id  | location |   name   |  pid   |
-  | :--: | :------: | :------: | :----: |
-  | 主键 | 房间位置 | 房间名称 | 老人id |
+  |  id  | location |   name   |  pid   |     temp     |
+  | :--: | :------: | :------: | :----: | :----------: |
+  | 主键 | 房间位置 | 房间名称 | 老人id | 房间温度阈值 |
 
 * 运动表 motion
 
-  |       pid       | date | count | distance | time |
-  | :-------------: | :--: | :---: | :------: | :--: |
-  | parent id(外键) | 日期 | 步数  |   距离   | 时长 |
+  |       pid       | date | count | distance |   energy   | time |
+  | :-------------: | :--: | :---: | :------: | :--------: | :--: |
+  | parent id(外键) | 日期 | 步数  |   距离   | 消耗卡路里 | 时长 |
 
 * 睡眠表 sleep
 
@@ -48,9 +48,9 @@
 
 * 老人心率表 heartrate
 
-  | pid  |   time   | rate |
-  | :--: | :------: | :--: |
-  | 老人 | 测量时间 | 心率 |
+  | pid  |   time   | rate | rate1  | rate2  |   oxy    |
+  | :--: | :------: | :--: | :----: | :----: | :------: |
+  | 老人 | 测量时间 | 心率 | 收缩压 | 舒张压 | 血氧浓度 |
 
   
 
@@ -68,7 +68,7 @@
 | Room           | /room/list/empty       | GET      | 查询所有空置room信息(web端给老人分配房间) |                                                              |
 | Room           | /room/add              | POST     | 添加room                                  | location:地点，name:房间名                                   |
 | Room           | /room/delete/1         | DELETE   | 删除id=1的room信息                        |                                                              |
-| Room           | /room/update/1         | POST     | 更新id=1的room信息                        | **要更新的字段严格按照命名格式传参**比如name就传入roomName   |
+| Room           | /room/update/1         | POST     | 更新id=1的room信息                        | **要更新的字段严格按照命名格式传参**比如name就传入roomName，住房老人id parentId*设置温度阈值属性名为temp* |
 | Parent         | /parent/get/1          | GET      | 查询id=1的parent的详细信息                |                                                              |
 | Parent         | /parent/get_longid/111 | GET      | 查询身份证=111的parent的详细信息          |                                                              |
 | Parent         | /parent/get_name/老王  | GET      | 查询姓名=老王的parent的详细信息           |                                                              |

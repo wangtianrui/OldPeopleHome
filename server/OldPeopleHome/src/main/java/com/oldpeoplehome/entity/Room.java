@@ -11,6 +11,7 @@ public class Room {
     private String roomName;
     private long parentId;
     private Parent parent;
+    private float temp;
 
     public Room() {
     }
@@ -18,19 +19,27 @@ public class Room {
     public Room(String roomLocation, String roomName) {
         this.roomLocation = roomLocation;
         this.roomName = roomName;
+
+    }
+    public Room(String roomLocation, String roomName, float temp) {
+        this.roomLocation = roomLocation;
+        this.roomName = roomName;
+        this.temp = temp;
     }
 
-    public Room(String roomLocation, String roomName, Long parentId) {
+    public Room(String roomLocation, String roomName, Long parentId, float temp) {
         this.roomLocation = roomLocation;
         this.roomName = roomName;
         this.parentId = parentId;
+        this.temp = temp;
     }
 
-    public Room(Integer roomId, String roomLocation, String roomName, Long parentId) {
+    public Room(Integer roomId, String roomLocation, String roomName, Long parentId, float temp) {
         this.roomId = roomId;
         this.roomName = roomName;
         this.roomLocation = roomLocation;
         this.parentId = parentId;
+        this.temp = temp;
     }
 
     public int getRoomId() {
@@ -65,6 +74,28 @@ public class Room {
         this.parentId = parentId;
     }
 
+    public float getTemp() {
+        return temp;
+    }
+
+    public void setTemp(float temp) {
+        this.temp = temp;
+    }
+    public void mySetTemp(String temp) {
+        this.temp = Float.valueOf(temp);
+    }
+
+    public void mySetRoomName(String roomName){
+        this.roomName = roomName;
+    }
+    public void mySetRoomLocation(String roomLocation) {
+        this.roomLocation = roomLocation;
+    }
+
+    public void mySetParentId(String parentId) {
+        this.parentId = Long.valueOf(parentId);
+    }
+
     @Override
     public String toString() {
         return "Room{" +
@@ -73,6 +104,7 @@ public class Room {
                 ", roomName='" + roomName + '\'' +
                 ", parentId=" + parentId +
                 ", parent=" + parent +
+                ", temp=" + temp +
                 '}';
     }
 }
