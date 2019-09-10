@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oldpeoplehome.dao.LocationDao">
+    <resultMap id="BaseResultMap" type="com.oldpeoplehome.entity.Location">
+        <id column="pid" property="parentId" jdbcType="BIGINT"/>
+        <result column="longitude" property="longitude" jdbcType="BIGINT"/>
+        <result column="latitude" property="latitude" jdbcType="BIGINT"/>
+        <result column="time" property="time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="findByParent" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.LocationFilter">
+        select *
+        from location where pid = #{parentId}
+    </select>
+    <select id="findByTime" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.LocationFilter">
+        select *
+        from location where pid = #{parentId} and DATE_FORMAT(time,'%Y-%m-%d %T') between #{startTime} and #{endTime}
+    </select>
+    <select id="findByParentAndTime" resultMap="BaseResultMap" parameterType="com.oldpeoplehome.dto.LocationFilter">
+        select l.*, p.* from location l left join parent p on l.pid = p.id where l.pid = #{parentId} and l.date = #{startTime}
+    </select>
+    <insert id="insert" parameterType="Location">
+        insert into location(pid, longitude,latitude, time)
+        values (#{parentId}, #{longitude},#{latitude}, #{time})
+    </insert>
+</mapper>
