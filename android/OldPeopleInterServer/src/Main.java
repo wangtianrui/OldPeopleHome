@@ -13,11 +13,12 @@ public class Main {
     private static String humidity;
     private static WebUtils webUtils;
 
+    private static float slice;
+
     public static void main(String[] args) {
         webUtils = WebUtils.getInstance();
         System.out.println("开始转发任务");
         getAndUpData();
-//        fengshan();
     }
 
     private static void fengshan() {
@@ -59,6 +60,7 @@ public class Main {
                                         isin = String.valueOf((int) funcList.getData());
                                     } else if (funcList.getType().equals("温度")) {
                                         temporature = String.valueOf(funcList.getData());
+
                                     } else if (funcList.getType().equals("湿度")) {
                                         humidity = String.valueOf(funcList.getData());
                                     }
