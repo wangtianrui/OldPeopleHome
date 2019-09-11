@@ -65,6 +65,7 @@
 获取zigbee节点数据：[http://192.168.0.1/cgi-bin/node.cgi](http://192.168.0.1/cgi-bin/node.cgi)
 
 发送继电器控制命令：[http://192.168.0.1/cgi-bin/send_node.cgi?type=11&id=3&data=8](http://192.168.0.1/cgi-bin/send_node.cgi?type=11&id=3&data=8)
+- 格式用例：http://192.168.0.1/cgi-bin/send_node.cgi?type=11&id=3&data=8(1\2\4)
 
 zigbee拓扑访问接口：[http://192.168.0.1/topo.html](http://192.168.0.1/topo.html)
 
