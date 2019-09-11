@@ -63,8 +63,8 @@ public class MapFragment extends BaseFragment {
                 super.handleMessage(msg);
                 switch (msg.what) {
                     case 1:
-//                        drawLine();
-                        refreshUi(oldPeople);
+                        drawLine();
+//                        refreshUi(oldPeople);
                         break;
                 }
             }
@@ -135,7 +135,7 @@ public class MapFragment extends BaseFragment {
      */
     private void drawLine() {
         List<LatLng> points = new ArrayList<LatLng>();
-        for (int i = 0; i < locations.size(); i++) {
+        for (int i = 0; i < locations.size() / 2; i++) {
             points.add(new LatLng(
                     Double.valueOf(locations.get(i).getLatitude()),
                     Double.valueOf(locations.get(i).getLongitude())
@@ -158,11 +158,6 @@ public class MapFragment extends BaseFragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 getWebUtils().getLocation(oldPeople.getParentId(), new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
@@ -176,7 +171,7 @@ public class MapFragment extends BaseFragment {
                             Gson gson = new Gson();
                             Location[] locas = gson.fromJson(jsonElements, Location[].class);
                             for (int i = 0; i < locas.length; i++) {
-//                                LogUtils.loge(locas[i].toString());
+                                LogUtils.loge(locas[i].toString());
                             }
                             locations.clear();
                             locations.addAll(Arrays.asList(locas));
