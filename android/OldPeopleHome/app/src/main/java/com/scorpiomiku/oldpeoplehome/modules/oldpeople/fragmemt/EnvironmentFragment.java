@@ -1,12 +1,16 @@
 package com.scorpiomiku.oldpeoplehome.modules.oldpeople.fragmemt;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -14,6 +18,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.google.gson.JsonObject;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
+import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
 import com.scorpiomiku.oldpeoplehome.utils.ChartUtils;
 import com.scorpiomiku.oldpeoplehome.utils.LogUtils;
 import com.scorpiomiku.oldpeoplehome.utils.TimeUtils;
@@ -23,6 +28,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -46,10 +52,13 @@ public class EnvironmentFragment extends BaseFragment {
     TextView titleTimeText;
     @BindView(R.id.get_data_time)
     TextView getDataTime;
+    @BindView(R.id.change_button)
+    Button changeButton;
 
     private String temperature;
     private String humidity;
     private Boolean first = true;
+    private OldPeople oldPeople;
 
     @SuppressLint("HandlerLeak")
     @Override
@@ -65,6 +74,8 @@ public class EnvironmentFragment extends BaseFragment {
                         getDataTime.setText(TimeUtils.getTime());
                         upWeather();
                         initChart();
+                        break;
+                    case 2:
                         break;
                 }
             }
@@ -83,7 +94,6 @@ public class EnvironmentFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        getWeatherData();
         titleTimeText.setText(TimeUtils.getUpDate());
     }
 
@@ -99,6 +109,12 @@ public class EnvironmentFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getWeatherData();
     }
 
     /**
@@ -183,8 +199,54 @@ public class EnvironmentFragment extends BaseFragment {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 LogUtils.logd("上传天气数据成功");
-                getWeatherData();
             }
         });
+    }
+
+    @Override
+    public void refreshUi(OldPeople oldPeople) {
+        super.refreshUi(oldPeople);
+        this.oldPeople = oldPeople;
+    }
+
+    @OnClick(R.id.change_button)
+    public void onViewClicked() {
+        dialog();
+    }
+
+    /**
+     * 弹出dialog进行老人绑定
+     */
+    private void dialog() {
+        final EditText editText = new EditText(getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("设置房间温度").setIcon(R.drawable.ic_bind).setView(editText)
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String temp = editText.getText().toString();
+                data.clear();
+                data.put("temp", temp);
+
+                getWebUtils().changeTem(oldPeople.getParentRoomId(), data, new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        LogUtils.loge(e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        LogUtils.loge("temp");
+                    }
+                });
+            }
+        });
+        builder.show();
     }
 }

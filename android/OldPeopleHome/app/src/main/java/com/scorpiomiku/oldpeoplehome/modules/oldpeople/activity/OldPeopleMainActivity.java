@@ -89,6 +89,7 @@ public class OldPeopleMainActivity extends BaseActivity {
     private Location location;
 
     private Boolean mIsBound = false;
+    private BleDeviceItem targetItem;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
     private FragmentManager fragmentManager;
@@ -138,6 +139,7 @@ public class OldPeopleMainActivity extends BaseActivity {
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {
                                 LogUtils.logd("上传位置成功");
+                                changeLoc();
                             }
                         });
                         break;
@@ -177,7 +179,7 @@ public class OldPeopleMainActivity extends BaseActivity {
         };
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         initFragmentManager();
-        initBlueSDK();
+//        initBlueSDK();
         setUser((OldPeople) getIntent().getSerializableExtra("user"));
         for (int i = 0; i < fragments.length; i++) {
             fragments[i].refreshUi((OldPeople) getIntent().getSerializableExtra("user"));
@@ -280,6 +282,7 @@ public class OldPeopleMainActivity extends BaseActivity {
                 LogUtils.logList(nearbyItemList);
                 if (item.getBleDeviceName().equals("Y1-4389")) {
                     callRemoteDisconnect();
+                    targetItem = item;
                     mac = item.getBleDeviceAddress();
                     callRemoteConnect(item.getBleDeviceName(), item.getBleDeviceAddress());
                 }
@@ -664,7 +667,6 @@ public class OldPeopleMainActivity extends BaseActivity {
             LogUtils.logd("callRemoteConnect: ble device mac address is not correctly!");
             return;
         }
-
         if (mService != null) {
             try {
                 mService.connectBt(name, mac);
@@ -724,7 +726,10 @@ public class OldPeopleMainActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.floating_button:
-                getNewHandData();
+//                LogUtils.loge(targetItem.toString());
+                initBlueSDK();
+
+//                getNewHandData();
                 break;
             case R.id.close_button:
                 callRemoteDisconnect();
@@ -740,6 +745,8 @@ public class OldPeopleMainActivity extends BaseActivity {
                 break;
         }
     }
+
+    private boolean upLoc = true;
 
     private void startLocation() {
         mLocationClient = new LocationClient(getApplicationContext());
@@ -759,7 +766,10 @@ public class OldPeopleMainActivity extends BaseActivity {
                 location.setLongitude(longitude + "");
                 location.setParent(getOldPeopleUser().getParentId());
                 location.setTime(TimeUtils.getTime());
-                handler.sendEmptyMessage(3);
+                if (upLoc) {
+                    handler.sendEmptyMessage(3);
+                    upLoc = false;
+                }
             }
         });
         LocationClientOption option = new LocationClientOption();
@@ -773,6 +783,20 @@ public class OldPeopleMainActivity extends BaseActivity {
         option.setWifiCacheTimeOut(5 * 60 * 1000);
         mLocationClient.setLocOption(option);
         mLocationClient.start();
+    }
+
+    private void changeLoc() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                upLoc = true;
+            }
+        }).start();
     }
 
 

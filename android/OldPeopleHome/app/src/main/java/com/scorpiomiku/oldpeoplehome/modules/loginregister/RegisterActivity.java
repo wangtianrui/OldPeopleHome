@@ -1,13 +1,16 @@
 package com.scorpiomiku.oldpeoplehome.modules.loginregister;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseActivity;
@@ -107,6 +110,7 @@ public class RegisterActivity extends BaseActivity {
 
     @OnClick(R.id.register_button)
     public void onViewClicked() {
+        dialog();
         getText();
         data.clear();
         data.put("childSex", sexText);
@@ -115,17 +119,18 @@ public class RegisterActivity extends BaseActivity {
         data.put("childName", nameText);
         data.put("childLongId", idCardText);
         data.put("childPhone", phoneText);
-        getWebUtils().registerChild(data, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                LogUtils.loge(e.getMessage());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                handler.sendEmptyMessage(1);
-            }
-        });
+//        getWebUtils().registerChild(data, new Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                LogUtils.loge(e.getMessage());
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                handler.sendEmptyMessage(1);
+//
+//            }
+//        });
     }
 
     /**
@@ -137,6 +142,23 @@ public class RegisterActivity extends BaseActivity {
         idCardText = idCard.getText().toString();
         accountText = account.getText().toString();
         passwordText = password.getText().toString();
+    }
+
+    private void dialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setIcon(R.mipmap.ic_launcher).setTitle("错误提醒")
+                .setMessage("注册失败，该账户已存在").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //ToDo: 你想做的事情
+                    }
+                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //ToDo: 你想做的事情
+                        dialogInterface.dismiss();
+                    }
+                });
+        builder.create().show();
     }
 
 }

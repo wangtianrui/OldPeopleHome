@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,7 +17,6 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.scorpiomiku.oldpeoplehome.R;
 import com.scorpiomiku.oldpeoplehome.base.BaseFragment;
 import com.scorpiomiku.oldpeoplehome.bean.OldPeople;
@@ -51,6 +51,8 @@ public class EnvironmentFragment extends BaseFragment {
     Unbinder unbinder;
     @BindView(R.id.now_time_text)
     TextView nowTimeText;
+    @BindView(R.id.change_button)
+    Button changeButton;
 
     private RoomState roomState;
     private OldPeople oldPeople;
@@ -133,7 +135,7 @@ public class EnvironmentFragment extends BaseFragment {
     public void refreshUi(OldPeople oldPeople) {
         super.refreshUi(oldPeople);
         this.oldPeople = oldPeople;
-        getWebUtils().getRoomData(oldPeople.getParentId(), new Callback() {
+        getWebUtils().getRoomData(oldPeople.getParentRoomId(), new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 LogUtils.loge(e.getMessage());
@@ -154,10 +156,6 @@ public class EnvironmentFragment extends BaseFragment {
         });
     }
 
-    @OnClick(R.id.temperature_text)
-    public void onViewClicked() {
-        dialog();
-    }
 
     /**
      * 弹出dialog进行老人绑定
@@ -193,5 +191,10 @@ public class EnvironmentFragment extends BaseFragment {
             }
         });
         builder.show();
+    }
+
+    @OnClick(R.id.change_button)
+    public void onViewClicked() {
+        dialog();
     }
 }
