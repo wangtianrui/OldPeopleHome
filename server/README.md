@@ -68,7 +68,7 @@
 | Room           | /room/list/empty       | GET      | 查询所有空置room信息(web端给老人分配房间) |                                                              |
 | Room           | /room/add              | POST     | 添加room                                  | location:地点，name:房间名                                   |
 | Room           | /room/delete/1         | DELETE   | 删除id=1的room信息                        |                                                              |
-| Room           | /room/update/1         | POST     | 更新id=1的room信息                        | **要更新的字段严格按照命名格式传参**比如name就传入roomName，住房老人id parentId*设置温度阈值属性名为temp* |
+| Room           | /room/update/1         | POST     | 更新id=1的room信息                        | **要更新的字段严格按照命名格式传参**比如name就传入roomName，住房老人id parentId*设置温度阈值属性名为temp*，设置传感器Mac地址的属性名mixMac |
 | Parent         | /parent/get/1          | GET      | 查询id=1的parent的详细信息                |                                                              |
 | Parent         | /parent/get_longid/111 | GET      | 查询身份证=111的parent的详细信息          |                                                              |
 | Parent         | /parent/get_name/老王  | GET      | 查询姓名=老王的parent的详细信息           |                                                              |
