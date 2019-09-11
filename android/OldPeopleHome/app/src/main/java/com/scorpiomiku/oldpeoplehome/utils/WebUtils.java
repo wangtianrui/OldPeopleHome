@@ -275,4 +275,19 @@ public class WebUtils {
         Call call = mClient.newCall(request);
         call.enqueue(callback);
     }
+
+    /**
+     * 修改温度阈值
+     *
+     * @param roomId
+     * @param hashMap
+     * @param callback
+     */
+    public void changeTem(String roomId, HashMap<String, String> hashMap, Callback callback) {
+        Request request = new Request.Builder().post(getRequestBody(hashMap))
+                .url(webHost + "/room/update/" + roomId).build();
+        LogUtils.loge(webHost + "/room/update/" + roomId);
+        Call call = mClient.newCall(request);
+        call.enqueue(callback);
+    }
 }

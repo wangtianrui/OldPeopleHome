@@ -114,12 +114,16 @@ public class HeartRateFragment extends BaseFragment {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                JsonArray jsonElements = getWebUtils().getJsonArray(response);
-                LogUtils.loge(jsonElements.toString());
-                Gson gson = new Gson();
-                HeartRate[] heartRates = gson.fromJson(jsonElements, HeartRate[].class);
-                firstHeart = Float.valueOf(heartRates[heartRates.length - 1].getRate());
-                handler.sendEmptyMessage(2);
+                try {
+                    JsonArray jsonElements = getWebUtils().getJsonArray(response);
+                    LogUtils.loge(jsonElements.toString());
+                    Gson gson = new Gson();
+                    HeartRate[] heartRates = gson.fromJson(jsonElements, HeartRate[].class);
+                    firstHeart = Float.valueOf(heartRates[heartRates.length - 1].getRate());
+                    handler.sendEmptyMessage(2);
+                }catch (Exception e){
+                    LogUtils.loge(e.getMessage());
+                }
             }
         });
     }
@@ -199,8 +203,8 @@ public class HeartRateFragment extends BaseFragment {
             handler.sendEmptyMessage(1);
         }
         heartRateText.setText(heart);
-        this.diastolic.setText(diastolic);
-        this.systolic.setText(systolic);
+        this.diastolic.setText(systolic);
+        this.systolic.setText(diastolic);
         this.oxy.setText(oxy);
     }
 }

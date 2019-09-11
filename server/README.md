@@ -96,6 +96,6 @@
 | Sleep          | /sleep/get/1           | GET      | 查找id=1的老人睡眠信息                    | 参数格式：yyyy-mm-dd  加上start参数可以查看某一时刻。加上start和end参数可以查看某一时间段。 |
 | Sleep          | /sleep/add             | POST     | 添加老人睡眠信息                          | parent，date，deep，light，awake                             |
 | HeartRate      | /heartrate/get/1       | GET      | 查找id=1的心率信息                        | 参数格式：yyyy-mm-dd hh-mm-ss  加上start参数可以查看某一时刻。加上start和end参数可以查看某一时间段。 |
-| HeartRate      | /heartrate/add         | POST     | 添加老人睡眠信息                          | parentId，time，rate1(收缩压)，rate2(舒张压)，oxy(血氧)      |
+| HeartRate      | /heartrate/add         | POST     | 添加老人睡眠信息                          | parentId，time，rate(心率)，rate1(收缩压)，rate2(舒张压)，oxy(血氧) |
 | Location       | /location/get/1        | GET      | 查找id=1的老人位置信息                    | 参数格式：yyyy-mm-dd hh-mm-ss  加上start参数可以查看某一时刻。加上start和end参数可以查看某一时间段。 |
 | Location       | /location/add          | POST     | 添加老人位置信息                          | parent，longitude，latitude，time。添加成功返回Location对象  |

@@ -139,9 +139,6 @@ public class SleepFragment extends BaseFragment {
                     Gson gson = new Gson();
                     SleepData[] sleeps = gson.fromJson(jsonElements, SleepData[].class);
                     Arrays.sort(sleeps);
-                    for (int i = 0; i < sleeps.length; i++) {
-                        LogUtils.loge(sleeps[i].toString());
-                    }
                     yesterday = sleeps[sleeps.length - 1];
                     sleepDatas.clear();
                     sleepDatas.addAll(Arrays.asList(sleeps));

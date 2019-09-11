@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oldpeoplehome.dao.ParentDao">
+    <resultMap id="BaseResultMap" type="com.oldpeoplehome.entity.Parent">
+        <id column="id" property="parentId" jdbcType="BIGINT"/>
+        <result column="longid" property="parentLongId" jdbcType="CHAR"/>
+        <result column="name" property="parentName" jdbcType="VARCHAR"/>
+        <result column="sex" property="parentSex" jdbcType="VARCHAR"/>
+        <result column="account" property="parentAccount" jdbcType="VARCHAR"/>
+        <result column="password" property="parentPassword" jdbcType="VARCHAR"/>
+        <result column="height" property="parentHeight" jdbcType="DOUBLE"/>
+        <result column="weight" property="parentWeight" jdbcType="DOUBLE"/>
+        <result column="birth" property="parentBirth" jdbcType="DATE"/>
+        <result column="phone" property="parentPhone" jdbcType="CHAR"/>
+        <association property="parentRoom" javaType="Room">
+            <id column="rid" property="roomId" jdbcType="INTEGER"/>
+            <result column="rlocation" property="roomLocation" jdbcType="VARCHAR"/>
+            <result column="rname" property="roomName" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+
+    <select id="findByID" parameterType="long" resultMap="BaseResultMap">
+        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.id=#{parentId}
+    </select>
+    <select id="findByLongId" parameterType="String" resultMap="BaseResultMap">
+        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.longid=#{parentLongId}
+    </select>
+    <select id="findByRoomId" parameterType="int" resultMap="BaseResultMap">
+        select p.*,r.id rid,r.name rname, r.location rlocation  from room r left join parent p on p.id=r.id where r.id=#{r.roomId}
+    </select>
+    <select id="findByName" parameterType="String" resultMap="BaseResultMap">
+        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.name=#{p.parentName}
+    </select>
+    <select id="findByAccount" parameterType="String" resultMap="BaseResultMap">
+        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.account=#{p.parentAccount}
+    </select>
+
+    <select id="findAll"  resultMap="BaseResultMap">
+        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id
+    </select>
+
+    <insert id="insert" parameterType="Parent" useGeneratedKeys="true" keyColumn="id">
+        insert into parent(longid,name,sex,account,password,height,weight,birth,phone)
+        values (#{parentLongId}, #{parentName}, #{parentSex}, #{parentAccount}, #{parentPassword}, #{parentHeight}, #{parentWeight}, #{parentBirth}, #{parentPhone})
+    </insert>
+
+    <update id="update" keyColumn="id">
+        update parent
+        set longid=#{parentLongId}, name=#{parentName}, sex=#{parentSex}, account=#{parentAccount}, password=#{parentPassword}, height=#{parentHeight}, weight=#{parentWeight}, birth=#{parentBirth}, phone=#{parentPhone}
+        where id=#{parentId}
+    </update>
+
+    <delete id="delete" parameterType="long">
+        delete from parent where id=#{parentId}
+    </delete>
+</mapper>

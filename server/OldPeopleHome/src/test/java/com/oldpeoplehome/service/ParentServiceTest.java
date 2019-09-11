@@ -32,4 +32,9 @@ public class ParentServiceTest extends BaseTest {
         System.out.println(parentService.findByLongId("a"));
     }
 
+    @Test
+    public void delete(){
+        parentService.delete(Long.valueOf(22));
+        System.out.println(parentService.findAll());
+    }
 }

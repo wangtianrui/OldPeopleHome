@@ -52,6 +52,10 @@ CREATE TABLE `cp` (
   KEY `index_pid` (`pid`) USING BTREE,
   KEY `index_cid` (`cid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ;
+ALTER TABLE `cp`
+DROP PRIMARY KEY,
+ADD CONSTRAINT `1pid` FOREIGN KEY (`pid`) REFERENCES `parent` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `2cid` FOREIGN KEY (`cid`) REFERENCES `child` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 CREATE TABLE `heartrate` (
   `pid` bigint(20) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
