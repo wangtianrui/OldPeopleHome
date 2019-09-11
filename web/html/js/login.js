@@ -1,26 +1,21 @@
-var http = require('http');
-
-// 用于请求的选项
-var options = {
-    host: '39.105.65.209',
-    port: '8080',
-    path: '/login.html'
-};
-
-// 处理响应的回调函数
-var callback = function (response) {
-    // 不断更新数据
-    var body = '';
-    response.on('data',function (data) {
-        body +=data;
-    });
-
-    response.on('end',function () {
-        // 数据接收完成
-        console.log(body);
+function login(){
+    $.ajax({
+        url:'http://39.105.65.209:8080/admin/login',
+        type:'POST',
+        data:[{"account": "root"},{"password": "root"}],
+        success:function (data) {
+            // if(data){
+            //     var jsonArray =typeof data=='string' ?JSON.parse(data):data;
+            // }
+            // console.log(jsonArray);
+            // $.each(jsonArray, function(i, n){
+                
+            //      console.log(jsonArray[i])
+            // });
+           
+            // $('body').html(jsonArray[0]);
+            if(account=='root'&&password=='root')
+            $.open('html/firstPage.html');
+        }
     });
 }
-
-// 向服务器端发送请求
-var request = http.request(options,callback);
-request.end();

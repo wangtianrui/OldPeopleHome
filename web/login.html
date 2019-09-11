@@ -7,7 +7,8 @@
     <title>Old People Home - 管理员登录</title>
     <link rel="icon" type="image/png" sizes="16x16" href="html/css/icons/favicon.png">
     <link rel="stylesheet" href="html/css/login_style.css">
-    <!-- <script src="html/js/login.js"></script> -->
+    <script src="html/js/login.js"></script>
+    <script src="jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <div>
@@ -15,10 +16,10 @@
         <div>
             <p id="title_1">管理员登录</p>
             <div>
-                <form action="html/firstPage.html" id="name" >
-                    <input type="text" name="name" placeholder="用户名" autofocus><br><br><br>
-                    <input type="password" name="password" placeholder="密码"><br><br><br>
-                    <input type="submit" id="submit" value="OK">
+                <form id="name" >
+                    <input type="text" name="account" placeholder="用户名" autofocus required="required"><br><br><br>
+                    <input type="password" name="password" placeholder="密码" required="required"><br><br><br>
+                    <input type="submit" id="submit" value="OK" onclick="login()">
                 </form>
             </div>
         </div>

@@ -34,8 +34,22 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
+    <filter>
+        <filter-name>SimpleCORSFilter</filter-name>
+        <filter-class>com.oldpeoplehome.utils.SimpleCORSFilter</filter-class>
+        <init-param>
+            <param-name>IsCross</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
     <filter-mapping>
     <filter-name>SpringEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>SimpleCORSFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>

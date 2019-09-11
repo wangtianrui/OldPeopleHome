@@ -15,15 +15,6 @@
         <result column="weight" property="parentWeight" jdbcType="DOUBLE"/>
         <result column="birth" property="parentBirth" jdbcType="DATE"/>
         <result column="phone" property="parentPhone" jdbcType="CHAR"/>
-        <association property="child" javaType="Child">
-            <id column="cid" property="childId" jdbcType="BIGINT"/>
-            <result column="clongid" property="childLongId" jdbcType="CHAR"/>
-            <result column="cname" property="childName" jdbcType="VARCHAR"/>
-            <result column="csex" property="childSex" jdbcType="VARCHAR"/>
-            <result column="caccount" property="childAccount" jdbcType="VARCHAR"/>
-            <result column="cpassword" property="childPassword" jdbcType="VARCHAR"/>
-            <result column="cphone" property="childPhone" jdbcType="VARCHAR"/>
-        </association>
     </resultMap>
     <resultMap id="ChildResultMap" type="com.oldpeoplehome.entity.Child">
         <id column="id" property="childId" jdbcType="BIGINT"/>
@@ -33,24 +24,12 @@
         <result column="account" property="childAccount" jdbcType="VARCHAR"/>
         <result column="password" property="childPassword" jdbcType="VARCHAR"/>
         <result column="phone" property="childPhone" jdbcType="VARCHAR"/>
-        <association property="parent" javaType="Parent">
-            <id column="pid" property="parentId" jdbcType="BIGINT"/>
-            <result column="plongid" property="parentLongId" jdbcType="CHAR"/>
-            <result column="pname" property="parentName" jdbcType="VARCHAR"/>
-            <result column="psex" property="parentSex" jdbcType="VARCHAR"/>
-            <result column="paccount" property="parentAccount" jdbcType="VARCHAR"/>
-            <result column="ppassword" property="parentPassword" jdbcType="VARCHAR"/>
-            <result column="pheight" property="parentHeight" jdbcType="DOUBLE"/>
-            <result column="pweight" property="parentWeight" jdbcType="DOUBLE"/>
-            <result column="pbirth" property="parentBirth" jdbcType="DATE"/>
-            <result column="pphone" property="parentPhone" jdbcType="CHAR"/>
-        </association>
     </resultMap>
     <select id="findByChild" resultMap="ParentResultMap" parameterType="long">
-        select c.*, p.* from cp c left join parent p on c.pid = p.id where c.cid = #{childId}
+        select p.* from cp c left join parent p on c.pid = p.id where c.cid = #{childId}
     </select>
     <select id="findByParent" resultMap="ChildResultMap" parameterType="long">
-        select c.*, p.* from cp c left join child p on c.pid = p.id where c.pid = #{parentId}
+        select p.*from cp c left join child p on c.pid = p.id where c.pid = #{parentId}
     </select>
     <insert id="insert" parameterType="ChildParent">
         insert into cp(pid, cid, relation)
