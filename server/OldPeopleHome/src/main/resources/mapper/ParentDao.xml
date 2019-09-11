@@ -14,6 +14,7 @@
         <result column="weight" property="parentWeight" jdbcType="DOUBLE"/>
         <result column="birth" property="parentBirth" jdbcType="DATE"/>
         <result column="phone" property="parentPhone" jdbcType="CHAR"/>
+        <result column="room" property="parentRoomId" jdbcType="INTEGER"/>
         <association property="parentRoom" javaType="Room">
             <id column="rid" property="roomId" jdbcType="INTEGER"/>
             <result column="rlocation" property="roomLocation" jdbcType="VARCHAR"/>
@@ -22,23 +23,23 @@
     </resultMap>
 
     <select id="findByID" parameterType="long" resultMap="BaseResultMap">
-        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.id=#{parentId}
+        select p.*,r.id rid,r.name rname,r.id room, r.location rlocation  from parent p left join room r on p.id=r.pid where p.id=#{parentId}
     </select>
     <select id="findByLongId" parameterType="String" resultMap="BaseResultMap">
-        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.longid=#{parentLongId}
+        select p.*,r.id rid,r.name rname,r.id room, r.location rlocation  from parent p left join room r on p.id=r.pid where p.longid=#{parentLongId}
     </select>
     <select id="findByRoomId" parameterType="int" resultMap="BaseResultMap">
-        select p.*,r.id rid,r.name rname, r.location rlocation  from room r left join parent p on p.id=r.id where r.id=#{r.roomId}
+        select p.*,r.id rid,r.name rname,r.id room, r.location rlocation  from room r left join parent p on p.id=r.pid where r.id=#{r.roomId}
     </select>
     <select id="findByName" parameterType="String" resultMap="BaseResultMap">
-        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.name=#{p.parentName}
+        select p.*,r.id rid,r.name rname,r.id room, r.location rlocation  from parent p left join room r on p.id=r.pid where p.name=#{p.parentName}
     </select>
     <select id="findByAccount" parameterType="String" resultMap="BaseResultMap">
-        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id where p.account=#{p.parentAccount}
+        select p.*,r.id rid,r.name rname,r.id room, r.location rlocation  from parent p left join room r on p.id=r.pid where p.account=#{p.parentAccount}
     </select>
 
     <select id="findAll"  resultMap="BaseResultMap">
-        select p.*,r.id rid,r.name rname, r.location rlocation  from parent p left join room r on p.id=r.id
+        select p.*,r.id rid,r.name rname,r.id room, r.location rlocation  from parent p left join room r on p.id=r.pid
     </select>
 
     <insert id="insert" parameterType="Parent" useGeneratedKeys="true" keyColumn="id">

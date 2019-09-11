@@ -12,6 +12,7 @@ public class Room {
     private long parentId;
     private Parent parent;
     private float temp;
+    private String mixMac;
 
     public Room() {
     }
@@ -40,6 +41,16 @@ public class Room {
         this.roomLocation = roomLocation;
         this.parentId = parentId;
         this.temp = temp;
+    }
+
+    public Room(int roomId, String roomLocation, String roomName, long parentId, Parent parent, float temp, String mixMac) {
+        this.roomId = roomId;
+        this.roomLocation = roomLocation;
+        this.roomName = roomName;
+        this.parentId = parentId;
+        this.parent = parent;
+        this.temp = temp;
+        this.mixMac = mixMac;
     }
 
     public int getRoomId() {
@@ -96,6 +107,17 @@ public class Room {
         this.parentId = Long.valueOf(parentId);
     }
 
+    public String getMixMac() {
+        return mixMac;
+    }
+
+    public void setMixMac(String mixMac) {
+        this.mixMac = mixMac;
+    }
+    public void mySetMixMac(String mixMac) {
+        this.mixMac = mixMac;
+    }
+
     @Override
     public String toString() {
         return "Room{" +
@@ -105,6 +127,7 @@ public class Room {
                 ", parentId=" + parentId +
                 ", parent=" + parent +
                 ", temp=" + temp +
+                ", mixMac='" + mixMac + '\'' +
                 '}';
     }
 }

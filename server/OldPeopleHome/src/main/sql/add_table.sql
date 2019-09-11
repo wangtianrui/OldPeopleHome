@@ -33,6 +33,8 @@ CREATE TABLE `room` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci  ROW_FORMAT=DYNAMIC;
 ALTER TABLE `room`
 ADD COLUMN `temp` float NULL COMMENT '房间温度阈值' AFTER `pid`;
+ALTER TABLE `room`
+ADD COLUMN `mixMac` varchar(255) NULL COMMENT '传感器mac地址集中' AFTER `temp`;
 CREATE TABLE `child` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `longid` char(18) NOT NULL COMMENT '身份证',

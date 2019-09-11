@@ -10,6 +10,7 @@
         <result column="name" property="roomName" jdbcType="VARCHAR"/>
         <result column="pid" property="parentId" jdbcType="BIGINT"/>
         <result column="temp" property="temp" jdbcType="FLOAT"/>
+        <result column="mixMac" property="mixMac" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="findById" resultMap="BaseResultMap" parameterType="int">
@@ -37,7 +38,8 @@
         set location = #{roomLocation},
             name = #{roomName},
             pid = #{parentId},
-            temp = #{temp}
+            temp = #{temp},
+            mixMac = #{mixMac}
         where id =#{roomId}
     </update>
 

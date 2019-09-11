@@ -20,6 +20,7 @@ public class Parent {
     private String parentPhone;
     private int parentRoomId;
     private Room parentRoom;
+    private Child child;
 
     public Parent() {
     }
