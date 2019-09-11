@@ -20,4 +20,9 @@ public class ChildParentServiceTest extends BaseTest {
         childParentService.combine(childParent);
     }
 
+    @Test
+    public void add(){
+        System.out.println(childParentService.findByParent(1));
+}
+
 }
