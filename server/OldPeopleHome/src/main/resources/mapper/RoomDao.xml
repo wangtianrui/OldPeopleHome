@@ -16,6 +16,9 @@
     <select id="findById" resultMap="BaseResultMap" parameterType="int">
         select * from room where id = #{roomId}
     </select>
+    <select id="findByMixMac" resultMap="BaseResultMap" parameterType="String">
+        select * from room where mixMac = #{mixMac}
+    </select>
 
     <select id="findAll" resultMap="BaseResultMap">
         select * from room

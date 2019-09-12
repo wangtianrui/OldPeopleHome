@@ -14,6 +14,7 @@ public interface RoomDao {
     List<Room> findEmptyRoom();
     //查所有房间
     List<Room> findAll();
+    Room findByMixMac(String mixMac);
     //添加房间
     int insertRoom(Room room);
     //删除房间

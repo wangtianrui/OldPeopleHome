@@ -49,4 +49,8 @@ public class RoomServiceImpl implements RoomService {
         return roomDao.deleteRoom(roomId);
     }
 
+    @Override
+    public Room findByMixMac(String mixMac) {
+        return roomDao.findByMixMac(mixMac);
+    }
 }

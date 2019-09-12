@@ -35,6 +35,8 @@ ALTER TABLE `room`
 ADD COLUMN `temp` float NULL COMMENT '房间温度阈值' AFTER `pid`;
 ALTER TABLE `room`
 ADD COLUMN `mixMac` varchar(255) NULL COMMENT '传感器mac地址集中' AFTER `temp`;
+ALTER TABLE `room`
+ADD UNIQUE INDEX `mac_index`(`mixMac`) USING BTREE;
 CREATE TABLE `child` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `longid` char(18) NOT NULL COMMENT '身份证',

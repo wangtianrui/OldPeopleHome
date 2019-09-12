@@ -20,6 +20,7 @@ public interface RoomService {
     int update(Room room);
 
     int delete(int roomId);
+    Room findByMixMac(String mixMac);
 
 
 }

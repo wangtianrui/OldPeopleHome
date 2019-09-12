@@ -33,6 +33,14 @@ public class RoomController {
         return room;
     }
 
+    @RequestMapping("/get/mixMac/{mixMac}")
+    @ResponseBody
+    public Room getByMixMac(@PathVariable("mixMac") String mixMac) {
+        Room room = roomService.findByMixMac(mixMac);
+        System.out.println(room);
+        return room;
+    }
+
     @RequestMapping("/list")
     @ResponseBody
     public List list() {
