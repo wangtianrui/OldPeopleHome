@@ -15,6 +15,7 @@
         <result column="weight" property="parentWeight" jdbcType="DOUBLE"/>
         <result column="birth" property="parentBirth" jdbcType="DATE"/>
         <result column="phone" property="parentPhone" jdbcType="CHAR"/>
+        <result column="room" property="parentRoomId" jdbcType="INTEGER"/>
         <association property="child" javaType="Child">
             <id column="cid" property="childId" jdbcType="BIGINT"/>
             <result column="clongid" property="childLongId" jdbcType="CHAR"/>
@@ -47,7 +48,7 @@
         </association>
     </resultMap>
     <select id="findByChild" resultMap="ParentResultMap" parameterType="long">
-        select c.*, p.* from cp c left join parent p on c.pid = p.id where c.cid = #{childId}
+        select a.*, r.id room from (select c.*, p.* from cp c left join parent p on c.pid = p.id where c.cid = #{childId}) a,room r where a.pid = r.pid;
     </select>
     <select id="findByParent" resultMap="ChildResultMap" parameterType="long">
         select c.*, p.* from cp c left join child p on c.cid = p.id where c.pid = #{parentId}
