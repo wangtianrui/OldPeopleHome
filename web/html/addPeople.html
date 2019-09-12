@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="css/icons/favicon.png">
     <link rel="stylesheet" href="css/addPeople_style.css">
     <script src="js/addPeople.js"></script>
+    <script src="../jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <div class="box1">
@@ -21,26 +22,26 @@
     <div class="register_1" id="register_1" style="display: block">
         <h3>老人注册</h3>
         <form>
-            <input type="text" placeholder="账号"><br>
-            <input type="password" placeholder="密码"><br>
+            <input type="text" placeholder="账号" id="pAccount"><br>
+            <input type="password" placeholder="密码" id="pPassword"><br>
             <input type="button" value="next" id="next" onclick="changeDiv()">
         </form>
     </div>
     <div class="register_2" id="register_2" style="display: none">
         <h3>老人注册</h3>
-        <form action="firstPage.html">
-            <input type="text" placeholder="姓名"><br>
-            <input type="text" placeholder="身份证号"><br>
-            <div class="gender">
-                <input type="radio" value="mele">
+        <form >
+            <input type="text" placeholder="姓名" id="name"><br>
+            <input type="text" placeholder="身份证号" id="cardId"><br>
+            <div class="gender" id="gender">
+                <input type="radio" name="gender" value="mele">
                 <span>男</span>
-                <input type="radio" value="female">
+                <input type="radio" name="gender" value="female">
                 <span>女</span><br>
             </div>
             <span id="birthday">生日：</span>
             <input type="date" id="date"><br>
-            <input type="text" placeholder="入住房间"><br>
-            <input type="submit" value="OK" id="submit">
+            <input type="text" placeholder="房间号" id="roomId"><br>
+            <input type="button" value="OK" id="submit" onclick="over()">
         </form>
     </div>
 </body>

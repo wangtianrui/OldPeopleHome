@@ -7,8 +7,9 @@
     <title>Old People Home - 查看</title>
     <link rel="icon" type="image/png" sizes="16x16" href="css/icons/favicon.png">
     <link rel="stylesheet" href="css/views_style.css">
+    <script src="../jquery/dist/jquery.min.js"></script>
 </head>
-<body>
+<body onload="disp()">
     <div class="box1">
         <span class="upper">O</span>
         <span class="lower">ld</span>
@@ -27,34 +28,40 @@
             </li>
         </ul>
     </div>
-    <div class="info">
-        <h2>老人资料卡</h2>
-        <span>身份证号码</span><br>
-        <span>姓名</span><br>
-        <span>性别</span><br>
-        <span>生日</span><br>
-        <span>账号</span><br>
-        <span>电话</span><br>
-        <span>亲属</span>
+    <div class="info" >
+        <h3>老人资料卡</h3>
+        <!-- <button id="modify" onclick="modify()">修改</button> -->
+        <span>姓名:</span><span class="text" id="pName"></span><br>
+        <span>身份证:</span><span class="text" id="idCard"></span><br>
+        <span>房间号:</span><span class="text" id="roomName"></span><br>
+        <span>性别:</span><span class="text" id="pGender"></span><br>
+        <span>生日:</span><span class="text" id="pBirth"></span><br>
+        <span>账号:</span><span class="text" id="pAccount"></span><br>
+        <span>密码:</span><span class="text" id="pPassword"></span><br>
+        <span>电话:</span><span class="text" id="pPhone"></span><br>
+        <span>身高:</span><span class="text" id="pHeight"></span><br>
+        <span>体重:</span><span class="text" id="pWeight"></span><br>
+        <span>亲属:</span>
         <table>
             <tr>
-                <td>姓名</td>
-                <td>关系</td>
-                <td>联系电话</td>
+                <td>姓名</td></span>
+                <td>性别</td></span>
+                <td>联系电话</td></span>
+            </tr>
+            <tr>
+                <td id="cName"></td>
+                <td id="cGender"></td>
+                <td id="cPhone"></td>
             </tr>
         </table>
     </div>
-    <div class="room">
-        <h2>房间实况</h2>
-        <span>温度</span><br>
-        <span>湿度</span><br>
-        <span>是否有人</span><br>
-        <span>时间</span>
-    </div>
+    
+    <div class="room" id="roomState"></div>
     <div class="walk" id="walk"></div>
     <div class="sleep" id="sleep"></div>
     <div class="heart" id="heart"></div>
     <div class="track" id="track"></div>
+    <div class="blood" id="blood"></div>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>

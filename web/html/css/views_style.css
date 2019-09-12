@@ -81,16 +81,51 @@ ul {
     position: absolute;
     top: 170px;
     left: 140px;
+    text-align: justify;
 }
-.info h2 {
-    padding: 0 0 0 20px;
-    color: rgb(255, 206, 166);
+.info button {
+    width: 50px;
+    height: 30px;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    background-color: rgb(255, 183, 124);
+    outline: none;
+    position: absolute;
+    top: 30px;
+    left: 360px;
+}
+.info button:hover {
+    transform: translate(0,-1px);
+    -ms-transform: translate(0,-1px);
+    -webkit-transform: translate(0,-1px);
+    -o-transform: translate(0,-1px);
+    -moz-transform: translate(0,-1px);
+    box-shadow: 3px 3px 3px rgba(139, 139, 139, 0.8);
+}
+.info button:active {
+    background-color: rgba(255, 183, 124, 0.781);
+}
+.info h3 {
+    padding: 0 0 25px 0 ;
+    margin: 0;
 }
 .info span {
     position: relative;
     left: 20px;
-    padding: 10px 0 10px 0;
-    /* background-color: yellow; */
+    padding: 10px 70px 10px 0;
+}
+.info span#idCard {
+    margin-left: -15px; 
+}
+.info span#roomName {
+    margin-left: -15px; 
+}
+.info table {
+    margin-left:13px; 
+}
+.info td {
+    padding: 2px 5px 2px 5px;
 }
 
 /* 房间实况 */
@@ -124,7 +159,7 @@ ul {
     background-color: rgba(255, 255, 255, 0.5);
     position: absolute;
     top: 580px;
-    left: 640px;
+    left: 660px;
 }
 
 /* 心率 */
@@ -137,6 +172,16 @@ ul {
     left: 140px;
 }
 
+/* 血压 */
+.blood {
+    width: 450px;
+    height: 350px;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 980px;
+    left: 660px;
+}
+
 /* 行动轨迹 */
 .track {
     width: 1150px;
@@ -144,5 +189,14 @@ ul {
     background-color: rgba(255, 255, 255, 0.5);
     position: absolute;
     top: 1380px;
-    left: 40px;
+    left: 55px;
+}
+
+
+/* 无数据替换样式 */
+.noData {
+    background-image: url("images/哭.png");
+    opacity: 0.5;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

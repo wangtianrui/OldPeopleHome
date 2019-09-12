@@ -7,6 +7,8 @@
     <title>Old People Home - 老人注销</title>
     <link rel="icon" type="image/png" sizes="16x16" href="css/icons/favicon.png">
     <link rel="stylesheet" href="css/deletePeople_style.css">
+    <script src="js/deletePeople.js"></script>
+    <script src="../jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <div class="box1">
@@ -19,9 +21,9 @@
     </div>
     <div class="delete">
         <h2>注销老人</h2>
-        <form action="firstPage.html">
-            <input type="text" placeholder="请输入要注销的老人的ID"><br>
-            <input type="submit" value="OK" id="submit">
+        <form>
+            <input type="text" placeholder="请输入要注销的老人的ID" id="pId"><br>
+            <input type="button" value="OK" id="submit" onclick="deleteData()">
         </form>
     </div>
 </body>

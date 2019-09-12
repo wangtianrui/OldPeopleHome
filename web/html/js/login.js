@@ -1,21 +1,23 @@
 function login(){
+    
+    var account1 = $("#account").val()
+    var password2 =  $('#password').val()
+   
     $.ajax({
-        url:'http://39.105.65.209:8080/admin/login',
-        type:'POST',
-        data:[{"account": "root"},{"password": "root"}],
-        success:function (data) {
-            // if(data){
-            //     var jsonArray =typeof data=='string' ?JSON.parse(data):data;
-            // }
-            // console.log(jsonArray);
-            // $.each(jsonArray, function(i, n){
-                
-            //      console.log(jsonArray[i])
-            // });
-           
-            // $('body').html(jsonArray[0]);
-            if(account=='root'&&password=='root')
-            $.open('html/firstPage.html');
+        type: "POST",
+        url: "http://39.105.65.209:8080/admin/login",
+        data: {
+            account: account1,
+            password: password2
+        },
+        success: function(datas){
+             
+            if(datas!=null){
+                window.location.href="html/firstPage.html";
+            }
+        },
+        error:function(){
+            alert('请求失败，请重试')            
         }
-    });
+    }); 
 }
